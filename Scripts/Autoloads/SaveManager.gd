@@ -9,28 +9,29 @@ signal loaded
 
 
 func _unhandled_input(event):
-	if event.is_action_pressed('debug_save_1'):
-		current_save_name = "debug_save_1"
-		save()
-	if event.is_action_pressed('debug_save_2'):
-		current_save_name = "debug_save_2"
-		save()
-	if event.is_action_pressed('debug_save_3'):
-		current_save_name = "debug_save_3"
-		save()
-
-	if event.is_action_pressed('debug_load_1'):
-		current_save_name = 'debug_save_1'
-		load_save()
-	if event.is_action_pressed('debug_load_2'):
-		current_save_name = 'debug_save_2'
-		load_save()
-	if event.is_action_pressed('debug_load_3'):
-		current_save_name = 'debug_save_3'
-		load_save()
-	
-	if event.is_action_pressed('debug_print_current_save_data'):
-		print_current_save_data()
+	pass
+	#if event.is_action_pressed('debug_save_1'):
+		#current_save_name = "debug_save_1"
+		#save()
+	#if event.is_action_pressed('debug_save_2'):
+		#current_save_name = "debug_save_2"
+		#save()
+	#if event.is_action_pressed('debug_save_3'):
+		#current_save_name = "debug_save_3"
+		#save()
+#
+	#if event.is_action_pressed('debug_load_1'):
+		#current_save_name = 'debug_save_1'
+		#load_save()
+	#if event.is_action_pressed('debug_load_2'):
+		#current_save_name = 'debug_save_2'
+		#load_save()
+	#if event.is_action_pressed('debug_load_3'):
+		#current_save_name = 'debug_save_3'
+		#load_save()
+	#
+	#if event.is_action_pressed('debug_print_current_save_data'):
+		#print_current_save_data()
 
 func print_current_save_data():
 	print(current_save_data)

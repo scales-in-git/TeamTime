@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://cihqmda503bio"]
+
+[ext_resource type="Texture2D" uid="uid://dsijx7tgw3x5x" path="res://Placeholders/Pikes.png" id="1_mvt0n"]
+[ext_resource type="PackedScene" uid="uid://b6n4ox24glr40" path="res://Scenes/Characters/Player/Player.tscn" id="2_4aqra"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mvt0n"]
+size = Vector2(2235, 243)
+
+[node name="DebugLevel" type="Node2D"]
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Background" type="Sprite2D" parent="Node2D"]
+scale = Vector2(5, 5)
+texture = ExtResource("1_mvt0n")
+
+[node name="Background2" type="Sprite2D" parent="Node2D"]
+position = Vector2(-1000, 0)
+scale = Vector2(5, 5)
+texture = ExtResource("1_mvt0n")
+
+[node name="Background3" type="Sprite2D" parent="Node2D"]
+position = Vector2(1000, 0)
+scale = Vector2(5, 5)
+texture = ExtResource("1_mvt0n")
+
+[node name="Player" parent="." instance=ExtResource("2_4aqra")]
+position = Vector2(0, 401)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 510)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-2.5, 111.5)
+shape = SubResource("RectangleShape2D_mvt0n")

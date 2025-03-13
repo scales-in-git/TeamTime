@@ -75,8 +75,8 @@ func get_category(category: String) -> Array:
 	else:
 		return _collected_items[category].values()
 
-func _unhandled_input(event):
-	if event.is_action_pressed('debug_print_current_collectibles'):
-		print(_collected_items)
+#func _unhandled_input(event):
+	#if event.is_action_pressed('debug_print_current_collectibles'):
+		#print(_collected_items)
 	
 	
