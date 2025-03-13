@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://v042n0qyld7u"]
+
+[ext_resource type="Script" uid="uid://doat5ygrnmkit" path="res://Scenes/Mechanics/Entrance/InstantEntrance/InstantEntrance.gd" id="1_otchu"]
+
+[node name="InstantEntrance" type="Node3D"]
+script = ExtResource("1_otchu")
