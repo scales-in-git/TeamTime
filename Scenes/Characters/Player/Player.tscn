@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://b6n4ox24glr40"]
+[gd_scene load_steps=6 format=3 uid="uid://b6n4ox24glr40"]
 
 [ext_resource type="Script" uid="uid://c465e010bomid" path="res://Scenes/Characters/Player/Player.gd" id="1_no7dv"]
 [ext_resource type="Texture2D" uid="uid://cf88111432aqa" path="res://Scenes/Characters/Player/Sprites/PirateSimple.png" id="2_8y2kw"]
@@ -6,6 +6,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8y2kw"]
 size = Vector2(80, 200)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gqvyu"]
+size = Vector2(95, 95)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_no7dv")
@@ -29,16 +32,26 @@ shape = SubResource("RectangleShape2D_8y2kw")
 [node name="BlockPlaceHelper" type="Node2D" parent="."]
 script = ExtResource("3_gqvyu")
 
-[node name="PlaceGoodIndicator" type="ColorRect" parent="BlockPlaceHelper"]
+[node name="BlockPlaceCollision" type="Area2D" parent="BlockPlaceHelper"]
+unique_name_in_owner = true
+
+[node name="PlaceGoodIndicator" type="ColorRect" parent="BlockPlaceHelper/BlockPlaceCollision"]
 unique_name_in_owner = true
 z_index = 5
 offset_right = 100.0
 offset_bottom = 100.0
 color = Color(0.52, 1, 1, 0.635294)
 
-[node name="PlaceBadIndicator" type="ColorRect" parent="BlockPlaceHelper"]
+[node name="PlaceBadIndicator" type="ColorRect" parent="BlockPlaceHelper/BlockPlaceCollision"]
 unique_name_in_owner = true
-visible = false
+z_index = 5
 offset_right = 100.0
 offset_bottom = 100.0
 color = Color(1, 0.52, 0.632, 0.635294)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BlockPlaceHelper/BlockPlaceCollision"]
+position = Vector2(50, 50)
+shape = SubResource("RectangleShape2D_gqvyu")
+
+[connection signal="body_entered" from="BlockPlaceHelper/BlockPlaceCollision" to="BlockPlaceHelper" method="_on_block_place_collision_body_entered"]
+[connection signal="body_exited" from="BlockPlaceHelper/BlockPlaceCollision" to="BlockPlaceHelper" method="_on_block_place_collision_body_exited"]
