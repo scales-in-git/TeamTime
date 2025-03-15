@@ -1,8 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6n4ox24glr40"]
+[gd_scene load_steps=10 format=3 uid="uid://b6n4ox24glr40"]
 
 [ext_resource type="Script" uid="uid://c465e010bomid" path="res://Scenes/Characters/Player/Player.gd" id="1_no7dv"]
 [ext_resource type="Texture2D" uid="uid://cf88111432aqa" path="res://Scenes/Characters/Player/Sprites/PirateSimple.png" id="2_8y2kw"]
 [ext_resource type="Script" uid="uid://c7y84gs01fdxh" path="res://Scenes/Characters/Player/BlockPlaceHelper.gd" id="3_gqvyu"]
+[ext_resource type="Script" uid="uid://bel636vbi2p7g" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_gu5w3"]
+[ext_resource type="Script" uid="uid://76jmomq5wl5f" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="5_ov5rv"]
+[ext_resource type="Script" uid="uid://c4d36sgi5fcop" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_xst4l"]
+
+[sub_resource type="Resource" id="Resource_p3isv"]
+script = ExtResource("6_xst4l")
+duration = 1.0
+transition = 0
+ease = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8y2kw"]
 size = Vector2(80, 190)
@@ -24,6 +33,20 @@ texture = ExtResource("2_8y2kw")
 offset = Vector2(0, -300)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+physics_interpolation_mode = 1
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("3_gu5w3")
+metadata/_custom_type_script = "uid://bel636vbi2p7g"
+
+[node name="PhantomCamera2D" type="Node2D" parent="."]
+script = ExtResource("5_ov5rv")
+priority = 5
+tween_resource = SubResource("Resource_p3isv")
+tween_on_load = false
+metadata/_custom_type_script = "uid://76jmomq5wl5f"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -95)

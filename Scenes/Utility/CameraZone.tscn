@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cj2w2aaocucmf"]
+
+[ext_resource type="Script" uid="uid://5am2b6o1npfx" path="res://Scenes/Utility/CameraZone.gd" id="1_gu1x2"]
+
+[node name="CameraZone" type="Area2D"]
+script = ExtResource("1_gu1x2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -1,37 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://dnp68bg7x5xqw"]
+[gd_scene load_steps=3 format=3 uid="uid://dnp68bg7x5xqw"]
 
 [ext_resource type="Script" uid="uid://oyac8t0um84k" path="res://Scenes/Mechanics/Exit/WalkingExit/WalkingExit.gd" id="1_oy13n"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_c6h4d"]
-radius = 1.5
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oy13n"]
+size = Vector2(100, 200)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oy13n"]
-transparency = 1
-albedo_color = Color(0.78, 0.585, 0.585, 0.34902)
-emission_enabled = true
-emission = Color(0.62, 0.454667, 0, 1)
-emission_energy_multiplier = 10.92
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_oy13n"]
-material = SubResource("StandardMaterial3D_oy13n")
-top_radius = 0.0
-bottom_radius = 0.1
-height = 1.0
-
-[node name="WalkingExit" type="Node3D"]
+[node name="WalkingExit" type="Node2D"]
 script = ExtResource("1_oy13n")
 
-[node name="WarpZone" type="Area3D" parent="."]
+[node name="WarpZone" type="Area2D" parent="."]
 unique_name_in_owner = true
 collision_layer = 0
-collision_mask = 6
 
-[node name="Collision" type="CollisionShape3D" parent="WarpZone"]
+[node name="Collision" type="CollisionShape2D" parent="WarpZone"]
 unique_name_in_owner = true
-shape = SubResource("CylinderShape3D_c6h4d")
+position = Vector2(0, -100)
+shape = SubResource("RectangleShape2D_oy13n")
 
-[node name="Marker3D" type="Marker3D" parent="."]
-gizmo_extents = 1.5
+[node name="Marker3D" type="Marker2D" parent="."]
+gizmo_extents = 50.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 100
@@ -46,12 +33,4 @@ grow_vertical = 2
 color = Color(1, 1, 1, 0)
 metadata/_edit_use_anchors_ = true
 
-[node name="DebugInidactor" type="Node3D" parent="."]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="DebugInidactor"]
-transform = Transform3D(-2.27344e-10, -4.37108e-08, 1, -0.999986, 0.00520103, 1.38778e-17, -0.00520103, -0.999986, -4.37114e-08, 0, 0.5, -0.7)
-layers = 524288
-mesh = SubResource("CylinderMesh_oy13n")
-
 [connection signal="body_entered" from="WarpZone" to="." method="_on_warp_zone_body_entered"]
-[connection signal="body_shape_entered" from="WarpZone" to="." method="_on_warp_zone_body_shape_entered"]

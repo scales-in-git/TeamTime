@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=4 uid="uid://c1dpvnlb8w12k"]
+
+[ext_resource type="TileSet" uid="uid://c25hcjc6u3jq1" path="res://Scenes/Levels/DebugTileSet.tres" id="1_1if43"]
+[ext_resource type="PackedScene" uid="uid://v042n0qyld7u" path="res://Scenes/Mechanics/Entrance/InstantEntrance/InstantEntrance.tscn" id="2_4y0n2"]
+[ext_resource type="PackedScene" uid="uid://dnp68bg7x5xqw" path="res://Scenes/Mechanics/Exit/WalkingExit/WalkingExit.tscn" id="3_1if43"]
+[ext_resource type="PackedScene" uid="uid://yhp7gr6fmrn5" path="res://Scenes/Mechanics/Exit/InstantExit/InstantExit.tscn" id="3_b2x8t"]
+[ext_resource type="PackedScene" uid="uid://dbehr8mfolttb" path="res://Scenes/Utility/SmartMusicPlayer.tscn" id="4_b2x8t"]
+[ext_resource type="AudioStream" uid="uid://d2tfnsct46q64" path="res://music/lab_ambience.wav" id="5_dqak1"]
+
+[node name="LevelB" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD8/wAAAQAEAAQAAAD9/wAAAQAEAAQAAAD+/wAAAQAEAAQAAAD//wAAAQAEAAQAAAAAAAAAAQAEAAQAAAABAAAAAQAEAAQAAAACAAAAAQAEAAQAAAADAAAAAQAEAAQAAAAEAAAAAQAEAAQAAAAFAAAAAQAEAAQAAAAGAAAAAQAEAAgAAAD7/wAAAQAEAAQAAAD7/wEAAQAEAAUAAAD7/wIAAQAEAAYAAAD8/wEAAQAEAAUAAAD9/wEAAQAEAAUAAAD+/wEAAQAEAAUAAAD//wEAAQAEAAUAAAAAAAEAAQAEAAUAAAABAAEAAQAEAAUAAAACAAEAAQAEAAUAAAADAAEAAQAEAAUAAAAEAAEAAQAEAAUAAAAFAAEAAQAEAAUAAAAGAAEAAQAEAAUAAAAGAAIAAQAEAAYAAAAFAAIAAQAEAAYAAAAEAAIAAQAEAAYAAAADAAIAAQAEAAYAAAACAAIAAQAEAAYAAAABAAIAAQAEAAYAAAAAAAIAAQAEAAYAAAD//wIAAQAEAAYAAAD+/wIAAQAEAAYAAAD9/wIAAQAEAAYAAAD8/wIAAQAEAAYAAAAGAP//AQADAAUAAAAGAP7/AQADAAUAAAAGAP3/AQADAAUAAAAGAPz/AQADAAQAAAAHAPz/AQAFAAQAAAAHAP3/AQAFAAUAAAAHAP7/AQAFAAUAAAAHAP//AQAFAAUAAAAHAAAAAQAFAAUAAAAHAAEAAQAFAAUAAAAHAAIAAQAFAAYAAAD6////AQAFAAQAAAD5//7/AQAFAAQAAAD4//7/AQAEAAQAAAD3//7/AQADAAQAAAD3////AQADAAUAAAD3/wAAAQADAAUAAAD3/wEAAQADAAUAAAD3/wIAAQADAAYAAAD4/wIAAQAEAAYAAAD5/wIAAQAEAAYAAAD6/wIAAQAEAAYAAAD6/wAAAQADAAgAAAD5////AQADAAgAAAD6/wEAAQAEAAUAAAD5/wEAAQAEAAUAAAD5/wAAAQAEAAUAAAD4/wAAAQAEAAUAAAD4/wEAAQAEAAUAAAD4////AQAEAAUAAAA=")
+tile_set = ExtResource("1_1if43")
+
+[node name="InstantEntrance" parent="." instance=ExtResource("2_4y0n2")]
+position = Vector2(-323, 0)
+
+[node name="WalkingExit" parent="." instance=ExtResource("3_1if43")]
+position = Vector2(-750, -200)
+scene = "uid://fv5qoda6vwj4"
+
+[node name="InstantExit" parent="." instance=ExtResource("3_b2x8t")]
+position = Vector2(700, -400)
+scene = "uid://cu4rjl45f8rbo"
+
+[node name="SmartMusicPlayer" parent="." instance=ExtResource("4_b2x8t")]
+music = ExtResource("5_dqak1")
