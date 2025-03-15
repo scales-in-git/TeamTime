@@ -22,7 +22,7 @@ func set_max_blocks(_max_blocks: int):
 
 # Append and pop_front
 func _input(event: InputEvent):
-	if event.is_action_pressed("player_block_place"):
+	if event.is_action_pressed("player_block_place") and can_place_block:
 		var new_block := _PlacedBlock.instantiate()
 		new_block.global_position = block_collision_detector.global_position
 		# Can't be local to player...
