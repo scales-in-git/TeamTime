@@ -20,6 +20,9 @@ var puppeting := false
 
 
 func _physics_process(delta: float) -> void:
+	if puppeting:
+		return
+
 	var walk_magnitude = Input.get_axis("player_left", "player_right")
 	velocity.x = walk_magnitude*speed
 	
@@ -29,3 +32,9 @@ func _physics_process(delta: float) -> void:
 		velocity.y = -jump_strength
 	
 	move_and_slide()
+
+func _enter_tree():
+	Game.player = self
+
+func _exit_tree():
+	block_placer.wipe_blocks(true)

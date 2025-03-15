@@ -2,5 +2,8 @@
 
 [ext_resource type="Script" uid="uid://doat5ygrnmkit" path="res://Scenes/Mechanics/Entrance/InstantEntrance/InstantEntrance.gd" id="1_otchu"]
 
-[node name="InstantEntrance" type="Node3D"]
+[node name="InstantEntrance" type="Node2D"]
 script = ExtResource("1_otchu")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+gizmo_extents = 100.0

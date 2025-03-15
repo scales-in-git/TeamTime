@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=4 uid="uid://fv5qoda6vwj4"]
+
+[ext_resource type="TileSet" uid="uid://c25hcjc6u3jq1" path="res://Scenes/Levels/DebugTileSet.tres" id="1_c0w2p"]
+[ext_resource type="PackedScene" uid="uid://yhp7gr6fmrn5" path="res://Scenes/Mechanics/Exit/InstantExit/InstantExit.tscn" id="3_gmhiq"]
+[ext_resource type="PackedScene" uid="uid://uuf6ujkuy7bv" path="res://Scenes/Mechanics/Entrance/WalkingEntrance/WalkingEntrance.tscn" id="3_h1f6c"]
+
+[node name="LevelA" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD8/wAAAQAEAAQAAAD9/wAAAQAEAAQAAAD+/wAAAQAEAAQAAAD//wAAAQAEAAQAAAAAAAAAAQAEAAQAAAABAAAAAQAEAAQAAAACAAAAAQAEAAQAAAADAAAAAQAEAAQAAAAEAAAAAQAEAAQAAAAFAAAAAQAEAAQAAAAGAAAAAQAEAAgAAAD7/wAAAQADAAQAAAD7/wEAAQADAAUAAAD7/wIAAQADAAYAAAD8/wEAAQAEAAUAAAD9/wEAAQAEAAUAAAD+/wEAAQAEAAUAAAD//wEAAQAEAAUAAAAAAAEAAQAEAAUAAAABAAEAAQAEAAUAAAACAAEAAQAEAAUAAAADAAEAAQAEAAUAAAAEAAEAAQAEAAUAAAAFAAEAAQAEAAUAAAAGAAEAAQAEAAUAAAAGAAIAAQAEAAYAAAAFAAIAAQAEAAYAAAAEAAIAAQAEAAYAAAADAAIAAQAEAAYAAAACAAIAAQAEAAYAAAABAAIAAQAEAAYAAAAAAAIAAQAEAAYAAAD//wIAAQAEAAYAAAD+/wIAAQAEAAYAAAD9/wIAAQAEAAYAAAD8/wIAAQAEAAYAAAAGAP//AQADAAUAAAAGAP7/AQADAAUAAAAGAP3/AQADAAUAAAAGAPz/AQADAAQAAAAHAPz/AQAFAAQAAAAHAP3/AQAFAAUAAAAHAP7/AQAFAAUAAAAHAP//AQAFAAUAAAAHAAAAAQAFAAUAAAAHAAEAAQAFAAUAAAAHAAIAAQAFAAYAAAA=")
+tile_set = ExtResource("1_c0w2p")
+
+[node name="InstantExit" parent="." instance=ExtResource("3_gmhiq")]
+position = Vector2(500, 0)
+scene = "uid://c1dpvnlb8w12k"
+
+[node name="WalkingEntrance" parent="." instance=ExtResource("3_h1f6c")]
+position = Vector2(-400, 0)

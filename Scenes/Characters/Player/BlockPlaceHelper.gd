@@ -23,6 +23,15 @@ func set_max_blocks(_max_blocks: int):
 	max_placeable_blocks = _max_blocks
 	# TODO: destroy current blocks if there's more blocks placed than allowed
 
+func wipe_blocks(fast: bool = false):
+	while placed_block_queue.size() > 0:
+		var block = placed_block_queue.pop_back()
+		if not fast:
+			block.fancy_delete()
+		else:
+			block.queue_free()
+
+
 # Append and pop_front
 func _input(event: InputEvent):
 	var blocks_changed := false
@@ -30,14 +39,8 @@ func _input(event: InputEvent):
 	if event.is_action_pressed("player_block_place") and can_place_block:
 		var new_block := _PlacedBlock.instantiate()
 		new_block.global_position = block_collision_detector.global_position
-		# Can't be local to player...
 
-		var level = Game.get_level()
-		if level:
-			pass
-		else:
-			# Debug default position
-			get_tree().root.get_child(0).add_child(new_block)
+		get_tree().root.get_child(0).add_child(new_block)
 		placed_block_queue.append(new_block)
 		blocks_changed = true
 

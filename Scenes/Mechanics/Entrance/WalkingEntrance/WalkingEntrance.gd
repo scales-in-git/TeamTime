@@ -20,7 +20,7 @@ func enter(player: Player):
 	
 	var fade_in_tween := get_tree().create_tween()
 	fade_in_tween.tween_property($%FadeIn, 'color:a', 0.0, fade_in_time)
-	fade_in_tween.tween_property(player, 'velocity', Vector3.ZERO, fade_in_time) \
+	fade_in_tween.tween_property(player, 'velocity', Vector2.ZERO, fade_in_time) \
 		.set_ease(Tween.EASE_OUT)
 
 	fade_in_tween.play()
