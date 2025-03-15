@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbehr8mfolttb"]
+
+[ext_resource type="Script" uid="uid://bh68bapfurycj" path="res://Scenes/Utility/SmartMusicPlayer.gd" id="1_v1bki"]
+
+[node name="SmartMusicPlayer" type="Node2D"]
+script = ExtResource("1_v1bki")

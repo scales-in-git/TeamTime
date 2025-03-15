@@ -1,8 +1,6 @@
 class_name BaseEntrance
 extends Node2D
 
-@export var entrance_id: int
-
 var _Player = preload("uid://b6n4ox24glr40")
 
 func enter(_player: Player):

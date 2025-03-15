@@ -21,6 +21,7 @@ SaveManager="*res://Scripts/Autoloads/SaveManager.gd"
 CollectiblesManager="*res://Scripts/Autoloads/CollectiblesManager.gd"
 SceneTransition="*res://Scripts/Autoloads/SceneTransition.gd"
 Utility="*res://Scripts/Autoloads/Utility.gd"
+GlobalMusic="*res://Scripts/Autoloads/GlobalMusic.gd"
 
 [dotnet]
 
