@@ -9,8 +9,8 @@ size = Vector2(80, 200)
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_no7dv")
 speed = 600.0
-gravity = 1600.0
-jump_strength = 800.0
+gravity = 2500.0
+jump_strength = 1300.0
 
 [node name="CanvasGroup" type="CanvasGroup" parent="."]
 
