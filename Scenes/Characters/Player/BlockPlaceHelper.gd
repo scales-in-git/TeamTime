@@ -1,9 +1,12 @@
+class_name BlockPlacer
 extends Node
 
 
 @onready var block_collision_detector: Area2D = $%BlockPlaceCollision
 @onready var good_indicator: ColorRect = $%PlaceGoodIndicator
 @onready var bad_indicator: ColorRect = $%PlaceBadIndicator
+
+@export var max_placeable_blocks: int = 3
 
 # Preload the block scene
 var PlacedBlock := preload("uid://bwp2sn1n0w8v7")
@@ -13,8 +16,11 @@ const TILE_SIZE = 100
 var can_place_block := false
 var placed_block_queue: Array[PlacedBlock] = []
 
-# Append and pop_front
+func set_max_blocks(_max_blocks: int):
+	max_placeable_blocks = _max_blocks
+	# TODO: destroy current blocks if there's more blocks placed than allowed
 
+# Append and pop_front
 func _input(event: InputEvent):
 
 	if event.is_action_pressed("player_block_place"):
@@ -30,6 +36,11 @@ func _input(event: InputEvent):
 			get_tree().root.get_child(0).add_child(new_block)
 		placed_block_queue.append(new_block)
 
+		if placed_block_queue.size() > max_placeable_blocks:
+			var last_block = placed_block_queue.pop_front()
+			# Remove collision (maybe just layer 1)
+			# Play block destorying animation
+			last_block.queue_free()
 	pass
 
 func _physics_process(_delta: float) -> void:

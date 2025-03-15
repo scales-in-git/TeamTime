@@ -30,6 +30,7 @@ position = Vector2(0, -100)
 shape = SubResource("RectangleShape2D_8y2kw")
 
 [node name="BlockPlaceHelper" type="Node2D" parent="."]
+unique_name_in_owner = true
 script = ExtResource("3_gqvyu")
 
 [node name="BlockPlaceCollision" type="Area2D" parent="BlockPlaceHelper"]
