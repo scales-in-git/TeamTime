@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=4 uid="uid://fv5qoda6vwj4"]
+[gd_scene load_steps=8 format=4 uid="uid://fv5qoda6vwj4"]
 
 [ext_resource type="TileSet" uid="uid://c25hcjc6u3jq1" path="res://Scenes/Levels/DebugTileSet.tres" id="1_c0w2p"]
 [ext_resource type="PackedScene" uid="uid://yhp7gr6fmrn5" path="res://Scenes/Mechanics/Exit/InstantExit/InstantExit.tscn" id="3_gmhiq"]
 [ext_resource type="PackedScene" uid="uid://uuf6ujkuy7bv" path="res://Scenes/Mechanics/Entrance/WalkingEntrance/WalkingEntrance.tscn" id="3_h1f6c"]
 [ext_resource type="PackedScene" uid="uid://dbehr8mfolttb" path="res://Scenes/Utility/SmartMusicPlayer.tscn" id="4_h1f6c"]
 [ext_resource type="AudioStream" uid="uid://d2tfnsct46q64" path="res://music/lab_ambience.wav" id="5_sp5aj"]
+[ext_resource type="PackedScene" uid="uid://jhjkr5mcfjhg" path="res://Scenes/Mechanics/DeathPit/DeathPit.tscn" id="6_hka5o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_63nxv"]
+size = Vector2(10000, 300)
 
 [node name="LevelA" type="Node2D"]
 
@@ -17,7 +21,13 @@ position = Vector2(500, 0)
 scene = "uid://c1dpvnlb8w12k"
 
 [node name="WalkingEntrance" parent="." instance=ExtResource("3_h1f6c")]
-position = Vector2(-400, 0)
+position = Vector2(-390, 10)
 
 [node name="SmartMusicPlayer" parent="." instance=ExtResource("4_h1f6c")]
 music = ExtResource("5_sp5aj")
+
+[node name="DeathPit" parent="." instance=ExtResource("6_hka5o")]
+position = Vector2(0, 500)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathPit"]
+shape = SubResource("RectangleShape2D_63nxv")

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://jhjkr5mcfjhg"]
+
+[ext_resource type="Script" uid="uid://up3ygl4a013v" path="res://Scenes/Mechanics/DeathPit/DeathPit.gd" id="1_lsin3"]
+
+[node name="DeathPit" type="Area2D"]
+script = ExtResource("1_lsin3")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
