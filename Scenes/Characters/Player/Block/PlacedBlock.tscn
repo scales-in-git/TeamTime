@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwp2sn1n0w8v7"]
+
+[ext_resource type="Script" uid="uid://bf4g4ka66u7cu" path="res://Scenes/Characters/Player/Block/PlacedBlock.gd" id="1_2xe80"]
+[ext_resource type="Texture2D" uid="uid://dsex8cebsh3gw" path="res://Scenes/Characters/Player/Block/DebugBlock.png" id="1_uumfr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uumfr"]
+size = Vector2(100, 100)
+
+[node name="PlacedBlock" type="Node2D"]
+script = ExtResource("1_2xe80")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_uumfr")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(50, 50)
+shape = SubResource("RectangleShape2D_uumfr")

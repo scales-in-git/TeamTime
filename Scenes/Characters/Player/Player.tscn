@@ -37,6 +37,7 @@ unique_name_in_owner = true
 
 [node name="PlaceGoodIndicator" type="ColorRect" parent="BlockPlaceHelper/BlockPlaceCollision"]
 unique_name_in_owner = true
+visible = false
 z_index = 5
 offset_right = 100.0
 offset_bottom = 100.0
@@ -44,6 +45,7 @@ color = Color(0.52, 1, 1, 0.635294)
 
 [node name="PlaceBadIndicator" type="ColorRect" parent="BlockPlaceHelper/BlockPlaceCollision"]
 unique_name_in_owner = true
+visible = false
 z_index = 5
 offset_right = 100.0
 offset_bottom = 100.0
