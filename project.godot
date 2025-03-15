@@ -22,10 +22,15 @@ CollectiblesManager="*res://Scripts/Autoloads/CollectiblesManager.gd"
 SceneTransition="*res://Scripts/Autoloads/SceneTransition.gd"
 Utility="*res://Scripts/Autoloads/Utility.gd"
 GlobalMusic="*res://Scripts/Autoloads/GlobalMusic.gd"
+PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 
 [dotnet]
 
 project/assembly_name="Team Time"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
 
 [input]
 
