@@ -1,50 +1,26 @@
-[gd_scene load_steps=7 format=3 uid="uid://b6n4ox24glr40"]
+[gd_scene load_steps=4 format=3 uid="uid://b6n4ox24glr40"]
 
 [ext_resource type="Script" uid="uid://c465e010bomid" path="res://Scenes/Characters/Player/Player.gd" id="1_no7dv"]
-[ext_resource type="Texture2D" uid="uid://b50kmuim8mrk8" path="res://Placeholders/Character_Atlas.png" id="2_8y2kw"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gqvyu"]
-atlas = ExtResource("2_8y2kw")
-region = Rect2(200, 0, 200, 200)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uapsp"]
-atlas = ExtResource("2_8y2kw")
-region = Rect2(200, 200, 200, 200)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_7vix2"]
-animations = [{
-"frames": [],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 5.0,
-"texture": SubResource("AtlasTexture_gqvyu")
-}, {
-"duration": 5.0,
-"texture": SubResource("AtlasTexture_uapsp")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}]
+[ext_resource type="Texture2D" uid="uid://cf88111432aqa" path="res://Scenes/Characters/Player/Sprites/PirateSimple.png" id="2_8y2kw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8y2kw"]
-size = Vector2(119, 165)
+size = Vector2(80, 200)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_no7dv")
+speed = 600.0
+gravity = 1600.0
+jump_strength = 800.0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_7vix2")
-animation = &"idle"
-autoplay = "idle"
-frame = 1
-frame_progress = 0.0196061
+[node name="CanvasGroup" type="CanvasGroup" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(11.5, 16.5)
-shape = SubResource("RectangleShape2D_8y2kw")
+[node name="Sprite2D" type="Sprite2D" parent="CanvasGroup"]
+scale = Vector2(0.333, 0.333)
+texture = ExtResource("2_8y2kw")
+offset = Vector2(0, -300)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -100)
+shape = SubResource("RectangleShape2D_8y2kw")
