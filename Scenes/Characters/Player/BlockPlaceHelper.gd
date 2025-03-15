@@ -16,12 +16,17 @@ const TILE_SIZE = 100
 var can_place_block := false
 var placed_block_queue: Array[PlacedBlock] = []
 
+# Would be of type PlacedBlock but you can't set typed vars to null (annoyingly)
+var highlighted_block
+
 func set_max_blocks(_max_blocks: int):
 	max_placeable_blocks = _max_blocks
 	# TODO: destroy current blocks if there's more blocks placed than allowed
 
 # Append and pop_front
 func _input(event: InputEvent):
+	var blocks_changed := false
+
 	if event.is_action_pressed("player_block_place") and can_place_block:
 		var new_block := _PlacedBlock.instantiate()
 		new_block.global_position = block_collision_detector.global_position
@@ -34,6 +39,15 @@ func _input(event: InputEvent):
 			# Debug default position
 			get_tree().root.get_child(0).add_child(new_block)
 		placed_block_queue.append(new_block)
+		blocks_changed = true
+
+	if event.is_action_pressed('player_block_delete') and highlighted_block:
+		placed_block_queue.erase(highlighted_block)
+		highlighted_block.fancy_delete()
+		blocks_changed = true
+
+	if blocks_changed:
+		placed_block_queue.front().clear_highlight()
 
 		# Don't show what will be deleted if player can only place one; they'll know it'll be removed.
 		if placed_block_queue.size() == max_placeable_blocks and max_placeable_blocks > 1:
@@ -58,9 +72,26 @@ func _physics_process(_delta: float) -> void:
 
 	block_collision_detector.global_position = new_pos
 
+	# TODO: we already have a "bad place block indicator", that might be much, much cleaner than messing with
+	# animations, especially since this is a bit messy.
 	if block_collision_detector.has_overlapping_bodies():
 		good_indicator.visible = false
 		bad_indicator.visible = true
+
+		var get_overlapping_bodies = block_collision_detector.get_overlapping_bodies()
+		if highlighted_block and highlighted_block not in get_overlapping_bodies:
+			# highlighted_block.highlight_for_deletion = false
+			highlighted_block = null
+
+		for body in block_collision_detector.get_overlapping_bodies():
+			if body is PlacedBlock and not highlighted_block:
+				highlighted_block = body
+				# highlighted_block.highlight_for_deletion = true
+	elif highlighted_block:
+		# highlighted_block.highlight_for_deletion = false
+		highlighted_block = null
+
+		
 	else:
 		good_indicator.visible = true
 		bad_indicator.visible = false

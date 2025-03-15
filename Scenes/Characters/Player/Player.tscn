@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://c7y84gs01fdxh" path="res://Scenes/Characters/Player/BlockPlaceHelper.gd" id="3_gqvyu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8y2kw"]
-size = Vector2(80, 200)
+size = Vector2(80, 190)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gqvyu"]
 size = Vector2(95, 95)
@@ -26,7 +26,7 @@ offset = Vector2(0, -300)
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -100)
+position = Vector2(0, -95)
 shape = SubResource("RectangleShape2D_8y2kw")
 
 [node name="BlockPlaceHelper" type="Node2D" parent="."]
