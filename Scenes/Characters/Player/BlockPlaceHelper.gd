@@ -22,7 +22,6 @@ func set_max_blocks(_max_blocks: int):
 
 # Append and pop_front
 func _input(event: InputEvent):
-
 	if event.is_action_pressed("player_block_place"):
 		var new_block := PlacedBlock.instantiate()
 		new_block.global_position = block_collision_detector.global_position
@@ -38,9 +37,7 @@ func _input(event: InputEvent):
 
 		if placed_block_queue.size() > max_placeable_blocks:
 			var last_block = placed_block_queue.pop_front()
-			# Remove collision (maybe just layer 1)
-			# Play block destorying animation
-			last_block.queue_free()
+			last_block.fancy_delete()
 	pass
 
 func _physics_process(_delta: float) -> void:
