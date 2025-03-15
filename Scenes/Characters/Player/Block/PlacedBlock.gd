@@ -21,5 +21,5 @@ func fancy_delete():
 	return tween
 
 
-func set_last():
+func highlight_as_last():
 	modulate = Color.YELLOW
