@@ -46,8 +46,14 @@ func _input(event: InputEvent):
 		highlighted_block.fancy_delete()
 		blocks_changed = true
 
+	if event.is_action_pressed('player_delete_all'):
+		while placed_block_queue.size() > 0:
+			var block = placed_block_queue.pop_back()
+			block.fancy_delete()
+
 	if blocks_changed:
-		placed_block_queue.front().clear_highlight()
+		if placed_block_queue.size() > 0:
+			placed_block_queue.front().clear_highlight()
 
 		# Don't show what will be deleted if player can only place one; they'll know it'll be removed.
 		if placed_block_queue.size() == max_placeable_blocks and max_placeable_blocks > 1:
