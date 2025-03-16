@@ -70,4 +70,5 @@ animations = [{
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_vtndb")
-frame_progress = 0.886206
+frame = 6
+frame_progress = 0.900459
