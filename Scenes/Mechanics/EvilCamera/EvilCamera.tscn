@@ -1,3 +1,37 @@
-[gd_scene format=3 uid="uid://dxb7l54dt8jih"]
+[gd_scene load_steps=5 format=3 uid="uid://dxb7l54dt8jih"]
+
+[ext_resource type="Texture2D" uid="uid://b3mxshqqp4jgp" path="res://Placeholders/Walk.png" id="1_32upy"]
+[ext_resource type="PackedScene" uid="uid://d4eeme44hkqe5" path="res://Scenes/Mechanics/EvilCamera/camera.tscn" id="1_tkfo8"]
+[ext_resource type="Texture2D" uid="uid://duf6hpxac1ki6" path="res://Scenes/Mechanics/EvilCamera/iu.png" id="2_hl045"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_32upy"]
+cull_mode = 2
+polygon = PackedVector2Array(837, 374, 697, 314, 594, 376, 711, 463)
 
 [node name="EvilCamera" type="Node2D"]
+
+[node name="Walk" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, 100)
+scale = Vector2(1000, 1000)
+texture = ExtResource("1_32upy")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+rotation = -1.12062
+shadow_enabled = true
+texture = ExtResource("2_hl045")
+offset = Vector2(-57.85, 644.24)
+texture_scale = 2.46
+
+[node name="Camera(Real)" parent="." instance=ExtResource("1_tkfo8")]
+position = Vector2(0, 50)
+scale = Vector2(0.261, 0.261)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+color = Color(0.34, 0.34, 0.34, 1)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+visible = false
+position = Vector2(-370, -98)
+occluder = SubResource("OccluderPolygon2D_32upy")

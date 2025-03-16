@@ -28,6 +28,7 @@ jump_strength = 1300.0
 [node name="CanvasGroup" type="CanvasGroup" parent="."]
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="CanvasGroup"]
+z_index = 1
 position = Vector2(0, -69.041)
 scale = Vector2(0.273973, 0.273973)
 sprite_frames = ExtResource("2_gqvyu")
