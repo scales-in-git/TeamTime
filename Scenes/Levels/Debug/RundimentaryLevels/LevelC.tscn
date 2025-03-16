@@ -1,23 +1,49 @@
-[gd_scene load_steps=6 format=4 uid="uid://cu4rjl45f8rbo"]
+[gd_scene load_steps=7 format=4 uid="uid://cu4rjl45f8rbo"]
 
 [ext_resource type="TileSet" uid="uid://c25hcjc6u3jq1" path="res://Scenes/Levels/DebugTileSet.tres" id="1_fgpdp"]
 [ext_resource type="PackedScene" uid="uid://v042n0qyld7u" path="res://Scenes/Mechanics/Entrance/InstantEntrance/InstantEntrance.tscn" id="2_omir1"]
 [ext_resource type="PackedScene" uid="uid://dbehr8mfolttb" path="res://Scenes/Utility/SmartMusicPlayer.tscn" id="3_omir1"]
-[ext_resource type="AudioStream" uid="uid://vhywg5j3yo6n" path="res://fx/lab_FX alarm1.wav" id="4_cgx46"]
+[ext_resource type="AudioStream" uid="uid://d2tfnsct46q64" path="res://music/lab_ambience.wav" id="4_bv234"]
 [ext_resource type="PackedScene" uid="uid://yhp7gr6fmrn5" path="res://Scenes/Mechanics/Exit/InstantExit/InstantExit.tscn" id="5_ef31k"]
+[ext_resource type="PackedScene" uid="uid://dxb7l54dt8jih" path="res://Scenes/Mechanics/EvilCamera/EvilCamera.tscn" id="6_bv234"]
 
 [node name="LevelC" type="Node2D"]
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAD8/wAAAQAEAAQAAAD9/wAAAQAEAAQAAAD+/wAAAQAEAAQAAAD//wAAAQAEAAQAAAAAAAAAAQAEAAQAAAABAAAAAQAEAAQAAAACAAAAAQAEAAQAAAADAAAAAQAEAAQAAAAEAAAAAQAEAAQAAAAFAAAAAQAEAAQAAAAGAAAAAQAEAAQAAAD7/wAAAQADAAQAAAD7/wEAAQADAAUAAAD7/wIAAQADAAYAAAD8/wEAAQAEAAUAAAD9/wEAAQAEAAUAAAD+/wEAAQAEAAUAAAD//wEAAQAEAAUAAAAAAAEAAQAEAAUAAAABAAEAAQAEAAUAAAACAAEAAQAEAAUAAAADAAEAAQAEAAUAAAAEAAEAAQAEAAUAAAAFAAEAAQAEAAUAAAAGAAEAAQAEAAUAAAAGAAIAAQAEAAYAAAAFAAIAAQAEAAYAAAAEAAIAAQAEAAYAAAADAAIAAQAEAAYAAAACAAIAAQAEAAYAAAABAAIAAQAEAAYAAAAAAAIAAQAEAAYAAAD//wIAAQAEAAYAAAD+/wIAAQAEAAYAAAD9/wIAAQAEAAYAAAD8/wIAAQAEAAYAAAAHAAAAAQAFAAQAAAAHAAEAAQAFAAUAAAAHAAIAAQAFAAYAAAA=")
-tile_set = ExtResource("1_fgpdp")
+[node name="ggezbg" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(10000, 10000)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5000.0
+offset_top = -5000.0
+offset_right = 5000.0
+offset_bottom = 5000.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.16, 0.16, 0.16, 1)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.34, 0.34, 0.34, 1)
 
 [node name="InstantEntrance" parent="." instance=ExtResource("2_omir1")]
-position = Vector2(-323, 0)
+position = Vector2(50, 50)
 
 [node name="SmartMusicPlayer" parent="." instance=ExtResource("3_omir1")]
-music = ExtResource("4_cgx46")
+music = ExtResource("4_bv234")
 
 [node name="InstantExit" parent="." instance=ExtResource("5_ef31k")]
 position = Vector2(650, 0)
 scene = "uid://c1dpvnlb8w12k"
+
+[node name="EvilCamera" parent="." instance=ExtResource("6_bv234")]
+position = Vector2(-800, -600)
+rotation = -1.57079
+scale = Vector2(-1, 1)
+auto_blink_on = 8.0
+auto_blink_off = 1.0
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD8/wAAAQAEAAQAAAD9/wAAAQAEAAQAAAD+/wAAAQAEAAQAAAD//wAAAQAEAAQAAAAAAAAAAQAEAAQAAAABAAAAAQAEAAQAAAACAAAAAQAEAAQAAAADAAAAAQAEAAQAAAAEAAAAAQAEAAQAAAAFAAAAAQAEAAQAAAAGAAAAAQAEAAQAAAD7/wAAAQAEAAQAAAD7/wEAAQAEAAUAAAD7/wIAAQAEAAYAAAD8/wEAAQAEAAUAAAD9/wEAAQAEAAUAAAD+/wEAAQAEAAUAAAD//wEAAQAEAAUAAAAAAAEAAQAEAAUAAAABAAEAAQAEAAUAAAACAAEAAQAEAAUAAAADAAEAAQAEAAUAAAAEAAEAAQAEAAUAAAAFAAEAAQAEAAUAAAAGAAEAAQAEAAUAAAAGAAIAAQAEAAYAAAAFAAIAAQAEAAYAAAAEAAIAAQAEAAYAAAADAAIAAQAEAAYAAAACAAIAAQAEAAYAAAABAAIAAQAEAAYAAAAAAAIAAQAEAAYAAAD//wIAAQAEAAYAAAD+/wIAAQAEAAYAAAD9/wIAAQAEAAYAAAD8/wIAAQAEAAYAAAAHAAAAAQAFAAQAAAAHAAEAAQAFAAUAAAAHAAIAAQAFAAYAAAD5/wAAAQAEAAQAAAD6/wAAAQAEAAQAAAD4/wAAAQAEAAQAAAD3/wAAAQAEAAQAAAD2/wAAAQAEAAQAAAD1/wAAAQAEAAQAAAD6/wIAAQAEAAYAAAD5/wIAAQAEAAYAAAD4/wIAAQAEAAYAAAD3/wIAAQAEAAYAAAD2/wIAAQAEAAYAAAD1/wIAAQAEAAYAAAD1/wEAAQAEAAUAAAD6/wEAAQAEAAUAAAD5/wEAAQAEAAUAAAD4/wEAAQAEAAUAAAD3/wEAAQAEAAUAAAD2/wEAAQAEAAUAAAD0/wEAAQAEAAUAAADz/wEAAQAEAAUAAADy/wEAAQAEAAUAAADx/wEAAQAEAAUAAAD0/wIAAQAEAAYAAADz/wIAAQAEAAYAAADy/wIAAQAEAAYAAADx/wIAAQAEAAYAAADw/wIAAQAEAAYAAADv/wIAAQAEAAYAAADu/wIAAQAEAAYAAADt/wIAAQADAAYAAADt/wEAAQADAAUAAADu/wAAAQAEAAQAAADv/wAAAQAEAAQAAADw/wAAAQAEAAQAAADx/wAAAQAEAAQAAADy/wAAAQAEAAQAAADz/wAAAQAEAAQAAAD0/wAAAQAEAAQAAADt/wAAAQADAAQAAADu/wEAAQAEAAUAAADv/wEAAQAEAAUAAADw/wEAAQAEAAUAAAD1//n/AQADAAQAAAD1//r/AQADAAUAAAD1//v/AQADAAYAAAD2//n/AQAEAAQAAAD2//r/AQAEAAUAAAD2//v/AQAEAAYAAAD3//n/AQAFAAQAAAD3//r/AQAFAAUAAAD3//v/AQAFAAYAAAD9//X/AQADAAQAAAD9//b/AQADAAUAAAD9//f/AQADAAYAAAD+//X/AQAEAAQAAAD+//b/AQAEAAUAAAD+//f/AQAEAAYAAAD///X/AQAFAAQAAAD///b/AQAFAAUAAAD///f/AQAFAAYAAAA=")
+tile_set = ExtResource("1_fgpdp")

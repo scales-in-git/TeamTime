@@ -1,7 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bwp2sn1n0w8v7"]
+[gd_scene load_steps=9 format=3 uid="uid://bwp2sn1n0w8v7"]
 
 [ext_resource type="Script" uid="uid://bf4g4ka66u7cu" path="res://Scenes/Characters/Player/Block/PlacedBlock.gd" id="1_2xe80"]
 [ext_resource type="Texture2D" uid="uid://dsex8cebsh3gw" path="res://Scenes/Characters/Player/Block/DebugBlock.png" id="1_uumfr"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_2xe80"]
+polygon = PackedVector2Array(0, 0, 100, 0, 100, 100, 0, 100)
 
 [sub_resource type="Animation" id="Animation_lydrc"]
 length = 0.001
@@ -64,6 +67,11 @@ size = Vector2(100, 100)
 
 [node name="PlacedBlock" type="StaticBody2D"]
 script = ExtResource("1_2xe80")
+
+[node name="LightOccluder" type="LightOccluder2D" parent="."]
+unique_name_in_owner = true
+occluder = SubResource("OccluderPolygon2D_2xe80")
+sdf_collision = false
 
 [node name="Sprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true
