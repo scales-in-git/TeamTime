@@ -1,0 +1,73 @@
+[gd_scene load_steps=11 format=3 uid="uid://b1m643ns0nwm6"]
+
+[ext_resource type="Texture2D" uid="uid://cxvmfyg3qiw4t" path="res://StolenWalk SpriteSheet.png" id="1_iyhso"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qaihh"]
+atlas = ExtResource("1_iyhso")
+region = Rect2(0, 2, 1172, 791)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cymj8"]
+atlas = ExtResource("1_iyhso")
+region = Rect2(0, 793, 1172, 791)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42r56"]
+atlas = ExtResource("1_iyhso")
+region = Rect2(1172, 793, 1172, 791)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u0csx"]
+atlas = ExtResource("1_iyhso")
+region = Rect2(1172, 2, 1172, 791)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8uy1f"]
+atlas = ExtResource("1_iyhso")
+region = Rect2(0, 1584, 1172, 791)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33y7w"]
+atlas = ExtResource("1_iyhso")
+region = Rect2(1172, 1584, 1172, 791)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wkfbn"]
+atlas = ExtResource("1_iyhso")
+region = Rect2(1172, 2375, 1172, 791)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_415i3"]
+atlas = ExtResource("1_iyhso")
+region = Rect2(0, 2375, 1172, 791)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vtndb"]
+animations = [{
+"frames": [{
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_qaihh")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_cymj8")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_42r56")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_u0csx")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_8uy1f")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_33y7w")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_wkfbn")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_415i3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Stolen" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_vtndb")
+frame_progress = 0.886206
