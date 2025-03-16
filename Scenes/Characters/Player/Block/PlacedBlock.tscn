@@ -68,8 +68,8 @@ size = Vector2(100, 100)
 [node name="PlacedBlock" type="StaticBody2D"]
 script = ExtResource("1_2xe80")
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-scale = Vector2(1, 1)
+[node name="LightOccluder" type="LightOccluder2D" parent="."]
+unique_name_in_owner = true
 occluder = SubResource("OccluderPolygon2D_2xe80")
 sdf_collision = false
 

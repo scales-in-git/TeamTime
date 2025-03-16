@@ -32,7 +32,7 @@ z_index = 1
 position = Vector2(0, -69.041)
 scale = Vector2(0.273973, 0.273973)
 sprite_frames = ExtResource("2_gqvyu")
-animation = &"Jump"
+animation = &"Idle"
 offset = Vector2(0, -113)
 flip_h = true
 

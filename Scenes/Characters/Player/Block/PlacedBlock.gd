@@ -29,6 +29,7 @@ var _last_survivor := false
 # With animations and stuff
 func fancy_delete():
 	set_collision_layer_value(1, false)
+	remove_child($%LightOccluder)
 
 	# Play an audio sound first
 	var tween := get_tree().create_tween()
