@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://dxb7l54dt8jih"]
+[gd_scene load_steps=7 format=3 uid="uid://dxb7l54dt8jih"]
 
 [ext_resource type="Script" uid="uid://cxu3rw2cpdg44" path="res://Scenes/Mechanics/EvilCamera/EvilCamera.gd" id="1_32upy"]
 [ext_resource type="PackedScene" uid="uid://d4eeme44hkqe5" path="res://Scenes/Mechanics/EvilCamera/camera.tscn" id="1_tkfo8"]
 [ext_resource type="Texture2D" uid="uid://duf6hpxac1ki6" path="res://Scenes/Mechanics/EvilCamera/iu.png" id="2_hl045"]
 [ext_resource type="PackedScene" uid="uid://dlyr50dshfbi7" path="res://Scenes/Utility/GenericFade.tscn" id="4_06k72"]
 [ext_resource type="AudioStream" uid="uid://vhywg5j3yo6n" path="res://fx/lab_FX alarm1.wav" id="5_244qs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_244qs"]
+size = Vector2(100, 100)
 
 [node name="EvilCamera" type="Node2D"]
 script = ExtResource("1_32upy")
@@ -37,46 +40,6 @@ unique_name_in_owner = true
 position = Vector2(0, 50)
 scale = Vector2(0.261, 0.261)
 
-[node name="ABajillionRayCasts" type="Node2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(20, 94)
-
-[node name="RayCast2D" type="RayCast2D" parent="ABajillionRayCasts"]
-position = Vector2(-1, -2)
-target_position = Vector2(849, 926)
-
-[node name="RayCast2D2" type="RayCast2D" parent="ABajillionRayCasts"]
-position = Vector2(12, -14)
-target_position = Vector2(1043, 503)
-
-[node name="RayCast2D3" type="RayCast2D" parent="ABajillionRayCasts"]
-position = Vector2(15, -30)
-target_position = Vector2(1234, 115)
-
-[node name="RayCast2D4" type="RayCast2D" parent="ABajillionRayCasts"]
-position = Vector2(7, -6)
-target_position = Vector2(938, 726)
-
-[node name="RayCast2D5" type="RayCast2D" parent="ABajillionRayCasts"]
-position = Vector2(15, -21)
-target_position = Vector2(1132, 325)
-
-[node name="RayCast2D6" type="RayCast2D" parent="ABajillionRayCasts"]
-position = Vector2(4, -3)
-target_position = Vector2(887, 828)
-
-[node name="RayCast2D7" type="RayCast2D" parent="ABajillionRayCasts"]
-position = Vector2(10, -10)
-target_position = Vector2(980, 619)
-
-[node name="RayCast2D8" type="RayCast2D" parent="ABajillionRayCasts"]
-position = Vector2(14, -18)
-target_position = Vector2(1075, 420)
-
-[node name="RayCast2D9" type="RayCast2D" parent="ABajillionRayCasts"]
-position = Vector2(16, -25)
-target_position = Vector2(1175, 230)
-
 [node name="GenericFade" parent="." instance=ExtResource("4_06k72")]
 unique_name_in_owner = true
 fade_in_time = 2.0
@@ -85,3 +48,49 @@ transition_type = 4
 [node name="Alarm" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("5_244qs")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 50)
+shape = SubResource("RectangleShape2D_244qs")
+
+[node name="ABajillionRayCasts" type="Node2D" parent="StaticBody2D/CollisionShape2D"]
+unique_name_in_owner = true
+position = Vector2(20, 44)
+
+[node name="RayCast2D" type="RayCast2D" parent="StaticBody2D/CollisionShape2D/ABajillionRayCasts"]
+position = Vector2(-1, -2)
+target_position = Vector2(849, 926)
+
+[node name="RayCast2D2" type="RayCast2D" parent="StaticBody2D/CollisionShape2D/ABajillionRayCasts"]
+position = Vector2(12, -14)
+target_position = Vector2(1043, 503)
+
+[node name="RayCast2D3" type="RayCast2D" parent="StaticBody2D/CollisionShape2D/ABajillionRayCasts"]
+position = Vector2(15, -30)
+target_position = Vector2(1234, 115)
+
+[node name="RayCast2D4" type="RayCast2D" parent="StaticBody2D/CollisionShape2D/ABajillionRayCasts"]
+position = Vector2(7, -6)
+target_position = Vector2(938, 726)
+
+[node name="RayCast2D5" type="RayCast2D" parent="StaticBody2D/CollisionShape2D/ABajillionRayCasts"]
+position = Vector2(15, -21)
+target_position = Vector2(1132, 325)
+
+[node name="RayCast2D6" type="RayCast2D" parent="StaticBody2D/CollisionShape2D/ABajillionRayCasts"]
+position = Vector2(4, -3)
+target_position = Vector2(887, 828)
+
+[node name="RayCast2D7" type="RayCast2D" parent="StaticBody2D/CollisionShape2D/ABajillionRayCasts"]
+position = Vector2(10, -10)
+target_position = Vector2(980, 619)
+
+[node name="RayCast2D8" type="RayCast2D" parent="StaticBody2D/CollisionShape2D/ABajillionRayCasts"]
+position = Vector2(14, -18)
+target_position = Vector2(1075, 420)
+
+[node name="RayCast2D9" type="RayCast2D" parent="StaticBody2D/CollisionShape2D/ABajillionRayCasts"]
+position = Vector2(16, -25)
+target_position = Vector2(1175, 230)
