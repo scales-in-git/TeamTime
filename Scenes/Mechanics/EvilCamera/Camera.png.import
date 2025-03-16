@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c12hx0hqu3xoh"
-path="res://.godot/imported/Camera.png-b106294fa895e9ed9dd1e09254360e56.ctex"
+path="res://.godot/imported/Camera.png-ab7191f375ca667a258418a2b89b57e0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Camera.png"
-dest_files=["res://.godot/imported/Camera.png-b106294fa895e9ed9dd1e09254360e56.ctex"]
+source_file="res://Scenes/Mechanics/EvilCamera/Camera.png"
+dest_files=["res://.godot/imported/Camera.png-ab7191f375ca667a258418a2b89b57e0.ctex"]
 
 [params]
 
