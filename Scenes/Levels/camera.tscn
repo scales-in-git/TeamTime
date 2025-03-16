@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://d4eeme44hkqe5"]
+
+[ext_resource type="Texture2D" uid="uid://c12hx0hqu3xoh" path="res://Camera.png" id="1_btghu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x50qj"]
+atlas = ExtResource("1_btghu")
+region = Rect2(484, 0, 484, 383)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2uo1x"]
+atlas = ExtResource("1_btghu")
+region = Rect2(968, 0, 484, 383)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r1oyi"]
+atlas = ExtResource("1_btghu")
+region = Rect2(0, 0, 484, 383)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cri6k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x50qj")
+}],
+"loop": true,
+"name": &"blink",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2uo1x")
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r1oyi")
+}],
+"loop": true,
+"name": &"on",
+"speed": 5.0
+}]
+
+[node name="Camera" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_cri6k")
+animation = &"on"
