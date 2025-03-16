@@ -32,9 +32,8 @@ z_index = 1
 position = Vector2(0, -69.041)
 scale = Vector2(0.273973, 0.273973)
 sprite_frames = ExtResource("2_gqvyu")
-animation = &"Idle"
+animation = &"Jump"
 offset = Vector2(0, -113)
-flip_h = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 physics_interpolation_mode = 1
