@@ -1,6 +1,9 @@
 class_name Player
 extends CharacterBody2D
 
+@export_category("Animation")
+@export var animated_sprite:PlayerAnimations
+
 @export_category("Movement")
 
 @export var speed: float = 400.0
@@ -26,10 +29,20 @@ func _physics_process(delta: float) -> void:
 	var walk_magnitude = Input.get_axis("player_left", "player_right")
 	velocity.x = walk_magnitude*speed
 	
+	animated_sprite.flip_h= (walk_magnitude<0.0)	
+
+	if is_on_floor():
+		if walk_magnitude != 0.0:
+			animated_sprite.Running()
+
+		if walk_magnitude==0.0:
+			animated_sprite.Idle()
+
 	velocity.y += gravity*delta
 	
 	if Input.is_action_just_pressed("player_jump") and is_on_floor():
 		velocity.y = -jump_strength
+		animated_sprite.Jump()
 	
 	move_and_slide()
 

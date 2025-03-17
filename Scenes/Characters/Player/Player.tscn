@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://b6n4ox24glr40"]
+[gd_scene load_steps=11 format=3 uid="uid://b6n4ox24glr40"]
 
 [ext_resource type="Script" uid="uid://c465e010bomid" path="res://Scenes/Characters/Player/Player.gd" id="1_no7dv"]
 [ext_resource type="SpriteFrames" uid="uid://cw6ckk3ric7gn" path="res://Scenes/Characters/Player/Sprites/Character_SpriteAnimations.tres" id="2_gqvyu"]
 [ext_resource type="Script" uid="uid://c7y84gs01fdxh" path="res://Scenes/Characters/Player/BlockPlaceHelper.gd" id="3_gqvyu"]
 [ext_resource type="Script" uid="uid://bel636vbi2p7g" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_gu5w3"]
+[ext_resource type="Script" uid="uid://bfqpja4dftbt3" path="res://Scenes/Characters/Player/PlayerAnimationHelper.gd" id="3_ov5rv"]
 [ext_resource type="Script" uid="uid://76jmomq5wl5f" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="5_ov5rv"]
 [ext_resource type="Script" uid="uid://c4d36sgi5fcop" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_xst4l"]
 
@@ -19,8 +20,9 @@ size = Vector2(80, 190)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gqvyu"]
 size = Vector2(95, 95)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animated_sprite")]
 script = ExtResource("1_no7dv")
+animated_sprite = NodePath("CanvasGroup/Sprite2D")
 speed = 600.0
 gravity = 2500.0
 jump_strength = 1300.0
@@ -32,8 +34,9 @@ z_index = 1
 position = Vector2(0, -69.041)
 scale = Vector2(0.273973, 0.273973)
 sprite_frames = ExtResource("2_gqvyu")
-animation = &"Jump"
+animation = &"Idle"
 offset = Vector2(0, -113)
+script = ExtResource("3_ov5rv")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 physics_interpolation_mode = 1
