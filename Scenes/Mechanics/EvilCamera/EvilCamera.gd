@@ -7,6 +7,8 @@ extends Node2D
 @onready var fade_out := $%GenericFade
 @onready var alarm: AudioStreamPlayer2D = $%Alarm
 
+@export var state_manager: OnOffState
+
 # How long the camera will stay on before it blinks. Set to zero to disable autoblinking.
 @export var auto_blink_on: float = 5.0
 # How long it blinks for
@@ -76,3 +78,7 @@ func _physics_process(_delta):
 func _ready():
 	if auto_blink_on > 0.0:
 		auto_blinking_on_state_timer = _create_blink_timer()
+	
+	if state_manager:
+		state_manager.turned_on.connect(turn_on)
+		state_manager.turned_off.connect(turn_off)
