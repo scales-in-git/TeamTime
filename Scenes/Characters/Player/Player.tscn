@@ -32,6 +32,7 @@ jump_strength = 1300.0
 [node name="CanvasGroup" type="CanvasGroup" parent="."]
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="CanvasGroup"]
+modulate = Color(0.345098, 1, 1, 1)
 z_index = 1
 position = Vector2(0, -68.041)
 scale = Vector2(0.274, 0.274)
@@ -43,6 +44,7 @@ script = ExtResource("3_ov5rv")
 [node name="Player Glow" type="PointLight2D" parent="CanvasGroup/Sprite2D"]
 position = Vector2(144.176, -89.2753)
 scale = Vector2(4.3612, 3.95291)
+color = Color(0.345098, 1, 1, 1)
 energy = 0.5
 shadow_enabled = true
 texture = ExtResource("8_xst4l")
@@ -52,6 +54,7 @@ height = 100.0
 [node name="Player Glow2" type="PointLight2D" parent="CanvasGroup/Sprite2D"]
 position = Vector2(144.176, -89.2753)
 scale = Vector2(4.3612, 3.95291)
+color = Color(0.345098, 1, 1, 1)
 energy = 0.5
 shadow_enabled = true
 texture = ExtResource("8_xst4l")

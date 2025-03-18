@@ -9,6 +9,7 @@ extends StaticBody2D
 @export var delete_time: float = 0.333
 
 @onready var sprite := $%Sprite
+@onready var light :PointLight2D=$%Light
 
 var _last_survivor := false
 
@@ -42,6 +43,7 @@ func fancy_delete():
 func clear_highlight():
 	animation_player.stop()
 	sprite.modulate = Color.WHITE
+	light.color=Color.WHITE
 
 func highlight_as_last():
 	animation_player.play("highlight_auto_remove")
