@@ -10,8 +10,15 @@ extends BaseEntrance
 
 @export var fade_colour: Color = Color.BLACK
 
+@export var enter_at: Node2D
+
 func enter(player: Player):
-	player.position = global_position
+	if enter_at:
+		# player.global_position = enter_at.global_position
+		enter_at.add_child(player)
+	else:
+		add_child(player)
+
 	player.puppeting = true
 	player.apply_floor_snap()
 	#player.velocity = walk_towards_strength*-global_transform.basis.x

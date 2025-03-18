@@ -32,8 +32,9 @@ tile_set = ExtResource("1_c0w2p")
 position = Vector2(500, 0)
 scene = "uid://c1dpvnlb8w12k"
 
-[node name="WalkingEntrance" parent="." instance=ExtResource("3_h1f6c")]
+[node name="WalkingEntrance" parent="." node_paths=PackedStringArray("enter_at") instance=ExtResource("3_h1f6c")]
 position = Vector2(-390, 10)
+enter_at = NodePath("../Marker2D")
 
 [node name="SmartMusicPlayer" parent="." instance=ExtResource("4_h1f6c")]
 music = ExtResource("5_sp5aj")
@@ -56,3 +57,6 @@ script = ExtResource("8_j4m2t")
 zoom = Vector2(0.5, 0.5)
 tween_resource = SubResource("Resource_qydgm")
 metadata/_custom_type_script = "uid://76jmomq5wl5f"
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-350, -400)

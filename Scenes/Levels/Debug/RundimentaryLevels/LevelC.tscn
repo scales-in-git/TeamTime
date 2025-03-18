@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=4 uid="uid://cu4rjl45f8rbo"]
 
 [ext_resource type="TileSet" uid="uid://c25hcjc6u3jq1" path="res://Scenes/Levels/DebugTileSet.tres" id="1_fgpdp"]
-[ext_resource type="PackedScene" uid="uid://v042n0qyld7u" path="res://Scenes/Mechanics/Entrance/InstantEntrance/InstantEntrance.tscn" id="2_omir1"]
+[ext_resource type="PackedScene" uid="uid://uuf6ujkuy7bv" path="res://Scenes/Mechanics/Entrance/WalkingEntrance/WalkingEntrance.tscn" id="1_odgne"]
 [ext_resource type="PackedScene" uid="uid://dbehr8mfolttb" path="res://Scenes/Utility/SmartMusicPlayer.tscn" id="3_omir1"]
 [ext_resource type="AudioStream" uid="uid://d2tfnsct46q64" path="res://music/lab_ambience.wav" id="4_bv234"]
 [ext_resource type="PackedScene" uid="uid://yhp7gr6fmrn5" path="res://Scenes/Mechanics/Exit/InstantExit/InstantExit.tscn" id="5_ef31k"]
@@ -36,8 +36,7 @@ color = Color(0.16, 0.16, 0.16, 1)
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.34, 0.34, 0.34, 1)
 
-[node name="InstantEntrance" parent="." instance=ExtResource("2_omir1")]
-position = Vector2(50, 50)
+[node name="WalkingEntrance" parent="." instance=ExtResource("1_odgne")]
 
 [node name="SmartMusicPlayer" parent="." instance=ExtResource("3_omir1")]
 music = ExtResource("4_bv234")

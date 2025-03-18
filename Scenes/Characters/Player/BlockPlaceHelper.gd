@@ -38,9 +38,10 @@ func _input(event: InputEvent):
 
 	if event.is_action_pressed("player_block_place") and can_place_block:
 		var new_block := _PlacedBlock.instantiate()
+
+		get_parent().add_sibling(new_block)
 		new_block.global_position = block_collision_detector.global_position
 
-		add_sibling(new_block)
 		placed_block_queue.append(new_block)
 		blocks_changed = true
 
