@@ -22,6 +22,7 @@ size = Vector2(80, 190)
 size = Vector2(95, 95)
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animated_sprite")]
+collision_layer = 5
 script = ExtResource("1_no7dv")
 animated_sprite = NodePath("CanvasGroup/Sprite2D")
 speed = 600.0
