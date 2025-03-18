@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b6n4ox24glr40"]
+[gd_scene load_steps=12 format=3 uid="uid://b6n4ox24glr40"]
 
 [ext_resource type="Script" uid="uid://c465e010bomid" path="res://Scenes/Characters/Player/Player.gd" id="1_no7dv"]
 [ext_resource type="SpriteFrames" uid="uid://cw6ckk3ric7gn" path="res://Scenes/Characters/Player/Sprites/Character_SpriteAnimations.tres" id="2_gqvyu"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://bfqpja4dftbt3" path="res://Scenes/Characters/Player/PlayerAnimationHelper.gd" id="3_ov5rv"]
 [ext_resource type="Script" uid="uid://76jmomq5wl5f" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="5_ov5rv"]
 [ext_resource type="Script" uid="uid://c4d36sgi5fcop" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_xst4l"]
+[ext_resource type="Texture2D" uid="uid://bdm5eipd1m8bw" path="res://Glow.png" id="8_xst4l"]
 
 [sub_resource type="Resource" id="Resource_p3isv"]
 script = ExtResource("6_xst4l")
@@ -35,7 +36,9 @@ z_index = 1
 position = Vector2(0, -69.041)
 scale = Vector2(0.273973, 0.273973)
 sprite_frames = ExtResource("2_gqvyu")
-animation = &"Idle"
+animation = &"Run"
+frame = 5
+frame_progress = 0.66531
 offset = Vector2(0, -113)
 script = ExtResource("3_ov5rv")
 
@@ -85,6 +88,15 @@ color = Color(1, 0.52, 0.632, 0.635294)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BlockPlaceHelper/BlockPlaceCollision"]
 position = Vector2(50, 50)
 shape = SubResource("RectangleShape2D_gqvyu")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0.500008, -92.5)
+scale = Vector2(1.19485, 1.08299)
+energy = 0.5
+shadow_enabled = true
+texture = ExtResource("8_xst4l")
+texture_scale = 0.3
+height = 100.0
 
 [connection signal="body_entered" from="BlockPlaceHelper/BlockPlaceCollision" to="BlockPlaceHelper" method="_on_block_place_collision_body_entered"]
 [connection signal="body_exited" from="BlockPlaceHelper/BlockPlaceCollision" to="BlockPlaceHelper" method="_on_block_place_collision_body_exited"]

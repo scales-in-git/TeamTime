@@ -29,7 +29,9 @@ func _physics_process(delta: float) -> void:
 	var walk_magnitude = Input.get_axis("player_left", "player_right")
 	velocity.x = walk_magnitude*speed
 	
-	animated_sprite.flip_h= (walk_magnitude<0.0)	
+	
+	if walk_magnitude != 0.0:
+		animated_sprite.flip_h= (walk_magnitude<0.0)	
 
 	if is_on_floor():
 		if walk_magnitude != 0.0:

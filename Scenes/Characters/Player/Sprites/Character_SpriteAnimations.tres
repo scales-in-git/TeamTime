@@ -17,35 +17,35 @@ region = Rect2(0, 730, 1172, 730)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_32tu0"]
 atlas = ExtResource("1_tjvq5")
-region = Rect2(1172, 730, 1172, 730)
+region = Rect2(1172, 730, 1172, 729)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6ctfc"]
 atlas = ExtResource("1_tjvq5")
-region = Rect2(1172, 1460, 1172, 730)
+region = Rect2(1172, 1460, 1172, 729)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ek5v5"]
 atlas = ExtResource("1_tjvq5")
-region = Rect2(2344, 0, 1172, 730)
+region = Rect2(2344, 0, 1172, 729)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ofrs3"]
 atlas = ExtResource("1_tjvq5")
-region = Rect2(1172, 2190, 1172, 730)
+region = Rect2(1172, 2190, 1172, 729)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x4qmx"]
 atlas = ExtResource("1_tjvq5")
-region = Rect2(2344, 730, 1172, 730)
+region = Rect2(2344, 730, 1172, 729)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e3oy5"]
 atlas = ExtResource("1_tjvq5")
-region = Rect2(2344, 1460, 1172, 730)
+region = Rect2(2344, 1460, 1172, 729)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2w8vl"]
 atlas = ExtResource("1_tjvq5")
-region = Rect2(2344, 2190, 1172, 730)
+region = Rect2(2344, 2190, 1172, 729)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dt5y5"]
 atlas = ExtResource("1_tjvq5")
-region = Rect2(0, 2920, 1172, 730)
+region = Rect2(0, 2920, 1172, 729)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ka51m"]
 atlas = ExtResource("1_tjvq5")
@@ -131,5 +131,13 @@ animations = [{
 }],
 "loop": false,
 "name": &"RunStart",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 10.0,
+"texture": SubResource("AtlasTexture_5vysq")
+}],
+"loop": true,
+"name": &"default",
 "speed": 5.0
 }]
