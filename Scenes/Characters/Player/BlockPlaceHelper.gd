@@ -40,7 +40,7 @@ func _input(event: InputEvent):
 		var new_block := _PlacedBlock.instantiate()
 		new_block.global_position = block_collision_detector.global_position
 
-		get_tree().root.get_child(0).add_child(new_block)
+		add_sibling(new_block)
 		placed_block_queue.append(new_block)
 		blocks_changed = true
 
