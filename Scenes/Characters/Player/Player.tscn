@@ -108,5 +108,17 @@ color = Color(1, 0.52, 0.632, 0.635294)
 position = Vector2(50, 50)
 shape = SubResource("RectangleShape2D_gqvyu")
 
+[node name="Node" type="Node" parent="."]
+
+[node name="JumpBufferTimer" type="Timer" parent="Node"]
+unique_name_in_owner = true
+wait_time = 0.35
+one_shot = true
+
+[node name="CoyoteTimer" type="Timer" parent="Node"]
+unique_name_in_owner = true
+wait_time = 0.2
+one_shot = true
+
 [connection signal="body_entered" from="BlockPlaceHelper/BlockPlaceCollision" to="BlockPlaceHelper" method="_on_block_place_collision_body_entered"]
 [connection signal="body_exited" from="BlockPlaceHelper/BlockPlaceCollision" to="BlockPlaceHelper" method="_on_block_place_collision_body_exited"]
