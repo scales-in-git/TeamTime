@@ -34,11 +34,29 @@ jump_strength = 1300.0
 [node name="Sprite2D" type="AnimatedSprite2D" parent="CanvasGroup"]
 z_index = 1
 position = Vector2(0, -68.041)
-scale = Vector2(0.273973, 0.273973)
+scale = Vector2(0.274, 0.274)
 sprite_frames = ExtResource("2_gqvyu")
 animation = &"Idle"
 offset = Vector2(0, -113)
 script = ExtResource("3_ov5rv")
+
+[node name="Player Glow" type="PointLight2D" parent="CanvasGroup/Sprite2D"]
+position = Vector2(144.176, -89.2753)
+scale = Vector2(4.3612, 3.95291)
+energy = 0.5
+shadow_enabled = true
+texture = ExtResource("8_xst4l")
+texture_scale = 0.3
+height = 100.0
+
+[node name="Player Glow2" type="PointLight2D" parent="CanvasGroup/Sprite2D"]
+position = Vector2(144.176, -89.2753)
+scale = Vector2(4.3612, 3.95291)
+energy = 0.5
+shadow_enabled = true
+texture = ExtResource("8_xst4l")
+texture_scale = 0.1
+height = 100.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 physics_interpolation_mode = 1
@@ -86,24 +104,6 @@ color = Color(1, 0.52, 0.632, 0.635294)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BlockPlaceHelper/BlockPlaceCollision"]
 position = Vector2(50, 50)
 shape = SubResource("RectangleShape2D_gqvyu")
-
-[node name="Player Glow" type="PointLight2D" parent="."]
-position = Vector2(39.5005, -92.5)
-scale = Vector2(1.19485, 1.08299)
-energy = 0.5
-shadow_enabled = true
-texture = ExtResource("8_xst4l")
-texture_scale = 0.3
-height = 100.0
-
-[node name="Player Glow2" type="PointLight2D" parent="."]
-position = Vector2(39.5005, -92.5)
-scale = Vector2(1.19485, 1.08299)
-energy = 0.5
-shadow_enabled = true
-texture = ExtResource("8_xst4l")
-texture_scale = 0.1
-height = 100.0
 
 [connection signal="body_entered" from="BlockPlaceHelper/BlockPlaceCollision" to="BlockPlaceHelper" method="_on_block_place_collision_body_entered"]
 [connection signal="body_exited" from="BlockPlaceHelper/BlockPlaceCollision" to="BlockPlaceHelper" method="_on_block_place_collision_body_exited"]

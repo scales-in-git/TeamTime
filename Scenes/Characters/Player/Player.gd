@@ -31,7 +31,13 @@ func _physics_process(delta: float) -> void:
 	
 	
 	if walk_magnitude != 0.0:
-		animated_sprite.flip_h= (walk_magnitude<0.0)	
+		var is_left:= (animated_sprite.scale.x<0.0)
+		var moving_left:bool= (walk_magnitude<0.0)
+		
+		if is_left and not moving_left: animated_sprite.scale.x=animated_sprite.scale.x*-1
+
+		if moving_left and not is_left: animated_sprite.scale.x=animated_sprite.scale.x*-1
+	
 
 	if is_on_floor():
 		if walk_magnitude != 0.0:
@@ -39,12 +45,13 @@ func _physics_process(delta: float) -> void:
 
 		if walk_magnitude==0.0:
 			animated_sprite.Idle()
+	else:
+		animated_sprite.Jump()
 
 	velocity.y += gravity*delta
 	
 	if Input.is_action_just_pressed("player_jump") and is_on_floor():
 		velocity.y = -jump_strength
-		animated_sprite.Jump()
 	
 	move_and_slide()
 
