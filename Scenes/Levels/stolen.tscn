@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://b1m643ns0nwm6"]
+[gd_scene load_steps=15 format=3 uid="uid://b1m643ns0nwm6"]
 
 [ext_resource type="Texture2D" uid="uid://cxvmfyg3qiw4t" path="res://StolenWalk SpriteSheet.png" id="1_iyhso"]
+[ext_resource type="Texture2D" uid="uid://bdm5eipd1m8bw" path="res://Glow.png" id="2_qaihh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iyhso"]
 atlas = ExtResource("1_iyhso")
@@ -105,6 +106,27 @@ animations = [{
 [node name="Stolen" type="Node2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 0.469494, 0.401435, 1)
+scale = Vector2(0.27, 0.27)
 sprite_frames = SubResource("SpriteFrames_vtndb")
-animation = &"Walk"
-frame_progress = 0.259632
+animation = &"Look_Left"
+
+[node name="Player Glow" type="PointLight2D" parent="AnimatedSprite2D"]
+position = Vector2(84.4837, 0)
+scale = Vector2(4.3612, 3.95291)
+color = Color(1, 0, 0, 1)
+energy = 0.5
+shadow_enabled = true
+texture = ExtResource("2_qaihh")
+texture_scale = 0.3
+height = 100.0
+
+[node name="Player Glow2" type="PointLight2D" parent="AnimatedSprite2D"]
+position = Vector2(84.4837, 0)
+scale = Vector2(4.3612, 3.95291)
+color = Color(1, 0, 0, 1)
+energy = 0.5
+shadow_enabled = true
+texture = ExtResource("2_qaihh")
+texture_scale = 0.1
+height = 100.0
