@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://cu4rjl45f8rbo"]
+[gd_scene load_steps=11 format=4 uid="uid://cu4rjl45f8rbo"]
 
 [ext_resource type="TileSet" uid="uid://c25hcjc6u3jq1" path="res://Scenes/Levels/DebugTileSet.tres" id="1_fgpdp"]
 [ext_resource type="PackedScene" uid="uid://v042n0qyld7u" path="res://Scenes/Mechanics/Entrance/InstantEntrance/InstantEntrance.tscn" id="2_omir1"]
@@ -8,6 +8,13 @@
 [ext_resource type="Resource" uid="uid://dk7njr5jptwoi" path="res://Scenes/Levels/Debug/RundimentaryLevels/level_c_camera.tres" id="6_4yba6"]
 [ext_resource type="PackedScene" uid="uid://dxb7l54dt8jih" path="res://Scenes/Mechanics/EvilCamera/EvilCamera.tscn" id="6_bv234"]
 [ext_resource type="PackedScene" uid="uid://brsai7op34w2q" path="res://Scenes/Mechanics/Switch/Switch.tscn" id="7_bmrdl"]
+[ext_resource type="Script" uid="uid://b42m1hnljomnf" path="res://Scenes/Utility/OnOffStateInverter.gd" id="9_odgne"]
+
+[sub_resource type="Resource" id="Resource_5v4x4"]
+script = ExtResource("9_odgne")
+state_manager = ExtResource("6_4yba6")
+on = false
+metadata/_custom_type_script = "uid://b42m1hnljomnf"
 
 [node name="LevelC" type="Node2D"]
 
@@ -58,3 +65,7 @@ state_manager = ExtResource("6_4yba6")
 [node name="Switch2" parent="." instance=ExtResource("7_bmrdl")]
 position = Vector2(-850, -100)
 state_manager = ExtResource("6_4yba6")
+
+[node name="Switch3" parent="." instance=ExtResource("7_bmrdl")]
+position = Vector2(-1100, -100)
+state_manager = SubResource("Resource_5v4x4")

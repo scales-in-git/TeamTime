@@ -80,5 +80,9 @@ func _ready():
 		auto_blinking_on_state_timer = _create_blink_timer()
 	
 	if state_manager:
+		state_manager.init()
 		state_manager.turned_on.connect(turn_on)
 		state_manager.turned_off.connect(turn_off)
+	
+		if not state_manager.on:
+			turn_off()

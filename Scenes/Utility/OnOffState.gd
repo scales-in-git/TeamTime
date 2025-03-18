@@ -5,7 +5,10 @@ signal state_changed(new_state: bool)
 signal turned_on
 signal turned_off
 
-@export var on := false
+# Note: do not set this in code unless you're a descedant.
+# TODO: _ready stuff?
+@export var on: bool = false
+
 
 func toggle():
     if on:
@@ -25,6 +28,7 @@ func turn_off():
         state_changed.emit(on)
         turned_off.emit()
 
-
+func init():
+    pass
 
 

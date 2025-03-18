@@ -25,6 +25,10 @@ func turn_off():
 func _ready():
 	assert(state_manager, "This class makes no sense without a state manager!")
 
+	state_manager.init()
 	state_manager.turned_on.connect(turn_on)
 	state_manager.turned_off.connect(turn_off)
 	interactor.interacted.connect(state_manager.toggle)
+
+	if not state_manager.on:
+		turn_off()
