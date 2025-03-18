@@ -8,5 +8,4 @@ func enter(_player: Player):
 
 func _ready():
 	var player = _Player.instantiate()
-	get_tree().root.get_child(0).add_child(player)
 	enter(player)
