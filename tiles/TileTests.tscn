@@ -11,10 +11,6 @@
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.306923, 0.306923, 0.306923, 1)
 
-[node name="EvilCamera" parent="." instance=ExtResource("1_fhgxg")]
-position = Vector2(5100, -517)
-rotation = 1.5708
-
 [node name="TileMap" type="Node2D" parent="."]
 visible = false
 
@@ -146,6 +142,10 @@ texture = ExtResource("3_yecx7")
 [node name="foreground_or_ignore_shadow" type="CanvasLayer" parent="."]
 layer = 0
 follow_viewport_enabled = true
+
+[node name="EvilCamera" parent="foreground_or_ignore_shadow" instance=ExtResource("1_fhgxg")]
+position = Vector2(5123, -369)
+rotation = 1.5708
 
 [node name="Player" parent="foreground_or_ignore_shadow" instance=ExtResource("1_mbr7l")]
 

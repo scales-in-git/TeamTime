@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cxu3rw2cpdg44" path="res://Scenes/Mechanics/EvilCamera/EvilCamera.gd" id="1_32upy"]
 [ext_resource type="PackedScene" uid="uid://d4eeme44hkqe5" path="res://Scenes/Mechanics/EvilCamera/camera.tscn" id="1_tkfo8"]
-[ext_resource type="Texture2D" uid="uid://duf6hpxac1ki6" path="res://Scenes/Mechanics/EvilCamera/iu.png" id="2_hl045"]
+[ext_resource type="Texture2D" uid="uid://dgd1acdhvq8y0" path="res://ConeLight.png" id="2_244qs"]
 [ext_resource type="PackedScene" uid="uid://dlyr50dshfbi7" path="res://Scenes/Utility/GenericFade.tscn" id="4_06k72"]
 [ext_resource type="AudioStream" uid="uid://vhywg5j3yo6n" path="res://fx/lab_FX alarm1.wav" id="5_244qs"]
 
@@ -30,14 +30,15 @@ color = Color(0.16, 0.16, 0.16, 1)
 
 [node name="light" type="PointLight2D" parent="."]
 unique_name_in_owner = true
-rotation = -1.12062
+position = Vector2(-1, 62)
+rotation = 0.465807
+scale = Vector2(1.272, 0.98)
 shadow_enabled = true
-texture = ExtResource("2_hl045")
-offset = Vector2(-57.85, 644.24)
-texture_scale = 2.46
+texture = ExtResource("2_244qs")
 
 [node name="Camera(Real)" parent="." instance=ExtResource("1_tkfo8")]
 unique_name_in_owner = true
+light_mask = 2
 position = Vector2(0, 50)
 scale = Vector2(0.261, 0.261)
 
