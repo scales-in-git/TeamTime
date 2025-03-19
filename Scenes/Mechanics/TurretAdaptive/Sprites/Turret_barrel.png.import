@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xq2ocub8lia7"
-path="res://.godot/imported/Turret_base.png-88a1f3862d8c68eefe4851d85a8d678c.ctex"
+uid="uid://l72tt6vkb1r2"
+path="res://.godot/imported/Turret_barrel.png-185690dce11ffd4449001be7b35bcabf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Turret_base.png"
-dest_files=["res://.godot/imported/Turret_base.png-88a1f3862d8c68eefe4851d85a8d678c.ctex"]
+source_file="res://Scenes/Mechanics/TurretAdaptive/Sprites/Turret_barrel.png"
+dest_files=["res://.godot/imported/Turret_barrel.png-185690dce11ffd4449001be7b35bcabf.ctex"]
 
 [params]
 
