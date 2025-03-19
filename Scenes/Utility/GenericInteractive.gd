@@ -42,6 +42,5 @@ func _unhandled_input(event: InputEvent):
 	if w_instead_of_e and event.is_action_pressed('player_up'):
 		interacted.emit()
 	elif event.is_action_pressed('player_interact'):
-		print("Hello")
 		interacted.emit()
 
