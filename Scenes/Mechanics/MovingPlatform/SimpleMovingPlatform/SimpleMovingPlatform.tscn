@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ck7hdwm4tjpjn"]
+
+[ext_resource type="PackedScene" uid="uid://0hi7fyduhudf" path="res://Scenes/Mechanics/MovingPlatform/MovingPlatform.tscn" id="1_evlhf"]
+
+[node name="SimpleMovingPlatform" type="Node2D"]
+
+[node name="MovingPlatform" parent="." instance=ExtResource("1_evlhf")]
