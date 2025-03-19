@@ -17,9 +17,14 @@ enum MovementState {
 	TARGET_MOVE_TO
 }
 
+var active = true
+
 var current_state: MovementState = MovementState.TARGET_MOVE_TO
 
 func _physics_process(delta):
+	if not active:
+		return
+	
 	if current_state == MovementState.SOURCE_WAIT or current_state == MovementState.TARGET_WAIT:
 		return
 
@@ -53,7 +58,6 @@ func _physics_process(delta):
 		)
 
 	position += intended_displacement
-	# print(position)
 
 func _ready():
 	direction = direction.normalized()
