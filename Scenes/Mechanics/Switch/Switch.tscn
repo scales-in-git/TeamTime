@@ -24,6 +24,7 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.33, 1, 0.821333, 0.541176)
+metadata/_edit_use_anchors_ = true
 
 [node name="Interacter" parent="." instance=ExtResource("1_kw4m3")]
 unique_name_in_owner = true
