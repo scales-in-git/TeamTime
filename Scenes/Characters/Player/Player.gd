@@ -19,12 +19,18 @@ extends CharacterBody2D
 		return max_blocks
 @onready var block_placer: BlockPlacer = $%BlockPlaceHelper
 
+@onready var jump_buffer_timer: Timer = $%JumpBufferTimer
+@onready var coyote_timer: Timer = $%CoyoteTimer
+
 var puppeting := false
 
 
 func _physics_process(delta: float) -> void:
 	if puppeting:
 		return
+
+	if Input.is_action_just_pressed('player_jump'):
+		jump_buffer_timer.start()
 
 	var walk_magnitude = Input.get_axis("player_left", "player_right")
 	velocity.x = walk_magnitude*speed
@@ -45,13 +51,17 @@ func _physics_process(delta: float) -> void:
 
 		if walk_magnitude==0.0:
 			animated_sprite.Idle()
+		coyote_timer.start()
+
 	else:
 		animated_sprite.Jump()
 
 	velocity.y += gravity*delta
 	
-	if Input.is_action_just_pressed("player_jump") and is_on_floor():
+	# if Input.is_action_just_pressed("player_jump") and is_on_floor():
+	if not jump_buffer_timer.is_stopped() and (is_on_floor() or not coyote_timer.is_stopped()):
 		velocity.y = -jump_strength
+		jump_buffer_timer.stop()
 	
 	move_and_slide()
 

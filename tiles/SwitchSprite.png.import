@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxvmfyg3qiw4t"
-path="res://.godot/imported/StolenWalk SpriteSheet.png-fcabef4e7427093a13c3277dcb227e74.ctex"
+uid="uid://dn1dc4r1blln2"
+path="res://.godot/imported/SwitchSprite.png-46d9faa31fcdcb5250795e7fe9559111.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://StolenWalk SpriteSheet.png"
-dest_files=["res://.godot/imported/StolenWalk SpriteSheet.png-fcabef4e7427093a13c3277dcb227e74.ctex"]
+source_file="res://tiles/SwitchSprite.png"
+dest_files=["res://.godot/imported/SwitchSprite.png-46d9faa31fcdcb5250795e7fe9559111.ctex"]
 
 [params]
 

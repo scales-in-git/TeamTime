@@ -7,17 +7,24 @@ extends Node2D
 
 @export var on_colour: Color = Color('#54ffd18a')
 @export var off_colour: Color = Color(Color.TOMATO,138.0/256.0)
+@export var switch_sprite:Sprite2D
+@export var switch_light:PointLight2D
 
-@onready var indicator: ColorRect = $%TempIndicator
+##@onready var indicator: ColorRect = $%TempIndicator
 @onready var interactor: GenericInteractable = $%Interacter
 
 
 func turn_on():
-	indicator.color = on_colour
+	
+	##indicator.color = on_colour
+	switch_light.color=on_colour
+	##switch_sprite.modulate=on_colour
 	# Also: play sound
 
 func turn_off():
-	indicator.color = off_colour
+	##indicator.color = off_colour
+	#switch_sprite.modulate=off_colour
+	switch_light.color=off_colour
 	# Also: play sound
 
 

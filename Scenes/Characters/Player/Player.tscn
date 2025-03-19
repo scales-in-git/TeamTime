@@ -32,6 +32,7 @@ jump_strength = 1300.0
 [node name="CanvasGroup" type="CanvasGroup" parent="."]
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="CanvasGroup"]
+modulate = Color(0.345098, 1, 1, 1)
 z_index = 1
 position = Vector2(0, -68.041)
 scale = Vector2(0.274, 0.274)
@@ -43,6 +44,7 @@ script = ExtResource("3_ov5rv")
 [node name="Player Glow" type="PointLight2D" parent="CanvasGroup/Sprite2D"]
 position = Vector2(144.176, -89.2753)
 scale = Vector2(4.3612, 3.95291)
+color = Color(0.345098, 1, 1, 1)
 energy = 0.5
 shadow_enabled = true
 texture = ExtResource("8_xst4l")
@@ -52,6 +54,7 @@ height = 100.0
 [node name="Player Glow2" type="PointLight2D" parent="CanvasGroup/Sprite2D"]
 position = Vector2(144.176, -89.2753)
 scale = Vector2(4.3612, 3.95291)
+color = Color(0.345098, 1, 1, 1)
 energy = 0.5
 shadow_enabled = true
 texture = ExtResource("8_xst4l")
@@ -106,6 +109,18 @@ color = Color(1, 0.52, 0.632, 0.635294)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BlockPlaceHelper/BlockPlaceCollision"]
 position = Vector2(50, 50)
 shape = SubResource("RectangleShape2D_gqvyu")
+
+[node name="Node" type="Node" parent="."]
+
+[node name="JumpBufferTimer" type="Timer" parent="Node"]
+unique_name_in_owner = true
+wait_time = 0.35
+one_shot = true
+
+[node name="CoyoteTimer" type="Timer" parent="Node"]
+unique_name_in_owner = true
+wait_time = 0.2
+one_shot = true
 
 [connection signal="body_entered" from="BlockPlaceHelper/BlockPlaceCollision" to="BlockPlaceHelper" method="_on_block_place_collision_body_entered"]
 [connection signal="body_exited" from="BlockPlaceHelper/BlockPlaceCollision" to="BlockPlaceHelper" method="_on_block_place_collision_body_exited"]

@@ -1,13 +1,15 @@
-[gd_scene load_steps=10 format=4 uid="uid://blqe2wxtr843y"]
+[gd_scene load_steps=12 format=4 uid="uid://blqe2wxtr843y"]
 
 [ext_resource type="TileSet" uid="uid://7ewkkcpem306" path="res://tiles/TileTests.tres" id="1_6816w"]
 [ext_resource type="PackedScene" uid="uid://dxb7l54dt8jih" path="res://Scenes/Mechanics/EvilCamera/EvilCamera.tscn" id="1_fhgxg"]
 [ext_resource type="PackedScene" uid="uid://dbehr8mfolttb" path="res://Scenes/Utility/SmartMusicPlayer.tscn" id="1_wrl27"]
-[ext_resource type="Texture2D" uid="uid://bdm5eipd1m8bw" path="res://Glow.png" id="2_6816w"]
 [ext_resource type="AudioStream" uid="uid://d2tfnsct46q64" path="res://music/lab_ambience.wav" id="2_suunn"]
 [ext_resource type="Texture2D" uid="uid://3hurbwdo1xm0" path="res://SquareGlow.png" id="3_yecx7"]
 [ext_resource type="PackedScene" uid="uid://v042n0qyld7u" path="res://Scenes/Mechanics/Entrance/InstantEntrance/InstantEntrance.tscn" id="5_fhgxg"]
+[ext_resource type="Resource" uid="uid://dk7njr5jptwoi" path="res://Scenes/Levels/Debug/RundimentaryLevels/level_c_camera.tres" id="6_pe757"]
 [ext_resource type="PackedScene" uid="uid://jhjkr5mcfjhg" path="res://Scenes/Mechanics/DeathPit/DeathPit.tscn" id="8_pe757"]
+[ext_resource type="PackedScene" uid="uid://qgfao441huib" path="res://Scenes/Levels/GoalDoor.tscn" id="8_wrl27"]
+[ext_resource type="PackedScene" uid="uid://brsai7op34w2q" path="res://Scenes/Mechanics/Switch/Switch.tscn" id="9_suunn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e7vdt"]
 size = Vector2(4356, 499)
@@ -30,16 +32,10 @@ tile_set = ExtResource("1_6816w")
 
 [node name="Middle-Decor" type="TileMapLayer" parent="TileMaps"]
 z_index = -1
-tile_map_data = PackedByteArray("AAAxAP//AgADAAUAAAABAP//AgAEAAUAAAADAP//AgABAAUAAAALAP//AgACAAYAAAASAP//AgACAAYAAAATAP//AgAEAAUAAAALAPf/AgABAAUAAAAMAPf/AgACAAYAAAANAPf/AgACAAYAAAAOAPf/AgAEAAUAAAAPAPf/AgAEAAUAAAAQAPf/AgABAAUAAAARAPf/AgAEAAUAAAAEAP//AgAEAAUAAAAkAP//AgAEAAUAAAAuAP//AgABAAUAAAAdAPf/AgABAAUAAAAeAPf/AgACAAYAAAAfAPf/AgACAAYAAAAgAPf/AgAEAAUAAAAhAPf/AgAEAAUAAAAiAPf/AgABAAUAAAAjAPf/AgAEAAUAAAA=")
+tile_map_data = PackedByteArray("AAABAP//AgAEAAUAAAADAP//AgABAAUAAAALAP//AgACAAYAAAASAP//AgACAAYAAAATAP//AgAEAAUAAAALAPf/AgABAAUAAAAMAPf/AgACAAYAAAANAPf/AgACAAYAAAAOAPf/AgAEAAUAAAAPAPf/AgAEAAUAAAAQAPf/AgABAAUAAAARAPf/AgAEAAUAAAAEAP//AgAEAAUAAAAkAP//AgAEAAUAAAAuAP//AgABAAUAAAAdAPf/AgABAAUAAAAeAPf/AgACAAYAAAAfAPf/AgACAAYAAAAgAPf/AgAEAAUAAAAhAPf/AgAEAAUAAAAiAPf/AgABAAUAAAAjAPf/AgAEAAUAAAA=")
 tile_set = ExtResource("1_6816w")
 
 [node name="Lights" type="Node2D" parent="."]
-
-[node name="DoorLight" type="PointLight2D" parent="Lights"]
-position = Vector2(4942.5, -104.5)
-scale = Vector2(0.215459, 0.354589)
-shadow_enabled = true
-texture = ExtResource("2_6816w")
 
 [node name="FloorLights" type="Node2D" parent="Lights"]
 position = Vector2(0, 3)
@@ -138,6 +134,7 @@ follow_viewport_enabled = true
 [node name="EvilCamera" parent="foreground_or_ignore_shadow" instance=ExtResource("1_fhgxg")]
 position = Vector2(5123, -369)
 rotation = 1.5708
+state_manager = ExtResource("6_pe757")
 
 [node name="PlayerSpawning-Instant" parent="foreground_or_ignore_shadow" instance=ExtResource("5_fhgxg")]
 position = Vector2(-5, -121)
@@ -163,3 +160,10 @@ position = Vector2(2574, 1056)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="foreground_or_ignore_shadow/DeathPit"]
 position = Vector2(8, -347.5)
 shape = SubResource("RectangleShape2D_e7vdt")
+
+[node name="Door" parent="foreground_or_ignore_shadow" instance=ExtResource("8_wrl27")]
+position = Vector2(4950, -100)
+
+[node name="Switch" parent="foreground_or_ignore_shadow" instance=ExtResource("9_suunn")]
+position = Vector2(2844, -126)
+state_manager = ExtResource("6_pe757")
