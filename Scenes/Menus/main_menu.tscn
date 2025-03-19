@@ -1,15 +1,33 @@
-[gd_scene load_steps=7 format=3 uid="uid://sfyhw26gt1vr"]
+[gd_scene load_steps=18 format=3 uid="uid://sfyhw26gt1vr"]
 
+[ext_resource type="FontFile" uid="uid://b7kbd2t2kahle" path="res://Scenes/Menus/Fonts/digital-7.ttf" id="1_chkef"]
 [ext_resource type="Script" uid="uid://qms6jwawphbd" path="res://Scenes/Menus/main_menu.gd" id="1_s0654"]
+[ext_resource type="StyleBox" uid="uid://db4q55a3hpti" path="res://Scenes/Menus/Themes/Button_Disabled.tres" id="2_anmaw"]
+[ext_resource type="StyleBox" uid="uid://j28yyd0p42rl" path="res://Scenes/Menus/Themes/Button_Focus.tres" id="2_j4kqa"]
+[ext_resource type="StyleBox" uid="uid://v4atstyesw3e" path="res://Scenes/Menus/Themes/Button_Hover.tres" id="2_neey8"]
+[ext_resource type="Texture2D" uid="uid://ctxq1b6jvonlu" path="res://Scenes/Menus/images/MainMenu.png" id="2_penys"]
+[ext_resource type="StyleBox" uid="uid://bmngt0gidd7d6" path="res://Scenes/Menus/Themes/Button_Normal.tres" id="3_4fgt5"]
 [ext_resource type="Script" uid="uid://bqf3gg45lvvqs" path="res://Scenes/Menus/settings_menu.gd" id="3_covw7"]
+[ext_resource type="Texture2D" uid="uid://d3nbydo484fnw" path="res://Scenes/Menus/images/Tittle.png" id="4_aur2u"]
+[ext_resource type="StyleBox" uid="uid://bbim2l1wpy3fq" path="res://Scenes/Menus/Themes/Button_Click.tres" id="5_anmaw"]
+[ext_resource type="Shader" uid="uid://bylhb1fntwe5v" path="res://Scenes/Menus/Glitch.gdshader" id="11_ftsii"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5fnp5"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
+[sub_resource type="Theme" id="Theme_j4kqa"]
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("1_chkef")
+Button/styles/disabled = ExtResource("2_anmaw")
+Button/styles/focus = ExtResource("2_j4kqa")
+Button/styles/hover = ExtResource("2_neey8")
+Button/styles/normal = ExtResource("3_4fgt5")
+Button/styles/pressed = ExtResource("5_anmaw")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q5qts"]
-bg_color = Color(0.76, 0.2508, 0.2508, 1)
-expand_margin_top = 10.0
-expand_margin_bottom = 10.0
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ftsii"]
+shader = ExtResource("11_ftsii")
+shader_parameter/shake_power = 0.03
+shader_parameter/shake_rate = 0.1
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_block_size = 30.5
+shader_parameter/shake_color_rate = 0.01
 
 [sub_resource type="Shader" id="Shader_6uaqq"]
 code = "/*
@@ -213,6 +231,14 @@ shader_parameter/roll_speed = 1.0
 shader_parameter/scan_line_strength = -3.416
 shader_parameter/pixel_strength = -2.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q5qts"]
+bg_color = Color(0.76, 0.2508, 0.2508, 1)
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ftsii"]
+bg_color = Color(0, 0, 0, 0.835294)
+
 [node name="Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -220,369 +246,33 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_j4kqa")
 script = ExtResource("1_s0654")
 
-[node name="MainMenu" type="CenterContainer" parent="."]
-unique_name_in_owner = true
+[node name="Menu Texture" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_penys")
+expand_mode = 2
+stretch_mode = 4
 
-[node name="MarginContainer" type="MarginContainer" parent="MainMenu"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 490
-
-[node name="MarginContainer" type="MarginContainer" parent="MainMenu/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="MainMenu/MarginContainer/VBoxContainer/MarginContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 108
-text = "LONG NIGHT AT THE LABORATORY"
-
-[node name="PanelContainer" type="PanelContainer" parent="MainMenu/MarginContainer/VBoxContainer"]
-clip_contents = true
-custom_minimum_size = Vector2(280, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_5fnp5")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/MarginContainer/VBoxContainer/PanelContainer"]
-layout_mode = 2
-theme_override_constants/separation = 30
-
-[node name="PlayButton" type="Button" parent="MainMenu/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Play
-"
-
-[node name="CreditsButton" type="Button" parent="MainMenu/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Credits
-"
-
-[node name="SettingsButton" type="Button" parent="MainMenu/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Settings"
-
-[node name="QuitButton" type="Button" parent="MainMenu/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Quit
-"
-
-[node name="CreditsMenu" type="CenterContainer" parent="."]
-unique_name_in_owner = true
-visible = false
+[node name="Tittle" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_ftsii")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="CreditsMenu"]
-layout_mode = 2
-theme_override_constants/separation = 20
-alignment = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CreditsMenu/VBoxContainer2"]
-layout_mode = 2
-
-[node name="Label6" type="Label" parent="CreditsMenu/VBoxContainer2/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "Game Made By BestLizard (Evan Larose)"
-
-[node name="Label" type="Label" parent="CreditsMenu/VBoxContainer2/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 72
-text = "Asset Creators"
-
-[node name="Label3" type="Label" parent="CreditsMenu/VBoxContainer2/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Itch.io"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CreditsMenu/VBoxContainer2/VBoxContainer"]
-custom_minimum_size = Vector2(800, 0)
-layout_mode = 2
-theme_override_constants/separation = 40
-
-[node name="Label" type="Label" parent="CreditsMenu/VBoxContainer2/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "Pizza Doggy"
-
-[node name="Label2" type="Label" parent="CreditsMenu/VBoxContainer2/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "YourPalRob"
-
-[node name="Label3" type="Label" parent="CreditsMenu/VBoxContainer2/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "PepperoniJabroni"
-
-[node name="Label4" type="Label" parent="CreditsMenu/VBoxContainer2/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "Virtual_Bread"
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="CreditsMenu/VBoxContainer2/VBoxContainer"]
-custom_minimum_size = Vector2(800, 0)
-layout_mode = 2
-theme_override_constants/separation = 40
-
-[node name="Label" type="Label" parent="CreditsMenu/VBoxContainer2/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "SaniH"
-
-[node name="Label2" type="Label" parent="CreditsMenu/VBoxContainer2/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "Darkworld Audio"
-
-[node name="Label3" type="Label" parent="CreditsMenu/VBoxContainer2/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "Nox_Sound_Design"
-
-[node name="Label4" type="Label" parent="CreditsMenu/VBoxContainer2/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "Kenney"
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="CreditsMenu/VBoxContainer2/VBoxContainer"]
-custom_minimum_size = Vector2(800, 0)
-layout_mode = 2
-theme_override_constants/separation = 40
-
-[node name="Label" type="Label" parent="CreditsMenu/VBoxContainer2/VBoxContainer/HBoxContainer3"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "Audible Dread"
-
-[node name="Label2" type="Label" parent="CreditsMenu/VBoxContainer2/VBoxContainer/HBoxContainer3"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "Raw Ambience"
-
-[node name="Label3" type="Label" parent="CreditsMenu/VBoxContainer2/VBoxContainer/HBoxContainer3"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "Atelier Magicae"
-
-[node name="Screaming Brain Studios" type="Label" parent="CreditsMenu/VBoxContainer2/VBoxContainer/HBoxContainer3"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "Screaming Brain Studios"
-
-[node name="Label4" type="Label" parent="CreditsMenu/VBoxContainer2/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Godot Shaders"
-
-[node name="HBoxContainer5" type="HBoxContainer" parent="CreditsMenu/VBoxContainer2/VBoxContainer"]
-custom_minimum_size = Vector2(800, 0)
-layout_mode = 2
-theme_override_constants/separation = 40
-
-[node name="Screaming Brain Studios" type="Label" parent="CreditsMenu/VBoxContainer2/VBoxContainer/HBoxContainer5"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "axilirate (Outline shader)"
-
-[node name="Screaming Brain Studios2" type="Label" parent="CreditsMenu/VBoxContainer2/VBoxContainer/HBoxContainer5"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "c64Cosmin (CRT shader)"
-
-[node name="Label5" type="Label" parent="CreditsMenu/VBoxContainer2/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Pixabay"
-
-[node name="HBoxContainer6" type="HBoxContainer" parent="CreditsMenu/VBoxContainer2/VBoxContainer"]
-custom_minimum_size = Vector2(800, 0)
-layout_mode = 2
-theme_override_constants/separation = 40
-
-[node name="Screaming Brain Studios" type="Label" parent="CreditsMenu/VBoxContainer2/VBoxContainer/HBoxContainer6"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "Robet Gacek"
-
-[node name="Screaming Brain Studios2" type="Label" parent="CreditsMenu/VBoxContainer2/VBoxContainer/HBoxContainer6"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "Universfield "
-
-[node name="Label2" type="Label" parent="CreditsMenu/VBoxContainer2/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 72
-text = "Special Thanks"
-
-[node name="HBoxContainer7" type="HBoxContainer" parent="CreditsMenu/VBoxContainer2/VBoxContainer"]
-custom_minimum_size = Vector2(800, 0)
-layout_mode = 2
-theme_override_constants/separation = 40
-
-[node name="Screaming Brain Studios" type="Label" parent="CreditsMenu/VBoxContainer2/VBoxContainer/HBoxContainer7"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "Phanterm_"
-
-[node name="Screaming Brain Studios2" type="Label" parent="CreditsMenu/VBoxContainer2/VBoxContainer/HBoxContainer7"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "Ham Jam Discord"
-
-[node name="Screaming Brain Studios3" type="Label" parent="CreditsMenu/VBoxContainer2/VBoxContainer/HBoxContainer7"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "All My Playtesters"
-
-[node name="Screaming Brain Studios4" type="Label" parent="CreditsMenu/VBoxContainer2/VBoxContainer/HBoxContainer7"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "Puppet the Fox"
-
-[node name="PanelContainer" type="PanelContainer" parent="CreditsMenu/VBoxContainer2"]
-custom_minimum_size = Vector2(280, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-
-[node name="BackFromCredits" type="Button" parent="CreditsMenu/VBoxContainer2/PanelContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Back"
-
-[node name="SettingsMenu" type="CenterContainer" parent="."]
-unique_name_in_owner = true
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("3_covw7")
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="SettingsMenu"]
-layout_mode = 2
-theme_override_constants/separation = 80
-alignment = 1
-
-[node name="GridContainer" type="GridContainer" parent="SettingsMenu/VBoxContainer2"]
-layout_mode = 2
-theme_override_constants/h_separation = 30
-theme_override_constants/v_separation = 8
-columns = 3
-
-[node name="Label" type="Label" parent="SettingsMenu/VBoxContainer2/GridContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Volume:"
-
-[node name="PanelContainer" type="PanelContainer" parent="SettingsMenu/VBoxContainer2/GridContainer"]
-custom_minimum_size = Vector2(800, 20)
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="SettingsMenu/VBoxContainer2/GridContainer/PanelContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_right = 20
-
-[node name="VolumeSlider" type="HSlider" parent="SettingsMenu/VBoxContainer2/GridContainer/PanelContainer/MarginContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_vertical = 4
-theme_override_styles/slider = SubResource("StyleBoxFlat_q5qts")
-max_value = 1.0
-step = 0.01
-value = 1.0
-
-[node name="VolumeLabel" type="Label" parent="SettingsMenu/VBoxContainer2/GridContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(120, 0)
-layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "100%"
-
-[node name="Label2" type="Label" parent="SettingsMenu/VBoxContainer2/GridContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Mouse Sensitivity:"
-
-[node name="PanelContainer2" type="PanelContainer" parent="SettingsMenu/VBoxContainer2/GridContainer"]
-custom_minimum_size = Vector2(800, 20)
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="SettingsMenu/VBoxContainer2/GridContainer/PanelContainer2"]
-layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_right = 20
-
-[node name="SensitivitySlider" type="HSlider" parent="SettingsMenu/VBoxContainer2/GridContainer/PanelContainer2/MarginContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_vertical = 4
-theme_override_styles/slider = SubResource("StyleBoxFlat_q5qts")
-min_value = 0.1
-max_value = 10.0
-step = 0.01
-value = 1.0
-exp_edit = true
-
-[node name="SensitivityLabel" type="Label" parent="SettingsMenu/VBoxContainer2/GridContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "1.0"
-
-[node name="VBoxContainer" type="VBoxContainer" parent="SettingsMenu/VBoxContainer2"]
-layout_mode = 2
-theme_override_constants/separation = 20
-
-[node name="PanelContainer" type="PanelContainer" parent="SettingsMenu/VBoxContainer2/VBoxContainer"]
-custom_minimum_size = Vector2(280, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-
-[node name="Reset" type="Button" parent="SettingsMenu/VBoxContainer2/VBoxContainer/PanelContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Reset
-"
-
-[node name="PanelContainer2" type="PanelContainer" parent="SettingsMenu/VBoxContainer2/VBoxContainer"]
-custom_minimum_size = Vector2(280, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-
-[node name="BackFromCredits2" type="Button" parent="SettingsMenu/VBoxContainer2/VBoxContainer/PanelContainer2"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Back"
+texture = ExtResource("4_aur2u")
+expand_mode = 2
+stretch_mode = 4
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_t0rlu")
@@ -594,6 +284,436 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[connection signal="value_changed" from="SettingsMenu/VBoxContainer2/GridContainer/PanelContainer/MarginContainer/VolumeSlider" to="SettingsMenu" method="set_volume"]
-[connection signal="value_changed" from="SettingsMenu/VBoxContainer2/GridContainer/PanelContainer2/MarginContainer/SensitivitySlider" to="SettingsMenu" method="set_sensitivity"]
-[connection signal="pressed" from="SettingsMenu/VBoxContainer2/VBoxContainer/PanelContainer/Reset" to="SettingsMenu" method="reset"]
+[node name="MainMenu" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.637
+anchor_top = 0.343
+anchor_right = 0.863
+anchor_bottom = 0.91
+offset_left = 0.175964
+offset_top = -0.264023
+offset_right = -0.176025
+offset_bottom = 0.320007
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 64
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="PlayButton" type="Button" parent="MainMenu/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 32
+text = "Play"
+
+[node name="SettingsButton" type="Button" parent="MainMenu/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 32
+text = "Settings"
+
+[node name="CreditsButton" type="Button" parent="MainMenu/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 32
+text = "Credits"
+
+[node name="SettingsMenu" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_covw7")
+
+[node name="Panel" type="Panel" parent="SettingsMenu"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="SettingsMenu/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_right = 64
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="SettingsMenu/Panel/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 50
+
+[node name="GridContainer" type="GridContainer" parent="SettingsMenu/Panel/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 32
+columns = 3
+
+[node name="Label" type="Label" parent="SettingsMenu/Panel/MarginContainer/VBoxContainer2/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Volume:"
+
+[node name="PanelContainer" type="PanelContainer" parent="SettingsMenu/Panel/MarginContainer/VBoxContainer2/GridContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="SettingsMenu/Panel/MarginContainer/VBoxContainer2/GridContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="VolumeSlider" type="HSlider" parent="SettingsMenu/Panel/MarginContainer/VBoxContainer2/GridContainer/PanelContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/slider = SubResource("StyleBoxFlat_q5qts")
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="VolumeLabel" type="Label" parent="SettingsMenu/Panel/MarginContainer/VBoxContainer2/GridContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "100%"
+
+[node name="Label2" type="Label" parent="SettingsMenu/Panel/MarginContainer/VBoxContainer2/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Mouse Sensitivity:"
+
+[node name="PanelContainer2" type="PanelContainer" parent="SettingsMenu/Panel/MarginContainer/VBoxContainer2/GridContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="SettingsMenu/Panel/MarginContainer/VBoxContainer2/GridContainer/PanelContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="SensitivitySlider" type="HSlider" parent="SettingsMenu/Panel/MarginContainer/VBoxContainer2/GridContainer/PanelContainer2/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/slider = SubResource("StyleBoxFlat_q5qts")
+min_value = 0.1
+max_value = 10.0
+step = 0.01
+value = 1.0
+exp_edit = true
+
+[node name="SensitivityLabel" type="Label" parent="SettingsMenu/Panel/MarginContainer/VBoxContainer2/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "1.0"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsMenu/Panel/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 24
+
+[node name="PanelContainer" type="PanelContainer" parent="SettingsMenu/Panel/MarginContainer/VBoxContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Reset" type="Button" parent="SettingsMenu/Panel/MarginContainer/VBoxContainer2/VBoxContainer/PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Reset
+"
+
+[node name="PanelContainer2" type="PanelContainer" parent="SettingsMenu/Panel/MarginContainer/VBoxContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="BackFromCredits2" type="Button" parent="SettingsMenu/Panel/MarginContainer/VBoxContainer2/VBoxContainer/PanelContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Back"
+
+[node name="CreditsMenu" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ftsii")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CreditsMenu"]
+layout_mode = 2
+
+[node name="Credits" type="VBoxContainer" parent="CreditsMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="Label6" type="Label" parent="CreditsMenu/VBoxContainer/Credits"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 64
+text = "Game Made By 3 Scalies 1 Normie"
+
+[node name="Lead Programmer" type="GridContainer" parent="CreditsMenu/VBoxContainer/Credits"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 32
+columns = 2
+
+[node name="Label" type="Label" parent="CreditsMenu/VBoxContainer/Credits/Lead Programmer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 20
+text = "Lead Programer 
+Game Lead"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="CreditsMenu/VBoxContainer/Credits/Lead Programmer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 12
+text = "BestLizard 
+(Evan Larose)"
+
+[node name="Label2" type="Label" parent="CreditsMenu/VBoxContainer/Credits/Lead Programmer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 20
+text = "Junior Programer
+Asset Slave "
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="CreditsMenu/VBoxContainer/Credits/Lead Programmer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 12
+text = "ScalesInLight"
+
+[node name="Label5" type="Label" parent="CreditsMenu/VBoxContainer/Credits/Lead Programmer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 20
+text = "SFX 
+ Roped Level Designer"
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="CreditsMenu/VBoxContainer/Credits/Lead Programmer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 12
+text = "BestLizards Brother 
+(Ethan Larose)"
+horizontal_alignment = 1
+
+[node name="Label7" type="Label" parent="CreditsMenu/VBoxContainer/Credits/Lead Programmer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 20
+text = "Music  
+SoundSmith"
+horizontal_alignment = 1
+
+[node name="Label8" type="Label" parent="CreditsMenu/VBoxContainer/Credits/Lead Programmer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 12
+text = "Weso"
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="CreditsMenu/VBoxContainer/Credits"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="BackFromCredits" type="Button" parent="CreditsMenu/VBoxContainer/Credits/PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Back"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CreditsMenu/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CreditsMenu/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="CreditsMenu/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Pizza Doggy"
+
+[node name="Label2" type="Label" parent="CreditsMenu/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "YourPalRob"
+
+[node name="Label3" type="Label" parent="CreditsMenu/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "PepperoniJabroni"
+
+[node name="Label4" type="Label" parent="CreditsMenu/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Virtual_Bread"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CreditsMenu/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="CreditsMenu/VBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "SaniH"
+
+[node name="Label2" type="Label" parent="CreditsMenu/VBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Darkworld Audio"
+
+[node name="Label3" type="Label" parent="CreditsMenu/VBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Nox_Sound_Design"
+
+[node name="Label4" type="Label" parent="CreditsMenu/VBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Kenney"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CreditsMenu/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="CreditsMenu/VBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Audible Dread"
+
+[node name="Label2" type="Label" parent="CreditsMenu/VBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Raw Ambience"
+
+[node name="Label3" type="Label" parent="CreditsMenu/VBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Atelier Magicae"
+
+[node name="Screaming Brain Studios" type="Label" parent="CreditsMenu/VBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Screaming Brain Studios"
+
+[node name="Label4" type="Label" parent="CreditsMenu/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Godot Shaders"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="CreditsMenu/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 40
+
+[node name="Screaming Brain Studios" type="Label" parent="CreditsMenu/VBoxContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "axilirate (Outline shader)"
+
+[node name="Screaming Brain Studios2" type="Label" parent="CreditsMenu/VBoxContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "c64Cosmin (CRT shader)"
+
+[node name="Label5" type="Label" parent="CreditsMenu/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Pixabay"
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="CreditsMenu/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 40
+
+[node name="Screaming Brain Studios" type="Label" parent="CreditsMenu/VBoxContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Robet Gacek"
+
+[node name="Screaming Brain Studios2" type="Label" parent="CreditsMenu/VBoxContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Universfield "
+
+[node name="Label2" type="Label" parent="CreditsMenu/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Special Thanks"
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="CreditsMenu/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 40
+
+[node name="Screaming Brain Studios" type="Label" parent="CreditsMenu/VBoxContainer/VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Phanterm_"
+
+[node name="Screaming Brain Studios2" type="Label" parent="CreditsMenu/VBoxContainer/VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Ham Jam Discord"
+
+[node name="Screaming Brain Studios3" type="Label" parent="CreditsMenu/VBoxContainer/VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "All My Playtesters"
+
+[node name="Screaming Brain Studios4" type="Label" parent="CreditsMenu/VBoxContainer/VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Puppet the Fox"
