@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dohry0dir848e" path="res://Scenes/Mechanics/MovingPlatform/MovingPlatform.gd" id="1_akfi6"]
 
 [node name="MovingPlatform" type="AnimatableBody2D"]
+sync_to_physics = false
 script = ExtResource("1_akfi6")
 
 [node name="FunnyPlatformLol" type="Sprite2D" parent="."]

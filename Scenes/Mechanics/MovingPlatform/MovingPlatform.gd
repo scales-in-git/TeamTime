@@ -26,17 +26,27 @@ func _physics_process(delta):
 	var use_direction = direction if current_state == MovementState.TARGET_MOVE_TO else -direction
 	var intended_displacement = use_direction*delta*speed
 
+	var reached_destination = false
 	if current_state == MovementState.TARGET_MOVE_TO and (position + intended_displacement).length() > distance:
 		var end_position = direction*distance
 		# Holy f*** linear algebra
 		intended_displacement = end_position - position
+		reached_destination = true
+	if current_state == MovementState.SOURCE_MOVE_TO and (Vector2.ZERO - position).length() < intended_displacement.length():
+		intended_displacement = -position #?
+		reached_destination = true
 
+
+	var collision := move_and_collide(intended_displacement, true)
+	if collision:
+		return
+
+	if reached_destination and current_state == MovementState.TARGET_MOVE_TO:
 		current_state = MovementState.TARGET_WAIT
 		get_tree().create_timer(wait).timeout.connect(func ():
 			current_state = MovementState.SOURCE_MOVE_TO
 		)
-	if current_state == MovementState.SOURCE_MOVE_TO and (Vector2.ZERO - position).length() < intended_displacement.length():
-		intended_displacement = -position #?
+	if reached_destination and current_state == MovementState.SOURCE_MOVE_TO:
 		current_state = MovementState.SOURCE_WAIT
 		get_tree().create_timer(wait).timeout.connect(func ():
 			current_state = MovementState.TARGET_MOVE_TO
