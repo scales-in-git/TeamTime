@@ -446,7 +446,6 @@ text = "Back"
 
 [node name="CreditsMenu" type="PanelContainer" parent="."]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -495,7 +494,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 20
 text = "Junior Programer
-Asset Slave "
+Asset Make up artist "
 horizontal_alignment = 1
 
 [node name="Label4" type="Label" parent="CreditsMenu/VBoxContainer/Credits/Lead Programmer"]

@@ -5,9 +5,9 @@
 [ext_resource type="AudioStream" uid="uid://d2tfnsct46q64" path="res://music/lab_ambience.wav" id="2_fi74d"]
 [ext_resource type="Texture2D" uid="uid://bdm5eipd1m8bw" path="res://Glow.png" id="2_ox56x"]
 [ext_resource type="Texture2D" uid="uid://3hurbwdo1xm0" path="res://SquareGlow.png" id="3_fi74d"]
-[ext_resource type="PackedScene" uid="uid://v042n0qyld7u" path="res://Scenes/Mechanics/Entrance/InstantEntrance/InstantEntrance.tscn" id="4_w8w3f"]
 [ext_resource type="PackedScene" uid="uid://jhjkr5mcfjhg" path="res://Scenes/Mechanics/DeathPit/DeathPit.tscn" id="5_ekoqq"]
-[ext_resource type="PackedScene" uid="uid://dnp68bg7x5xqw" path="res://Scenes/Mechanics/Exit/WalkingExit/WalkingExit.tscn" id="7_ykvu1"]
+[ext_resource type="PackedScene" uid="uid://qgfao441huib" path="res://Scenes/Mechanics/Exit/ExitDoor/GoalDoor.tscn" id="9_fi74d"]
+[ext_resource type="PackedScene" uid="uid://2u65lxhpmldx" path="res://Scenes/Mechanics/Entrance/DoorEntrance/DoorEntrance.tscn" id="10_w8w3f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v53k6"]
 size = Vector2(4356, 499)
@@ -36,6 +36,7 @@ tile_set = ExtResource("1_cf5n6")
 [node name="Lights" type="Node2D" parent="."]
 
 [node name="DoorLight" type="PointLight2D" parent="Lights"]
+visible = false
 position = Vector2(2945, -89.0001)
 scale = Vector2(0.281885, 0.340761)
 shadow_enabled = true
@@ -79,6 +80,7 @@ shadow_enabled = true
 texture = ExtResource("3_fi74d")
 
 [node name="DoorLight2" type="PointLight2D" parent="Lights"]
+visible = false
 position = Vector2(-748, -103)
 scale = Vector2(0.394057, 0.396135)
 shadow_enabled = true
@@ -87,9 +89,6 @@ texture = ExtResource("2_ox56x")
 [node name="Ignores BaseDarkness" type="CanvasLayer" parent="."]
 layer = 0
 follow_viewport_enabled = true
-
-[node name="PlayerSpawning-Instant" parent="Ignores BaseDarkness" instance=ExtResource("4_w8w3f")]
-position = Vector2(-755, -155)
 
 [node name="Enemies" type="Node2D" parent="Ignores BaseDarkness"]
 
@@ -117,9 +116,9 @@ z_index = 10
 tile_map_data = PackedByteArray("AAD3////AgAFAAEAAAD4////AgAFAAEAAAD5////AgAFAAEAAAD6////AgAGAAEAAAD7////AgAEAAEAAAD8////AgAFAAEAAAD9////AgAGAAEAAAAfAP//AgAFAAEAAAAeAP//AgAFAAEAAAAdAP//AgAFAAEAAAAcAP//AgAEAAEAAAAbAP//AgAGAAEAAAAaAP//AgAFAAEAAAAZAP//AgAEAAEAAAA=")
 tile_set = ExtResource("1_cf5n6")
 
-[node name="Exits" type="Node2D" parent="Ignores BaseDarkness"]
-position = Vector2(2621, -140)
+[node name="Door" parent="Ignores BaseDarkness" instance=ExtResource("9_fi74d")]
+position = Vector2(2950, 0)
 
-[node name="WalkingExit" parent="Ignores BaseDarkness/Exits" instance=ExtResource("7_ykvu1")]
-position = Vector2(328, 136)
-scene = "uid://fv5qoda6vwj4"
+[node name="DoorEntrance" parent="Ignores BaseDarkness" instance=ExtResource("10_w8w3f")]
+position = Vector2(-750, 0)
+player_max_blocks = 1
