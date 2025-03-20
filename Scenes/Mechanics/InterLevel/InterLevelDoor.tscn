@@ -1,0 +1,98 @@
+[gd_scene load_steps=10 format=3 uid="uid://c727a4v6bxv0"]
+
+[ext_resource type="Script" uid="uid://ccgkuoyrjeld5" path="res://Scenes/Mechanics/InterLevel/InterLevelDoor.gd" id="1_3nq6x"]
+[ext_resource type="Texture2D" uid="uid://noxgjvwgxmx" path="res://tiles/Doors.png" id="2_o8fid"]
+[ext_resource type="Texture2D" uid="uid://bdm5eipd1m8bw" path="res://Glow.png" id="3_jorug"]
+[ext_resource type="PackedScene" uid="uid://2asc1fqa7g23" path="res://Scenes/Utility/GenericInteractive.tscn" id="4_4gdyn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3qmsy"]
+atlas = ExtResource("2_o8fid")
+region = Rect2(200, 0, 100, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_refe5"]
+atlas = ExtResource("2_o8fid")
+region = Rect2(100, 0, 100, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y22xx"]
+atlas = ExtResource("2_o8fid")
+region = Rect2(0, 0, 100, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pbvan"]
+animations = [{
+"frames": [{
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_3qmsy")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_refe5")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_y22xx")
+}],
+"loop": false,
+"name": &"Closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_y22xx")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_refe5")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_3qmsy")
+}],
+"loop": false,
+"name": &"Open",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y22xx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pp4jd"]
+size = Vector2(200, 200)
+
+[node name="Door-InterLevel" type="Node2D"]
+script = ExtResource("1_3nq6x")
+
+[node name="DoorSprite" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -100)
+sprite_frames = SubResource("SpriteFrames_pbvan")
+
+[node name="DoorLight" type="PointLight2D" parent="DoorSprite"]
+unique_name_in_owner = true
+scale = Vector2(0.215459, 0.354589)
+shadow_enabled = true
+texture = ExtResource("3_jorug")
+
+[node name="InteractZone" parent="." instance=ExtResource("4_4gdyn")]
+unique_name_in_owner = true
+position = Vector2(100, -231.892)
+w_instead_of_e = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractZone"]
+position = Vector2(-100, 131.892)
+shape = SubResource("RectangleShape2D_pp4jd")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="FadeOut" type="ColorRect" parent="CanvasLayer"]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+metadata/_edit_use_anchors_ = true
+
+[connection signal="interacted" from="InteractZone" to="." method="_on_interact_zone_interacted"]
