@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://c7d371ffwr1ul"]
+[gd_scene load_steps=11 format=4 uid="uid://c7d371ffwr1ul"]
 
 [ext_resource type="TileSet" uid="uid://7ewkkcpem306" path="res://tiles/TileTests.tres" id="1_cf5n6"]
 [ext_resource type="PackedScene" uid="uid://dbehr8mfolttb" path="res://Scenes/Utility/SmartMusicPlayer.tscn" id="1_ox56x"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://3hurbwdo1xm0" path="res://SquareGlow.png" id="3_fi74d"]
 [ext_resource type="PackedScene" uid="uid://jhjkr5mcfjhg" path="res://Scenes/Mechanics/DeathPit/DeathPit.tscn" id="5_ekoqq"]
 [ext_resource type="PackedScene" uid="uid://qgfao441huib" path="res://Scenes/Mechanics/Exit/ExitDoor/GoalDoor.tscn" id="9_fi74d"]
+[ext_resource type="PackedScene" uid="uid://c2xedpocryy26" path="res://Scenes/Menus/pause_menu.tscn" id="9_ox56x"]
 [ext_resource type="PackedScene" uid="uid://2u65lxhpmldx" path="res://Scenes/Mechanics/Entrance/DoorEntrance/DoorEntrance.tscn" id="10_w8w3f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v53k6"]
@@ -122,3 +123,9 @@ position = Vector2(2950, 0)
 [node name="DoorEntrance" parent="Ignores BaseDarkness" instance=ExtResource("10_w8w3f")]
 position = Vector2(-750, 0)
 player_max_blocks = 1
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="Pause Menu" parent="UI" instance=ExtResource("9_ox56x")]
+process_mode = 3
