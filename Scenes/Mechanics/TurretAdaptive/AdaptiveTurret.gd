@@ -59,6 +59,7 @@ func fire_bullet():
 	bullet.linear_velocity = bullet_direction*bullet_speed*100
 
 	add_sibling(bullet)
+	$%ShootSound.play()
 	unfun_timer.start()
 
 func _physics_process(delta):
