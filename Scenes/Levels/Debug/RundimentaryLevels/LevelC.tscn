@@ -31,7 +31,6 @@ size = Vector2(600, 800)
 [node name="LevelC" type="Node2D"]
 
 [node name="ggezbg" type="ColorRect" parent="."]
-visible = false
 custom_minimum_size = Vector2(10000, 10000)
 anchors_preset = 8
 anchor_left = 0.5
@@ -54,6 +53,7 @@ tile_map_data = PackedByteArray("AAD8/wAAAQAAAAMAAAD9/wAAAQAAAAMAAAD+/wAAAQAAAAM
 tile_set = ExtResource("1_fgpdp")
 
 [node name="WalkingEntrance" parent="." instance=ExtResource("1_odgne")]
+position = Vector2(-2600, 0)
 
 [node name="EvilCamera" parent="." instance=ExtResource("6_bv234")]
 position = Vector2(-800, -600)

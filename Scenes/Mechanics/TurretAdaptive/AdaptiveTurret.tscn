@@ -16,7 +16,15 @@ position = Vector2(100, 0)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_6fw3l")
 
+[node name="BulletSpawn" type="Marker2D" parent="BarrelPivot"]
+unique_name_in_owner = true
+position = Vector2(200, -8.74228e-06)
+
 [node name="Base" type="Sprite2D" parent="."]
 rotation = 3.14159
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_j2sai")
+
+[node name="UnfunTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
