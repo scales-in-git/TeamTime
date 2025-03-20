@@ -1,4 +1,4 @@
-extends CenterContainer
+extends MarginContainer
 
 func set_volume(value):
 	AudioServer.set_bus_volume_db(0, linear_to_db(value))
