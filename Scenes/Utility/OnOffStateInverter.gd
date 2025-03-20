@@ -3,6 +3,7 @@ extends OnOffState
 
 @export var state_manager: OnOffState
 
+var initialized: bool = false
 # This class made my head hurt...
 
 func turn_on():
@@ -28,6 +29,8 @@ func toggle():
 		state_manager.turn_off()
 
 func init():
-	# Note: Godot reports this as an error, even though it shouldn't be
-	state_manager.turned_on.connect(_real_turn_off)
-	state_manager.turned_off.connect(_real_turn_on)
+	if not initialized:
+		# Note: Godot reports this as an error, even though it shouldn't be
+		state_manager.turned_on.connect(_real_turn_off)
+		state_manager.turned_off.connect(_real_turn_on)
+		initialized = true
