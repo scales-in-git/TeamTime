@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://brsai7op34w2q"]
 
 [ext_resource type="PackedScene" uid="uid://2asc1fqa7g23" path="res://Scenes/Utility/GenericInteractive.tscn" id="1_kw4m3"]
-[ext_resource type="Script" uid="uid://dtf6m307vynsn" path="res://Scenes/Mechanics/Switch/Switch.gd" id="1_uoihx"]
+[ext_resource type="Script" uid="uid://dtf6m307vynsn" path="res://Scenes/Mechanics/EvilCamera/Switch.gd" id="1_uoihx"]
 [ext_resource type="Texture2D" uid="uid://dn1dc4r1blln2" path="res://tiles/SwitchSprite.png" id="2_85r2c"]
 [ext_resource type="Texture2D" uid="uid://c81hu0jr76v8g" path="res://RectGlow.png" id="3_a2llh"]
 
