@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=4 uid="uid://bcfnkhkw0vnn4"]
+[gd_scene load_steps=11 format=4 uid="uid://bcfnkhkw0vnn4"]
 
 [ext_resource type="TileSet" uid="uid://7ewkkcpem306" path="res://tiles/TileTests.tres" id="1_ukba0"]
 [ext_resource type="Texture2D" uid="uid://bdm5eipd1m8bw" path="res://Glow.png" id="2_nraoy"]
 [ext_resource type="Texture2D" uid="uid://3hurbwdo1xm0" path="res://SquareGlow.png" id="3_60nfe"]
 [ext_resource type="PackedScene" uid="uid://v042n0qyld7u" path="res://Scenes/Mechanics/Entrance/InstantEntrance/InstantEntrance.tscn" id="4_1t3h6"]
 [ext_resource type="PackedScene" uid="uid://jhjkr5mcfjhg" path="res://Scenes/Mechanics/DeathPit/DeathPit.tscn" id="5_788rk"]
+[ext_resource type="PackedScene" uid="uid://b1m643ns0nwm6" path="res://Scenes/Mechanics/EvilStolen/stolen.tscn" id="5_nraoy"]
 [ext_resource type="PackedScene" uid="uid://dxb7l54dt8jih" path="res://Scenes/Mechanics/EvilCamera/EvilCamera.tscn" id="6_ocvcq"]
 [ext_resource type="PackedScene" uid="uid://dnp68bg7x5xqw" path="res://Scenes/Mechanics/Exit/WalkingExit/WalkingExit.tscn" id="7_uprxt"]
 [ext_resource type="PackedScene" uid="uid://yhp7gr6fmrn5" path="res://Scenes/Mechanics/Exit/InstantExit/InstantExit.tscn" id="8_6ebb4"]
@@ -69,6 +70,12 @@ follow_viewport_enabled = true
 position = Vector2(4406, -1838)
 
 [node name="Enemies" type="Node2D" parent="Ignores BaseDarkness"]
+
+[node name="Stolen" parent="Ignores BaseDarkness/Enemies" instance=ExtResource("5_nraoy")]
+position = Vector2(6923, -203)
+
+[node name="Stolen2" parent="Ignores BaseDarkness/Enemies" instance=ExtResource("5_nraoy")]
+position = Vector2(6193, 2583)
 
 [node name="Enviromental" type="Node2D" parent="Ignores BaseDarkness/Enemies"]
 
