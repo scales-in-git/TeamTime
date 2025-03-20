@@ -1,10 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://sfyhw26gt1vr"]
+[gd_scene load_steps=14 format=3 uid="uid://sfyhw26gt1vr"]
 
 [ext_resource type="Theme" uid="uid://jht6a2okt2tm" path="res://Scenes/Menus/Themes/Menu.tres" id="1_chkef"]
 [ext_resource type="Script" uid="uid://qms6jwawphbd" path="res://Scenes/Menus/main_menu.gd" id="1_s0654"]
 [ext_resource type="Texture2D" uid="uid://ctxq1b6jvonlu" path="res://Scenes/Menus/images/MainMenu.png" id="2_penys"]
 [ext_resource type="Script" uid="uid://bqf3gg45lvvqs" path="res://Scenes/Menus/settings_menu.gd" id="3_covw7"]
 [ext_resource type="Texture2D" uid="uid://d3nbydo484fnw" path="res://Scenes/Menus/images/Tittle.png" id="4_aur2u"]
+[ext_resource type="PackedScene" uid="uid://dbehr8mfolttb" path="res://Scenes/Utility/SmartMusicPlayer.tscn" id="7_4fgt5"]
+[ext_resource type="AudioStream" uid="uid://d2tfnsct46q64" path="res://music/lab_ambience.wav" id="8_j4kqa"]
 [ext_resource type="Shader" uid="uid://bylhb1fntwe5v" path="res://Scenes/Menus/Glitch.gdshader" id="11_ftsii"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ftsii"]
@@ -312,6 +314,7 @@ text = "Settings"
 
 [node name="CreditsButton" type="Button" parent="MainMenu/VBoxContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
@@ -384,37 +387,6 @@ custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "100%"
-
-[node name="Label2" type="Label" parent="SettingsMenu/Panel/MarginContainer/VBoxContainer2/GridContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Mouse Sensitivity:"
-
-[node name="PanelContainer2" type="PanelContainer" parent="SettingsMenu/Panel/MarginContainer/VBoxContainer2/GridContainer"]
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="SettingsMenu/Panel/MarginContainer/VBoxContainer2/GridContainer/PanelContainer2"]
-layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_right = 20
-
-[node name="SensitivitySlider" type="HSlider" parent="SettingsMenu/Panel/MarginContainer/VBoxContainer2/GridContainer/PanelContainer2/MarginContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_vertical = 4
-theme_override_styles/slider = SubResource("StyleBoxFlat_q5qts")
-min_value = 0.1
-max_value = 10.0
-step = 0.01
-value = 1.0
-exp_edit = true
-
-[node name="SensitivityLabel" type="Label" parent="SettingsMenu/Panel/MarginContainer/VBoxContainer2/GridContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "1.0"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="SettingsMenu/Panel/MarginContainer/VBoxContainer2"]
 layout_mode = 2
@@ -495,7 +467,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 20
 text = "Junior Programer
-Asset Slave "
+Asset Slave"
 horizontal_alignment = 1
 
 [node name="Label4" type="Label" parent="CreditsMenu/VBoxContainer/Credits/Lead Programmer"]
@@ -703,3 +675,6 @@ text = "All My Playtesters"
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Puppet the Fox"
+
+[node name="SmartMusicPlayer" parent="." instance=ExtResource("7_4fgt5")]
+music = ExtResource("8_j4kqa")

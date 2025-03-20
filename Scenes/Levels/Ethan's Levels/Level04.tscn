@@ -1,0 +1,116 @@
+[gd_scene load_steps=10 format=4 uid="uid://b1c8hpusb27wu"]
+
+[ext_resource type="TileSet" uid="uid://7ewkkcpem306" path="res://tiles/TileTests.tres" id="1_jtbg0"]
+[ext_resource type="Texture2D" uid="uid://bdm5eipd1m8bw" path="res://Glow.png" id="2_sjyaa"]
+[ext_resource type="Texture2D" uid="uid://3hurbwdo1xm0" path="res://SquareGlow.png" id="3_lonw2"]
+[ext_resource type="PackedScene" uid="uid://v042n0qyld7u" path="res://Scenes/Mechanics/Entrance/InstantEntrance/InstantEntrance.tscn" id="4_ia44c"]
+[ext_resource type="PackedScene" uid="uid://jhjkr5mcfjhg" path="res://Scenes/Mechanics/DeathPit/DeathPit.tscn" id="5_ojx8c"]
+[ext_resource type="PackedScene" uid="uid://dxb7l54dt8jih" path="res://Scenes/Mechanics/EvilCamera/EvilCamera.tscn" id="6_hrubh"]
+[ext_resource type="PackedScene" uid="uid://dnp68bg7x5xqw" path="res://Scenes/Mechanics/Exit/WalkingExit/WalkingExit.tscn" id="7_hw18n"]
+[ext_resource type="PackedScene" uid="uid://yhp7gr6fmrn5" path="res://Scenes/Mechanics/Exit/InstantExit/InstantExit.tscn" id="8_4qteq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v53k6"]
+size = Vector2(1980, 499)
+
+[node name="LevelTemplate" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 1582.0
+offset_top = -6972.0
+offset_right = 6262.0
+offset_bottom = 2996.0
+
+[node name="BaseDarkness" type="CanvasModulate" parent="."]
+color = Color(0.306923, 0.306923, 0.306923, 1)
+
+[node name="TileMaps" type="Node2D" parent="."]
+
+[node name="BackGround" type="TileMapLayer" parent="TileMaps"]
+modulate = Color(0.603922, 0.603922, 0.603922, 1)
+z_index = -10
+tile_set = ExtResource("1_jtbg0")
+
+[node name="MiddleGround-decor" type="TileMapLayer" parent="TileMaps"]
+z_index = -10
+tile_set = ExtResource("1_jtbg0")
+
+[node name="Lights" type="Node2D" parent="."]
+
+[node name="DoorLight" type="PointLight2D" parent="Lights"]
+shadow_enabled = true
+texture = ExtResource("2_sjyaa")
+
+[node name="FloorLights" type="Node2D" parent="Lights"]
+position = Vector2(0, 3)
+
+[node name="Floor Light_1" type="PointLight2D" parent="Lights/FloorLights"]
+position = Vector2(2777, -389.588)
+scale = Vector2(1.17, 0.550824)
+shadow_enabled = true
+texture = ExtResource("3_lonw2")
+
+[node name="Ceiling_Lights" type="Node2D" parent="Lights"]
+position = Vector2(0, 3)
+rotation = 3.14159
+
+[node name="Ceiling Light_1" type="PointLight2D" parent="Lights/Ceiling_Lights"]
+position = Vector2(-3687.01, 5455.99)
+scale = Vector2(0.531184, 0.940794)
+shadow_enabled = true
+texture = ExtResource("3_lonw2")
+texture_scale = 11.68
+
+[node name="Ignores BaseDarkness" type="CanvasLayer" parent="."]
+layer = 0
+follow_viewport_enabled = true
+
+[node name="PlayerSpawning-Instant" parent="Ignores BaseDarkness" instance=ExtResource("4_ia44c")]
+position = Vector2(2777, -517)
+
+[node name="Enemies" type="Node2D" parent="Ignores BaseDarkness"]
+
+[node name="Enviromental" type="Node2D" parent="Ignores BaseDarkness/Enemies"]
+
+[node name="DeathPit" parent="Ignores BaseDarkness/Enemies/Enviromental" instance=ExtResource("5_ojx8c")]
+position = Vector2(2574, 1056)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ignores BaseDarkness/Enemies/Enviromental/DeathPit"]
+position = Vector2(1781, -272)
+shape = SubResource("RectangleShape2D_v53k6")
+
+[node name="Interactables" type="Node2D" parent="Ignores BaseDarkness/Enemies"]
+
+[node name="EvilCamera" parent="Ignores BaseDarkness/Enemies/Interactables" instance=ExtResource("6_hrubh")]
+light_mask = 3
+position = Vector2(2348, -2215)
+auto_blink_off = 0.0
+
+[node name="EvilCamera2" parent="Ignores BaseDarkness/Enemies/Interactables" instance=ExtResource("6_hrubh")]
+light_mask = 3
+position = Vector2(3669, -5499)
+rotation = -5.21155
+auto_blink_off = 0.0
+
+[node name="TileMaps" type="Node2D" parent="Ignores BaseDarkness"]
+
+[node name="BackGround" type="TileMapLayer" parent="Ignores BaseDarkness/TileMaps"]
+tile_map_data = PackedByteArray("AAAYAPz/AgADAAUAAAAXAOn/AgACAAMAAAAYANH/AgADAAUAAAAyANH/AgAFAAUAAAAvAOD/AgABAAUAAAA=")
+tile_set = ExtResource("1_jtbg0")
+
+[node name="MiddleGround" type="TileMapLayer" parent="Ignores BaseDarkness/TileMaps"]
+tile_set = ExtResource("1_jtbg0")
+
+[node name="ForeGround" type="TileMapLayer" parent="Ignores BaseDarkness/TileMaps"]
+z_index = 10
+tile_map_data = PackedByteArray("AAAXAP3/AgACAAMAAAAYAP3/AgACAAMAAAAZAP3/AgACAAMAAAAaAP3/AgACAAMAAAAbAP3/AgACAAMAAAAcAP3/AgACAAMAAAAdAP3/AgACAAMAAAAeAP3/AgACAAMAAAAfAP3/AgACAAMAAAAgAP3/AgACAAMAAAAhAP3/AgACAAMAAAAiAP3/AgACAAMAAAAWAP3/AgACAAMAAAAWAPz/AgACAAMAAAAWAPv/AgACAAMAAAAWAPr/AgACAAMAAAAWAPn/AgACAAMAAAAWAPj/AgACAAMAAAAWAPf/AgACAAMAAAAWAPb/AgACAAMAAAAWAPX/AgACAAMAAAAWAPT/AgACAAMAAAAWAPP/AgACAAMAAAAWAPL/AgACAAMAAAAWAPH/AgACAAMAAAAWAPD/AgACAAMAAAAWAO//AgACAAMAAAAWAO7/AgACAAMAAAAWAO3/AgACAAMAAAAWAOz/AgACAAMAAAAWAOv/AgACAAMAAAAWAOr/AgACAAMAAAAWAOn/AgACAAMAAAAWAOj/AgACAAMAAAAWAOf/AgACAAMAAAAWAOb/AgACAAMAAAAWAOX/AgACAAMAAAAWAOT/AgACAAMAAAAWAOP/AgACAAMAAAAWAOL/AgACAAMAAAAWAOH/AgACAAMAAAAWAOD/AgACAAMAAAAWAN//AgACAAMAAAA0AP3/AgACAAMAAAA0APz/AgACAAMAAAA0APv/AgACAAMAAAA0APr/AgACAAMAAAA0APn/AgACAAMAAAA0APj/AgACAAMAAAA0APf/AgACAAMAAAA0APb/AgACAAMAAAA0APX/AgACAAMAAAA0APT/AgACAAMAAAA0APP/AgACAAMAAAA0APL/AgACAAMAAAA0APH/AgACAAMAAAA0APD/AgACAAMAAAA0AO//AgACAAMAAAA0AO7/AgACAAMAAAA0AO3/AgACAAMAAAA0AOz/AgACAAMAAAA0AOv/AgACAAMAAAA0AOr/AgACAAMAAAA0AOn/AgACAAMAAAA0AOj/AgACAAMAAAA0AOf/AgACAAMAAAA0AOb/AgACAAMAAAA0AOX/AgACAAMAAAA0AOT/AgACAAMAAAA0AOP/AgACAAMAAAA0AOL/AgACAAMAAAA0AOH/AgACAAMAAAA0AOD/AgACAAMAAAA0AN//AgACAAMAAAAhAPv/AgACAAMAAAAiAPv/AgACAAMAAAAiAPz/AgACAAMAAAAhAPz/AgACAAMAAAAzAPP/AgAFAAIAAAAyAPP/AgAFAAIAAAAxAPP/AgAFAAIAAAAtAOz/AgACAAMAAAAuAOz/AgACAAMAAAAuAO3/AgACAAMAAAAtAO3/AgACAAMAAAAoAOr/AgACAAMAAAApAOr/AgACAAMAAAAoAOv/AgACAAMAAAApAOv/AgACAAMAAAAiAOj/AgACAAMAAAAjAOj/AgACAAMAAAAjAOn/AgACAAMAAAAiAOn/AgACAAMAAAAcAOb/AgACAAMAAAAdAOb/AgACAAMAAAAdAOf/AgACAAMAAAAcAOf/AgACAAMAAAAXAPD/AgACAAMAAAAYAPD/AgACAAMAAAAZAPD/AgACAAMAAAAaAPD/AgACAAMAAAAbAPD/AgACAAMAAAAcAPD/AgACAAMAAAAdAPD/AgACAAMAAAAeAPD/AgACAAMAAAAfAPD/AgACAAMAAAAgAPD/AgACAAMAAAAjAPD/AgACAAMAAAAiAPD/AgACAAMAAAAhAPD/AgACAAMAAAAXAOT/AgAFAAIAAAAYAOT/AgAFAAIAAAAZAOT/AgAFAAIAAAAaAOT/AgAFAAIAAAA0AP7/AgACAAMAAAA0AP//AgACAAMAAAA0AAAAAgACAAMAAAA0AAEAAgACAAMAAAA0AAIAAgACAAMAAAA0AAMAAgACAAMAAAA0AAQAAgACAAMAAAA0AAUAAgACAAMAAAA0AAYAAgACAAMAAAA0AAcAAgACAAMAAAA0AAgAAgACAAMAAAA0AAkAAgACAAMAAAA0AAoAAgACAAMAAAA0AAsAAgACAAMAAAA0AAwAAgACAAMAAAA0AA0AAgACAAMAAAA0AA8AAgACAAMAAAA0ABAAAgACAAMAAAA0ABEAAgACAAMAAAA0ABIAAgACAAMAAAAWAN7/AgACAAMAAAAWANv/AgACAAMAAAAWANr/AgACAAMAAAAWANn/AgACAAMAAAAWANj/AgACAAMAAAAWANf/AgACAAMAAAAWANb/AgACAAMAAAAWANz/AgACAAMAAAAWAN3/AgACAAMAAAA0AN7/AgACAAMAAAA0AN3/AgACAAMAAAA0ANz/AgACAAMAAAA0ANv/AgACAAMAAAA0ANr/AgACAAMAAAA0ANn/AgACAAMAAAA0ANj/AgACAAMAAAA0ANf/AgACAAMAAAA0ANb/AgACAAMAAAAqAOH/AgACAAMAAAArAOH/AgACAAMAAAAsAOH/AgACAAMAAAAtAOH/AgACAAMAAAAuAOH/AgACAAMAAAAvAOH/AgACAAMAAAAwAOH/AgACAAMAAAAxAOH/AgACAAMAAAAyAOH/AgACAAMAAAAzAOH/AgACAAMAAAA0ANX/AgACAAMAAAA0ANT/AgACAAMAAAA0ANP/AgACAAMAAAA0ANL/AgACAAMAAAA0ANH/AgACAAMAAAA0AND/AgACAAMAAAA0AM3/AgACAAMAAAA0AM7/AgACAAMAAAA0AM//AgACAAMAAAAWANX/AgACAAMAAAAWANT/AgACAAMAAAAWANP/AgACAAMAAAAWANL/AgACAAMAAAAWANH/AgACAAMAAAAWAND/AgACAAMAAAAWAM//AgACAAMAAAAWAM7/AgACAAMAAAAWAM3/AgACAAMAAAAzANP/AgACAAMAAAAyANP/AgACAAMAAAAxANP/AgACAAMAAAAwANP/AgACAAMAAAAvANP/AgACAAMAAAApANX/AgACAAMAAAAXANL/AgACAAMAAAAYANL/AgACAAMAAAAZANL/AgACAAMAAAAaANL/AgACAAMAAAAWAMz/AgACAAMAAAAWAMv/AgACAAMAAAAWAMr/AgACAAMAAAAWAMn/AgACAAMAAAAWAMj/AgACAAMAAAAXAMj/AgACAAMAAAAYAMj/AgACAAMAAAAZAMj/AgACAAMAAAAaAMj/AgACAAMAAAAbAMj/AgACAAMAAAAcAMj/AgACAAMAAAAdAMj/AgACAAMAAAAeAMj/AgACAAMAAAAfAMj/AgACAAMAAAAgAMj/AgACAAMAAAAhAMj/AgACAAMAAAAiAMj/AgACAAMAAAAjAMj/AgACAAMAAAAkAMj/AgACAAMAAAAlAMj/AgACAAMAAAAmAMj/AgACAAMAAAAnAMj/AgACAAMAAAAoAMj/AgACAAMAAAAxAMj/AgACAAMAAAAyAMj/AgACAAMAAAAzAMj/AgACAAMAAAA0AMj/AgACAAMAAAA0AMn/AgACAAMAAAA0AMr/AgACAAMAAAA0AMz/AgACAAMAAAA0AMv/AgACAAMAAAApAMj/AgACAAMAAAAqAMj/AgACAAMAAAArAMj/AgACAAMAAAAsAMj/AgACAAMAAAAtAMj/AgACAAMAAAAuAMj/AgACAAMAAAAvAMj/AgACAAMAAAAwAMj/AgACAAMAAAAuANP/AgACAAMAAAAkANf/AgACAAMAAAAgANn/AgACAAMAAAAiAP7/AgACAAMAAAAiAP//AgACAAMAAAAiAAAAAgACAAMAAAAiAAEAAgACAAMAAAAiAAIAAgACAAMAAAAiAAMAAgACAAMAAAAiAAQAAgACAAMAAAAiAAUAAgACAAMAAAAiAAYAAgACAAMAAAAiAAcAAgACAAMAAAAiAAgAAgACAAMAAAAiAAkAAgACAAMAAAAiAAoAAgACAAMAAAAiAAsAAgACAAMAAAAiAAwAAgACAAMAAAAiAA0AAgACAAMAAAAiAA4AAgACAAMAAAAiAA8AAgACAAMAAAAiABAAAgACAAMAAAAiABEAAgACAAMAAAAiABIAAgACAAMAAAAnAPn/AgACAAMAAAAoAPn/AgACAAMAAAAtAPb/AgACAAMAAAAuAPb/AgACAAMAAAAcANv/AgACAAMAAAAkANH/AgACAAMAAAA=")
+tile_set = ExtResource("1_jtbg0")
+
+[node name="Exits" type="Node2D" parent="Ignores BaseDarkness"]
+
+[node name="WalkingExit" parent="Ignores BaseDarkness/Exits" instance=ExtResource("7_hw18n")]
+visible = false
+scene = "uid://fv5qoda6vwj4"
+
+[node name="InstantExit" parent="Ignores BaseDarkness/Exits" instance=ExtResource("8_4qteq")]
+visible = false
+scene = "uid://cu4rjl45f8rbo"

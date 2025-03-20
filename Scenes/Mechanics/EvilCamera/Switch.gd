@@ -1,4 +1,4 @@
-class_name InteractSwitch
+class_name Switch
 extends Node2D
 
 

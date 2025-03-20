@@ -224,7 +224,8 @@ theme = ExtResource("1_tf3q2")
 script = ExtResource("2_pw12o")
 main_menu = ExtResource("3_7smr3")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="PauseMenu" type="PanelContainer" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -232,68 +233,68 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Graining" type="ColorRect" parent="PanelContainer"]
+[node name="Graining" type="ColorRect" parent="PauseMenu"]
 material = SubResource("ShaderMaterial_7smr3")
 layout_mode = 2
 mouse_filter = 2
 
-[node name="PauseMenu" type="PanelContainer" parent="PanelContainer"]
+[node name="MainMenu" type="PanelContainer" parent="PauseMenu"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/PauseMenu"]
+[node name="MarginContainer" type="MarginContainer" parent="PauseMenu/MainMenu"]
 layout_mode = 2
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/PauseMenu/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/MainMenu/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 32
 
-[node name="Label" type="Label" parent="PanelContainer/PauseMenu/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="PauseMenu/MainMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_yeo1y")
 theme_override_font_sizes/font_size = 64
 text = "Pause"
 horizontal_alignment = 1
 
-[node name="ResumeButton" type="Button" parent="PanelContainer/PauseMenu/MarginContainer/VBoxContainer"]
+[node name="ResumeButton" type="Button" parent="PauseMenu/MainMenu/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 0
 text = "Resum"
 
-[node name="SettingsButton" type="Button" parent="PanelContainer/PauseMenu/MarginContainer/VBoxContainer"]
+[node name="SettingsButton" type="Button" parent="PauseMenu/MainMenu/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 0
 text = "Settings"
 
-[node name="QuitButton" type="Button" parent="PanelContainer/PauseMenu/MarginContainer/VBoxContainer"]
+[node name="QuitButton" type="Button" parent="PauseMenu/MainMenu/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 0
 text = "Main Menu"
 
-[node name="SettingsMenu" type="MarginContainer" parent="PanelContainer"]
+[node name="SettingsMenu" type="MarginContainer" parent="PauseMenu"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 script = ExtResource("3_pw12o")
 
-[node name="Panel" type="Panel" parent="PanelContainer/SettingsMenu"]
+[node name="Panel" type="Panel" parent="PauseMenu/SettingsMenu"]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/SettingsMenu/Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="PauseMenu/SettingsMenu/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -303,12 +304,12 @@ grow_vertical = 2
 theme_override_constants/margin_left = 64
 theme_override_constants/margin_right = 64
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/SettingsMenu/Panel/MarginContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="PauseMenu/SettingsMenu/Panel/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/separation = 50
 
-[node name="GridContainer" type="GridContainer" parent="PanelContainer/SettingsMenu/Panel/MarginContainer/VBoxContainer2"]
+[node name="GridContainer" type="GridContainer" parent="PauseMenu/SettingsMenu/Panel/MarginContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -316,21 +317,21 @@ theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 32
 columns = 3
 
-[node name="Label" type="Label" parent="PanelContainer/SettingsMenu/Panel/MarginContainer/VBoxContainer2/GridContainer"]
+[node name="Label" type="Label" parent="PauseMenu/SettingsMenu/Panel/MarginContainer/VBoxContainer2/GridContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "Volume:"
 
-[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/SettingsMenu/Panel/MarginContainer/VBoxContainer2/GridContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="PauseMenu/SettingsMenu/Panel/MarginContainer/VBoxContainer2/GridContainer"]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/SettingsMenu/Panel/MarginContainer/VBoxContainer2/GridContainer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="PauseMenu/SettingsMenu/Panel/MarginContainer/VBoxContainer2/GridContainer/PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_right = 20
 
-[node name="VolumeSlider" type="HSlider" parent="PanelContainer/SettingsMenu/Panel/MarginContainer/VBoxContainer2/GridContainer/PanelContainer/MarginContainer"]
+[node name="VolumeSlider" type="HSlider" parent="PauseMenu/SettingsMenu/Panel/MarginContainer/VBoxContainer2/GridContainer/PanelContainer/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 4
@@ -339,67 +340,36 @@ max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="VolumeLabel" type="Label" parent="PanelContainer/SettingsMenu/Panel/MarginContainer/VBoxContainer2/GridContainer"]
+[node name="VolumeLabel" type="Label" parent="PauseMenu/SettingsMenu/Panel/MarginContainer/VBoxContainer2/GridContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "100%"
 
-[node name="Label2" type="Label" parent="PanelContainer/SettingsMenu/Panel/MarginContainer/VBoxContainer2/GridContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Mouse Sensitivity:"
-
-[node name="PanelContainer2" type="PanelContainer" parent="PanelContainer/SettingsMenu/Panel/MarginContainer/VBoxContainer2/GridContainer"]
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/SettingsMenu/Panel/MarginContainer/VBoxContainer2/GridContainer/PanelContainer2"]
-layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_right = 20
-
-[node name="SensitivitySlider" type="HSlider" parent="PanelContainer/SettingsMenu/Panel/MarginContainer/VBoxContainer2/GridContainer/PanelContainer2/MarginContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_vertical = 4
-theme_override_styles/slider = SubResource("StyleBoxFlat_nwnlq")
-min_value = 0.1
-max_value = 10.0
-step = 0.01
-value = 1.0
-exp_edit = true
-
-[node name="SensitivityLabel" type="Label" parent="PanelContainer/SettingsMenu/Panel/MarginContainer/VBoxContainer2/GridContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "1.0"
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/SettingsMenu/Panel/MarginContainer/VBoxContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/SettingsMenu/Panel/MarginContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_constants/separation = 24
 
-[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/SettingsMenu/Panel/MarginContainer/VBoxContainer2/VBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="PauseMenu/SettingsMenu/Panel/MarginContainer/VBoxContainer2/VBoxContainer"]
 custom_minimum_size = Vector2(280, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Reset" type="Button" parent="PanelContainer/SettingsMenu/Panel/MarginContainer/VBoxContainer2/VBoxContainer/PanelContainer"]
+[node name="Reset" type="Button" parent="PauseMenu/SettingsMenu/Panel/MarginContainer/VBoxContainer2/VBoxContainer/PanelContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Reset
 "
 
-[node name="PanelContainer2" type="PanelContainer" parent="PanelContainer/SettingsMenu/Panel/MarginContainer/VBoxContainer2/VBoxContainer"]
+[node name="PanelContainer2" type="PanelContainer" parent="PauseMenu/SettingsMenu/Panel/MarginContainer/VBoxContainer2/VBoxContainer"]
 custom_minimum_size = Vector2(280, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="BackFromCredits" type="Button" parent="PanelContainer/SettingsMenu/Panel/MarginContainer/VBoxContainer2/VBoxContainer/PanelContainer2"]
+[node name="BackFromCredits" type="Button" parent="PauseMenu/SettingsMenu/Panel/MarginContainer/VBoxContainer2/VBoxContainer/PanelContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
