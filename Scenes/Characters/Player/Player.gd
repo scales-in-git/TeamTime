@@ -13,6 +13,11 @@ extends CharacterBody2D
 @export_category("Other")
 @export var max_blocks: int:
 	set(value):
+		
+		if value<=0: 
+			block_placer.disabled=true
+			value=1
+		
 		max_blocks = value
 		block_placer.set_max_blocks(max_blocks)
 	get():

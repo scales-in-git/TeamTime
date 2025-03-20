@@ -1,24 +1,24 @@
 [gd_scene load_steps=6 format=3 uid="uid://d4eeme44hkqe5"]
 
-[ext_resource type="Texture2D" uid="uid://c12hx0hqu3xoh" path="res://Scenes/Mechanics/EvilCamera/Camera.png" id="1_btghu"]
+[ext_resource type="Texture2D" uid="uid://chajj7ujkuoja" path="res://Scenes/Mechanics/EvilCamera/CameraV2.png" id="1_cyaqp"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_x50qj"]
-atlas = ExtResource("1_btghu")
+[sub_resource type="AtlasTexture" id="AtlasTexture_vyfx0"]
+atlas = ExtResource("1_cyaqp")
 region = Rect2(484, 0, 484, 383)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2uo1x"]
-atlas = ExtResource("1_btghu")
+[sub_resource type="AtlasTexture" id="AtlasTexture_uauns"]
+atlas = ExtResource("1_cyaqp")
 region = Rect2(968, 0, 484, 383)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_r1oyi"]
-atlas = ExtResource("1_btghu")
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vx5v"]
+atlas = ExtResource("1_cyaqp")
 region = Rect2(0, 0, 484, 383)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cri6k"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_x50qj")
+"texture": SubResource("AtlasTexture_vyfx0")
 }],
 "loop": true,
 "name": &"blink",
@@ -26,7 +26,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2uo1x")
+"texture": SubResource("AtlasTexture_uauns")
 }],
 "loop": true,
 "name": &"off",
@@ -34,7 +34,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_r1oyi")
+"texture": SubResource("AtlasTexture_6vx5v")
 }],
 "loop": true,
 "name": &"on",
@@ -43,4 +43,4 @@ animations = [{
 
 [node name="Camera" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_cri6k")
-animation = &"on"
+animation = &"blink"

@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://d3nbydo484fnw" path="res://Scenes/Menus/images/Tittle.png" id="4_aur2u"]
 [ext_resource type="PackedScene" uid="uid://dbehr8mfolttb" path="res://Scenes/Utility/SmartMusicPlayer.tscn" id="7_4fgt5"]
 [ext_resource type="AudioStream" uid="uid://d2tfnsct46q64" path="res://music/lab_ambience.wav" id="8_j4kqa"]
-[ext_resource type="Shader" path="res://Scenes/Menus/Glitch.gdshader" id="11_ftsii"]
+[ext_resource type="Shader" uid="uid://bylhb1fntwe5v" path="res://Scenes/Menus/Glitch.gdshader" id="11_ftsii"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ftsii"]
 shader = ExtResource("11_ftsii")
@@ -314,6 +314,7 @@ text = "Settings"
 
 [node name="CreditsButton" type="Button" parent="MainMenu/VBoxContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
