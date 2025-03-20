@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://cu4rjl45f8rbo"]
+[gd_scene load_steps=18 format=4 uid="uid://cu4rjl45f8rbo"]
 
 [ext_resource type="TileSet" uid="uid://c25hcjc6u3jq1" path="res://Scenes/Levels/DebugTileSet.tres" id="1_fgpdp"]
 [ext_resource type="PackedScene" uid="uid://uuf6ujkuy7bv" path="res://Scenes/Mechanics/Entrance/WalkingEntrance/WalkingEntrance.tscn" id="1_odgne"]
@@ -12,6 +12,8 @@
 [ext_resource type="Script" uid="uid://b42m1hnljomnf" path="res://Scenes/Utility/OnOffStateInverter.gd" id="9_odgne"]
 [ext_resource type="PackedScene" uid="uid://dvefjhvuqmubq" path="res://Scenes/Mechanics/BlockDetector/BlockDetector.tscn" id="11_ky0bu"]
 [ext_resource type="PackedScene" uid="uid://clq13lum7jkjv" path="res://Scenes/Mechanics/TurretAdaptive/AdaptiveTurret.tscn" id="12_4v3nh"]
+[ext_resource type="Resource" uid="uid://c8dp57vtkhhtm" path="res://Scenes/Levels/Debug/RundimentaryLevels/level_c_turret.tres" id="13_qmsud"]
+[ext_resource type="PackedScene" uid="uid://qgfao441huib" path="res://Scenes/Mechanics/Exit/ExitDoor/GoalDoor.tscn" id="14_2wxft"]
 
 [sub_resource type="Resource" id="Resource_ky0bu"]
 script = ExtResource("9_odgne")
@@ -19,14 +21,14 @@ state_manager = ExtResource("8_5v4x4")
 on = false
 metadata/_custom_type_script = "uid://b42m1hnljomnf"
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4v3nh"]
+size = Vector2(600, 800)
+
 [sub_resource type="Resource" id="Resource_5v4x4"]
 script = ExtResource("9_odgne")
 state_manager = ExtResource("6_4yba6")
 on = false
 metadata/_custom_type_script = "uid://b42m1hnljomnf"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4v3nh"]
-size = Vector2(600, 800)
 
 [node name="LevelC" type="Node2D"]
 
@@ -71,10 +73,6 @@ state_manager = SubResource("Resource_ky0bu")
 auto_blink_on = 8.0
 auto_blink_off = 1.0
 
-[node name="BlockDetector" parent="." instance=ExtResource("11_ky0bu")]
-position = Vector2(-1600, -200)
-on_off_state_manager = ExtResource("8_5v4x4")
-
 [node name="SmartMusicPlayer" parent="." instance=ExtResource("3_omir1")]
 music = ExtResource("4_bv234")
 
@@ -86,25 +84,41 @@ scene = "uid://c1dpvnlb8w12k"
 tile_map_data = PackedByteArray("AAD8/wAAAQAEAAQAAAD9/wAAAQAEAAQAAAD+/wAAAQAEAAQAAAD//wAAAQAEAAQAAAAAAAAAAQAEAAQAAAABAAAAAQAEAAQAAAACAAAAAQAEAAQAAAADAAAAAQAEAAQAAAAEAAAAAQAEAAQAAAAFAAAAAQAEAAQAAAAGAAAAAQAEAAQAAAD7/wAAAQAEAAQAAAD7/wEAAQAEAAUAAAD7/wIAAQAEAAYAAAD8/wEAAQAEAAUAAAD9/wEAAQAEAAUAAAD+/wEAAQAEAAUAAAD//wEAAQAEAAUAAAAAAAEAAQAEAAUAAAABAAEAAQAEAAUAAAACAAEAAQAEAAUAAAADAAEAAQAEAAUAAAAEAAEAAQAEAAUAAAAFAAEAAQAEAAUAAAAGAAEAAQAEAAUAAAAGAAIAAQAEAAYAAAAFAAIAAQAEAAYAAAAEAAIAAQAEAAYAAAADAAIAAQAEAAYAAAACAAIAAQAEAAYAAAABAAIAAQAEAAYAAAAAAAIAAQAEAAYAAAD//wIAAQAEAAYAAAD+/wIAAQAEAAYAAAD9/wIAAQAEAAYAAAD8/wIAAQAEAAYAAAAHAAAAAQAFAAQAAAAHAAEAAQAFAAUAAAAHAAIAAQAFAAYAAAD5/wAAAQAEAAQAAAD6/wAAAQAEAAQAAAD4/wAAAQAEAAQAAAD3/wAAAQAEAAQAAAD2/wAAAQAEAAQAAAD1/wAAAQAEAAQAAAD6/wIAAQAEAAYAAAD5/wIAAQAEAAYAAAD4/wIAAQAEAAYAAAD3/wIAAQAEAAYAAAD2/wIAAQAEAAYAAAD1/wIAAQAEAAYAAAD1/wEAAQAEAAUAAAD6/wEAAQAEAAUAAAD5/wEAAQAEAAUAAAD4/wEAAQAEAAUAAAD3/wEAAQAEAAUAAAD2/wEAAQAEAAUAAAD0/wEAAQAEAAUAAADz/wEAAQAEAAUAAADy/wEAAQAEAAUAAADx/wEAAQAEAAUAAAD0/wIAAQAEAAYAAADz/wIAAQAEAAYAAADy/wIAAQAEAAYAAADx/wIAAQAEAAYAAADw/wIAAQAEAAYAAADv/wIAAQAEAAYAAADu/wIAAQAEAAYAAADt/wIAAQADAAYAAADt/wEAAQADAAUAAADu/wAAAQAEAAQAAADv/wAAAQAEAAQAAADw/wAAAQAEAAQAAADx/wAAAQAEAAQAAADy/wAAAQAEAAQAAADz/wAAAQAEAAQAAAD0/wAAAQAEAAQAAADt/wAAAQADAAQAAADu/wEAAQAEAAUAAADv/wEAAQAEAAUAAADw/wEAAQAEAAUAAAD1//n/AQADAAQAAAD1//r/AQADAAUAAAD1//v/AQADAAYAAAD2//n/AQAEAAQAAAD2//r/AQAEAAUAAAD2//v/AQAEAAYAAAD3//n/AQAFAAQAAAD3//r/AQAFAAUAAAD3//v/AQAFAAYAAAD9//X/AQADAAQAAAD9//b/AQADAAUAAAD9//f/AQADAAYAAAD+//X/AQAEAAQAAAD+//b/AQAEAAUAAAD+//f/AQAEAAYAAAD///X/AQAFAAQAAAD///b/AQAFAAUAAAD///f/AQAFAAYAAADu//3/AQAEAAMAAADv//3/AQAFAAMAAADq/wAAAQAFAAQAAADq/wEAAQAFAAUAAADq/wIAAQAFAAYAAADp/wAAAQAEAAQAAADp/wEAAQAEAAUAAADp/wIAAQAEAAYAAADo/wAAAQAEAAQAAADo/wEAAQAEAAUAAADo/wIAAQAEAAYAAADn/wAAAQAEAAQAAADn/wEAAQAEAAUAAADn/wIAAQAEAAYAAADm/wAAAQAEAAQAAADm/wEAAQAEAAUAAADm/wIAAQAEAAYAAADl/wAAAQAEAAQAAADl/wEAAQAEAAUAAADl/wIAAQAEAAYAAADk/wAAAQAEAAQAAADk/wEAAQAEAAUAAADk/wIAAQAEAAYAAADj/wAAAQAEAAQAAADj/wEAAQAEAAUAAADj/wIAAQAEAAYAAADi/wAAAQAEAAQAAADi/wEAAQAEAAUAAADi/wIAAQAEAAYAAADh/wAAAQAEAAQAAADh/wEAAQAEAAUAAADh/wIAAQAEAAYAAADg/wAAAQAEAAQAAADg/wEAAQAEAAUAAADg/wIAAQAEAAYAAADf/wAAAQAEAAQAAADf/wEAAQAEAAUAAADf/wIAAQAEAAYAAADe/wAAAQAEAAQAAADe/wEAAQAEAAUAAADe/wIAAQAEAAYAAADd/wAAAQAEAAQAAADd/wEAAQAEAAUAAADd/wIAAQAEAAYAAADc/wAAAQAEAAQAAADc/wEAAQAEAAUAAADc/wIAAQAEAAYAAADY/wAAAQADAAQAAADY/wEAAQADAAUAAADY/wIAAQADAAYAAADZ/wAAAQAEAAQAAADZ/wEAAQAEAAUAAADZ/wIAAQAEAAYAAADa/wAAAQAEAAQAAADa/wEAAQAEAAUAAADa/wIAAQAEAAYAAADb/wAAAQAEAAQAAADb/wEAAQAEAAUAAADb/wIAAQAEAAYAAAA=")
 tile_set = ExtResource("1_fgpdp")
 
-[node name="Switch" parent="." instance=ExtResource("7_bmrdl")]
-position = Vector2(350, -100)
-state_manager = ExtResource("6_4yba6")
-
-[node name="Switch2" parent="." instance=ExtResource("7_bmrdl")]
-position = Vector2(-850, -100)
-state_manager = ExtResource("6_4yba6")
-
-[node name="Switch3" parent="." instance=ExtResource("7_bmrdl")]
-position = Vector2(-1100, -100)
-state_manager = SubResource("Resource_5v4x4")
-
 [node name="AdaptiveTurret" parent="." node_paths=PackedStringArray("activation_zone") instance=ExtResource("12_4v3nh")]
 position = Vector2(-3500, -800)
 rotation_limit = 80.0
-activation_zone = NodePath("../TurretZone")
+activation_zone = NodePath("TurretZone")
+state_manager = ExtResource("13_qmsud")
 
-[node name="TurretZone" type="Area2D" parent="."]
+[node name="TurretZone" type="Area2D" parent="AdaptiveTurret"]
+position = Vector2(3500, 800)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TurretZone"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AdaptiveTurret/TurretZone"]
 position = Vector2(-3300, -400)
 shape = SubResource("RectangleShape2D_4v3nh")
+
+[node name="Switches" type="Node2D" parent="."]
+
+[node name="BlockDetector" parent="Switches" instance=ExtResource("11_ky0bu")]
+position = Vector2(-1600, -200)
+on_off_state_manager = ExtResource("8_5v4x4")
+
+[node name="Switch" parent="Switches" instance=ExtResource("7_bmrdl")]
+position = Vector2(350, -100)
+state_manager = ExtResource("6_4yba6")
+
+[node name="Switch2" parent="Switches" instance=ExtResource("7_bmrdl")]
+position = Vector2(-850, -100)
+state_manager = ExtResource("6_4yba6")
+
+[node name="Switch3" parent="Switches" instance=ExtResource("7_bmrdl")]
+position = Vector2(-1100, -100)
+state_manager = SubResource("Resource_5v4x4")
+
+[node name="Switch4" parent="Switches" instance=ExtResource("7_bmrdl")]
+position = Vector2(-3100, -100)
+state_manager = ExtResource("13_qmsud")
+
+[node name="Door" parent="." instance=ExtResource("14_2wxft")]
+position = Vector2(-3900, 0)
+scene = "uid://blqe2wxtr843y"

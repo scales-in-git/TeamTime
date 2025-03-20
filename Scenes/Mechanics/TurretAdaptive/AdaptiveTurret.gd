@@ -21,6 +21,9 @@ var targetting = null
 @onready var bullet_spawn_location: Marker2D = $%BulletSpawn
 @onready var unfun_timer: Timer = $%UnfunTimer
 
+func is_on():
+	return not state_manager or state_manager.on
+
 func get_pointing_direction() -> Vector2:
 	var barrel_rotation = pivot.rotation
 	var barrel_direction = Vector2.RIGHT \
@@ -31,7 +34,6 @@ func get_pointing_direction() -> Vector2:
 # Target is in local space
 func rotate_towards(target: Vector2, delta: float):
 	var real_limit = deg_to_rad(rotation_limit)
-	print(typeof(real_limit))
 
 	var our_aim := get_pointing_direction()
 
@@ -60,6 +62,9 @@ func fire_bullet():
 	unfun_timer.start()
 
 func _physics_process(delta):
+	if not is_on():
+		return
+
 	if targetting:
 		rotate_towards(to_local(Game.player.global_position), delta)
 		fire_bullet()

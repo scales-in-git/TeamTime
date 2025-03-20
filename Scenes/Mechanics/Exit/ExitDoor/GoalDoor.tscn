@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://qgfao441huib"]
+[gd_scene load_steps=10 format=3 uid="uid://qgfao441huib"]
 
 [ext_resource type="Texture2D" uid="uid://noxgjvwgxmx" path="res://tiles/Doors.png" id="1_0a37h"]
+[ext_resource type="Script" uid="uid://cb8643wcch6sm" path="res://Scenes/Mechanics/Exit/ExitDoor/GoalDoor.gd" id="1_pp4jd"]
 [ext_resource type="Texture2D" uid="uid://bdm5eipd1m8bw" path="res://Glow.png" id="2_oojdn"]
+[ext_resource type="PackedScene" uid="uid://2asc1fqa7g23" path="res://Scenes/Utility/GenericInteractive.tscn" id="4_w6qrv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3qmsy"]
 atlas = ExtResource("1_0a37h")
@@ -54,12 +56,44 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pp4jd"]
+size = Vector2(200, 200)
+
 [node name="Door" type="Node2D"]
+script = ExtResource("1_pp4jd")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="DoorSprite" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -100)
 sprite_frames = SubResource("SpriteFrames_pbvan")
+animation = &"Open"
 
-[node name="DoorLight" type="PointLight2D" parent="."]
+[node name="DoorLight" type="PointLight2D" parent="DoorSprite"]
 scale = Vector2(0.215459, 0.354589)
+color = Color(0, 0.55, 1, 1)
 shadow_enabled = true
 texture = ExtResource("2_oojdn")
+
+[node name="InteractZone" parent="." instance=ExtResource("4_w6qrv")]
+unique_name_in_owner = true
+position = Vector2(100, -231.892)
+w_instead_of_e = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractZone"]
+position = Vector2(-100, 131.892)
+shape = SubResource("RectangleShape2D_pp4jd")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="FadeOut" type="ColorRect" parent="CanvasLayer"]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+metadata/_edit_use_anchors_ = true
+
+[connection signal="interacted" from="InteractZone" to="." method="_on_interact_zone_interacted"]
