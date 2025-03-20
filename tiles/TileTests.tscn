@@ -5,11 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://dbehr8mfolttb" path="res://Scenes/Utility/SmartMusicPlayer.tscn" id="1_wrl27"]
 [ext_resource type="AudioStream" uid="uid://d2tfnsct46q64" path="res://music/lab_ambience.wav" id="2_suunn"]
 [ext_resource type="Texture2D" uid="uid://3hurbwdo1xm0" path="res://SquareGlow.png" id="3_yecx7"]
-[ext_resource type="PackedScene" uid="uid://v042n0qyld7u" path="res://Scenes/Mechanics/Entrance/InstantEntrance/InstantEntrance.tscn" id="5_fhgxg"]
 [ext_resource type="Resource" uid="uid://dk7njr5jptwoi" path="res://Scenes/Levels/Debug/RundimentaryLevels/level_c_camera.tres" id="6_pe757"]
 [ext_resource type="PackedScene" uid="uid://jhjkr5mcfjhg" path="res://Scenes/Mechanics/DeathPit/DeathPit.tscn" id="8_pe757"]
 [ext_resource type="PackedScene" uid="uid://qgfao441huib" path="res://Scenes/Mechanics/Exit/ExitDoor/GoalDoor.tscn" id="8_wrl27"]
 [ext_resource type="PackedScene" uid="uid://brsai7op34w2q" path="res://Scenes/Mechanics/Switch/Switch.tscn" id="9_suunn"]
+[ext_resource type="PackedScene" uid="uid://2u65lxhpmldx" path="res://Scenes/Mechanics/Entrance/DoorEntrance/DoorEntrance.tscn" id="10_pe757"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e7vdt"]
 size = Vector2(4356, 499)
@@ -136,9 +136,6 @@ position = Vector2(5123, -369)
 rotation = 1.5708
 state_manager = ExtResource("6_pe757")
 
-[node name="PlayerSpawning-Instant" parent="foreground_or_ignore_shadow" instance=ExtResource("5_fhgxg")]
-position = Vector2(-5, -121)
-
 [node name="TileMaps" type="Node2D" parent="foreground_or_ignore_shadow"]
 
 [node name="BackGround" type="TileMapLayer" parent="foreground_or_ignore_shadow/TileMaps"]
@@ -167,3 +164,5 @@ position = Vector2(4950, -100)
 [node name="Switch" parent="foreground_or_ignore_shadow" instance=ExtResource("9_suunn")]
 position = Vector2(2844, -126)
 state_manager = ExtResource("6_pe757")
+
+[node name="DoorEntrance" parent="foreground_or_ignore_shadow" instance=ExtResource("10_pe757")]
