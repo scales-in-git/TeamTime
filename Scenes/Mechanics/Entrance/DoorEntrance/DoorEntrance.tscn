@@ -1,0 +1,85 @@
+[gd_scene load_steps=8 format=3 uid="uid://2u65lxhpmldx"]
+
+[ext_resource type="Texture2D" uid="uid://noxgjvwgxmx" path="res://tiles/Doors.png" id="1_em1kq"]
+[ext_resource type="Script" uid="uid://b6m8dev16an5s" path="res://Scenes/Mechanics/Entrance/DoorEntrance/DoorEntrance.gd" id="1_wg8b6"]
+[ext_resource type="Texture2D" uid="uid://bdm5eipd1m8bw" path="res://Glow.png" id="2_wg8b6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3qmsy"]
+atlas = ExtResource("1_em1kq")
+region = Rect2(200, 0, 100, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_refe5"]
+atlas = ExtResource("1_em1kq")
+region = Rect2(100, 0, 100, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y22xx"]
+atlas = ExtResource("1_em1kq")
+region = Rect2(0, 0, 100, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rnrig"]
+animations = [{
+"frames": [{
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_3qmsy")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_refe5")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_y22xx")
+}],
+"loop": false,
+"name": &"Closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_y22xx")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_refe5")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_3qmsy")
+}],
+"loop": false,
+"name": &"Open",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y22xx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="DoorEntrance" type="Node2D"]
+script = ExtResource("1_wg8b6")
+
+[node name="DoorSprite" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -100)
+sprite_frames = SubResource("SpriteFrames_rnrig")
+animation = &"Closed"
+
+[node name="DoorLight" type="PointLight2D" parent="DoorSprite"]
+unique_name_in_owner = true
+scale = Vector2(0.215459, 0.354589)
+color = Color(0, 0.55, 1, 1)
+shadow_enabled = true
+texture = ExtResource("2_wg8b6")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="FadeIn" type="ColorRect" parent="CanvasLayer"]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+metadata/_edit_use_anchors_ = true

@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://clq13lum7jkjv"]
+
+[ext_resource type="Texture2D" uid="uid://l72tt6vkb1r2" path="res://Scenes/Mechanics/TurretAdaptive/Sprites/Turret_barrel.png" id="1_6fw3l"]
+[ext_resource type="Script" uid="uid://wt76f7thx53t" path="res://Scenes/Mechanics/TurretAdaptive/AdaptiveTurret.gd" id="1_j2sai"]
+[ext_resource type="Texture2D" uid="uid://xq2ocub8lia7" path="res://Scenes/Mechanics/TurretAdaptive/Sprites/Turret_base.png" id="2_j2sai"]
+
+[node name="AdaptiveTurret" type="Node2D"]
+script = ExtResource("1_j2sai")
+
+[node name="BarrelPivot" type="Node2D" parent="."]
+unique_name_in_owner = true
+rotation = 1.5708
+
+[node name="Barrel" type="Sprite2D" parent="BarrelPivot"]
+position = Vector2(100, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_6fw3l")
+
+[node name="BulletSpawn" type="Marker2D" parent="BarrelPivot"]
+unique_name_in_owner = true
+position = Vector2(200, -8.74228e-06)
+
+[node name="Base" type="Sprite2D" parent="."]
+rotation = 3.14159
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_j2sai")
+
+[node name="UnfunTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true

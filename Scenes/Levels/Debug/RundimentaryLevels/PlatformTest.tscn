@@ -8,7 +8,7 @@
 [ext_resource type="Resource" uid="uid://dk7njr5jptwoi" path="res://Scenes/Levels/Debug/RundimentaryLevels/level_c_camera.tres" id="6_jb1bh"]
 [ext_resource type="PackedScene" uid="uid://v042n0qyld7u" path="res://Scenes/Mechanics/Entrance/InstantEntrance/InstantEntrance.tscn" id="7_bre5p"]
 [ext_resource type="PackedScene" uid="uid://jhjkr5mcfjhg" path="res://Scenes/Mechanics/DeathPit/DeathPit.tscn" id="8_5165u"]
-[ext_resource type="PackedScene" uid="uid://qgfao441huib" path="res://Scenes/Levels/GoalDoor.tscn" id="9_oe354"]
+[ext_resource type="PackedScene" uid="uid://qgfao441huib" path="res://Scenes/Mechanics/Exit/ExitDoor/GoalDoor.tscn" id="9_oe354"]
 [ext_resource type="PackedScene" uid="uid://brsai7op34w2q" path="res://Scenes/Mechanics/Switch/Switch.tscn" id="10_y47eu"]
 [ext_resource type="PackedScene" uid="uid://0hi7fyduhudf" path="res://Scenes/Mechanics/MovingPlatform/MovingPlatform.tscn" id="11_s8xos"]
 
