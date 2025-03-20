@@ -31,6 +31,7 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.33, 1, 0.821333, 0.541176)
+metadata/_edit_use_anchors_ = true
 
 [node name="SwitchSprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_85r2c")

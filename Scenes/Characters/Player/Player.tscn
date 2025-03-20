@@ -64,6 +64,7 @@ height = 100.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 physics_interpolation_mode = 1
+zoom = Vector2(0.5, 0.5)
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
 process_priority = 300
@@ -74,6 +75,7 @@ metadata/_custom_type_script = "uid://bel636vbi2p7g"
 [node name="PhantomCamera2D" type="Node2D" parent="."]
 script = ExtResource("5_ov5rv")
 priority = 5
+zoom = Vector2(0.5, 0.5)
 tween_resource = SubResource("Resource_p3isv")
 tween_on_load = false
 metadata/_custom_type_script = "uid://76jmomq5wl5f"
