@@ -71,9 +71,6 @@ position = Vector2(4406, -1838)
 
 [node name="Enemies" type="Node2D" parent="Ignores BaseDarkness"]
 
-[node name="Stolen" parent="Ignores BaseDarkness/Enemies" instance=ExtResource("5_nraoy")]
-position = Vector2(6923, -203)
-
 [node name="Stolen2" parent="Ignores BaseDarkness/Enemies" instance=ExtResource("5_nraoy")]
 position = Vector2(6193, 2583)
 
