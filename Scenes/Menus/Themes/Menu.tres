@@ -1,0 +1,17 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://jht6a2okt2tm"]
+
+[ext_resource type="FontFile" uid="uid://b7kbd2t2kahle" path="res://Scenes/Menus/Fonts/digital-7.ttf" id="1_h7qiq"]
+[ext_resource type="StyleBox" uid="uid://db4q55a3hpti" path="res://Scenes/Menus/Themes/Button_Disabled.tres" id="2_ekjmd"]
+[ext_resource type="StyleBox" uid="uid://j28yyd0p42rl" path="res://Scenes/Menus/Themes/Button_Focus.tres" id="3_pijs5"]
+[ext_resource type="StyleBox" uid="uid://v4atstyesw3e" path="res://Scenes/Menus/Themes/Button_Hover.tres" id="4_uligt"]
+[ext_resource type="StyleBox" uid="uid://bmngt0gidd7d6" path="res://Scenes/Menus/Themes/Button_Normal.tres" id="5_yqwbt"]
+[ext_resource type="StyleBox" uid="uid://bbim2l1wpy3fq" path="res://Scenes/Menus/Themes/Button_Click.tres" id="6_6is2p"]
+
+[resource]
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("1_h7qiq")
+Button/styles/disabled = ExtResource("2_ekjmd")
+Button/styles/focus = ExtResource("3_pijs5")
+Button/styles/hover = ExtResource("4_uligt")
+Button/styles/normal = ExtResource("5_yqwbt")
+Button/styles/pressed = ExtResource("6_6is2p")

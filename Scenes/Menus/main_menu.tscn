@@ -1,25 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://sfyhw26gt1vr"]
+[gd_scene load_steps=12 format=3 uid="uid://sfyhw26gt1vr"]
 
-[ext_resource type="FontFile" uid="uid://b7kbd2t2kahle" path="res://Scenes/Menus/Fonts/digital-7.ttf" id="1_chkef"]
+[ext_resource type="Theme" uid="uid://jht6a2okt2tm" path="res://Scenes/Menus/Themes/Menu.tres" id="1_chkef"]
 [ext_resource type="Script" uid="uid://qms6jwawphbd" path="res://Scenes/Menus/main_menu.gd" id="1_s0654"]
-[ext_resource type="StyleBox" uid="uid://db4q55a3hpti" path="res://Scenes/Menus/Themes/Button_Disabled.tres" id="2_anmaw"]
-[ext_resource type="StyleBox" uid="uid://j28yyd0p42rl" path="res://Scenes/Menus/Themes/Button_Focus.tres" id="2_j4kqa"]
-[ext_resource type="StyleBox" uid="uid://v4atstyesw3e" path="res://Scenes/Menus/Themes/Button_Hover.tres" id="2_neey8"]
 [ext_resource type="Texture2D" uid="uid://ctxq1b6jvonlu" path="res://Scenes/Menus/images/MainMenu.png" id="2_penys"]
-[ext_resource type="StyleBox" uid="uid://bmngt0gidd7d6" path="res://Scenes/Menus/Themes/Button_Normal.tres" id="3_4fgt5"]
 [ext_resource type="Script" uid="uid://bqf3gg45lvvqs" path="res://Scenes/Menus/settings_menu.gd" id="3_covw7"]
 [ext_resource type="Texture2D" uid="uid://d3nbydo484fnw" path="res://Scenes/Menus/images/Tittle.png" id="4_aur2u"]
-[ext_resource type="StyleBox" uid="uid://bbim2l1wpy3fq" path="res://Scenes/Menus/Themes/Button_Click.tres" id="5_anmaw"]
 [ext_resource type="Shader" uid="uid://bylhb1fntwe5v" path="res://Scenes/Menus/Glitch.gdshader" id="11_ftsii"]
-
-[sub_resource type="Theme" id="Theme_j4kqa"]
-Button/font_sizes/font_size = 32
-Button/fonts/font = ExtResource("1_chkef")
-Button/styles/disabled = ExtResource("2_anmaw")
-Button/styles/focus = ExtResource("2_j4kqa")
-Button/styles/hover = ExtResource("2_neey8")
-Button/styles/normal = ExtResource("3_4fgt5")
-Button/styles/pressed = ExtResource("5_anmaw")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ftsii"]
 shader = ExtResource("11_ftsii")
@@ -29,7 +15,7 @@ shader_parameter/shake_speed = 5.0
 shader_parameter/shake_block_size = 30.5
 shader_parameter/shake_color_rate = 0.01
 
-[sub_resource type="Shader" id="Shader_6uaqq"]
+[sub_resource type="Shader" id="Shader_chkef"]
 code = "/*
 Shader from Godot Shaders - the free shader library.
 
@@ -215,7 +201,7 @@ void fragment(){
 }"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t0rlu"]
-shader = SubResource("Shader_6uaqq")
+shader = SubResource("Shader_chkef")
 shader_parameter/resolution = Vector2(1000, 1000)
 shader_parameter/scan_line_amount = 1.0
 shader_parameter/warp_amount = 0.378
@@ -248,7 +234,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = SubResource("Theme_j4kqa")
+theme = ExtResource("1_chkef")
 script = ExtResource("1_s0654")
 
 [node name="Menu Texture" type="TextureRect" parent="."]
@@ -274,7 +260,7 @@ texture = ExtResource("4_aur2u")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Graining" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_t0rlu")
 layout_mode = 1
 anchors_preset = 15
