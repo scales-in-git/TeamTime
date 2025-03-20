@@ -13,7 +13,7 @@ extends CharacterBody2D
 @export_category("Other")
 @export var max_blocks: int:
 	set(value):
-		max_blocks = 3
+		max_blocks = value
 		block_placer.set_max_blocks(max_blocks)
 	get():
 		return max_blocks

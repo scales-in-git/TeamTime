@@ -166,3 +166,4 @@ position = Vector2(2844, -126)
 state_manager = ExtResource("6_pe757")
 
 [node name="DoorEntrance" parent="foreground_or_ignore_shadow" instance=ExtResource("10_pe757")]
+player_max_blocks = 1
