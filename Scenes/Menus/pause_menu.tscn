@@ -347,37 +347,6 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "100%"
 
-[node name="Label2" type="Label" parent="PauseMenu/SettingsMenu/Panel/MarginContainer/VBoxContainer2/GridContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Mouse Sensitivity:"
-
-[node name="PanelContainer2" type="PanelContainer" parent="PauseMenu/SettingsMenu/Panel/MarginContainer/VBoxContainer2/GridContainer"]
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="PauseMenu/SettingsMenu/Panel/MarginContainer/VBoxContainer2/GridContainer/PanelContainer2"]
-layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_right = 20
-
-[node name="SensitivitySlider" type="HSlider" parent="PauseMenu/SettingsMenu/Panel/MarginContainer/VBoxContainer2/GridContainer/PanelContainer2/MarginContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_vertical = 4
-theme_override_styles/slider = SubResource("StyleBoxFlat_nwnlq")
-min_value = 0.1
-max_value = 10.0
-step = 0.01
-value = 1.0
-exp_edit = true
-
-[node name="SensitivityLabel" type="Label" parent="PauseMenu/SettingsMenu/Panel/MarginContainer/VBoxContainer2/GridContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "1.0"
-
 [node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/SettingsMenu/Panel/MarginContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 8
