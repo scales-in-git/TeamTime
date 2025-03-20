@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://cu4rjl45f8rbo"]
+[gd_scene load_steps=19 format=4 uid="uid://cu4rjl45f8rbo"]
 
 [ext_resource type="TileSet" uid="uid://c25hcjc6u3jq1" path="res://Scenes/Levels/DebugTileSet.tres" id="1_fgpdp"]
 [ext_resource type="PackedScene" uid="uid://uuf6ujkuy7bv" path="res://Scenes/Mechanics/Entrance/WalkingEntrance/WalkingEntrance.tscn" id="1_odgne"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://clq13lum7jkjv" path="res://Scenes/Mechanics/TurretAdaptive/AdaptiveTurret.tscn" id="12_4v3nh"]
 [ext_resource type="Resource" uid="uid://c8dp57vtkhhtm" path="res://Scenes/Levels/Debug/RundimentaryLevels/level_c_turret.tres" id="13_qmsud"]
 [ext_resource type="PackedScene" uid="uid://qgfao441huib" path="res://Scenes/Mechanics/Exit/ExitDoor/GoalDoor.tscn" id="14_2wxft"]
+[ext_resource type="PackedScene" uid="uid://c2liu7j8dfowu" path="res://Scenes/Mechanics/Exit/TokenExit/TokenExit.tscn" id="15_2xxoe"]
 
 [sub_resource type="Resource" id="Resource_ky0bu"]
 script = ExtResource("9_odgne")
@@ -123,3 +124,7 @@ state_manager = ExtResource("13_qmsud")
 position = Vector2(-3900, 0)
 state_manager = ExtResource("13_qmsud")
 scene = "uid://blqe2wxtr843y"
+
+[node name="TokenExit" parent="." instance=ExtResource("15_2xxoe")]
+position = Vector2(-2400, -200)
+scene = "uid://cu4rjl45f8rbo"

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bh6hhgiwdw4qe"
+path="res://.godot/imported/lab_FX2 4-GunshotPistol_BW.57107 (Freeze).wav-a1c0e62e3d91a79db1dc4a377d0c1bbf.sample"
+
+[deps]
+
+source_file="res://Scenes/Mechanics/TurretAdaptive/Sounds/lab_FX2 4-GunshotPistol_BW.57107 (Freeze).wav"
+dest_files=["res://.godot/imported/lab_FX2 4-GunshotPistol_BW.57107 (Freeze).wav-a1c0e62e3d91a79db1dc4a377d0c1bbf.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

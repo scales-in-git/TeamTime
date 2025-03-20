@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://3hurbwdo1xm0" path="res://SquareGlow.png" id="3_4fd3f"]
 [ext_resource type="PackedScene" uid="uid://2u65lxhpmldx" path="res://Scenes/Mechanics/Entrance/DoorEntrance/DoorEntrance.tscn" id="4_5c1ui"]
 [ext_resource type="PackedScene" uid="uid://c727a4v6bxv0" path="res://Scenes/Mechanics/InterLevel/InterLevelDoor.tscn" id="5_7nwya"]
-[ext_resource type="Script" path="res://Scenes/Utility/OnOffState.gd" id="6_id58x"]
+[ext_resource type="Script" uid="uid://dugcuhx50s64n" path="res://Scenes/Utility/OnOffState.gd" id="6_id58x"]
 
 [sub_resource type="Resource" id="Resource_moe5q"]
 script = ExtResource("6_id58x")
