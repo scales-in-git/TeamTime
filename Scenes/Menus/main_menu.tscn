@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ctxq1b6jvonlu" path="res://Scenes/Menus/images/MainMenu.png" id="2_penys"]
 [ext_resource type="Script" uid="uid://bqf3gg45lvvqs" path="res://Scenes/Menus/settings_menu.gd" id="3_covw7"]
 [ext_resource type="Texture2D" uid="uid://d3nbydo484fnw" path="res://Scenes/Menus/images/Tittle.png" id="4_aur2u"]
-[ext_resource type="Shader" uid="uid://bylhb1fntwe5v" path="res://Scenes/Menus/Glitch.gdshader" id="11_ftsii"]
+[ext_resource type="Shader" path="res://Scenes/Menus/Glitch.gdshader" id="11_ftsii"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ftsii"]
 shader = ExtResource("11_ftsii")
@@ -494,7 +494,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 20
 text = "Junior Programer
-Asset Make up artist "
+Asset Slave"
 horizontal_alignment = 1
 
 [node name="Label4" type="Label" parent="CreditsMenu/VBoxContainer/Credits/Lead Programmer"]
