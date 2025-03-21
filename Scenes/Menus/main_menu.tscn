@@ -2,10 +2,10 @@
 
 [ext_resource type="Theme" uid="uid://jht6a2okt2tm" path="res://Scenes/Menus/Themes/Menu.tres" id="1_chkef"]
 [ext_resource type="Script" uid="uid://qms6jwawphbd" path="res://Scenes/Menus/main_menu.gd" id="1_s0654"]
-[ext_resource type="Texture2D" uid="uid://ctxq1b6jvonlu" path="res://Scenes/Menus/images/MainMenu.png" id="2_penys"]
 [ext_resource type="Script" uid="uid://bqf3gg45lvvqs" path="res://Scenes/Menus/settings_menu.gd" id="3_covw7"]
 [ext_resource type="PackedScene" uid="uid://c0l3qjhe6dbei" path="res://Scenes/Levels/Block_00/Level01.tscn" id="3_j4kqa"]
-[ext_resource type="Texture2D" uid="uid://d3nbydo484fnw" path="res://Scenes/Menus/images/Tittle.png" id="4_aur2u"]
+[ext_resource type="Texture2D" uid="uid://ctxq1b6jvonlu" path="res://Scenes/Menus/images/MainMenu.png" id="4_aur2u"]
+[ext_resource type="Texture2D" uid="uid://d3nbydo484fnw" path="res://Scenes/Menus/images/Tittle.png" id="5_4fgt5"]
 [ext_resource type="PackedScene" uid="uid://dbehr8mfolttb" path="res://Scenes/Utility/SmartMusicPlayer.tscn" id="7_4fgt5"]
 [ext_resource type="AudioStream" uid="uid://d2tfnsct46q64" path="res://music/lab_ambience.wav" id="8_j4kqa"]
 [ext_resource type="Shader" uid="uid://bylhb1fntwe5v" path="res://Scenes/Menus/Glitch.gdshader" id="11_ftsii"]
@@ -248,7 +248,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_penys")
+texture = ExtResource("4_aur2u")
 expand_mode = 2
 stretch_mode = 4
 
@@ -260,7 +260,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_aur2u")
+texture = ExtResource("5_4fgt5")
 expand_mode = 2
 stretch_mode = 4
 
