@@ -1,9 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://sfyhw26gt1vr"]
+[gd_scene load_steps=14 format=3 uid="uid://sfyhw26gt1vr"]
 
 [ext_resource type="Theme" uid="uid://jht6a2okt2tm" path="res://Scenes/Menus/Themes/Menu.tres" id="1_chkef"]
 [ext_resource type="Script" uid="uid://qms6jwawphbd" path="res://Scenes/Menus/main_menu.gd" id="1_s0654"]
 [ext_resource type="Script" uid="uid://bqf3gg45lvvqs" path="res://Scenes/Menus/settings_menu.gd" id="3_covw7"]
-[ext_resource type="PackedScene" uid="uid://c0l3qjhe6dbei" path="res://Scenes/Levels/Block_00/Level01.tscn" id="3_j4kqa"]
 [ext_resource type="Texture2D" uid="uid://ctxq1b6jvonlu" path="res://Scenes/Menus/images/MainMenu.png" id="4_aur2u"]
 [ext_resource type="Texture2D" uid="uid://d3nbydo484fnw" path="res://Scenes/Menus/images/Tittle.png" id="5_4fgt5"]
 [ext_resource type="PackedScene" uid="uid://dbehr8mfolttb" path="res://Scenes/Utility/SmartMusicPlayer.tscn" id="7_4fgt5"]
@@ -239,7 +238,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("1_chkef")
 script = ExtResource("1_s0654")
-start = ExtResource("3_j4kqa")
 
 [node name="Menu Texture" type="TextureRect" parent="."]
 layout_mode = 1
