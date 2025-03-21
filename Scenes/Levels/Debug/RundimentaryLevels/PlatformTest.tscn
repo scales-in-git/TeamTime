@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://c5nc5ndk5ao5v"]
+[gd_scene load_steps=17 format=4 uid="uid://c5nc5ndk5ao5v"]
 
 [ext_resource type="PackedScene" uid="uid://dbehr8mfolttb" path="res://Scenes/Utility/SmartMusicPlayer.tscn" id="1_txwc8"]
 [ext_resource type="AudioStream" uid="uid://d2tfnsct46q64" path="res://music/lab_ambience.wav" id="2_s8xos"]
@@ -11,12 +11,24 @@
 [ext_resource type="PackedScene" uid="uid://qgfao441huib" path="res://Scenes/Mechanics/Exit/ExitDoor/GoalDoor.tscn" id="9_oe354"]
 [ext_resource type="PackedScene" uid="uid://brsai7op34w2q" path="res://Scenes/Mechanics/Switch/Switch.tscn" id="10_y47eu"]
 [ext_resource type="PackedScene" uid="uid://0hi7fyduhudf" path="res://Scenes/Mechanics/MovingPlatform/MovingPlatform.tscn" id="11_s8xos"]
+[ext_resource type="Script" uid="uid://dugcuhx50s64n" path="res://Scenes/Utility/OnOffState.gd" id="12_2o6of"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_usopr"]
 size = Vector2(4356, 499)
 
+[sub_resource type="Resource" id="Resource_2o6of"]
+script = ExtResource("12_2o6of")
+on = true
+metadata/_custom_type_script = "uid://dugcuhx50s64n"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s8xos"]
 size = Vector2(304, 44)
+
+[sub_resource type="Resource" id="Resource_voxo6"]
+resource_local_to_scene = true
+script = ExtResource("12_2o6of")
+on = true
+metadata/_custom_type_script = "uid://dugcuhx50s64n"
 
 [node name="PlatformTest" type="Node2D"]
 
@@ -176,11 +188,14 @@ state_manager = ExtResource("6_jb1bh")
 position = Vector2(476, -172)
 
 [node name="MovingPlatform" parent="Node2D" instance=ExtResource("11_s8xos")]
-direction = Vector2(0, -1)
-distance = 0.0
-speed = 0.25
+speed = 1.0
 wait = 1.0
+state_manager = SubResource("Resource_2o6of")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Node2D/MovingPlatform"]
 position = Vector2(3, 4)
 shape = SubResource("RectangleShape2D_s8xos")
+
+[node name="Switch" parent="Node2D" instance=ExtResource("10_y47eu")]
+position = Vector2(724, -28)
+state_manager = SubResource("Resource_voxo6")

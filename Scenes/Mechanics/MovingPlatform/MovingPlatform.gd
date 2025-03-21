@@ -6,6 +6,8 @@ extends AnimatableBody2D
 @export var speed: float = 0.5
 @export var wait: float = 2.0
 
+@export var state_manager: OnOffState
+
 const TILE_SIZE: float = 100.0
 
 enum MovementState {
@@ -18,15 +20,18 @@ enum MovementState {
 var active = true
 var current_state: MovementState = MovementState.TARGET_MOVE_TO
 
+func is_on():
+	print(state_manager, " ", state_manager.on)
+	return not state_manager or state_manager.on
+
 func _physics_process(delta):
-	if not active:
+	if not is_on():
 		return
 
 	if current_state == MovementState.SOURCE_WAIT or current_state == MovementState.TARGET_WAIT:
 		return
 
 	var use_direction = direction if current_state == MovementState.TARGET_MOVE_TO else -direction
-	print(use_direction)
 	var intended_displacement = use_direction*delta*speed
 
 	var reached_destination = false
