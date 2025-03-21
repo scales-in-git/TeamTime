@@ -1,6 +1,6 @@
 extends Control
 
-@export var main_menu:PackedScene
+var main_menu:PackedScene=load("res://Scenes/Menus/main_menu.tscn")
 	
 func _ready():
 	$%ResumeButton.pressed.connect(func():back_to_game())
