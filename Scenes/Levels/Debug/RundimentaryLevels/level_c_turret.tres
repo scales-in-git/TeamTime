@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="OnOffState" load_steps=2 format=3 uid="uid://c8dp57vtkhhtm"]
 
-[ext_resource type="Script" uid="uid://dugcuhx50s64n" path="res://Scenes/Utility/OnOffState.gd" id="1_0v2wk"]
+[ext_resource type="Script" path="res://Scenes/Utility/OnOffState.gd" id="1_0v2wk"]
 
 [resource]
 script = ExtResource("1_0v2wk")

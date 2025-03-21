@@ -22,13 +22,19 @@ func _ready()->void:
 		if !is_active(): return
 		door_sprite.play('Closed')
 	)
-
+	
+	door_light.color=active_colour
 	if not is_active():
 		door_light.color = inactive_colour
-	
+		
 	if state_manager:
 		state_manager.turned_on.connect(turn_on)
 		state_manager.turned_off.connect(turn_off)
+		state_manager.init()
+		
+		if not state_manager.on:
+			turn_off()
+
 
 
 func teleport()->void:
