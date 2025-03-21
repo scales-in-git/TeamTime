@@ -1,9 +1,13 @@
-[gd_scene load_steps=22 format=3 uid="uid://b1m643ns0nwm6"]
+[gd_scene load_steps=28 format=3 uid="uid://b1m643ns0nwm6"]
 
 [ext_resource type="Texture2D" uid="uid://cxvmfyg3qiw4t" path="res://Scenes/Mechanics/EvilStolen/StolenWalk SpriteSheet.png" id="1_iyhso"]
 [ext_resource type="Script" uid="uid://brj6hnd23elp4" path="res://Scenes/Mechanics/EvilStolen/Stolen.gd" id="1_xdx12"]
 [ext_resource type="Texture2D" uid="uid://bdm5eipd1m8bw" path="res://Glow.png" id="2_qaihh"]
 [ext_resource type="Texture2D" uid="uid://dgd1acdhvq8y0" path="res://ConeLight.png" id="4_acv6x"]
+[ext_resource type="Script" uid="uid://cxu3rw2cpdg44" path="res://Scenes/Mechanics/EvilCamera/EvilCamera.gd" id="5_626px"]
+[ext_resource type="PackedScene" uid="uid://d4eeme44hkqe5" path="res://Scenes/Mechanics/EvilCamera/camera.tscn" id="6_6dkmn"]
+[ext_resource type="PackedScene" uid="uid://dlyr50dshfbi7" path="res://Scenes/Utility/GenericFade.tscn" id="7_1av31"]
+[ext_resource type="AudioStream" uid="uid://vhywg5j3yo6n" path="res://fx/lab_FX alarm1.wav" id="8_yv1vb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iyhso"]
 atlas = ExtResource("1_iyhso")
@@ -105,6 +109,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_244qs"]
+size = Vector2(100, 100)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qaihh"]
 size = Vector2(80, 128)
 
@@ -150,7 +157,6 @@ tracks/2/keys = {
 [sub_resource type="Animation" id="Animation_0x41i"]
 resource_name = "Search"
 length = 4.28573
-loop_mode = 1
 step = 0.142857
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -159,10 +165,10 @@ tracks/0/path = NodePath("Sprite:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.714286, 2.85714),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.714286, 2.85714, 4.28573),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [&"default", &"Look_Down", &"Look_Left"]
+"values": [&"default", &"Look_Down", &"Look_Left", &"default"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -171,10 +177,10 @@ tracks/1/path = NodePath("Sprite/SearchLight:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.714286, 2.85714),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.714286, 2.85714, 4.28573),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [Vector2(31.855, -188.889), Vector2(22.2222, -177.778), Vector2(31.855, -188.889)]
+"values": [Vector2(31.855, -188.889), Vector2(22.2222, -177.778), Vector2(31.855, -188.889), Vector2(31.855, -188.889)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -183,10 +189,10 @@ tracks/2/path = NodePath("Sprite/SearchLight:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.714286, 2.85711),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.714286, 2.85711, 4.28573),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [0.0, 1.5708, 3.14159]
+"values": [0.0, 1.5708, 3.14159, 0.0]
 }
 
 [sub_resource type="Animation" id="Animation_acv6x"]
@@ -243,32 +249,46 @@ tracks/3/keys = {
 "values": [0.0]
 }
 
+[sub_resource type="Animation" id="Animation_qnim1"]
+resource_name = "default"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0x41i"]
 _data = {
 &"RESET": SubResource("Animation_chtrd"),
 &"Search": SubResource("Animation_0x41i"),
-&"Walk": SubResource("Animation_acv6x")
+&"Walk": SubResource("Animation_acv6x"),
+&"default": SubResource("Animation_qnim1")
 }
 
 [node name="Stolen" type="CharacterBody2D"]
-
-[node name="ggezbg" type="ColorRect" parent="."]
-custom_minimum_size = Vector2(10000, 10000)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -5000.0
-offset_top = -5000.0
-offset_right = 5000.0
-offset_bottom = 5000.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.16, 0.16, 0.16, 1)
-
-[node name="WalkBehavior" type="Node" parent="."]
+collision_layer = 768
+collision_mask = 768
 script = ExtResource("1_xdx12")
+speed = 1.5
 facing_right = true
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
@@ -301,9 +321,91 @@ height = 100.0
 [node name="SearchLight" type="PointLight2D" parent="Sprite"]
 unique_name_in_owner = true
 position = Vector2(54.0773, -196.296)
-scale = Vector2(1.79784, 1.0631)
+scale = Vector2(2.39044, 1.0631)
 shadow_enabled = true
 texture = ExtResource("4_acv6x")
+
+[node name="EvilCamera" type="Node2D" parent="Sprite/SearchLight" node_paths=PackedStringArray("export_light")]
+script = ExtResource("5_626px")
+export_light = NodePath("..")
+auto_blink_off = 0.0
+
+[node name="light" type="PointLight2D" parent="Sprite/SearchLight/EvilCamera"]
+unique_name_in_owner = true
+energy = 0.0
+shadow_enabled = true
+texture = ExtResource("4_acv6x")
+
+[node name="Camera(Real)" parent="Sprite/SearchLight/EvilCamera" instance=ExtResource("6_6dkmn")]
+unique_name_in_owner = true
+visible = false
+light_mask = 2
+position = Vector2(0, 50)
+scale = Vector2(0.261, 0.261)
+
+[node name="GenericFade" parent="Sprite/SearchLight/EvilCamera" instance=ExtResource("7_1av31")]
+unique_name_in_owner = true
+fade_in_time = 2.0
+transition_type = 4
+
+[node name="Alarm" type="AudioStreamPlayer2D" parent="Sprite/SearchLight/EvilCamera"]
+unique_name_in_owner = true
+stream = ExtResource("8_yv1vb")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite/SearchLight/EvilCamera"]
+position = Vector2(28.5073, 17.4195)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/SearchLight/EvilCamera/StaticBody2D"]
+shape = SubResource("RectangleShape2D_244qs")
+
+[node name="ABajillionRayCasts" type="Node2D" parent="Sprite/SearchLight/EvilCamera/StaticBody2D/CollisionShape2D"]
+unique_name_in_owner = true
+rotation = -0.465523
+
+[node name="RayCast2D" type="RayCast2D" parent="Sprite/SearchLight/EvilCamera/StaticBody2D/CollisionShape2D/ABajillionRayCasts"]
+position = Vector2(-1, -2)
+target_position = Vector2(849, 926)
+collision_mask = 536870912
+
+[node name="RayCast2D2" type="RayCast2D" parent="Sprite/SearchLight/EvilCamera/StaticBody2D/CollisionShape2D/ABajillionRayCasts"]
+position = Vector2(12, -14)
+target_position = Vector2(1043, 503)
+collision_mask = 536870912
+
+[node name="RayCast2D3" type="RayCast2D" parent="Sprite/SearchLight/EvilCamera/StaticBody2D/CollisionShape2D/ABajillionRayCasts"]
+position = Vector2(15, -30)
+target_position = Vector2(1234, 115)
+collision_mask = 536870912
+
+[node name="RayCast2D4" type="RayCast2D" parent="Sprite/SearchLight/EvilCamera/StaticBody2D/CollisionShape2D/ABajillionRayCasts"]
+position = Vector2(7, -6)
+target_position = Vector2(938, 726)
+collision_mask = 536870912
+
+[node name="RayCast2D5" type="RayCast2D" parent="Sprite/SearchLight/EvilCamera/StaticBody2D/CollisionShape2D/ABajillionRayCasts"]
+position = Vector2(15, -21)
+target_position = Vector2(1132, 325)
+collision_mask = 536870912
+
+[node name="RayCast2D6" type="RayCast2D" parent="Sprite/SearchLight/EvilCamera/StaticBody2D/CollisionShape2D/ABajillionRayCasts"]
+position = Vector2(4, -3)
+target_position = Vector2(887, 828)
+collision_mask = 536870912
+
+[node name="RayCast2D7" type="RayCast2D" parent="Sprite/SearchLight/EvilCamera/StaticBody2D/CollisionShape2D/ABajillionRayCasts"]
+position = Vector2(10, -10)
+target_position = Vector2(980, 619)
+collision_mask = 536870912
+
+[node name="RayCast2D8" type="RayCast2D" parent="Sprite/SearchLight/EvilCamera/StaticBody2D/CollisionShape2D/ABajillionRayCasts"]
+position = Vector2(14, -18)
+target_position = Vector2(1075, 420)
+collision_mask = 536870912
+
+[node name="RayCast2D9" type="RayCast2D" parent="Sprite/SearchLight/EvilCamera/StaticBody2D/CollisionShape2D/ABajillionRayCasts"]
+position = Vector2(16, -25)
+target_position = Vector2(1175, 230)
+collision_mask = 536870912
 
 [node name="Detectors" type="Node2D" parent="."]
 

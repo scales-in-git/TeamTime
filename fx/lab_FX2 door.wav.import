@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://de806fer7mh6b"
+path="res://.godot/imported/lab_FX2 door.wav-100d28b1ead5d529e89c0ce4eaf92fa3.sample"
+
+[deps]
+
+source_file="res://fx/lab_FX2 door.wav"
+dest_files=["res://.godot/imported/lab_FX2 door.wav-100d28b1ead5d529e89c0ce4eaf92fa3.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

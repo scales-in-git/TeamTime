@@ -9,6 +9,7 @@ extends Node2D
 
 @export var state_manager: OnOffState
 
+@export var export_light: PointLight2D
 # How long the camera will stay on before it blinks. Set to zero to disable autoblinking.
 @export var auto_blink_on: float = 5.0
 # How long it blinks for
@@ -70,6 +71,9 @@ func _physics_process(_delta):
 		if collided is Player:
 			killing = true
 			light.color = Color.PALE_VIOLET_RED
+
+			if export_light: export_light.color=Color.PALE_VIOLET_RED
+			
 			alarm.play()
 
 			await fade_out.fade_out().finished

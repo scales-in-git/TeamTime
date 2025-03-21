@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xq2ocub8lia7"
-path="res://.godot/imported/Turret_base.png-88a1f3862d8c68eefe4851d85a8d678c.ctex"
+uid="uid://chajj7ujkuoja"
+path="res://.godot/imported/CameraV2.png-626edb1238cfea25bd681c007a939ec6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Turret_base.png"
-dest_files=["res://.godot/imported/Turret_base.png-88a1f3862d8c68eefe4851d85a8d678c.ctex"]
+source_file="res://Scenes/Mechanics/EvilCamera/CameraV2.png"
+dest_files=["res://.godot/imported/CameraV2.png-626edb1238cfea25bd681c007a939ec6.ctex"]
 
 [params]
 

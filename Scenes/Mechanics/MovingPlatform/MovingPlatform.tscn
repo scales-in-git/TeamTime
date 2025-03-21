@@ -1,12 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://0hi7fyduhudf"]
+[gd_scene load_steps=5 format=3 uid="uid://0hi7fyduhudf"]
 
-[ext_resource type="Texture2D" uid="uid://8aukhe7oy3bu" path="res://Placeholders/FunnyPlatformLol.png" id="1_7tkyg"]
 [ext_resource type="Script" uid="uid://dohry0dir848e" path="res://Scenes/Mechanics/MovingPlatform/MovingPlatform.gd" id="1_akfi6"]
+[ext_resource type="Texture2D" uid="uid://d2aoanxbqujmf" path="res://tiles/Platform.png" id="2_akfi6"]
+[ext_resource type="Texture2D" uid="uid://3hurbwdo1xm0" path="res://SquareGlow.png" id="3_xti4b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ngmh"]
+size = Vector2(236, 20)
 
 [node name="MovingPlatform" type="AnimatableBody2D"]
+collision_mask = 2
 sync_to_physics = false
 script = ExtResource("1_akfi6")
 
 [node name="FunnyPlatformLol" type="Sprite2D" parent="."]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_7tkyg")
+texture = ExtResource("2_akfi6")
+
+[node name="Floor Light_1" type="PointLight2D" parent="FunnyPlatformLol"]
+position = Vector2(1.26362e-05, -30.5)
+scale = Vector2(0.236, 0.049)
+shadow_enabled = true
+texture = ExtResource("3_xti4b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2ngmh")

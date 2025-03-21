@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://l72tt6vkb1r2"
-path="res://.godot/imported/Turret_barrel.png-48c01eae50adf9b9a0bc987584b1d630.ctex"
+uid="uid://di8uu0i6pmuct"
+path="res://.godot/imported/Disk.png-61ad8ccd8f86a2be63e866e8ef45c757.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Turret_barrel.png"
-dest_files=["res://.godot/imported/Turret_barrel.png-48c01eae50adf9b9a0bc987584b1d630.ctex"]
+source_file="res://Scenes/Mechanics/Exit/TokenExit/Sprites/Disk.png"
+dest_files=["res://.godot/imported/Disk.png-61ad8ccd8f86a2be63e866e8ef45c757.ctex"]
 
 [params]
 

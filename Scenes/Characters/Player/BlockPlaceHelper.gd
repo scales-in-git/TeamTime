@@ -8,6 +8,8 @@ extends Node
 
 @export var max_placeable_blocks: int = 3
 
+var disabled:=false
+
 # Preload the block scene
 var _PlacedBlock := preload("uid://bwp2sn1n0w8v7")
 
@@ -34,6 +36,8 @@ func wipe_blocks(fast: bool = false):
 
 # Append and pop_front
 func _input(event: InputEvent):
+	if disabled:return
+
 	var blocks_changed := false
 
 	if event.is_action_pressed("player_block_place") and can_place_block:
@@ -70,6 +74,8 @@ func _input(event: InputEvent):
 	pass
 
 func _physics_process(_delta: float) -> void:
+	if disabled: return
+
 	var camera = get_viewport().get_camera_2d()
 	# good_indicator.global_position = floor(camera.get_global_mouse_position())
 	var new_pos: Vector2 = floor(camera.get_global_mouse_position())
