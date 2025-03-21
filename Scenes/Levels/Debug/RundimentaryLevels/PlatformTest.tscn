@@ -177,7 +177,7 @@ position = Vector2(476, -172)
 
 [node name="MovingPlatform" parent="Node2D" instance=ExtResource("11_s8xos")]
 direction = Vector2(0, -1)
-distance = 10.0
+distance = 0.0
 speed = 0.25
 wait = 1.0
 
