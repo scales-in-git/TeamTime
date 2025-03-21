@@ -1,5 +1,8 @@
 extends Control
 
+@export var start:PackedScene
+
+
 func back_to_main_menu():
 	$%CreditsMenu.visible = false
 	$%SettingsMenu.visible = false
@@ -12,6 +15,7 @@ func _process(_delta):
 
 func _ready():
 	$%PlayButton.pressed.connect(func():
+		get_tree().change_scene_to_packed(start)
 		pass
 	#get_tree().change_scene_to_file("res://Game/Scenes/Room/laboratory.tscn")
 	)

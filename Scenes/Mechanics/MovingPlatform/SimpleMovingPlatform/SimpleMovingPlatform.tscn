@@ -1,7 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://ck7hdwm4tjpjn"]
+[gd_scene load_steps=3 format=3 uid="uid://ck7hdwm4tjpjn"]
 
 [ext_resource type="PackedScene" uid="uid://0hi7fyduhudf" path="res://Scenes/Mechanics/MovingPlatform/MovingPlatform.tscn" id="1_evlhf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_evlhf"]
+size = Vector2(244, 20)
 
 [node name="SimpleMovingPlatform" type="Node2D"]
 
 [node name="MovingPlatform" parent="." instance=ExtResource("1_evlhf")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovingPlatform"]
+shape = SubResource("RectangleShape2D_evlhf")
