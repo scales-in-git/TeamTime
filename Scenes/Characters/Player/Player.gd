@@ -70,6 +70,13 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
+func _ready():
+	$%PhantomCamera.follow_mode = PhantomCamera2D.FollowMode.SIMPLE
+	$%PhantomCamera.follow_target = self
+	$%PhantomCamera.follow_damping = true
+	$%PhantomCamera.follow_damping_value = Vector2(.2, .2)
+	# $%PhantomCamera.follow_offset.y = -300
+
 func _enter_tree():
 	Game.player = self
 
