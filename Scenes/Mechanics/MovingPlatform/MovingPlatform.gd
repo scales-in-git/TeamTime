@@ -26,7 +26,6 @@ func _physics_process(delta):
 		return
 
 	var use_direction = direction if current_state == MovementState.TARGET_MOVE_TO else -direction
-	print(use_direction)
 	var intended_displacement = use_direction*delta*speed
 
 	var reached_destination = false

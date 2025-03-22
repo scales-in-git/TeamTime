@@ -11,8 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://2u65lxhpmldx" path="res://Scenes/Mechanics/Entrance/DoorEntrance/DoorEntrance.tscn" id="10_r88h7"]
 [ext_resource type="PackedScene" uid="uid://qgfao441huib" path="res://Scenes/Mechanics/Exit/ExitDoor/GoalDoor.tscn" id="11_2g2pb"]
 [ext_resource type="PackedScene" uid="uid://clq13lum7jkjv" path="res://Scenes/Mechanics/TurretAdaptive/AdaptiveTurret.tscn" id="12_hyopg"]
-[ext_resource type="Script" path="res://Scenes/Utility/OnOffState.gd" id="12_rt835"]
-[ext_resource type="PackedScene" uid="uid://0hi7fyduhudf" path="res://Scenes/Mechanics/MovingPlatform/MovingPlatform.tscn" id="13_177aq"]
+[ext_resource type="Script" uid="uid://dugcuhx50s64n" path="res://Scenes/Utility/OnOffState.gd" id="12_rt835"]
 [ext_resource type="Resource" uid="uid://c6wsgskfvb6ri" path="res://Scenes/Levels/Block_00/LoopLevel_A.tres" id="13_rt835"]
 [ext_resource type="PackedScene" uid="uid://c727a4v6bxv0" path="res://Scenes/Mechanics/InterLevel/InterLevelDoor.tscn" id="14_j6ajy"]
 
@@ -28,22 +27,17 @@ metadata/_custom_type_script = "uid://b42m1hnljomnf"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mqamd"]
 size = Vector2(1107, 809)
 
-[sub_resource type="Resource" id="Resource_j6ajy"]
-script = ExtResource("12_rt835")
-on = true
-metadata/_custom_type_script = "uid://dugcuhx50s64n"
+[sub_resource type="Resource" id="Resource_mqamd"]
+script = ExtResource("8_2g2pb")
+state_manager = ExtResource("13_rt835")
+on = false
+metadata/_custom_type_script = "uid://b42m1hnljomnf"
 
-[sub_resource type="Resource" id="Resource_1btm4"]
-resource_local_to_scene = true
-script = ExtResource("12_rt835")
-on = true
-metadata/_custom_type_script = "uid://dugcuhx50s64n"
-
-[sub_resource type="Resource" id="Resource_l2lrc"]
-resource_local_to_scene = true
-script = ExtResource("12_rt835")
-on = true
-metadata/_custom_type_script = "uid://dugcuhx50s64n"
+[sub_resource type="Resource" id="Resource_ekwyj"]
+script = ExtResource("8_2g2pb")
+state_manager = ExtResource("13_rt835")
+on = false
+metadata/_custom_type_script = "uid://b42m1hnljomnf"
 
 [sub_resource type="Resource" id="Resource_2g2pb"]
 script = ExtResource("12_rt835")
@@ -55,8 +49,20 @@ script = ExtResource("12_rt835")
 on = true
 metadata/_custom_type_script = "uid://dugcuhx50s64n"
 
-[sub_resource type="Resource" id="Resource_mqamd"]
+[sub_resource type="Resource" id="Resource_r88h7"]
 resource_local_to_scene = true
+script = ExtResource("8_2g2pb")
+state_manager = ExtResource("13_rt835")
+on = false
+metadata/_custom_type_script = "uid://b42m1hnljomnf"
+
+[sub_resource type="Resource" id="Resource_1btm4"]
+script = ExtResource("8_2g2pb")
+state_manager = ExtResource("13_rt835")
+on = false
+metadata/_custom_type_script = "uid://b42m1hnljomnf"
+
+[sub_resource type="Resource" id="Resource_j6ajy"]
 script = ExtResource("8_2g2pb")
 state_manager = ExtResource("13_rt835")
 on = false
@@ -172,44 +178,60 @@ position = Vector2(8691, -288)
 rotation = -3.13636
 shape = SubResource("RectangleShape2D_v53k6")
 
-[node name="AdaptiveTurret" parent="Ignores BaseDarkness/Enemies/Enviromental" node_paths=PackedStringArray("activation_zone") instance=ExtResource("12_hyopg")]
-position = Vector2(7526, -782)
-activation_zone = NodePath("Area2D")
-state_manager = SubResource("Resource_rt835")
-
-[node name="Area2D" type="Area2D" parent="Ignores BaseDarkness/Enemies/Enviromental/AdaptiveTurret"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ignores BaseDarkness/Enemies/Enviromental/AdaptiveTurret/Area2D"]
-position = Vector2(16.5, 394.5)
-shape = SubResource("RectangleShape2D_mqamd")
-
-[node name="EvilCamera3" parent="Ignores BaseDarkness/Enemies/Enviromental" instance=ExtResource("9_l2lrc")]
-position = Vector2(11195, -1169)
-rotation = 2.62323
-state_manager = SubResource("Resource_j6ajy")
-
-[node name="MovingPlatform2" parent="Ignores BaseDarkness/Enemies/Enviromental/EvilCamera3" instance=ExtResource("13_177aq")]
-position = Vector2(27.1348, -37.4795)
-rotation = -2.62323
-direction = Vector2(0, 1)
-
-[node name="Node2D" type="Node2D" parent="Ignores BaseDarkness/Enemies/Enviromental"]
-position = Vector2(3126, -1211)
-
-[node name="EvilCamera" parent="Ignores BaseDarkness/Enemies/Enviromental/Node2D" instance=ExtResource("9_l2lrc")]
-rotation = -0.346209
-state_manager = SubResource("Resource_j6ajy")
-
-[node name="MovingPlatform" parent="Ignores BaseDarkness/Enemies/Enviromental/Node2D" instance=ExtResource("13_177aq")]
-direction = Vector2(0, 1)
-
 [node name="Interactables" type="Node2D" parent="Ignores BaseDarkness/Enemies"]
 
 [node name="EvilCamera2" parent="Ignores BaseDarkness/Enemies/Interactables" instance=ExtResource("9_l2lrc")]
 position = Vector2(7620, 81.0002)
 rotation = 1.09781
 state_manager = ExtResource("13_rt835")
-auto_blink_off = 0.0
+auto_blink_off = 2.0
+
+[node name="AdaptiveTurret" parent="Ignores BaseDarkness/Enemies/Interactables" node_paths=PackedStringArray("activation_zone") instance=ExtResource("12_hyopg")]
+position = Vector2(7526, -782)
+activation_zone = NodePath("Area2D")
+state_manager = SubResource("Resource_rt835")
+
+[node name="Area2D" type="Area2D" parent="Ignores BaseDarkness/Enemies/Interactables/AdaptiveTurret"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ignores BaseDarkness/Enemies/Interactables/AdaptiveTurret/Area2D"]
+position = Vector2(16.5, 394.5)
+shape = SubResource("RectangleShape2D_mqamd")
+
+[node name="Switches" type="Node2D" parent="Ignores BaseDarkness/Enemies/Interactables"]
+
+[node name="Switch1" parent="Ignores BaseDarkness/Enemies/Interactables/Switches" instance=ExtResource("2_r88h7")]
+position = Vector2(6527.78, -163.528)
+state_manager = ExtResource("13_rt835")
+
+[node name="Switch2" parent="Ignores BaseDarkness/Enemies/Interactables/Switches" instance=ExtResource("2_r88h7")]
+position = Vector2(6513.34, 558.489)
+state_manager = SubResource("Resource_mqamd")
+
+[node name="Switch3" parent="Ignores BaseDarkness/Enemies/Interactables/Switches" instance=ExtResource("2_r88h7")]
+position = Vector2(8616.03, 525.372)
+state_manager = SubResource("Resource_ekwyj")
+
+[node name="Doors" type="Node2D" parent="Ignores BaseDarkness/Enemies/Interactables"]
+
+[node name="Door_A" parent="Ignores BaseDarkness/Enemies/Interactables/Doors" node_paths=PackedStringArray("destination") instance=ExtResource("14_j6ajy")]
+position = Vector2(6051, 0)
+destination = NodePath("../Door_A2")
+state_manager = SubResource("Resource_2g2pb")
+
+[node name="Door_A2" parent="Ignores BaseDarkness/Enemies/Interactables/Doors" node_paths=PackedStringArray("destination") instance=ExtResource("14_j6ajy")]
+position = Vector2(6050, 700)
+destination = NodePath("../Door_A")
+state_manager = SubResource("Resource_kfrgp")
+
+[node name="Door_B" parent="Ignores BaseDarkness/Enemies/Interactables/Doors" node_paths=PackedStringArray("destination") instance=ExtResource("14_j6ajy")]
+position = Vector2(7551, 0)
+destination = NodePath("../Door_B2")
+state_manager = SubResource("Resource_r88h7")
+
+[node name="Door_B2" parent="Ignores BaseDarkness/Enemies/Interactables/Doors" node_paths=PackedStringArray("destination") instance=ExtResource("14_j6ajy")]
+position = Vector2(8950, 700)
+destination = NodePath("../Door_B")
+state_manager = SubResource("Resource_1btm4")
 
 [node name="TileMaps" type="Node2D" parent="Ignores BaseDarkness"]
 
@@ -227,41 +249,8 @@ tile_set = ExtResource("3_2g2pb")
 
 [node name="DoorEntrance" parent="Ignores BaseDarkness" instance=ExtResource("10_r88h7")]
 position = Vector2(3650, -1)
+player_max_blocks = 0
 
 [node name="GoalDoor" parent="Ignores BaseDarkness" instance=ExtResource("11_2g2pb")]
 position = Vector2(10549, 1)
-
-[node name="Switches" type="Node2D" parent="Ignores BaseDarkness"]
-
-[node name="SwitchA" parent="Ignores BaseDarkness/Switches" instance=ExtResource("2_r88h7")]
-position = Vector2(8616.03, 525.372)
-state_manager = SubResource("Resource_1btm4")
-
-[node name="SwitchB" parent="Ignores BaseDarkness/Switches" instance=ExtResource("2_r88h7")]
-position = Vector2(6527.78, -163.528)
-state_manager = ExtResource("13_rt835")
-
-[node name="SwitchC" parent="Ignores BaseDarkness/Switches" instance=ExtResource("2_r88h7")]
-position = Vector2(6513.34, 558.489)
-state_manager = SubResource("Resource_l2lrc")
-
-[node name="Doors" type="Node2D" parent="Ignores BaseDarkness"]
-
-[node name="Door_A" parent="Ignores BaseDarkness/Doors" node_paths=PackedStringArray("destination") instance=ExtResource("14_j6ajy")]
-position = Vector2(6051, 0)
-destination = NodePath("../Door_A2")
-state_manager = SubResource("Resource_2g2pb")
-
-[node name="Door_A2" parent="Ignores BaseDarkness/Doors" node_paths=PackedStringArray("destination") instance=ExtResource("14_j6ajy")]
-position = Vector2(6050, 700)
-destination = NodePath("../Door_A")
-state_manager = SubResource("Resource_kfrgp")
-
-[node name="Door_B" parent="Ignores BaseDarkness/Doors" node_paths=PackedStringArray("destination") instance=ExtResource("14_j6ajy")]
-position = Vector2(7551, 0)
-destination = NodePath("../Door_B2")
-state_manager = SubResource("Resource_mqamd")
-
-[node name="Door_B2" parent="Ignores BaseDarkness/Doors" node_paths=PackedStringArray("destination") instance=ExtResource("14_j6ajy")]
-position = Vector2(8950, 700)
-destination = NodePath("../Door_B")
+state_manager = SubResource("Resource_j6ajy")
