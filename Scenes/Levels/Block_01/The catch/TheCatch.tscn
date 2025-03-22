@@ -151,6 +151,7 @@ scene = "uid://cu4rjl45f8rbo"
 [node name="Door" parent="Ignores BaseDarkness" instance=ExtResource("10_1823e")]
 position = Vector2(6376, -582)
 state_manager = ExtResource("11_8ndp6")
+scene = "uid://digi2j4e20wqs"
 
 [node name="BlockDetector" parent="Ignores BaseDarkness" instance=ExtResource("9_8xuic")]
 

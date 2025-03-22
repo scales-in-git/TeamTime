@@ -339,6 +339,7 @@ player_max_blocks = 1
 [node name="Door" parent="Ignores BaseDarkness" instance=ExtResource("14_4vxcm")]
 position = Vector2(7500, 7900)
 state_manager = ExtResource("15_jxbyt")
+scene = "uid://boj7m5irq53hd"
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 100
