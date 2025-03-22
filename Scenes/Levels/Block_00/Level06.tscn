@@ -75,10 +75,10 @@ follow_viewport_enabled = true
 [node name="Enviromental" type="Node2D" parent="Ignores BaseDarkness/Enemies"]
 
 [node name="Stolen" parent="Ignores BaseDarkness/Enemies/Enviromental" instance=ExtResource("4_x3373")]
-position = Vector2(4486, 1081)
+position = Vector2(5173, 1095)
 
 [node name="Stolen2" parent="Ignores BaseDarkness/Enemies/Enviromental" instance=ExtResource("4_x3373")]
-position = Vector2(3424, 1081)
+position = Vector2(3386, 1098)
 
 [node name="Search_Areas" type="Node2D" parent="Ignores BaseDarkness/Enemies/Enviromental"]
 position = Vector2(2122, 1227)
@@ -169,6 +169,7 @@ player_max_blocks = 0
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 100
+visible = false
 
 [node name="Pause Menu" parent="UI" instance=ExtResource("9_2ycfx")]
 process_mode = 3

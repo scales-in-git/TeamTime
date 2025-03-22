@@ -42,6 +42,7 @@ tile_set = ExtResource("3_5enus")
 position = Vector2(0, 3)
 
 [node name="Floor Light_1" type="PointLight2D" parent="Lights/FloorLights"]
+visible = false
 position = Vector2(7212.5, 2706.5)
 scale = Vector2(15.761, 6.751)
 shadow_enabled = true
@@ -52,6 +53,7 @@ position = Vector2(0, 3)
 rotation = 3.14159
 
 [node name="Ceiling Light_2" type="PointLight2D" parent="Lights/Ceiling_Lights"]
+visible = false
 position = Vector2(-7286.1, 2509.76)
 scale = Vector2(6.63713, 4.59835)
 shadow_enabled = true

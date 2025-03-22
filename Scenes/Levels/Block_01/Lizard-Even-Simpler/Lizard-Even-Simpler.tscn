@@ -188,10 +188,6 @@ shape = SubResource("RectangleShape2D_aa01t")
 position = Vector2(6000, 10600)
 scene = "uid://nsvflxaipx3e"
 
-[node name="Door2" parent="Ignores BaseDarkness" instance=ExtResource("10_8enys")]
-position = Vector2(6000, 10600)
-scene = "uid://nsvflxaipx3e"
-
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 100
 
