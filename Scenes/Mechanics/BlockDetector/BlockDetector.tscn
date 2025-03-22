@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bjlojs8vmah72" path="res://Scenes/Mechanics/BlockDetector/block_detector.gd" id="1_pitgp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wcw8l"]
-size = Vector2(100, 100)
+size = Vector2(80, 80)
 
 [node name="BlockDetector" type="Node2D"]
 script = ExtResource("1_pitgp")
