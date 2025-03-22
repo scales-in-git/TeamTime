@@ -4,6 +4,7 @@ class_name Stolen extends CharacterBody2D
 
 @onready var _edgedetection:RayCast2D=$%EdgeDetection
 @onready var _walldetection:RayCast2D=$%WallDetection
+@onready var _walldetection2:RayCast2D=$%WallDetection2
 @onready var _animation:AnimationPlayer=$%Animator
 
 
@@ -29,8 +30,8 @@ func _physics_process(delta:float)->void:
 	if velocity.x != 0.0:
 		_animation.play("Walk")
 	
-	if (not _edgedetection.is_colliding() or _walldetection.is_colliding())&& is_on_floor():
-		print(_walldetection.is_colliding())
+	if (not _edgedetection.is_colliding() or _walldetection.is_colliding() or _walldetection2.is_colliding()) \
+			&& is_on_floor():
 		flip()
 	
 	velocity.x= speed

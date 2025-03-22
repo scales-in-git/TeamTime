@@ -1,11 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://b6n4ox24glr40"]
+[gd_scene load_steps=15 format=3 uid="uid://b6n4ox24glr40"]
 
 [ext_resource type="Script" uid="uid://c465e010bomid" path="res://Scenes/Characters/Player/Player.gd" id="1_no7dv"]
 [ext_resource type="SpriteFrames" uid="uid://cw6ckk3ric7gn" path="res://Scenes/Characters/Player/Sprites/Character_SpriteAnimations.tres" id="2_gqvyu"]
 [ext_resource type="Script" uid="uid://c7y84gs01fdxh" path="res://Scenes/Characters/Player/BlockPlaceHelper.gd" id="3_gqvyu"]
 [ext_resource type="Script" uid="uid://bel636vbi2p7g" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_gu5w3"]
 [ext_resource type="Script" uid="uid://bfqpja4dftbt3" path="res://Scenes/Characters/Player/PlayerAnimationHelper.gd" id="3_ov5rv"]
+[ext_resource type="AudioStream" uid="uid://d1waln08xjfdt" path="res://fx/sfx_jump_ethan.mp3" id="4_p3isv"]
+[ext_resource type="AudioStream" uid="uid://17uk17r5sf0h" path="res://fx/player_sfx_footstep1_ethan.mp3" id="5_n0syu"]
 [ext_resource type="Script" uid="uid://76jmomq5wl5f" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="5_ov5rv"]
+[ext_resource type="AudioStream" uid="uid://bjt2eqvo170f0" path="res://fx/player_sfx_footstep2_ethan.mp3" id="6_rdi2b"]
 [ext_resource type="Script" uid="uid://c4d36sgi5fcop" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_xst4l"]
 [ext_resource type="Texture2D" uid="uid://bdm5eipd1m8bw" path="res://Glow.png" id="8_xst4l"]
 
@@ -26,6 +29,7 @@ collision_layer = 536870917
 collision_mask = 536870913
 script = ExtResource("1_no7dv")
 animated_sprite = NodePath("CanvasGroup/Sprite2D")
+sfx_jump = ExtResource("4_p3isv")
 speed = 600.0
 gravity = 2500.0
 jump_strength = 1300.0
@@ -38,9 +42,17 @@ z_index = 1
 position = Vector2(0, -68.041)
 scale = Vector2(0.274, 0.274)
 sprite_frames = ExtResource("2_gqvyu")
-animation = &"Idle"
+animation = &"RunEnd"
 offset = Vector2(0, -113)
 script = ExtResource("3_ov5rv")
+sfx_footsteps1 = ExtResource("5_n0syu")
+sfx_footsteps2 = ExtResource("6_rdi2b")
+
+[node name="sfx_player" type="AudioStreamPlayer2D" parent="CanvasGroup/Sprite2D"]
+unique_name_in_owner = true
+position = Vector2(0, 248.325)
+scale = Vector2(3.64964, 3.64964)
+bus = &"SFX"
 
 [node name="Player Glow" type="PointLight2D" parent="CanvasGroup/Sprite2D"]
 position = Vector2(144.176, -89.2753)
@@ -125,5 +137,7 @@ unique_name_in_owner = true
 wait_time = 0.2
 one_shot = true
 
+[connection signal="frame_changed" from="CanvasGroup/Sprite2D" to="CanvasGroup/Sprite2D" method="_on_frame_changed"]
+[connection signal="sprite_frames_changed" from="CanvasGroup/Sprite2D" to="CanvasGroup/Sprite2D" method="_on_sprite_frames_changed"]
 [connection signal="body_entered" from="BlockPlaceHelper/BlockPlaceCollision" to="BlockPlaceHelper" method="_on_block_place_collision_body_entered"]
 [connection signal="body_exited" from="BlockPlaceHelper/BlockPlaceCollision" to="BlockPlaceHelper" method="_on_block_place_collision_body_exited"]
