@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://clq13lum7jkjv"]
+[gd_scene load_steps=6 format=3 uid="uid://clq13lum7jkjv"]
 
 [ext_resource type="Texture2D" uid="uid://l72tt6vkb1r2" path="res://Scenes/Mechanics/TurretAdaptive/Sprites/Turret_barrel.png" id="1_6fw3l"]
 [ext_resource type="Script" uid="uid://wt76f7thx53t" path="res://Scenes/Mechanics/TurretAdaptive/AdaptiveTurret.gd" id="1_j2sai"]
 [ext_resource type="Texture2D" uid="uid://xq2ocub8lia7" path="res://Scenes/Mechanics/TurretAdaptive/Sprites/Turret_base.png" id="2_j2sai"]
 [ext_resource type="AudioStream" uid="uid://bh6hhgiwdw4qe" path="res://Scenes/Mechanics/TurretAdaptive/Sounds/lab_FX2 4-GunshotPistol_BW.57107 (Freeze).wav" id="3_21o80"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_21o80"]
+radius = 200.0
 
 [node name="AdaptiveTurret" type="Node2D"]
 script = ExtResource("1_j2sai")
@@ -36,3 +39,10 @@ texture = ExtResource("2_j2sai")
 [node name="UnfunTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 one_shot = true
+
+[node name="Area2Dssss" type="StaticBody2D" parent="."]
+collision_layer = 2048
+collision_mask = 2048
+
+[node name="CollisionShape2Dsss" type="CollisionShape2D" parent="Area2Dssss"]
+shape = SubResource("CircleShape2D_21o80")

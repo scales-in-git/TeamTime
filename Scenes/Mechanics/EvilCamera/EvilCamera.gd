@@ -36,6 +36,8 @@ func blink(how_long: float = 1.0):
 
 	var timer := get_tree().create_timer(how_long)
 	await timer.timeout
+	# Some very unlucky timing can have this run while we're not in the tree,
+	#  so guard against that.
 	if not turned_off:
 		light.enabled = true
 		blinking = false
@@ -56,6 +58,7 @@ func turn_on():
 
 
 func _create_blink_timer():
+	if not get_tree(): return null
 	var timer = get_tree().create_timer(auto_blink_on)
 	timer.timeout.connect(func ():
 		print(name)

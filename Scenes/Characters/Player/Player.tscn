@@ -12,7 +12,7 @@
 [sub_resource type="Resource" id="Resource_p3isv"]
 script = ExtResource("6_xst4l")
 duration = 1.0
-transition = 0
+transition = 2
 ease = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8y2kw"]
@@ -90,6 +90,8 @@ script = ExtResource("3_gqvyu")
 
 [node name="BlockPlaceCollision" type="Area2D" parent="BlockPlaceHelper"]
 unique_name_in_owner = true
+collision_layer = 2049
+collision_mask = 2049
 
 [node name="PlaceGoodIndicator" type="ColorRect" parent="BlockPlaceHelper/BlockPlaceCollision"]
 unique_name_in_owner = true
