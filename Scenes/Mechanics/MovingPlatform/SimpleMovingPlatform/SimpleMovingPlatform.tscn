@@ -9,5 +9,5 @@ size = Vector2(244, 20)
 
 [node name="MovingPlatform" parent="." instance=ExtResource("1_evlhf")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MovingPlatform"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="MovingPlatform"]
 shape = SubResource("RectangleShape2D_evlhf")
