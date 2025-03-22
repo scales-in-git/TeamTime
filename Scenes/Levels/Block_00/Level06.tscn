@@ -169,10 +169,14 @@ player_max_blocks = 0
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 100
+visible = false
 
 [node name="Pause Menu" parent="UI" instance=ExtResource("9_2ycfx")]
 process_mode = 3
 
+[connection signal="body_entered" from="Ignores BaseDarkness/Enemies/Enviromental/Search_Areas/Search" to="Ignores BaseDarkness/Enemies/Enviromental/Stolen2" method="entered_search_area"]
+[connection signal="body_entered" from="Ignores BaseDarkness/Enemies/Enviromental/Search_Areas/Search5" to="Ignores BaseDarkness/Enemies/Enviromental/Stolen2" method="entered_search_area"]
+[connection signal="body_entered" from="Ignores BaseDarkness/Enemies/Enviromental/Search_Areas/Search6" to="Ignores BaseDarkness/Enemies/Enviromental/Stolen2" method="entered_search_area"]
 [connection signal="body_entered" from="Ignores BaseDarkness/Enemies/Enviromental/Search_Areas/Search2" to="Ignores BaseDarkness/Enemies/Enviromental/Stolen" method="entered_search_area"]
 [connection signal="body_entered" from="Ignores BaseDarkness/Enemies/Enviromental/Search_Areas/Search3" to="Ignores BaseDarkness/Enemies/Enviromental/Stolen" method="entered_search_area"]
 [connection signal="body_entered" from="Ignores BaseDarkness/Enemies/Enviromental/Search_Areas/Search4" to="Ignores BaseDarkness/Enemies/Enviromental/Stolen" method="entered_search_area"]
