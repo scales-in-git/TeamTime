@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://qgfao441huib" path="res://Scenes/Mechanics/Exit/ExitDoor/GoalDoor.tscn" id="6_c7mc5"]
 [ext_resource type="Script" uid="uid://b42m1hnljomnf" path="res://Scenes/Utility/OnOffStateInverter.gd" id="7_4gsna"]
 [ext_resource type="PackedScene" uid="uid://brsai7op34w2q" path="res://Scenes/Mechanics/Switch/Switch.tscn" id="8_kjd4l"]
-[ext_resource type="Script" uid="uid://dugcuhx50s64n" path="res://Scenes/Utility/OnOffState.gd" id="10_jg5pk"]
+[ext_resource type="Script" path="res://Scenes/Utility/OnOffState.gd" id="10_jg5pk"]
 [ext_resource type="PackedScene" uid="uid://c2xedpocryy26" path="res://Scenes/Menus/pause_menu.tscn" id="13_c7mc5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ohhsb"]

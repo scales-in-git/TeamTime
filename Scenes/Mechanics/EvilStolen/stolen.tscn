@@ -1,10 +1,11 @@
-[gd_scene load_steps=28 format=3 uid="uid://b1m643ns0nwm6"]
+[gd_scene load_steps=29 format=3 uid="uid://b1m643ns0nwm6"]
 
 [ext_resource type="Texture2D" uid="uid://cxvmfyg3qiw4t" path="res://Scenes/Mechanics/EvilStolen/StolenWalk SpriteSheet.png" id="1_iyhso"]
 [ext_resource type="Script" uid="uid://brj6hnd23elp4" path="res://Scenes/Mechanics/EvilStolen/Stolen.gd" id="1_xdx12"]
 [ext_resource type="Texture2D" uid="uid://bdm5eipd1m8bw" path="res://Glow.png" id="2_qaihh"]
 [ext_resource type="Texture2D" uid="uid://dgd1acdhvq8y0" path="res://ConeLight.png" id="4_acv6x"]
 [ext_resource type="Script" uid="uid://cxu3rw2cpdg44" path="res://Scenes/Mechanics/EvilCamera/EvilCamera.gd" id="5_626px"]
+[ext_resource type="Resource" uid="uid://b6ojxopee33dg" path="res://Scenes/Mechanics/EvilStolen/StolenState.tres" id="6_1av31"]
 [ext_resource type="PackedScene" uid="uid://d4eeme44hkqe5" path="res://Scenes/Mechanics/EvilCamera/camera.tscn" id="6_6dkmn"]
 [ext_resource type="PackedScene" uid="uid://dlyr50dshfbi7" path="res://Scenes/Utility/GenericFade.tscn" id="7_1av31"]
 [ext_resource type="AudioStream" uid="uid://vhywg5j3yo6n" path="res://fx/lab_FX alarm1.wav" id="8_yv1vb"]
@@ -327,6 +328,7 @@ texture = ExtResource("4_acv6x")
 
 [node name="EvilCamera" type="Node2D" parent="Sprite/SearchLight" node_paths=PackedStringArray("export_light")]
 script = ExtResource("5_626px")
+state_manager = ExtResource("6_1av31")
 export_light = NodePath("..")
 auto_blink_off = 0.0
 

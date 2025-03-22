@@ -161,6 +161,7 @@ tile_set = ExtResource("1_akvmn")
 
 [node name="Door" parent="Ignores BaseDarkness" instance=ExtResource("6_3e6l3")]
 position = Vector2(1650, 1601)
+scene = "uid://pxmgaw6idvuw"
 
 [node name="DoorEntrance" parent="Ignores BaseDarkness" instance=ExtResource("8_xp31a")]
 position = Vector2(6550, 1600)
