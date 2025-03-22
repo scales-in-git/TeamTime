@@ -182,6 +182,7 @@ player_max_blocks = 1
 [node name="Door" parent="Ignores BaseDarkness" instance=ExtResource("6_c7mc5")]
 position = Vector2(6450, 2400)
 state_manager = SubResource("Resource_rt1b7")
+scene = "uid://5bga0ud1tinf"
 
 [node name="Switch" parent="Ignores BaseDarkness" instance=ExtResource("8_kjd4l")]
 position = Vector2(6850, 3150)
