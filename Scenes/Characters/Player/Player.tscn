@@ -29,13 +29,10 @@ collision_layer = 536870917
 collision_mask = 536870913
 script = ExtResource("1_no7dv")
 animated_sprite = NodePath("CanvasGroup/Sprite2D")
+sfx_jump = ExtResource("4_p3isv")
 speed = 600.0
 gravity = 2500.0
 jump_strength = 1300.0
-
-[node name="sfx_player" type="AudioStreamPlayer2D" parent="."]
-unique_name_in_owner = true
-bus = &"SFX"
 
 [node name="CanvasGroup" type="CanvasGroup" parent="."]
 
@@ -45,12 +42,17 @@ z_index = 1
 position = Vector2(0, -68.041)
 scale = Vector2(0.274, 0.274)
 sprite_frames = ExtResource("2_gqvyu")
-animation = &"RunStart"
+animation = &"RunEnd"
 offset = Vector2(0, -113)
 script = ExtResource("3_ov5rv")
-sfx_jump = ExtResource("4_p3isv")
 sfx_footsteps1 = ExtResource("5_n0syu")
 sfx_footsteps2 = ExtResource("6_rdi2b")
+
+[node name="sfx_player" type="AudioStreamPlayer2D" parent="CanvasGroup/Sprite2D"]
+unique_name_in_owner = true
+position = Vector2(0, 248.325)
+scale = Vector2(3.64964, 3.64964)
+bus = &"SFX"
 
 [node name="Player Glow" type="PointLight2D" parent="CanvasGroup/Sprite2D"]
 position = Vector2(144.176, -89.2753)
@@ -133,5 +135,7 @@ unique_name_in_owner = true
 wait_time = 0.2
 one_shot = true
 
+[connection signal="frame_changed" from="CanvasGroup/Sprite2D" to="CanvasGroup/Sprite2D" method="_on_frame_changed"]
+[connection signal="sprite_frames_changed" from="CanvasGroup/Sprite2D" to="CanvasGroup/Sprite2D" method="_on_sprite_frames_changed"]
 [connection signal="body_entered" from="BlockPlaceHelper/BlockPlaceCollision" to="BlockPlaceHelper" method="_on_block_place_collision_body_entered"]
 [connection signal="body_exited" from="BlockPlaceHelper/BlockPlaceCollision" to="BlockPlaceHelper" method="_on_block_place_collision_body_exited"]
