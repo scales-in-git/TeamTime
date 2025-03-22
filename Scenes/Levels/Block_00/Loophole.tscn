@@ -1,8 +1,10 @@
-[gd_scene load_steps=15 format=4 uid="uid://pxmgaw6idvuw"]
+[gd_scene load_steps=17 format=4 uid="uid://pxmgaw6idvuw"]
 
 [ext_resource type="Script" uid="uid://dtf6m307vynsn" path="res://Scenes/Mechanics/EvilCamera/Switch.gd" id="1_8jaeo"]
+[ext_resource type="PackedScene" uid="uid://dbehr8mfolttb" path="res://Scenes/Utility/SmartMusicPlayer.tscn" id="2_2g2pb"]
 [ext_resource type="PackedScene" uid="uid://brsai7op34w2q" path="res://Scenes/Mechanics/Switch/Switch.tscn" id="2_r88h7"]
 [ext_resource type="TileSet" uid="uid://7ewkkcpem306" path="res://tiles/TileTests.tres" id="3_2g2pb"]
+[ext_resource type="AudioStream" uid="uid://d2tfnsct46q64" path="res://music/lab_ambience.wav" id="3_rt835"]
 [ext_resource type="Texture2D" uid="uid://bdm5eipd1m8bw" path="res://Glow.png" id="4_rt835"]
 [ext_resource type="Texture2D" uid="uid://3hurbwdo1xm0" path="res://SquareGlow.png" id="5_j6ajy"]
 [ext_resource type="PackedScene" uid="uid://v042n0qyld7u" path="res://Scenes/Mechanics/Entrance/InstantEntrance/InstantEntrance.tscn" id="6_mqamd"]
@@ -19,6 +21,9 @@ size = Vector2(3336, 661.5)
 
 [node name="LevelTemplate" type="Node2D"]
 script = ExtResource("1_8jaeo")
+
+[node name="SmartMusicPlayer" parent="." instance=ExtResource("2_2g2pb")]
+music = ExtResource("3_rt835")
 
 [node name="Switch" parent="." instance=ExtResource("2_r88h7")]
 position = Vector2(8616.03, 525.372)

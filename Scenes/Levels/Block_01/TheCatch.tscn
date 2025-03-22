@@ -1,6 +1,8 @@
-[gd_scene load_steps=15 format=4 uid="uid://5bga0ud1tinf"]
+[gd_scene load_steps=17 format=4 uid="uid://5bga0ud1tinf"]
 
+[ext_resource type="PackedScene" uid="uid://dbehr8mfolttb" path="res://Scenes/Utility/SmartMusicPlayer.tscn" id="1_bt5x2"]
 [ext_resource type="TileSet" uid="uid://7ewkkcpem306" path="res://tiles/TileTests.tres" id="1_topet"]
+[ext_resource type="AudioStream" uid="uid://d2tfnsct46q64" path="res://music/lab_ambience.wav" id="2_8ndp6"]
 [ext_resource type="Texture2D" uid="uid://bdm5eipd1m8bw" path="res://Glow.png" id="2_8xuic"]
 [ext_resource type="Texture2D" uid="uid://3hurbwdo1xm0" path="res://SquareGlow.png" id="3_oofvb"]
 [ext_resource type="PackedScene" uid="uid://jhjkr5mcfjhg" path="res://Scenes/Mechanics/DeathPit/DeathPit.tscn" id="5_sjxbw"]
@@ -18,6 +20,9 @@
 size = Vector2(4356, 499)
 
 [node name="LevelTemplate" type="Node2D"]
+
+[node name="SmartMusicPlayer" parent="." instance=ExtResource("1_bt5x2")]
+music = ExtResource("2_8ndp6")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = 1582.0
