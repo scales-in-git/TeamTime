@@ -8,7 +8,7 @@
 [ext_resource type="StyleBox" uid="uid://bbim2l1wpy3fq" path="res://Scenes/Menus/Themes/Button_Click.tres" id="6_6is2p"]
 
 [resource]
-Button/font_sizes/font_size = 32
+Button/font_sizes/font_size = 86
 Button/fonts/font = ExtResource("1_h7qiq")
 Button/styles/disabled = ExtResource("2_ekjmd")
 Button/styles/focus = ExtResource("3_pijs5")

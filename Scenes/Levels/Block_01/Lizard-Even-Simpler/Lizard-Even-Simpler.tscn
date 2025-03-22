@@ -176,6 +176,7 @@ camera_active_priority = 2
 [node name="PhantomCamera2D" type="Node2D" parent="Ignores BaseDarkness/Camera Zones/CameraZone"]
 position = Vector2(4900, 9900)
 script = ExtResource("7_g4iqt")
+zoom = Vector2(1.1, 1.1)
 tween_resource = SubResource("Resource_p330i")
 metadata/_custom_type_script = "uid://76jmomq5wl5f"
 
