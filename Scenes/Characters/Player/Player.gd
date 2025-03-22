@@ -4,6 +4,8 @@ extends CharacterBody2D
 @export_category("Animation")
 @export var animated_sprite:PlayerAnimations
 
+@export var sfx_jump : AudioStream
+
 @export_category("Movement")
 
 @export var speed: float = 400.0
@@ -66,6 +68,8 @@ func _physics_process(delta: float) -> void:
 	# if Input.is_action_just_pressed("player_jump") and is_on_floor():
 	if not jump_buffer_timer.is_stopped() and (is_on_floor() or not coyote_timer.is_stopped()):
 		velocity.y = -jump_strength
+		load_sfx(sfx_jump)
+		$%sfx_player.play()
 		jump_buffer_timer.stop()
 	
 	move_and_slide()
@@ -75,7 +79,12 @@ func _ready():
 	$%PhantomCamera.follow_target = self
 	$%PhantomCamera.follow_damping = true
 	$%PhantomCamera.follow_damping_value = Vector2(.2, .2)
-	$%PhantomCamera.follow_offset.y = -300
+	# $%PhantomCamera.follow_offset.y = -300
+	
+func load_sfx(sfx_to_load):
+	if $%sfx_player.stream != sfx_to_load:
+			$%sfx_player.stop()
+			$%sfx_player.stream = sfx_to_load
 
 func _enter_tree():
 	Game.player = self
