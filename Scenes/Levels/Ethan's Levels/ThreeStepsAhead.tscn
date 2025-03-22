@@ -1,6 +1,8 @@
-[gd_scene load_steps=15 format=4 uid="uid://d132j2w3qoq5w"]
+[gd_scene load_steps=17 format=4 uid="uid://d132j2w3qoq5w"]
 
 [ext_resource type="TileSet" uid="uid://7ewkkcpem306" path="res://tiles/TileTests.tres" id="1_1fvnw"]
+[ext_resource type="PackedScene" uid="uid://dbehr8mfolttb" path="res://Scenes/Utility/SmartMusicPlayer.tscn" id="1_quds4"]
+[ext_resource type="AudioStream" uid="uid://d2tfnsct46q64" path="res://music/lab_ambience.wav" id="2_0b1s0"]
 [ext_resource type="Texture2D" uid="uid://bdm5eipd1m8bw" path="res://Glow.png" id="2_7tlbm"]
 [ext_resource type="Texture2D" uid="uid://3hurbwdo1xm0" path="res://SquareGlow.png" id="3_quds4"]
 [ext_resource type="PackedScene" uid="uid://v042n0qyld7u" path="res://Scenes/Mechanics/Entrance/InstantEntrance/InstantEntrance.tscn" id="4_0b1s0"]
@@ -18,6 +20,9 @@
 size = Vector2(452.727, 1145.5)
 
 [node name="LevelTemplate" type="Node2D"]
+
+[node name="SmartMusicPlayer" parent="." instance=ExtResource("1_quds4")]
+music = ExtResource("2_0b1s0")
 
 [node name="BaseDarkness" type="CanvasModulate" parent="."]
 color = Color(0.306923, 0.306923, 0.306923, 1)

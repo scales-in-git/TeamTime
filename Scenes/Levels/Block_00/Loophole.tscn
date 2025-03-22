@@ -1,66 +1,42 @@
-[gd_scene load_steps=25 format=4 uid="uid://pxmgaw6idvuw"]
+[gd_scene load_steps=23 format=4 uid="uid://pxmgaw6idvuw"]
 
 [ext_resource type="PackedScene" uid="uid://brsai7op34w2q" path="res://Scenes/Mechanics/Switch/Switch.tscn" id="2_r88h7"]
 [ext_resource type="TileSet" uid="uid://7ewkkcpem306" path="res://tiles/TileTests.tres" id="3_2g2pb"]
 [ext_resource type="Texture2D" uid="uid://bdm5eipd1m8bw" path="res://Glow.png" id="4_rt835"]
 [ext_resource type="Texture2D" uid="uid://3hurbwdo1xm0" path="res://SquareGlow.png" id="5_j6ajy"]
 [ext_resource type="PackedScene" uid="uid://b1m643ns0nwm6" path="res://Scenes/Mechanics/EvilStolen/stolen.tscn" id="7_kfrgp"]
-[ext_resource type="Script" uid="uid://b42m1hnljomnf" path="res://Scenes/Utility/OnOffStateInverter.gd" id="8_2g2pb"]
 [ext_resource type="PackedScene" uid="uid://jhjkr5mcfjhg" path="res://Scenes/Mechanics/DeathPit/DeathPit.tscn" id="8_ekwyj"]
+[ext_resource type="Resource" uid="uid://b36iexmhgimx3" path="res://Scenes/Levels/Block_00/Loopholeonoff1.tres" id="8_rt835"]
 [ext_resource type="PackedScene" uid="uid://dxb7l54dt8jih" path="res://Scenes/Mechanics/EvilCamera/EvilCamera.tscn" id="9_l2lrc"]
 [ext_resource type="PackedScene" uid="uid://2u65lxhpmldx" path="res://Scenes/Mechanics/Entrance/DoorEntrance/DoorEntrance.tscn" id="10_r88h7"]
 [ext_resource type="PackedScene" uid="uid://qgfao441huib" path="res://Scenes/Mechanics/Exit/ExitDoor/GoalDoor.tscn" id="11_2g2pb"]
 [ext_resource type="PackedScene" uid="uid://clq13lum7jkjv" path="res://Scenes/Mechanics/TurretAdaptive/AdaptiveTurret.tscn" id="12_hyopg"]
-[ext_resource type="Script" path="res://Scenes/Utility/OnOffState.gd" id="12_rt835"]
+[ext_resource type="Script" uid="uid://dugcuhx50s64n" path="res://Scenes/Utility/OnOffState.gd" id="12_rt835"]
 [ext_resource type="PackedScene" uid="uid://0hi7fyduhudf" path="res://Scenes/Mechanics/MovingPlatform/MovingPlatform.tscn" id="13_177aq"]
-[ext_resource type="Resource" uid="uid://c6wsgskfvb6ri" path="res://Scenes/Levels/Block_00/LoopLevel_A.tres" id="13_rt835"]
 [ext_resource type="PackedScene" uid="uid://c727a4v6bxv0" path="res://Scenes/Mechanics/InterLevel/InterLevelDoor.tscn" id="14_j6ajy"]
+[ext_resource type="PackedScene" uid="uid://cj2w2aaocucmf" path="res://Scenes/Utility/CameraZone.tscn" id="16_mqamd"]
+[ext_resource type="Script" uid="uid://76jmomq5wl5f" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="17_kfrgp"]
+[ext_resource type="Script" uid="uid://c4d36sgi5fcop" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="18_ekwyj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v53k6"]
 size = Vector2(3336, 661.5)
-
-[sub_resource type="Resource" id="Resource_rt835"]
-script = ExtResource("8_2g2pb")
-state_manager = ExtResource("13_rt835")
-on = false
-metadata/_custom_type_script = "uid://b42m1hnljomnf"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mqamd"]
-size = Vector2(1107, 809)
 
 [sub_resource type="Resource" id="Resource_j6ajy"]
 script = ExtResource("12_rt835")
 on = true
 metadata/_custom_type_script = "uid://dugcuhx50s64n"
 
-[sub_resource type="Resource" id="Resource_1btm4"]
-resource_local_to_scene = true
-script = ExtResource("12_rt835")
-on = true
-metadata/_custom_type_script = "uid://dugcuhx50s64n"
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j6ajy"]
+size = Vector2(1786, 1058)
 
 [sub_resource type="Resource" id="Resource_l2lrc"]
-resource_local_to_scene = true
-script = ExtResource("12_rt835")
-on = true
-metadata/_custom_type_script = "uid://dugcuhx50s64n"
+script = ExtResource("18_ekwyj")
+duration = 1.0
+transition = 0
+ease = 2
 
-[sub_resource type="Resource" id="Resource_2g2pb"]
-script = ExtResource("12_rt835")
-on = true
-metadata/_custom_type_script = "uid://dugcuhx50s64n"
-
-[sub_resource type="Resource" id="Resource_kfrgp"]
-script = ExtResource("12_rt835")
-on = true
-metadata/_custom_type_script = "uid://dugcuhx50s64n"
-
-[sub_resource type="Resource" id="Resource_mqamd"]
-resource_local_to_scene = true
-script = ExtResource("8_2g2pb")
-state_manager = ExtResource("13_rt835")
-on = false
-metadata/_custom_type_script = "uid://b42m1hnljomnf"
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1btm4"]
+size = Vector2(4395.79, 1946.5)
 
 [node name="LevelTemplate" type="Node2D"]
 
@@ -172,17 +148,6 @@ position = Vector2(8691, -288)
 rotation = -3.13636
 shape = SubResource("RectangleShape2D_v53k6")
 
-[node name="AdaptiveTurret" parent="Ignores BaseDarkness/Enemies/Enviromental" node_paths=PackedStringArray("activation_zone") instance=ExtResource("12_hyopg")]
-position = Vector2(7526, -782)
-activation_zone = NodePath("Area2D")
-state_manager = SubResource("Resource_rt835")
-
-[node name="Area2D" type="Area2D" parent="Ignores BaseDarkness/Enemies/Enviromental/AdaptiveTurret"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ignores BaseDarkness/Enemies/Enviromental/AdaptiveTurret/Area2D"]
-position = Vector2(16.5, 394.5)
-shape = SubResource("RectangleShape2D_mqamd")
-
 [node name="EvilCamera3" parent="Ignores BaseDarkness/Enemies/Enviromental" instance=ExtResource("9_l2lrc")]
 position = Vector2(11195, -1169)
 rotation = 2.62323
@@ -208,8 +173,21 @@ direction = Vector2(0, 1)
 [node name="EvilCamera2" parent="Ignores BaseDarkness/Enemies/Interactables" instance=ExtResource("9_l2lrc")]
 position = Vector2(7620, 81.0002)
 rotation = 1.09781
-state_manager = ExtResource("13_rt835")
+state_manager = ExtResource("8_rt835")
 auto_blink_off = 0.0
+
+[node name="AdaptiveTurret" parent="Ignores BaseDarkness/Enemies" node_paths=PackedStringArray("activation_zone") instance=ExtResource("12_hyopg")]
+position = Vector2(7523, -778)
+rotation_speed = 0.39
+fire_rate = 2.0
+activation_zone = NodePath("Area2D")
+state_manager = ExtResource("8_rt835")
+
+[node name="Area2D" type="Area2D" parent="Ignores BaseDarkness/Enemies/AdaptiveTurret"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ignores BaseDarkness/Enemies/AdaptiveTurret/Area2D"]
+position = Vector2(244.731, 240.57)
+shape = SubResource("RectangleShape2D_j6ajy")
 
 [node name="TileMaps" type="Node2D" parent="Ignores BaseDarkness"]
 
@@ -230,38 +208,54 @@ position = Vector2(3650, -1)
 
 [node name="GoalDoor" parent="Ignores BaseDarkness" instance=ExtResource("11_2g2pb")]
 position = Vector2(10549, 1)
+state_manager = ExtResource("8_rt835")
 
 [node name="Switches" type="Node2D" parent="Ignores BaseDarkness"]
 
 [node name="SwitchA" parent="Ignores BaseDarkness/Switches" instance=ExtResource("2_r88h7")]
 position = Vector2(8616.03, 525.372)
-state_manager = SubResource("Resource_1btm4")
+state_manager = ExtResource("8_rt835")
 
 [node name="SwitchB" parent="Ignores BaseDarkness/Switches" instance=ExtResource("2_r88h7")]
 position = Vector2(6527.78, -163.528)
-state_manager = ExtResource("13_rt835")
+state_manager = ExtResource("8_rt835")
 
 [node name="SwitchC" parent="Ignores BaseDarkness/Switches" instance=ExtResource("2_r88h7")]
 position = Vector2(6513.34, 558.489)
-state_manager = SubResource("Resource_l2lrc")
+state_manager = ExtResource("8_rt835")
 
 [node name="Doors" type="Node2D" parent="Ignores BaseDarkness"]
 
 [node name="Door_A" parent="Ignores BaseDarkness/Doors" node_paths=PackedStringArray("destination") instance=ExtResource("14_j6ajy")]
 position = Vector2(6051, 0)
 destination = NodePath("../Door_A2")
-state_manager = SubResource("Resource_2g2pb")
+state_manager = ExtResource("8_rt835")
 
 [node name="Door_A2" parent="Ignores BaseDarkness/Doors" node_paths=PackedStringArray("destination") instance=ExtResource("14_j6ajy")]
 position = Vector2(6050, 700)
 destination = NodePath("../Door_A")
-state_manager = SubResource("Resource_kfrgp")
+state_manager = ExtResource("8_rt835")
 
 [node name="Door_B" parent="Ignores BaseDarkness/Doors" node_paths=PackedStringArray("destination") instance=ExtResource("14_j6ajy")]
 position = Vector2(7551, 0)
 destination = NodePath("../Door_B2")
-state_manager = SubResource("Resource_mqamd")
+state_manager = ExtResource("8_rt835")
 
 [node name="Door_B2" parent="Ignores BaseDarkness/Doors" node_paths=PackedStringArray("destination") instance=ExtResource("14_j6ajy")]
 position = Vector2(8950, 700)
 destination = NodePath("../Door_B")
+state_manager = ExtResource("8_rt835")
+
+[node name="CameraZone" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("16_mqamd")]
+camera = NodePath("PhantomCamera2D")
+
+[node name="PhantomCamera2D" type="Node2D" parent="CameraZone"]
+position = Vector2(7536, 0)
+script = ExtResource("17_kfrgp")
+zoom = Vector2(0.6, 0.6)
+tween_resource = SubResource("Resource_l2lrc")
+metadata/_custom_type_script = "uid://76jmomq5wl5f"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraZone"]
+position = Vector2(7522.9, -33.75)
+shape = SubResource("RectangleShape2D_1btm4")
