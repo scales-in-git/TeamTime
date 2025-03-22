@@ -7,7 +7,7 @@ var _TurretBullet := preload("uid://du8sp6cb7hlgr")
 @export var rotation_limit: float = 75
 # In rads per section
 @export_range(0.0, 5.0) var rotation_speed: float = 0.5
-# In seconds
+# In bullets per second
 @export var fire_rate: float = 12.0
 # In 100 pixels per second
 @export var bullet_speed: float = 30.0
