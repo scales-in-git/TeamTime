@@ -7,8 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://bdm5eipd1m8bw" path="res://Glow.png" id="4_rt835"]
 [ext_resource type="Texture2D" uid="uid://3hurbwdo1xm0" path="res://SquareGlow.png" id="5_j6ajy"]
 [ext_resource type="PackedScene" uid="uid://b1m643ns0nwm6" path="res://Scenes/Mechanics/EvilStolen/stolen.tscn" id="7_kfrgp"]
-[ext_resource type="Script" uid="uid://b42m1hnljomnf" path="res://Scenes/Utility/OnOffStateInverter.gd" id="8_2g2pb"]
 [ext_resource type="PackedScene" uid="uid://jhjkr5mcfjhg" path="res://Scenes/Mechanics/DeathPit/DeathPit.tscn" id="8_ekwyj"]
+[ext_resource type="Resource" uid="uid://b36iexmhgimx3" path="res://Scenes/Levels/Block_00/Loopholeonoff1.tres" id="8_rt835"]
 [ext_resource type="PackedScene" uid="uid://dxb7l54dt8jih" path="res://Scenes/Mechanics/EvilCamera/EvilCamera.tscn" id="9_l2lrc"]
 [ext_resource type="PackedScene" uid="uid://2u65lxhpmldx" path="res://Scenes/Mechanics/Entrance/DoorEntrance/DoorEntrance.tscn" id="10_r88h7"]
 [ext_resource type="PackedScene" uid="uid://qgfao441huib" path="res://Scenes/Mechanics/Exit/ExitDoor/GoalDoor.tscn" id="11_2g2pb"]
@@ -228,6 +228,19 @@ state_manager = SubResource("Resource_r88h7")
 position = Vector2(8950, 700)
 destination = NodePath("../Door_B")
 state_manager = SubResource("Resource_1btm4")
+
+[node name="AdaptiveTurret" parent="Ignores BaseDarkness/Enemies" node_paths=PackedStringArray("activation_zone") instance=ExtResource("12_hyopg")]
+position = Vector2(7523, -778)
+rotation_speed = 0.39
+fire_rate = 2.0
+activation_zone = NodePath("Area2D")
+state_manager = ExtResource("8_rt835")
+
+[node name="Area2D" type="Area2D" parent="Ignores BaseDarkness/Enemies/AdaptiveTurret"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ignores BaseDarkness/Enemies/AdaptiveTurret/Area2D"]
+position = Vector2(244.731, 240.57)
+shape = SubResource("RectangleShape2D_j6ajy")
 
 [node name="TileMaps" type="Node2D" parent="Ignores BaseDarkness"]
 
