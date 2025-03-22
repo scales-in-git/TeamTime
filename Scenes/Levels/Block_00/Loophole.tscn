@@ -47,7 +47,7 @@ script = ExtResource("12_rt835")
 on = true
 metadata/_custom_type_script = "uid://dugcuhx50s64n"
 
-[sub_resource type="Resource" id="Resource_l2lrc"]
+[sub_resource type="Resource" id="Resource_mqamd"]
 resource_local_to_scene = true
 script = ExtResource("8_2g2pb")
 state_manager = ExtResource("13_rt835")
@@ -203,7 +203,7 @@ state_manager = SubResource("Resource_kfrgp")
 [node name="Door_B" parent="Ignores BaseDarkness/Enemies/Interactables/Doors" node_paths=PackedStringArray("destination") instance=ExtResource("14_j6ajy")]
 position = Vector2(7746, 0)
 destination = NodePath("../Door_B2")
-state_manager = SubResource("Resource_l2lrc")
+state_manager = SubResource("Resource_mqamd")
 
 [node name="Door_B2" parent="Ignores BaseDarkness/Enemies/Interactables/Doors" node_paths=PackedStringArray("destination") instance=ExtResource("14_j6ajy")]
 position = Vector2(8950, 700)
