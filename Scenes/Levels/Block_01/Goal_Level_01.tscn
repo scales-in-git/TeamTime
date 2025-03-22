@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bdm5eipd1m8bw" path="res://Glow.png" id="4_gwidk"]
 [ext_resource type="Texture2D" uid="uid://3hurbwdo1xm0" path="res://SquareGlow.png" id="5_5kkov"]
 [ext_resource type="PackedScene" uid="uid://c2liu7j8dfowu" path="res://Scenes/Mechanics/Exit/TokenExit/TokenExit.tscn" id="6_coqw8"]
-[ext_resource type="PackedScene" uid="uid://qgfao441huib" path="res://Scenes/Mechanics/Exit/ExitDoor/GoalDoor.tscn" id="7_743we"]
+[ext_resource type="PackedScene" uid="uid://2u65lxhpmldx" path="res://Scenes/Mechanics/Entrance/DoorEntrance/DoorEntrance.tscn" id="7_r5c0n"]
 [ext_resource type="PackedScene" uid="uid://c2xedpocryy26" path="res://Scenes/Menus/pause_menu.tscn" id="8_vxt53"]
 
 [node name="LevelTemplate" type="Node2D"]
@@ -135,9 +135,9 @@ tile_map_data = PackedByteArray("AAAIAAYAAgAFAAEAAAAJAAYAAgAFAAEAAAAKAAYAAgAFAAE
 tile_set = ExtResource("3_i85la")
 collision_enabled = false
 
-[node name="Door" parent="Ignores BaseDarkness" instance=ExtResource("7_743we")]
-position = Vector2(250, 701)
-scene = "uid://c7d371ffwr1ul"
+[node name="DoorEntrance" parent="Ignores BaseDarkness" instance=ExtResource("7_r5c0n")]
+position = Vector2(250, 700)
+player_max_blocks = 1
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 100

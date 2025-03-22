@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://pxmgaw6idvuw"]
+[gd_scene load_steps=28 format=4 uid="uid://pxmgaw6idvuw"]
 
 [ext_resource type="PackedScene" uid="uid://dbehr8mfolttb" path="res://Scenes/Utility/SmartMusicPlayer.tscn" id="1_j6ajy"]
 [ext_resource type="AudioStream" uid="uid://d2tfnsct46q64" path="res://music/lab_ambience.wav" id="2_mqamd"]
@@ -17,6 +17,7 @@
 [ext_resource type="Resource" uid="uid://c6wsgskfvb6ri" path="res://Scenes/Levels/Block_00/LoopLevel_A.tres" id="13_rt835"]
 [ext_resource type="PackedScene" uid="uid://c727a4v6bxv0" path="res://Scenes/Mechanics/InterLevel/InterLevelDoor.tscn" id="14_j6ajy"]
 [ext_resource type="PackedScene" uid="uid://c2xedpocryy26" path="res://Scenes/Menus/pause_menu.tscn" id="15_2g2pb"]
+[ext_resource type="PackedScene" uid="uid://0hi7fyduhudf" path="res://Scenes/Mechanics/MovingPlatform/MovingPlatform.tscn" id="15_mqamd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v53k6"]
 size = Vector2(3336, 661.5)
@@ -46,7 +47,7 @@ script = ExtResource("12_rt835")
 on = true
 metadata/_custom_type_script = "uid://dugcuhx50s64n"
 
-[sub_resource type="Resource" id="Resource_r88h7"]
+[sub_resource type="Resource" id="Resource_l2lrc"]
 resource_local_to_scene = true
 script = ExtResource("8_2g2pb")
 state_manager = ExtResource("13_rt835")
@@ -83,7 +84,7 @@ tile_set = ExtResource("3_2g2pb")
 
 [node name="MiddleGround-decor" type="TileMapLayer" parent="TileMaps"]
 z_index = -10
-tile_map_data = PackedByteArray("AABLAPz/AgAFAAMAAAA5AP7/AgAFAAMAAAA0AP7/AgAFAAMAAAAtAP7/AgAFAAMAAABUAP7/AgAFAAMAAABaAP7/AgAFAAMAAABhAP7/AgAFAAMAAAA=")
+tile_map_data = PackedByteArray("AABLAPz/AgAFAAMAAABaAP7/AgAFAAMAAABhAP7/AgAFAAMAAAAtAP7/AgAFAAMAAAA=")
 tile_set = ExtResource("3_2g2pb")
 
 [node name="Lights" type="Node2D" parent="."]
@@ -93,28 +94,8 @@ position = Vector2(4559, -147)
 shadow_enabled = true
 texture = ExtResource("4_rt835")
 
-[node name="DoorLight2" type="PointLight2D" parent="Lights"]
-position = Vector2(5246, -147)
-shadow_enabled = true
-texture = ExtResource("4_rt835")
-
-[node name="DoorLight3" type="PointLight2D" parent="Lights"]
-position = Vector2(5736, -147)
-shadow_enabled = true
-texture = ExtResource("4_rt835")
-
 [node name="DoorLight4" type="PointLight2D" parent="Lights"]
 position = Vector2(7547, -348)
-shadow_enabled = true
-texture = ExtResource("4_rt835")
-
-[node name="DoorLight5" type="PointLight2D" parent="Lights"]
-position = Vector2(8447, -151)
-shadow_enabled = true
-texture = ExtResource("4_rt835")
-
-[node name="DoorLight6" type="PointLight2D" parent="Lights"]
-position = Vector2(9047, -151)
 shadow_enabled = true
 texture = ExtResource("4_rt835")
 
@@ -222,12 +203,39 @@ state_manager = SubResource("Resource_kfrgp")
 [node name="Door_B" parent="Ignores BaseDarkness/Enemies/Interactables/Doors" node_paths=PackedStringArray("destination") instance=ExtResource("14_j6ajy")]
 position = Vector2(7746, 0)
 destination = NodePath("../Door_B2")
-state_manager = SubResource("Resource_r88h7")
+state_manager = SubResource("Resource_l2lrc")
 
 [node name="Door_B2" parent="Ignores BaseDarkness/Enemies/Interactables/Doors" node_paths=PackedStringArray("destination") instance=ExtResource("14_j6ajy")]
 position = Vector2(8950, 700)
 destination = NodePath("../Door_B")
 state_manager = SubResource("Resource_1btm4")
+
+[node name="Node" type="Node2D" parent="Ignores BaseDarkness/Enemies/Interactables"]
+position = Vector2(3205, -1161)
+
+[node name="MovingPlatform" parent="Ignores BaseDarkness/Enemies/Interactables/Node" instance=ExtResource("15_mqamd")]
+direction = Vector2(0, 1)
+distance = 9.0
+speed = 1.0
+
+[node name="EvilCamera" parent="Ignores BaseDarkness/Enemies/Interactables/Node/MovingPlatform" instance=ExtResource("9_l2lrc")]
+rotation = -0.138566
+auto_blink_on = 0.0
+auto_blink_off = 0.0
+
+[node name="Node2" type="Node2D" parent="Ignores BaseDarkness/Enemies/Interactables"]
+position = Vector2(11076, -1161)
+
+[node name="MovingPlatform" parent="Ignores BaseDarkness/Enemies/Interactables/Node2" instance=ExtResource("15_mqamd")]
+direction = Vector2(0, 1)
+distance = 9.0
+speed = 1.0
+
+[node name="EvilCamera" parent="Ignores BaseDarkness/Enemies/Interactables/Node2/MovingPlatform" instance=ExtResource("9_l2lrc")]
+rotation = 0.195405
+scale = Vector2(-1, 1)
+auto_blink_on = 0.0
+auto_blink_off = 0.0
 
 [node name="TileMaps" type="Node2D" parent="Ignores BaseDarkness"]
 

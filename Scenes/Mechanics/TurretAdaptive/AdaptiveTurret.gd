@@ -90,4 +90,3 @@ func _ready():
 	
 	if state_manager:
 		state_manager.init()
-

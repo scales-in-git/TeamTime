@@ -137,10 +137,10 @@ collision_enabled = false
 
 [node name="DoorEntrance" parent="Ignores BaseDarkness" instance=ExtResource("7_al2gm")]
 position = Vector2(250, 700)
+player_max_blocks = 0
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 100
-visible = false
 
 [node name="Pause Menu" parent="UI" instance=ExtResource("8_oe0dk")]
 process_mode = 3
