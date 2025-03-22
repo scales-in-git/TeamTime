@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://c2xedpocryy26"]
+[gd_scene load_steps=8 format=3 uid="uid://c2xedpocryy26"]
 
 [ext_resource type="Theme" uid="uid://jht6a2okt2tm" path="res://Scenes/Menus/Themes/Menu.tres" id="1_tf3q2"]
 [ext_resource type="Script" uid="uid://dodbydp5ktdh1" path="res://Scenes/Menus/pause_menu.gd" id="2_pw12o"]
 [ext_resource type="FontFile" uid="uid://b7kbd2t2kahle" path="res://Scenes/Menus/Fonts/digital-7.ttf" id="2_yeo1y"]
-[ext_resource type="PackedScene" uid="uid://sfyhw26gt1vr" path="res://Scenes/Menus/main_menu.tscn" id="3_7smr3"]
 [ext_resource type="Script" uid="uid://bqf3gg45lvvqs" path="res://Scenes/Menus/settings_menu.gd" id="3_pw12o"]
 
 [sub_resource type="Shader" id="Shader_6uaqq"]
@@ -222,7 +221,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_tf3q2")
 script = ExtResource("2_pw12o")
-main_menu = ExtResource("3_7smr3")
 
 [node name="PauseMenu" type="PanelContainer" parent="."]
 unique_name_in_owner = true
