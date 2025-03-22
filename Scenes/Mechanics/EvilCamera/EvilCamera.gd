@@ -80,7 +80,7 @@ func _physics_process(_delta):
 			SceneTransition.call_deferred("reset_scene")
 
 func _ready():
-	if auto_blink_on > 0.0:
+	if auto_blink_on > 0.0 and auto_blink_off > 0.0:
 		auto_blinking_on_state_timer = _create_blink_timer()
 	
 	if state_manager:

@@ -64,7 +64,6 @@ height = 100.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 physics_interpolation_mode = 1
-zoom = Vector2(0.5, 0.5)
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
 process_priority = 300
@@ -72,12 +71,13 @@ process_physics_priority = 300
 script = ExtResource("3_gu5w3")
 metadata/_custom_type_script = "uid://bel636vbi2p7g"
 
-[node name="PhantomCamera2D" type="Node2D" parent="."]
+[node name="PhantomCamera" type="Node2D" parent="."]
+unique_name_in_owner = true
 script = ExtResource("5_ov5rv")
 priority = 5
-zoom = Vector2(0.5, 0.5)
 tween_resource = SubResource("Resource_p3isv")
 tween_on_load = false
+follow_damping = true
 metadata/_custom_type_script = "uid://76jmomq5wl5f"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
