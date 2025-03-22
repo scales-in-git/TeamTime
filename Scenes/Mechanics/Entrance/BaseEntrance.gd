@@ -12,3 +12,4 @@ func _ready():
 	var player = _Player.instantiate()
 	enter(player)
 	player.max_blocks = player_max_blocks
+	Game.player_started.emit()

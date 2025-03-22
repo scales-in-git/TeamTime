@@ -1,0 +1,120 @@
+[gd_scene load_steps=6 format=3 uid="uid://dri8y4waxeyxr"]
+
+[ext_resource type="TileSet" uid="uid://7ewkkcpem306" path="res://tiles/TileTests.tres" id="1_n5vim"]
+[ext_resource type="Texture2D" uid="uid://bdm5eipd1m8bw" path="res://Glow.png" id="2_fs8we"]
+[ext_resource type="Texture2D" uid="uid://3hurbwdo1xm0" path="res://SquareGlow.png" id="3_7pkea"]
+[ext_resource type="PackedScene" uid="uid://2u65lxhpmldx" path="res://Scenes/Mechanics/Entrance/DoorEntrance/DoorEntrance.tscn" id="4_jktbj"]
+[ext_resource type="PackedScene" uid="uid://c2xedpocryy26" path="res://Scenes/Menus/pause_menu.tscn" id="5_x2p0g"]
+
+[node name="Lizard-simple" type="Node2D"]
+
+[node name="BaseDarkness" type="CanvasModulate" parent="."]
+color = Color(0.306923, 0.306923, 0.306923, 1)
+
+[node name="TileMaps" type="Node2D" parent="."]
+
+[node name="BackGround" type="TileMapLayer" parent="TileMaps"]
+modulate = Color(0.603922, 0.603922, 0.603922, 1)
+z_index = -10
+tile_set = ExtResource("1_n5vim")
+
+[node name="MiddleGround-decor" type="TileMapLayer" parent="TileMaps"]
+z_index = -10
+tile_map_data = PackedByteArray(0, 0, 25, 0, 32, 0, 2, 0, 3, 0, 5, 0, 0, 0)
+tile_set = ExtResource("1_n5vim")
+
+[node name="Lights" type="Node2D" parent="."]
+
+[node name="DoorLight2" type="PointLight2D" parent="Lights"]
+position = Vector2(4949, 2949)
+energy = 0.5
+shadow_enabled = true
+texture = ExtResource("2_fs8we")
+texture_scale = 0.5
+
+[node name="DoorLight5" type="PointLight2D" parent="Lights"]
+position = Vector2(5149, 2949)
+energy = 0.5
+shadow_enabled = true
+texture = ExtResource("2_fs8we")
+texture_scale = 0.5
+
+[node name="DoorLight6" type="PointLight2D" parent="Lights"]
+position = Vector2(3947.75, 2949)
+energy = 0.5
+shadow_enabled = true
+texture = ExtResource("2_fs8we")
+texture_scale = 0.5
+
+[node name="DoorLight7" type="PointLight2D" parent="Lights"]
+position = Vector2(4147.75, 2949)
+energy = 0.5
+shadow_enabled = true
+texture = ExtResource("2_fs8we")
+texture_scale = 0.5
+
+[node name="DoorLight3" type="PointLight2D" parent="Lights"]
+position = Vector2(5940, 2949)
+energy = 0.5
+shadow_enabled = true
+texture = ExtResource("2_fs8we")
+texture_scale = 0.5
+
+[node name="DoorLight4" type="PointLight2D" parent="Lights"]
+position = Vector2(3150, 2949)
+energy = 0.5
+shadow_enabled = true
+texture = ExtResource("2_fs8we")
+texture_scale = 0.5
+
+[node name="FloorLights" type="Node2D" parent="Lights"]
+position = Vector2(0, 3)
+
+[node name="Floor Light_1" type="PointLight2D" parent="Lights/FloorLights"]
+position = Vector2(4787.5, 3254)
+scale = Vector2(4.685, 0.132)
+shadow_enabled = true
+texture = ExtResource("3_7pkea")
+
+[node name="Ceiling_Lights" type="Node2D" parent="Lights"]
+position = Vector2(0, 3)
+rotation = 3.14159
+
+[node name="Ceiling Light_1" type="PointLight2D" parent="Lights/Ceiling_Lights"]
+position = Vector2(-5225.54, -2092.01)
+scale = Vector2(2.66399, 1)
+shadow_enabled = true
+texture = ExtResource("3_7pkea")
+
+[node name="Ignores BaseDarkness" type="CanvasLayer" parent="."]
+layer = 0
+follow_viewport_enabled = true
+
+[node name="Enemies" type="Node2D" parent="Ignores BaseDarkness"]
+
+[node name="Enviromental" type="Node2D" parent="Ignores BaseDarkness/Enemies"]
+
+[node name="Interactables" type="Node2D" parent="Ignores BaseDarkness/Enemies"]
+
+[node name="TileMaps" type="Node2D" parent="Ignores BaseDarkness"]
+
+[node name="BackGround" type="TileMapLayer" parent="Ignores BaseDarkness/TileMaps"]
+tile_set = ExtResource("1_n5vim")
+
+[node name="MiddleGround" type="TileMapLayer" parent="Ignores BaseDarkness/TileMaps"]
+tile_map_data = PackedByteArray(0, 0, 59, 0, 44, 0, 3, 0, 1, 0, 4, 0, 0, 0, 60, 0, 44, 0, 3, 0, 2, 0, 4, 0, 0, 0)
+tile_set = ExtResource("1_n5vim")
+
+[node name="ForeGround" type="TileMapLayer" parent="Ignores BaseDarkness/TileMaps"]
+z_index = 10
+tile_set = ExtResource("1_n5vim")
+
+[node name="DoorEntrance" parent="Ignores BaseDarkness" instance=ExtResource("4_jktbj")]
+position = Vector2(2550, 3300)
+player_max_blocks = 1
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="Pause Menu" parent="UI" instance=ExtResource("5_x2p0g")]
+process_mode = 3
