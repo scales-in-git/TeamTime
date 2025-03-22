@@ -18,5 +18,6 @@ func _on_block_detector_zone_area_entered(_area: Node2D):
 	on_off_state_manager.call_deferred("turn_on")
 
 func _ready():
-	on_off_state_manager.init()
-	on_off_state_manager.turn_off()
+	if on_off_state_manager:
+		on_off_state_manager.init()
+		on_off_state_manager.turn_off()

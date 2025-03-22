@@ -1,5 +1,7 @@
-[gd_scene load_steps=24 format=4 uid="uid://pxmgaw6idvuw"]
+[gd_scene load_steps=27 format=4 uid="uid://pxmgaw6idvuw"]
 
+[ext_resource type="PackedScene" uid="uid://dbehr8mfolttb" path="res://Scenes/Utility/SmartMusicPlayer.tscn" id="1_j6ajy"]
+[ext_resource type="AudioStream" uid="uid://d2tfnsct46q64" path="res://music/lab_ambience.wav" id="2_mqamd"]
 [ext_resource type="PackedScene" uid="uid://brsai7op34w2q" path="res://Scenes/Mechanics/Switch/Switch.tscn" id="2_r88h7"]
 [ext_resource type="TileSet" uid="uid://7ewkkcpem306" path="res://tiles/TileTests.tres" id="3_2g2pb"]
 [ext_resource type="Texture2D" uid="uid://bdm5eipd1m8bw" path="res://Glow.png" id="4_rt835"]
@@ -14,6 +16,7 @@
 [ext_resource type="Script" uid="uid://dugcuhx50s64n" path="res://Scenes/Utility/OnOffState.gd" id="12_rt835"]
 [ext_resource type="Resource" uid="uid://c6wsgskfvb6ri" path="res://Scenes/Levels/Block_00/LoopLevel_A.tres" id="13_rt835"]
 [ext_resource type="PackedScene" uid="uid://c727a4v6bxv0" path="res://Scenes/Mechanics/InterLevel/InterLevelDoor.tscn" id="14_j6ajy"]
+[ext_resource type="PackedScene" uid="uid://c2xedpocryy26" path="res://Scenes/Menus/pause_menu.tscn" id="15_2g2pb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v53k6"]
 size = Vector2(3336, 661.5)
@@ -63,6 +66,9 @@ on = false
 metadata/_custom_type_script = "uid://b42m1hnljomnf"
 
 [node name="LevelTemplate" type="Node2D"]
+
+[node name="SmartMusicPlayer" parent="." instance=ExtResource("1_j6ajy")]
+music = ExtResource("2_mqamd")
 
 [node name="BaseDarkness" type="CanvasModulate" parent="."]
 color = Color(0.306923, 0.306923, 0.306923, 1)
@@ -244,3 +250,10 @@ player_max_blocks = 0
 [node name="GoalDoor" parent="Ignores BaseDarkness" instance=ExtResource("11_2g2pb")]
 position = Vector2(10549, 1)
 state_manager = SubResource("Resource_j6ajy")
+scene = "uid://dsxv182mgpor6"
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="Pause Menu" parent="UI" instance=ExtResource("15_2g2pb")]
+process_mode = 3

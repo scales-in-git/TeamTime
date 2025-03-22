@@ -1,13 +1,10 @@
-[gd_scene load_steps=19 format=4 uid="uid://5bga0ud1tinf"]
+[gd_scene load_steps=16 format=4 uid="uid://5bga0ud1tinf"]
 
 [ext_resource type="TileSet" uid="uid://7ewkkcpem306" path="res://tiles/TileTests.tres" id="1_topet"]
 [ext_resource type="Texture2D" uid="uid://bdm5eipd1m8bw" path="res://Glow.png" id="2_8xuic"]
 [ext_resource type="Texture2D" uid="uid://3hurbwdo1xm0" path="res://SquareGlow.png" id="3_oofvb"]
-[ext_resource type="PackedScene" uid="uid://v042n0qyld7u" path="res://Scenes/Mechanics/Entrance/InstantEntrance/InstantEntrance.tscn" id="4_1823e"]
 [ext_resource type="PackedScene" uid="uid://jhjkr5mcfjhg" path="res://Scenes/Mechanics/DeathPit/DeathPit.tscn" id="5_sjxbw"]
 [ext_resource type="PackedScene" uid="uid://dxb7l54dt8jih" path="res://Scenes/Mechanics/EvilCamera/EvilCamera.tscn" id="6_l2mga"]
-[ext_resource type="PackedScene" uid="uid://dnp68bg7x5xqw" path="res://Scenes/Mechanics/Exit/WalkingExit/WalkingExit.tscn" id="7_sluq1"]
-[ext_resource type="PackedScene" uid="uid://yhp7gr6fmrn5" path="res://Scenes/Mechanics/Exit/InstantExit/InstantExit.tscn" id="8_bt5x2"]
 [ext_resource type="PackedScene" uid="uid://dvefjhvuqmubq" path="res://Scenes/Mechanics/BlockDetector/BlockDetector.tscn" id="9_8xuic"]
 [ext_resource type="PackedScene" uid="uid://qgfao441huib" path="res://Scenes/Mechanics/Exit/ExitDoor/GoalDoor.tscn" id="10_1823e"]
 [ext_resource type="Script" uid="uid://dugcuhx50s64n" path="res://Scenes/Utility/OnOffState.gd" id="10_sluq1"]
@@ -83,9 +80,6 @@ texture = ExtResource("3_oofvb")
 layer = 0
 follow_viewport_enabled = true
 
-[node name="PlayerSpawning-Instant" parent="Ignores BaseDarkness" instance=ExtResource("4_1823e")]
-position = Vector2(2815, -97)
-
 [node name="Enemies" type="Node2D" parent="Ignores BaseDarkness"]
 
 [node name="Enviromental" type="Node2D" parent="Ignores BaseDarkness/Enemies"]
@@ -117,15 +111,30 @@ z_index = 10
 tile_map_data = PackedByteArray("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AAAkAOv/AgACAAMAAAAkAOz/AgACAAMAAAAkAO3/AgACAAMAAAAlAOr/AgACAAMAAAAmAOr/AgACAAMAAAAnAOr/AgACAAMAAAAoAOr/AgACAAMAAAApAOr/AgACAAMAAAAqAOr/AgACAAMAAAArAOr/AgACAAMAAAAsAOr/AgACAAMAAAAtAOr/AgACAAMAAAAuAOr/AgACAAMAAAAvAOr/AgACAAMAAAAwAOr/AgACAAMAAAAxAOr/AgACAAMAAAAyAOr/AgACAAMAAAAzAOr/AgACAAMAAAA0AOr/AgACAAMAAAA1AOr/AgACAAMAAAA2AOr/AgACAAMAAAA3AOr/AgACAAMAAAA4AOr/AgACAAMAAAA5AOr/AgACAAMAAAA5AOv/AgACAAMAAAA5AOz/AgACAAMAAAA5AO3/AgACAAMAAAA6AOr/AgACAAMAAAA7AOr/AgACAAMAAAA8AOr/AgACAAMAAAA9AOr/AgACAAMAAAA+AOr/AgACAAMAAAA/AOr/AgACAAMAAABAAOr/AgACAAMAAABBAOr/AgACAAMAAABBAOv/AgACAAMAAABBAOz/AgACAAMAAABBAO3/AgACAAMAAAAkAPv/AgACAAMAAAAkAPz/AgACAAMAAAAkAP3/AgACAAMAAAAkAP7/AgACAAMAAAAkAP//AgACAAMAAAA2AP7/AgACAAMAAAA2AP//AgACAAMAAAA2APv/AgACAAMAAAA2APz/AgACAAMAAAA2AP3/AgACAAMAAAA6APn/AgACAAMAAAA2APn/AgACAAMAAAA2APr/AgACAAMAAAA3APn/AgACAAMAAAA4APn/AgACAAMAAAA=")
 tile_set = ExtResource("1_topet")
 
-[node name="Exits" type="Node2D" parent="Ignores BaseDarkness"]
+[node name="Door" parent="Ignores BaseDarkness" instance=ExtResource("10_1823e")]
+position = Vector2(6376, -392)
+state_manager = ExtResource("11_sjxbw")
+scene = "uid://5o7so3pvqfpq"
 
-[node name="WalkingExit" parent="Ignores BaseDarkness/Exits" instance=ExtResource("7_sluq1")]
-visible = false
-scene = "uid://fv5qoda6vwj4"
+[node name="Door-InterLevel" parent="Ignores BaseDarkness" instance=ExtResource("12_sjxbw")]
+position = Vector2(3494, 3)
+active_colour = Color(1, 1, 0.192157, 1)
 
-[node name="InstantExit" parent="Ignores BaseDarkness/Exits" instance=ExtResource("8_bt5x2")]
-visible = false
-scene = "uid://cu4rjl45f8rbo"
+[node name="Door-InterLevel2" parent="Ignores BaseDarkness" instance=ExtResource("12_sjxbw")]
+position = Vector2(3922, 3)
+active_colour = Color(1, 1, 0.192157, 1)
+
+[node name="Door-InterLevel3" parent="Ignores BaseDarkness" instance=ExtResource("12_sjxbw")]
+position = Vector2(5246, 3)
+active_colour = Color(1, 0.337255, 1, 1)
+
+[node name="Door-InterLevel4" parent="Ignores BaseDarkness" instance=ExtResource("12_sjxbw")]
+position = Vector2(5644, 0)
+active_colour = Color(1, 0.337255, 1, 1)
+
+[node name="DoorEntrance" parent="Ignores BaseDarkness" instance=ExtResource("13_l2mga")]
+position = Vector2(2609, 0)
+player_max_blocks = 1
 
 [node name="BlockDetector" parent="." instance=ExtResource("9_8xuic")]
 
@@ -142,27 +151,3 @@ on_off_state_manager = SubResource("Resource_8ndp6")
 [node name="BlockDetector" parent="BlockDetector" instance=ExtResource("9_8xuic")]
 position = Vector2(3092, -100)
 on_off_state_manager = SubResource("Resource_bt5x2")
-
-[node name="Door" parent="." instance=ExtResource("10_1823e")]
-position = Vector2(6376, -392)
-state_manager = ExtResource("11_sjxbw")
-scene = "uid://5o7so3pvqfpq"
-
-[node name="Door-InterLevel" parent="." instance=ExtResource("12_sjxbw")]
-position = Vector2(3494, 3)
-active_colour = Color(1, 1, 0.192157, 1)
-
-[node name="Door-InterLevel2" parent="." instance=ExtResource("12_sjxbw")]
-position = Vector2(3922, 3)
-active_colour = Color(1, 1, 0.192157, 1)
-
-[node name="Door-InterLevel3" parent="." instance=ExtResource("12_sjxbw")]
-position = Vector2(5246, 3)
-active_colour = Color(1, 0.337255, 1, 1)
-
-[node name="Door-InterLevel4" parent="." instance=ExtResource("12_sjxbw")]
-position = Vector2(5644, 0)
-active_colour = Color(1, 0.337255, 1, 1)
-
-[node name="DoorEntrance" parent="." instance=ExtResource("13_l2mga")]
-position = Vector2(2609, 0)
