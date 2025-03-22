@@ -118,3 +118,4 @@ layer = 100
 
 [node name="Pause Menu" parent="UI" instance=ExtResource("5_x2p0g")]
 process_mode = 3
+metadata/_edit_use_anchors_ = true
