@@ -29,6 +29,9 @@ func toggle():
 		state_manager.turn_off()
 
 func init():
+	super.init()
+	on = not state_manager.on
+
 	if not initialized:
 		# Note: Godot reports this as an error, even though it shouldn't be
 		state_manager.turned_on.connect(_real_turn_off)
