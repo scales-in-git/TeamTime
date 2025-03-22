@@ -21,7 +21,6 @@ var active = true
 var current_state: MovementState = MovementState.TARGET_MOVE_TO
 
 func is_on():
-	print(state_manager, " ", state_manager.on)
 	return not state_manager or state_manager.on
 
 func _physics_process(delta):
