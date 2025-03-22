@@ -10,6 +10,7 @@ signal turned_off
 @export var on: bool = false
 
 var reset: bool
+var reset_set: bool = false
 
 func toggle():
     if on:
@@ -30,8 +31,9 @@ func turn_off():
         turned_off.emit()
 
 func init():
-    if not reset:
+    if not reset_set:
         reset = on
+        reset_set = true
     on = reset
 
 
