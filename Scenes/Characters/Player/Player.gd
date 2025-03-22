@@ -79,7 +79,7 @@ func _ready():
 	$%PhantomCamera.follow_target = self
 	$%PhantomCamera.follow_damping = true
 	$%PhantomCamera.follow_damping_value = Vector2(.2, .2)
-	# $%PhantomCamera.follow_offset.y = -300
+	$%PhantomCamera.follow_offset.y = -300
 	
 func load_sfx(sfx_to_load):
 	if $%sfx_player.stream != sfx_to_load:
