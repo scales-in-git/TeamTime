@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://nsvflxaipx3e"]
+[gd_scene load_steps=19 format=4 uid="uid://nsvflxaipx3e"]
 
 [ext_resource type="TileSet" uid="uid://7ewkkcpem306" path="res://tiles/TileTests.tres" id="1_6ncxy"]
 [ext_resource type="Texture2D" uid="uid://bdm5eipd1m8bw" path="res://Glow.png" id="2_78w8r"]
@@ -18,6 +18,14 @@
 size = Vector2(37.2412, 44.3163)
 
 [sub_resource type="Resource" id="Resource_c7mc5"]
+resource_local_to_scene = true
+script = ExtResource("7_4gsna")
+state_manager = ExtResource("5_jg5pk")
+on = false
+metadata/_custom_type_script = "uid://b42m1hnljomnf"
+
+[sub_resource type="Resource" id="Resource_kjd4l"]
+resource_local_to_scene = true
 script = ExtResource("7_4gsna")
 state_manager = ExtResource("5_jg5pk")
 on = false
@@ -165,7 +173,7 @@ state_manager = SubResource("Resource_c7mc5")
 [node name="Door-InterLevel2" parent="Ignores BaseDarkness/TileMaps" node_paths=PackedStringArray("destination") instance=ExtResource("5_78w8r")]
 position = Vector2(5800, 3300)
 destination = NodePath("../Door-InterLevel")
-state_manager = SubResource("Resource_c7mc5")
+state_manager = SubResource("Resource_kjd4l")
 
 [node name="DoorEntrance" parent="Ignores BaseDarkness" instance=ExtResource("5_4gsna")]
 position = Vector2(2550, 3300)

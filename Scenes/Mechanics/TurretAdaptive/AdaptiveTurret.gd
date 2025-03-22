@@ -7,7 +7,7 @@ var _TurretBullet := preload("uid://du8sp6cb7hlgr")
 @export var rotation_limit: float = 75
 # In rads per section
 @export_range(0.0, 5.0) var rotation_speed: float = 0.5
-# In seconds
+# In bullets per second
 @export var fire_rate: float = 12.0
 # In 100 pixels per second
 @export var bullet_speed: float = 30.0
@@ -54,12 +54,12 @@ func fire_bullet():
 
 	var bullet = _TurretBullet.instantiate() as TurretBullet
 
-	bullet.global_position = bullet_spawn_location.global_position
 
 	var bullet_direction = Vector2.RIGHT.rotated(pivot.rotation)
 	bullet.linear_velocity = bullet_direction*bullet_speed*100
 
 	add_sibling(bullet)
+	bullet.global_position = bullet_spawn_location.global_position
 	$%ShootSound.play()
 	unfun_timer.start()
 
