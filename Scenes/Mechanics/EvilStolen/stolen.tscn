@@ -291,6 +291,14 @@ script = ExtResource("1_xdx12")
 speed = 1.5
 facing_right = true
 
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_left = -26.0
+offset_top = -519.0
+offset_right = 1508.0
+offset_bottom = 1015.0
+color = Color(0.181245, 0.187057, 0.203145, 1)
+
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 0.469494, 0.401435, 1)
 position = Vector2(-18, -107)
@@ -321,11 +329,13 @@ height = 100.0
 [node name="SearchLight" type="PointLight2D" parent="Sprite"]
 unique_name_in_owner = true
 position = Vector2(54.0773, -196.296)
-scale = Vector2(2.39044, 1.0631)
+scale = Vector2(3.01466, 1.2019)
 shadow_enabled = true
 texture = ExtResource("4_acv6x")
 
 [node name="EvilCamera" type="Node2D" parent="Sprite/SearchLight" node_paths=PackedStringArray("export_light")]
+position = Vector2(7.37142, -49.3043)
+scale = Vector2(0.792939, 0.884513)
 script = ExtResource("5_626px")
 export_light = NodePath("..")
 auto_blink_off = 0.0
