@@ -18,7 +18,7 @@
 [ext_resource type="Resource" uid="uid://dlkrfbtrtwtaf" path="res://Scenes/Levels/Block_01/Lizard-Fast-Platforms/VerticleClubs.tres" id="12_4k1bg"]
 [ext_resource type="PackedScene" uid="uid://dvefjhvuqmubq" path="res://Scenes/Mechanics/BlockDetector/BlockDetector.tscn" id="14_4wovf"]
 [ext_resource type="PackedScene" uid="uid://qgfao441huib" path="res://Scenes/Mechanics/Exit/ExitDoor/GoalDoor.tscn" id="15_1ptrt"]
-[ext_resource type="Resource" uid="uid://bt7o1vuskwfwl" path="res://Scenes/Levels/Block_01/Lizard-Fast-Platforms/VerticleSpades.tres" id="15_g8tdo"]
+[ext_resource type="Resource" path="res://Scenes/Levels/Block_01/Lizard-Fast-Platforms/VerticleSpades.tres" id="15_g8tdo"]
 
 [sub_resource type="Resource" id="Resource_weag7"]
 script = ExtResource("6_7f5fv")

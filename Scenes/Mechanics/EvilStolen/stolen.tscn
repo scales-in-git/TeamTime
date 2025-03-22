@@ -1,11 +1,10 @@
-[gd_scene load_steps=29 format=3 uid="uid://b1m643ns0nwm6"]
+[gd_scene load_steps=28 format=3 uid="uid://b1m643ns0nwm6"]
 
 [ext_resource type="Texture2D" uid="uid://cxvmfyg3qiw4t" path="res://Scenes/Mechanics/EvilStolen/StolenWalk SpriteSheet.png" id="1_iyhso"]
 [ext_resource type="Script" uid="uid://brj6hnd23elp4" path="res://Scenes/Mechanics/EvilStolen/Stolen.gd" id="1_xdx12"]
 [ext_resource type="Texture2D" uid="uid://bdm5eipd1m8bw" path="res://Glow.png" id="2_qaihh"]
 [ext_resource type="Texture2D" uid="uid://dgd1acdhvq8y0" path="res://ConeLight.png" id="4_acv6x"]
 [ext_resource type="Script" uid="uid://cxu3rw2cpdg44" path="res://Scenes/Mechanics/EvilCamera/EvilCamera.gd" id="5_626px"]
-[ext_resource type="Resource" uid="uid://b6ojxopee33dg" path="res://Scenes/Mechanics/EvilStolen/StolenState.tres" id="6_1av31"]
 [ext_resource type="PackedScene" uid="uid://d4eeme44hkqe5" path="res://Scenes/Mechanics/EvilCamera/camera.tscn" id="6_6dkmn"]
 [ext_resource type="PackedScene" uid="uid://dlyr50dshfbi7" path="res://Scenes/Utility/GenericFade.tscn" id="7_1av31"]
 [ext_resource type="AudioStream" uid="uid://vhywg5j3yo6n" path="res://fx/lab_FX alarm1.wav" id="8_yv1vb"]
@@ -292,6 +291,14 @@ script = ExtResource("1_xdx12")
 speed = 1.5
 facing_right = true
 
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_left = -26.0
+offset_top = -519.0
+offset_right = 1508.0
+offset_bottom = 1015.0
+color = Color(0.181245, 0.187057, 0.203145, 1)
+
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 0.469494, 0.401435, 1)
 position = Vector2(-18, -107)
@@ -322,13 +329,14 @@ height = 100.0
 [node name="SearchLight" type="PointLight2D" parent="Sprite"]
 unique_name_in_owner = true
 position = Vector2(54.0773, -196.296)
-scale = Vector2(2.39044, 1.0631)
+scale = Vector2(3.01466, 1.2019)
 shadow_enabled = true
 texture = ExtResource("4_acv6x")
 
 [node name="EvilCamera" type="Node2D" parent="Sprite/SearchLight" node_paths=PackedStringArray("export_light")]
+position = Vector2(7.37142, -49.3043)
+scale = Vector2(0.792939, 0.884513)
 script = ExtResource("5_626px")
-state_manager = ExtResource("6_1av31")
 export_light = NodePath("..")
 auto_blink_off = 0.0
 

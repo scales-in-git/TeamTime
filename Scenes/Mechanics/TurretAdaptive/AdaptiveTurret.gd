@@ -22,6 +22,7 @@ var targetting = null
 @onready var unfun_timer: Timer = $%UnfunTimer
 
 func is_on():
+	
 	return not state_manager or state_manager.on
 
 func get_pointing_direction() -> Vector2:
@@ -86,5 +87,7 @@ func _ready():
 		if player is Player:
 			targetting = null
 	)
-
 	
+	if state_manager:
+		state_manager.init()
+

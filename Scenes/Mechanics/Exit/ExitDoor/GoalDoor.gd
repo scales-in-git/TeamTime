@@ -53,6 +53,8 @@ func _ready():
 
 	if not is_active():
 		door_light.color = inactive_colour
+
 	if state_manager:
+		state_manager.init()
 		state_manager.turned_on.connect(turn_on)
 		state_manager.turned_off.connect(turn_off)
