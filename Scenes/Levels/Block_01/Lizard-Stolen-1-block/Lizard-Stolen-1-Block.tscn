@@ -128,7 +128,6 @@ speed = 2.2
 [node name="Stolen5" parent="Ignores BaseDarkness/Enemies" instance=ExtResource("4_jey78")]
 position = Vector2(-700, -600)
 speed = 2.2
-facing_right = false
 
 [node name="Search" type="Area2D" parent="Ignores BaseDarkness/Enemies"]
 position = Vector2(-6, -53)

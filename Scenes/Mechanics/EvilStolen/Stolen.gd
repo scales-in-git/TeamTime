@@ -1,6 +1,6 @@
 class_name Stolen extends CharacterBody2D
-@export var speed:=3.0
-@export var facing_right:=false
+@export var speed:float=3.0
+@export var facing_left:bool=false
 
 @onready var _edgedetection:RayCast2D=$%EdgeDetection
 @onready var _walldetection:RayCast2D=$%WallDetection
@@ -8,12 +8,15 @@ class_name Stolen extends CharacterBody2D
 @onready var _animation:AnimationPlayer=$%Animator
 
 
-var _searching:=false
+var _searching:bool=false
 
 func _ready():
-	speed*=-100.0
-	if facing_right:
+	speed*=100.0
+
+	if facing_left:
 		speed*=-1
+		scale.x=abs(scale.x)*-1
+
 
 
 func _physics_process(delta:float)->void:
@@ -29,22 +32,23 @@ func _physics_process(delta:float)->void:
 
 	if velocity.x != 0.0:
 		_animation.play("Walk")
-	
-	if (not _edgedetection.is_colliding() or _walldetection.is_colliding() or _walldetection2.is_colliding()) \
-			&& is_on_floor():
+
+	if (not _edgedetection.is_colliding() or _walldetection.is_colliding() or _walldetection2.is_colliding()) && is_on_floor():
 		flip()
+	
 	
 	velocity.x= speed
 
 
 func flip()->void:
-	facing_right=!facing_right
+	facing_left=!facing_left
 	scale.x=abs(scale.x)*-1
 	
-	if facing_right:
-			speed=abs(speed)
-	else:
+	if facing_left:
 			speed=abs(speed)*-1
+	else:
+			speed=abs(speed)
+
 
 func search()->void:
 	_searching=true
