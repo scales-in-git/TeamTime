@@ -228,7 +228,8 @@ expand_margin_bottom = 33.0
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ftsii"]
 bg_color = Color(0, 0, 0, 0.835294)
 
-[node name="Menu" type="Control"]
+[node name="Menu" type="Control" node_paths=PackedStringArray("start_button")]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -240,6 +241,7 @@ size_flags_vertical = 3
 theme = ExtResource("1_chkef")
 script = ExtResource("1_s0654")
 start = ExtResource("3_j4kqa")
+start_button = NodePath("MainMenu/VBoxContainer/PlayButton")
 
 [node name="Menu Texture" type="TextureRect" parent="."]
 layout_mode = 1

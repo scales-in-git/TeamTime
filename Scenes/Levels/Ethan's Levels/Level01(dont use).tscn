@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://nrs72lh61vif"]
+[gd_scene load_steps=7 format=4 uid="uid://dnn1o8aw78cqx"]
 
 [ext_resource type="TileSet" uid="uid://7ewkkcpem306" path="res://tiles/TileTests.tres" id="1_x51oj"]
 [ext_resource type="PackedScene" uid="uid://dbehr8mfolttb" path="res://Scenes/Utility/SmartMusicPlayer.tscn" id="2_p2kir"]
