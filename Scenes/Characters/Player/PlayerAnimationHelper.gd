@@ -18,7 +18,6 @@ func Running():
 		
 func _on_sprite_2d_frame_changed():
 	if  animation == "Run":
-		print(frame)
 		load_sfx(sfx_footsteps1)
 		if frame in footstep_frames: $%sfx_player.play()
 		load_sfx(sfx_footsteps2)
@@ -47,7 +46,6 @@ func load_sfx(sfx_to_load):
 
 func _on_sprite_frames_changed() -> void:
 	_on_sprite_2d_frame_changed()# Replace with function body.
-	print(frame)
 
 
 func _on_frame_changed() -> void:
