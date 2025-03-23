@@ -117,6 +117,10 @@ follow_viewport_enabled = true
 
 [node name="TokenExit" parent="Ignores BaseDarkness" instance=ExtResource("6_yuyuu")]
 position = Vector2(4768, 164)
+message = "Jailbreaking in progress... ... ... ... ... ... ... [color=red]Complete[/color]
+
+1 Block available. Left click to place. Right click to remove.
+We're looking forward to meeting you."
 scene = "uid://ba36u8lwh3tiy"
 
 [node name="TileMaps" type="Node2D" parent="Ignores BaseDarkness"]
