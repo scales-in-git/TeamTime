@@ -122,7 +122,7 @@ message = "Three blocks available.
 Q to delete all blocks.
 
 Freedom is close."
-scene = "uid://dggv00fx6a7nt"
+scene = "uid://b3e1pd12ahhcb"
 
 [node name="TileMaps" type="Node2D" parent="Ignores BaseDarkness"]
 

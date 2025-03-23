@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://b3e1pd12ahhcb"]
+[gd_scene load_steps=28 format=4 uid="uid://b3e1pd12ahhcb"]
 
 [ext_resource type="TileSet" uid="uid://7ewkkcpem306" path="res://tiles/TileTests.tres" id="1_dx02i"]
 [ext_resource type="Texture2D" uid="uid://bdm5eipd1m8bw" path="res://Glow.png" id="2_o0ocl"]
@@ -17,6 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://cj2w2aaocucmf" path="res://Scenes/Utility/CameraZone.tscn" id="13_1li0d"]
 [ext_resource type="Script" uid="uid://76jmomq5wl5f" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="14_tn80p"]
 [ext_resource type="Script" uid="uid://c4d36sgi5fcop" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="15_2c7ik"]
+[ext_resource type="PackedScene" uid="uid://dbehr8mfolttb" path="res://Scenes/Utility/SmartMusicPlayer.tscn" id="18_ncd6j"]
+[ext_resource type="AudioStream" uid="uid://d2tfnsct46q64" path="res://music/lab_ambience.wav" id="19_ews3w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o0ocl"]
 size = Vector2(1412.5, 1310)
@@ -176,7 +178,7 @@ position = Vector2(19600, 15200)
 [node name="Door" parent="Ignores BaseDarkness" instance=ExtResource("11_kwg3o")]
 position = Vector2(15200, 15200)
 state_manager = ExtResource("12_61sgi")
-scene = "uid://xbehcmu0kbso"
+scene = "uid://b1c8hpusb27wu"
 
 [node name="PhantomCameras" type="Node2D" parent="Ignores BaseDarkness"]
 position = Vector2(16200, 13500)
@@ -216,3 +218,6 @@ layer = 100
 [node name="Pause Menu" parent="UI" instance=ExtResource("5_fj8nb")]
 process_mode = 3
 metadata/_edit_use_anchors_ = true
+
+[node name="SmartMusicPlayer" parent="." instance=ExtResource("18_ncd6j")]
+music = ExtResource("19_ews3w")
