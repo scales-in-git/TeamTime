@@ -19,14 +19,14 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ohhsb"]
 size = Vector2(37.2412, 44.3163)
 
-[sub_resource type="Resource" id="Resource_c7mc5"]
+[sub_resource type="Resource" id="Resource_kjd4l"]
 resource_local_to_scene = true
 script = ExtResource("7_4gsna")
 state_manager = ExtResource("5_jg5pk")
 on = false
 metadata/_custom_type_script = "uid://b42m1hnljomnf"
 
-[sub_resource type="Resource" id="Resource_kjd4l"]
+[sub_resource type="Resource" id="Resource_1uvph"]
 resource_local_to_scene = true
 script = ExtResource("7_4gsna")
 state_manager = ExtResource("5_jg5pk")
@@ -173,12 +173,12 @@ tile_set = ExtResource("1_6ncxy")
 [node name="Door-InterLevel" parent="Ignores BaseDarkness/TileMaps" node_paths=PackedStringArray("destination") instance=ExtResource("5_78w8r")]
 position = Vector2(4100, 2400)
 destination = NodePath("../Door-InterLevel2")
-state_manager = SubResource("Resource_c7mc5")
+state_manager = SubResource("Resource_kjd4l")
 
 [node name="Door-InterLevel2" parent="Ignores BaseDarkness/TileMaps" node_paths=PackedStringArray("destination") instance=ExtResource("5_78w8r")]
 position = Vector2(5800, 3300)
 destination = NodePath("../Door-InterLevel")
-state_manager = SubResource("Resource_kjd4l")
+state_manager = SubResource("Resource_1uvph")
 
 [node name="DoorEntrance" parent="Ignores BaseDarkness" instance=ExtResource("5_4gsna")]
 position = Vector2(2550, 3300)
@@ -187,7 +187,7 @@ player_max_blocks = 1
 [node name="Door" parent="Ignores BaseDarkness" instance=ExtResource("6_c7mc5")]
 position = Vector2(6450, 2400)
 state_manager = SubResource("Resource_rt1b7")
-scene = "uid://5bga0ud1tinf"
+scene = "uid://droxpfypy4w2"
 
 [node name="Switch" parent="Ignores BaseDarkness" instance=ExtResource("8_kjd4l")]
 position = Vector2(6850, 3150)
