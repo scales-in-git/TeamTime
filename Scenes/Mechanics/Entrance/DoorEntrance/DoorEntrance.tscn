@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://2u65lxhpmldx"]
+[gd_scene load_steps=9 format=3 uid="uid://2u65lxhpmldx"]
 
 [ext_resource type="Texture2D" uid="uid://noxgjvwgxmx" path="res://tiles/Doors.png" id="1_em1kq"]
 [ext_resource type="Script" uid="uid://b6m8dev16an5s" path="res://Scenes/Mechanics/Entrance/DoorEntrance/DoorEntrance.gd" id="1_wg8b6"]
 [ext_resource type="Texture2D" uid="uid://bdm5eipd1m8bw" path="res://Glow.png" id="2_wg8b6"]
+[ext_resource type="AudioStream" uid="uid://d2sd7hpp0ceis" path="res://fx/sfx_door_exitdoor_ethan.mp3" id="4_rnrig"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3qmsy"]
 atlas = ExtResource("1_em1kq")
@@ -83,3 +84,8 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0)
 metadata/_edit_use_anchors_ = true
+
+[node name="door_close" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_rnrig")
+volume_db = -20.0
+bus = &"SFX"

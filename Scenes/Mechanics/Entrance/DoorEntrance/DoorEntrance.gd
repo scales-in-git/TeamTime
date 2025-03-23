@@ -30,6 +30,7 @@ func enter(player: Player):
 	fade_in_tween.play()
 	await fade_in_tween.finished
 	door_sprite.play('Closed')	
+	$door_close.play()
 	fade_in.color.a = 0.0
 	player.puppeting = false
 
