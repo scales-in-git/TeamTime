@@ -17,10 +17,12 @@ func _ready()->void:
 	interact_zone.entered.connect(func():
 		if !is_active(): return
 		door_sprite.play('Open')
+		$door_open.play()
 	)
 	interact_zone.left.connect(func():
 		if !is_active(): return
 		door_sprite.play('Closed')
+		$door_close.play()
 	)
 	
 	door_light.color=active_colour
@@ -33,7 +35,7 @@ func _ready()->void:
 		state_manager.init()
 		
 		if not state_manager.on:
-			turn_off()
+			turn_off(false)
 
 
 
@@ -42,6 +44,8 @@ func teleport()->void:
 
 	door_sprite.play('Closed')
 	destination.door_sprite.play('Open')
+	$door_go.play()
+
 	Game.player.global_position=destination.global_position
 
 
@@ -51,7 +55,9 @@ func is_active():
 
 func turn_on():
 	door_light.color = active_colour
+	$door_unlock.play()
 
-
-func turn_off():
+func turn_off(play_sound = true):
 	door_light.color = inactive_colour
+	if play_sound:
+		$door_lock.play()
