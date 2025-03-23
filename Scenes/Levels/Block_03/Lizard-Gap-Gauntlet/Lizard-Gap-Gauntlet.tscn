@@ -33,41 +33,6 @@ shadow_enabled = true
 texture = ExtResource("2_xpw4f")
 texture_scale = 0.5
 
-[node name="DoorLight5" type="PointLight2D" parent="Lights"]
-position = Vector2(5149, 2949)
-energy = 0.5
-shadow_enabled = true
-texture = ExtResource("2_xpw4f")
-texture_scale = 0.5
-
-[node name="DoorLight6" type="PointLight2D" parent="Lights"]
-position = Vector2(3947.75, 2949)
-energy = 0.5
-shadow_enabled = true
-texture = ExtResource("2_xpw4f")
-texture_scale = 0.5
-
-[node name="DoorLight7" type="PointLight2D" parent="Lights"]
-position = Vector2(4147.75, 2949)
-energy = 0.5
-shadow_enabled = true
-texture = ExtResource("2_xpw4f")
-texture_scale = 0.5
-
-[node name="DoorLight3" type="PointLight2D" parent="Lights"]
-position = Vector2(5940, 2949)
-energy = 0.5
-shadow_enabled = true
-texture = ExtResource("2_xpw4f")
-texture_scale = 0.5
-
-[node name="DoorLight4" type="PointLight2D" parent="Lights"]
-position = Vector2(3150, 2949)
-energy = 0.5
-shadow_enabled = true
-texture = ExtResource("2_xpw4f")
-texture_scale = 0.5
-
 [node name="FloorLights" type="Node2D" parent="Lights"]
 position = Vector2(0, 3)
 
