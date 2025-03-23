@@ -15,17 +15,14 @@ extends Node2D
 
 
 func turn_on():
-	
-	##indicator.color = on_colour
 	switch_light.color=on_colour
-	##switch_sprite.modulate=on_colour
-	# Also: play sound
+	if $on_sound:
+		$on_sound.play()
 
-func turn_off():
-	##indicator.color = off_colour
-	#switch_sprite.modulate=off_colour
+func turn_off(play_sound = true):
+	if $on_sound and play_sound:
+		$on_sound.play()
 	switch_light.color=off_colour
-	# Also: play sound
 
 
 
@@ -38,4 +35,4 @@ func _ready():
 	interactor.interacted.connect(state_manager.toggle)
 
 	if not state_manager.on:
-		turn_off()
+		turn_off(false)

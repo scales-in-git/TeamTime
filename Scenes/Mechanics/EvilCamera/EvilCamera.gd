@@ -42,6 +42,7 @@ func blink(how_long: float = 1.0):
 		light.enabled = true
 		blinking = false
 		real_camera.animation = "on"
+		$blink_on.play()
 		if auto_blink_on > 0.0:
 			auto_blinking_on_state_timer = _create_blink_timer() 
 
@@ -49,8 +50,10 @@ func turn_off():
 	real_camera.animation = "off"
 	turned_off = true
 	light.enabled = false
+	$blink_off.play()
 
 func turn_on():
+	$turn_on.play()
 	turned_off = false
 	light.enabled = true
 	real_camera.animation = "on"

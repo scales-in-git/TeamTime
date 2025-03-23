@@ -1,9 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://c727a4v6bxv0"]
+[gd_scene load_steps=15 format=3 uid="uid://c727a4v6bxv0"]
 
 [ext_resource type="Script" uid="uid://ccgkuoyrjeld5" path="res://Scenes/Mechanics/InterLevel/InterLevelDoor.gd" id="1_3nq6x"]
 [ext_resource type="Texture2D" uid="uid://noxgjvwgxmx" path="res://tiles/Doors.png" id="2_o8fid"]
 [ext_resource type="Texture2D" uid="uid://bdm5eipd1m8bw" path="res://Glow.png" id="3_jorug"]
 [ext_resource type="PackedScene" uid="uid://2asc1fqa7g23" path="res://Scenes/Utility/GenericInteractive.tscn" id="4_4gdyn"]
+[ext_resource type="AudioStream" uid="uid://be7doo0xbq3an" path="res://fx/sfx_door_entrance_ethan.mp3" id="5_o8fid"]
+[ext_resource type="AudioStream" uid="uid://d2sd7hpp0ceis" path="res://fx/sfx_door_exitdoor_ethan.mp3" id="6_jorug"]
+[ext_resource type="AudioStream" uid="uid://dgtfdy7aucj1q" path="res://fx/sfx_door_interdoor_ethan.mp3" id="7_4gdyn"]
+[ext_resource type="AudioStream" uid="uid://dwaxvh8n5ulhe" path="res://fx/sfx_door_unlock_ethan.mp3" id="8_5xgbd"]
+[ext_resource type="AudioStream" uid="uid://dcnw7u18k4bmc" path="res://fx/sfx_door_lock_ethan.mp3" id="9_tt4yk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3qmsy"]
 atlas = ExtResource("2_o8fid")
@@ -94,5 +99,29 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0)
 metadata/_edit_use_anchors_ = true
+
+[node name="door_open" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_o8fid")
+volume_db = -20.0
+pitch_scale = 0.7
+bus = &"SFX"
+
+[node name="door_close" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_jorug")
+volume_db = -20.0
+bus = &"SFX"
+
+[node name="door_go" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_4gdyn")
+volume_db = -3.0
+bus = &"SFX"
+
+[node name="door_unlock" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_5xgbd")
+bus = &"SFX"
+
+[node name="door_lock" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_tt4yk")
+bus = &"SFX"
 
 [connection signal="interacted" from="InteractZone" to="." method="_on_interact_zone_interacted"]

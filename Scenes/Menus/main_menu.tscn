@@ -245,10 +245,6 @@ texture = ExtResource("4_aur2u")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="Tittle" parent="." instance=ExtResource("5_4fgt5")]
-layout_mode = 0
-anchors_preset = 0
-
 [node name="Graining" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_t0rlu")
 layout_mode = 1
@@ -258,6 +254,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="Tittle" parent="." instance=ExtResource("5_4fgt5")]
+layout_mode = 1
 
 [node name="MainMenu" type="MarginContainer" parent="."]
 unique_name_in_owner = true

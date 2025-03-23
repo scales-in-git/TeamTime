@@ -52,14 +52,18 @@ func _physics_process(delta):
 
 	if reached_destination and current_state == MovementState.TARGET_MOVE_TO:
 		current_state = MovementState.TARGET_WAIT
+		$moving_sound.stop()
 		get_tree().create_timer(wait).timeout.connect(func ():
 			current_state = MovementState.SOURCE_MOVE_TO
+			$moving_sound.play()
 		)
 
 	if reached_destination and current_state == MovementState.SOURCE_MOVE_TO:
 		current_state = MovementState.SOURCE_WAIT
+		$moving_sound.stop()
 		get_tree().create_timer(wait).timeout.connect(func ():
 			current_state = MovementState.TARGET_MOVE_TO
+			$moving_sound.play()
 		)
 
 	position += intended_displacement

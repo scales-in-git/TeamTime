@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://dxb7l54dt8jih"]
+[gd_scene load_steps=10 format=3 uid="uid://dxb7l54dt8jih"]
 
 [ext_resource type="Script" uid="uid://cxu3rw2cpdg44" path="res://Scenes/Mechanics/EvilCamera/EvilCamera.gd" id="1_32upy"]
 [ext_resource type="PackedScene" uid="uid://d4eeme44hkqe5" path="res://Scenes/Mechanics/EvilCamera/camera.tscn" id="1_tkfo8"]
 [ext_resource type="Texture2D" uid="uid://dgd1acdhvq8y0" path="res://ConeLight.png" id="2_244qs"]
 [ext_resource type="PackedScene" uid="uid://dlyr50dshfbi7" path="res://Scenes/Utility/GenericFade.tscn" id="4_06k72"]
 [ext_resource type="AudioStream" uid="uid://vhywg5j3yo6n" path="res://fx/lab_FX alarm1.wav" id="5_244qs"]
+[ext_resource type="AudioStream" uid="uid://cob6jx0h2rrb0" path="res://fx/lab_FX2 camera_on.wav" id="6_exg0a"]
+[ext_resource type="AudioStream" uid="uid://cs2lc7qu8f0o3" path="res://fx/sfx_camera_on_ethan.mp3" id="6_oigfu"]
+[ext_resource type="AudioStream" uid="uid://rwugw4gwwpcu" path="res://fx/sfx_camera_off_ethan.mp3" id="7_kxit0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_244qs"]
 size = Vector2(100, 100)
@@ -89,3 +92,15 @@ collision_mask = 536870912
 position = Vector2(16, -25)
 target_position = Vector2(1175, 230)
 collision_mask = 536870912
+
+[node name="blink_on" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_oigfu")
+bus = &"SFX"
+
+[node name="blink_off" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_kxit0")
+bus = &"SFX"
+
+[node name="turn_on" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_exg0a")
+bus = &"SFX"

@@ -45,6 +45,7 @@ func _input(event: InputEvent):
 
 		get_parent().add_sibling(new_block)
 		new_block.global_position = block_collision_detector.global_position
+		$sound_block.play()
 
 		placed_block_queue.append(new_block)
 		blocks_changed = true
@@ -52,9 +53,12 @@ func _input(event: InputEvent):
 	if event.is_action_pressed('player_block_delete') and highlighted_block:
 		placed_block_queue.erase(highlighted_block)
 		highlighted_block.fancy_delete()
+		$sound_block_remove.play()
 		blocks_changed = true
 
 	if event.is_action_pressed('player_delete_all'):
+		if placed_block_queue.size() > 1:
+			$sound_block_remove.play()
 		while placed_block_queue.size() > 0:
 			var block = placed_block_queue.pop_back()
 			block.fancy_delete()
@@ -64,13 +68,12 @@ func _input(event: InputEvent):
 			placed_block_queue.front().clear_highlight()
 
 		# Don't show what will be deleted if player can only place one; they'll know it'll be removed.
-		if placed_block_queue.size() == max_placeable_blocks and max_placeable_blocks > 1:
+		if placed_block_queue.size() >= max_placeable_blocks and max_placeable_blocks > 1:
 			placed_block_queue.front().highlight_as_last()
 
 		if placed_block_queue.size() > max_placeable_blocks:
 			var last_block = placed_block_queue.pop_front()
 			last_block.fancy_delete()
-			placed_block_queue.front().highlight_as_last()
 	pass
 
 func _physics_process(_delta: float) -> void:

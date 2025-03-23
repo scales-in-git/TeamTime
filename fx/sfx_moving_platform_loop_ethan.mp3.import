@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/sfx_moving_platform_loop_ethan.mp3-c1ea7ee844
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

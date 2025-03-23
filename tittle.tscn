@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://biydgimsupr5q"]
 
-[ext_resource type="Shader" path="res://Scenes/Menus/Glitch.gdshader" id="1_i5a8h"]
+[ext_resource type="Shader" uid="uid://bylhb1fntwe5v" path="res://Scenes/Menus/Glitch.gdshader" id="1_i5a8h"]
 [ext_resource type="Texture2D" uid="uid://d3nbydo484fnw" path="res://Scenes/Menus/images/Tittle.png" id="2_tdnow"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ftsii"]

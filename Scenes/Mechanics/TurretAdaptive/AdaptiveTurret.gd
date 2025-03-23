@@ -73,6 +73,12 @@ func _physics_process(delta):
 	else:
 		rotate_towards(Vector2.DOWN, delta)
 
+func turn_on():
+	$sound_on.play()
+
+func turn_off():
+	$sound_off.play()
+
 func _ready():
 	assert(abs(rotation_limit) < 90, "Turret rotation limit must be less than 90 degrees")
 
@@ -80,7 +86,11 @@ func _ready():
 
 	activation_zone.body_entered.connect(func (player: Node2D):
 		if player is Player:
-			targetting = player
+			$target_detected.play()
+			await $target_detected.finished
+			if player in activation_zone.get_overlapping_bodies():
+				targetting = player
+
 	)
 
 	activation_zone.body_exited.connect(func (player: Node2D):
@@ -90,3 +100,5 @@ func _ready():
 	
 	if state_manager:
 		state_manager.init()
+		state_manager.turned_on.connect(turn_on)
+		state_manager.turned_off.connect(turn_off)

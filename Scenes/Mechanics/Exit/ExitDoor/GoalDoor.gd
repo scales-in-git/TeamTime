@@ -30,7 +30,8 @@ func _on_interact_zone_interacted():
 	# Todo: emit level pause signal to game, oh no we're so late
 	# Easier todo: actually make her invincible lmao (disable layer 3?)
 
-	door_sprite.play('Open')	
+	door_sprite.play('Open')
+	$door_open.play()
 	var fade_out_tween := get_tree().create_tween()
 	fade_out_tween.tween_property($%FadeOut, 'color:a', 1.0, fade_out_time)
 	fade_out_tween.play()
@@ -42,10 +43,11 @@ func _on_interact_zone_interacted():
 
 func turn_on():
 	door_light.color = active_colour
+	$door_unlock.play()
 
 func turn_off():
 	door_light.color = inactive_colour
-
+	$door_lock.play()
 
 func _ready():
 	$%FadeOut.color = fade_colour
