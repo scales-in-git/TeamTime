@@ -80,7 +80,11 @@ func _ready():
 
 	activation_zone.body_entered.connect(func (player: Node2D):
 		if player is Player:
-			targetting = player
+			$target_detected.play()
+			await $target_detected.finished
+			if player in activation_zone.get_overlapping_bodies():
+				targetting = player
+
 	)
 
 	activation_zone.body_exited.connect(func (player: Node2D):
