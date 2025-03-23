@@ -1,11 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://0hi7fyduhudf"]
+[gd_scene load_steps=7 format=3 uid="uid://0hi7fyduhudf"]
 
 [ext_resource type="Script" uid="uid://dohry0dir848e" path="res://Scenes/Mechanics/MovingPlatform/MovingPlatform.gd" id="1_akfi6"]
 [ext_resource type="Texture2D" uid="uid://d2aoanxbqujmf" path="res://tiles/Platform.png" id="2_akfi6"]
 [ext_resource type="Texture2D" uid="uid://3hurbwdo1xm0" path="res://SquareGlow.png" id="3_xti4b"]
+[ext_resource type="AudioStream" uid="uid://c1ecfbktvgm0l" path="res://fx/sfx_moving_platform_loop_ethan.mp3" id="4_2ngmh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ngmh"]
 size = Vector2(236, 20)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_b23p0"]
+polygon = PackedVector2Array(-125, -10, 124, -10, 106, 10, -104, 10)
 
 [node name="MovingPlatform" type="AnimatableBody2D"]
 collision_mask = 2
@@ -23,3 +27,12 @@ texture = ExtResource("3_xti4b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_2ngmh")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_b23p0")
+
+[node name="moving_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_2ngmh")
+volume_db = -5.0
+pitch_scale = 0.5
+bus = &"SFX"
