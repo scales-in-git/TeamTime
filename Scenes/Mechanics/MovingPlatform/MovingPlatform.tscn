@@ -33,6 +33,6 @@ occluder = SubResource("OccluderPolygon2D_b23p0")
 
 [node name="moving_sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_2ngmh")
-volume_db = -5.0
+volume_db = -8.0
 pitch_scale = 0.5
 bus = &"SFX"

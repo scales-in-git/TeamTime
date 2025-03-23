@@ -7,3 +7,6 @@ func play_music(music: AudioStream):
         return
     stream = music
     play()
+
+func _ready():
+    volume_db = -10
