@@ -1,9 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://qgfao441huib"]
+[gd_scene load_steps=13 format=3 uid="uid://qgfao441huib"]
 
 [ext_resource type="Texture2D" uid="uid://noxgjvwgxmx" path="res://tiles/Doors.png" id="1_0a37h"]
 [ext_resource type="Script" uid="uid://cb8643wcch6sm" path="res://Scenes/Mechanics/Exit/ExitDoor/GoalDoor.gd" id="1_pp4jd"]
 [ext_resource type="Texture2D" uid="uid://bdm5eipd1m8bw" path="res://Glow.png" id="2_oojdn"]
 [ext_resource type="PackedScene" uid="uid://2asc1fqa7g23" path="res://Scenes/Utility/GenericInteractive.tscn" id="4_w6qrv"]
+[ext_resource type="AudioStream" uid="uid://be7doo0xbq3an" path="res://fx/sfx_door_entrance_ethan.mp3" id="5_p5gjo"]
+[ext_resource type="AudioStream" uid="uid://dwaxvh8n5ulhe" path="res://fx/sfx_door_unlock_ethan.mp3" id="6_a3fxv"]
+[ext_resource type="AudioStream" uid="uid://dcnw7u18k4bmc" path="res://fx/sfx_door_lock_ethan.mp3" id="7_redj2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3qmsy"]
 atlas = ExtResource("1_0a37h")
@@ -96,5 +99,19 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0)
 metadata/_edit_use_anchors_ = true
+
+[node name="door_open" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_p5gjo")
+volume_db = -20.0
+pitch_scale = 0.7
+bus = &"SFX"
+
+[node name="door_unlock" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_a3fxv")
+bus = &"SFX"
+
+[node name="door_lock" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_redj2")
+bus = &"SFX"
 
 [connection signal="interacted" from="InteractZone" to="." method="_on_interact_zone_interacted"]
