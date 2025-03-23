@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c2liu7j8dfowu"]
+[gd_scene load_steps=19 format=3 uid="uid://c2liu7j8dfowu"]
 
 [ext_resource type="Texture2D" uid="uid://di8uu0i6pmuct" path="res://Scenes/Mechanics/Exit/TokenExit/Sprites/Disk.png" id="1_ey4c7"]
 [ext_resource type="Script" uid="uid://iue7m87sclt2" path="res://Scenes/Mechanics/Exit/TokenExit/TokenExit.gd" id="1_nyq3n"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://76jmomq5wl5f" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_ks2dt"]
 [ext_resource type="FontFile" uid="uid://b7kbd2t2kahle" path="res://Scenes/Menus/Fonts/digital-7.ttf" id="4_o0380"]
 [ext_resource type="Script" uid="uid://c4d36sgi5fcop" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_ptv4j"]
+[ext_resource type="AudioStream" uid="uid://cdogfv6dasccb" path="res://fx/sfx_riser_ethan.mp3" id="8_o0380"]
 
 [sub_resource type="Shader" id="Shader_chkef"]
 code = "/*
@@ -214,6 +215,9 @@ shader_parameter/scan_line_strength = -3.416
 shader_parameter/pixel_strength = -2.0
 shader_parameter/overall_strength = 0.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o0380"]
+bg_color = Color(0.0705882, 0.0705882, 0.0705882, 0.772549)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f12bj"]
 shader = ExtResource("3_c2ek1")
 shader_parameter/shake_power = 0.03
@@ -221,6 +225,9 @@ shader_parameter/shake_rate = 0.05
 shader_parameter/shake_speed = 5.0
 shader_parameter/shake_block_size = 30.5
 shader_parameter/shake_color_rate = 0.01
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c2ek1"]
+bg_color = Color(0.07, 0.07, 0.07, 0.772549)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_63ji3"]
 size = Vector2(200, 200)
@@ -266,7 +273,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CanvasLayer2/Tittle:visible")
+tracks/3/path = NodePath("CanvasLayer2/Title:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -311,10 +318,46 @@ tracks/6/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CanvasLayer2/MarginContainer2:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CanvasLayer2/MarginContainer2/PanelContainer/INNER_MARG_CONTAIN/Message:visible_ratio")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CanvasLayer2/MarginContainer2:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_nyq3n"]
 resource_name = "collect"
-length = 15.0
+length = 18.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -322,7 +365,7 @@ tracks/0/path = NodePath("CanvasLayer/FadeOut:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(11.9333, 14.8667),
+"times": PackedFloat32Array(13.0667, 17.9),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
@@ -354,7 +397,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CanvasLayer2/Tittle:visible")
+tracks/3/path = NodePath("CanvasLayer2/Title:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -382,7 +425,7 @@ tracks/5/path = NodePath("CanvasLayer2/MarginContainer/PanelContainer/MarginCont
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(4.93333, 7.03333),
+"times": PackedFloat32Array(4.96667, 8.03333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 1.0]
@@ -394,10 +437,61 @@ tracks/6/path = NodePath("CanvasLayer2/MarginContainer/PanelContainer:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 4.06667),
+"times": PackedFloat32Array(0, 4.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
+}
+tracks/7/type = "audio"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AudioStreamPlayer")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("8_o0380")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/7/use_blend = true
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CanvasLayer2/MarginContainer2:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.433333, 0.733333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CanvasLayer2/MarginContainer2/PanelContainer/INNER_MARG_CONTAIN/Message:visible_ratio")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(1, 1.46667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("CanvasLayer2/MarginContainer2:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.733333, 4.06667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ks2dt"]
@@ -426,7 +520,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Tittle" parent="CanvasLayer2" instance=ExtResource("2_ptv4j")]
+[node name="Title" parent="CanvasLayer2" instance=ExtResource("2_ptv4j")]
 visible = false
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer2"]
@@ -445,6 +539,7 @@ theme_override_constants/margin_bottom = 200
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer2/MarginContainer"]
 visible = false
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o0380")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer2/MarginContainer/PanelContainer"]
 layout_mode = 2
@@ -458,9 +553,50 @@ unique_name_in_owner = true
 material = SubResource("ShaderMaterial_f12bj")
 clip_contents = false
 layout_mode = 2
+theme_override_constants/line_separation = 4
 theme_override_fonts/normal_font = ExtResource("4_o0380")
 theme_override_font_sizes/normal_font_size = 86
 bbcode_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer2"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(1000, 100)
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1155.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 800
+theme_override_constants/margin_top = 400
+theme_override_constants/margin_right = 800
+theme_override_constants/margin_bottom = 600
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer2/MarginContainer2"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_c2ek1")
+
+[node name="INNER_MARG_CONTAIN" type="MarginContainer" parent="CanvasLayer2/MarginContainer2/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Message" type="RichTextLabel" parent="CanvasLayer2/MarginContainer2/PanelContainer/INNER_MARG_CONTAIN"]
+material = SubResource("ShaderMaterial_f12bj")
+clip_contents = false
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_o0380")
+theme_override_font_sizes/normal_font_size = 86
+bbcode_enabled = true
+text = "Jailbreaking in progress..."
 horizontal_alignment = 1
 vertical_alignment = 1
 visible_characters = 0
@@ -511,5 +647,7 @@ script = ExtResource("3_ks2dt")
 zoom = Vector2(3, 3)
 tween_resource = SubResource("Resource_iuw0k")
 metadata/_custom_type_script = "uid://76jmomq5wl5f"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [connection signal="body_entered" from="InteractZone" to="." method="_on_interact_zone_body_entered"]
