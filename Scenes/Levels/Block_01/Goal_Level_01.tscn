@@ -117,7 +117,7 @@ follow_viewport_enabled = true
 
 [node name="TokenExit" parent="Ignores BaseDarkness" instance=ExtResource("6_coqw8")]
 position = Vector2(4768, 164)
-scene = "uid://sfyhw26gt1vr"
+scene = "uid://dggv00fx6a7nt"
 
 [node name="TileMaps" type="Node2D" parent="Ignores BaseDarkness"]
 
