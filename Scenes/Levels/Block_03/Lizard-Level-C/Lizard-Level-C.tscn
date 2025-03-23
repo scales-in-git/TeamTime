@@ -176,6 +176,7 @@ position = Vector2(19600, 15200)
 [node name="Door" parent="Ignores BaseDarkness" instance=ExtResource("11_kwg3o")]
 position = Vector2(15200, 15200)
 state_manager = ExtResource("12_61sgi")
+scene = "uid://xbehcmu0kbso"
 
 [node name="PhantomCameras" type="Node2D" parent="Ignores BaseDarkness"]
 position = Vector2(16200, 13500)

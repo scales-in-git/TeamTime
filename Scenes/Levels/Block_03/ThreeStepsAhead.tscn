@@ -159,7 +159,6 @@ position = Vector2(-547, -6096)
 scene = "uid://fv5qoda6vwj4"
 
 [node name="InstantExit" parent="Ignores BaseDarkness/Exits" instance=ExtResource("10_fg633")]
-scene = "uid://cu4rjl45f8rbo"
 
 [node name="BlockDetector" parent="." instance=ExtResource("11_ku8m5")]
 position = Vector2(2000, -6200)

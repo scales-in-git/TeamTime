@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://deul1clw7gmdd"]
+[gd_scene load_steps=17 format=4 uid="uid://deul1clw7gmdd"]
 
 [ext_resource type="TileSet" uid="uid://7ewkkcpem306" path="res://tiles/TileTests.tres" id="1_b360k"]
 [ext_resource type="Texture2D" uid="uid://bdm5eipd1m8bw" path="res://Glow.png" id="2_5b2qq"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://jhjkr5mcfjhg" path="res://Scenes/Mechanics/DeathPit/DeathPit.tscn" id="5_sd4qg"]
 [ext_resource type="PackedScene" uid="uid://dxb7l54dt8jih" path="res://Scenes/Mechanics/EvilCamera/EvilCamera.tscn" id="6_mviwt"]
 [ext_resource type="PackedScene" uid="uid://dnp68bg7x5xqw" path="res://Scenes/Mechanics/Exit/WalkingExit/WalkingExit.tscn" id="7_4oofq"]
-[ext_resource type="PackedScene" uid="uid://yhp7gr6fmrn5" path="res://Scenes/Mechanics/Exit/InstantExit/InstantExit.tscn" id="8_emwec"]
 [ext_resource type="PackedScene" uid="uid://brsai7op34w2q" path="res://Scenes/Mechanics/Switch/Switch.tscn" id="9_kdga0"]
 [ext_resource type="Resource" uid="uid://dk7njr5jptwoi" path="res://Scenes/Levels/Debug/RundimentaryLevels/level_c_camera.tres" id="10_cjnek"]
 [ext_resource type="PackedScene" uid="uid://dvefjhvuqmubq" path="res://Scenes/Mechanics/BlockDetector/BlockDetector.tscn" id="11_oxnv0"]
@@ -145,34 +144,30 @@ tile_set = ExtResource("1_b360k")
 
 [node name="WalkingExit" parent="Ignores BaseDarkness/Exits" instance=ExtResource("7_4oofq")]
 position = Vector2(7044, 1698)
-scene = "uid://fv5qoda6vwj4"
+scene = "uid://cqex8j2kbirfj"
 
-[node name="InstantExit" parent="Ignores BaseDarkness/Exits" instance=ExtResource("8_emwec")]
-visible = false
-scene = "uid://cu4rjl45f8rbo"
-
-[node name="Switch" parent="." instance=ExtResource("9_kdga0")]
+[node name="Switch" parent="Ignores BaseDarkness" instance=ExtResource("9_kdga0")]
 position = Vector2(8314, -371)
 state_manager = ExtResource("10_cjnek")
 
-[node name="BlockDetector" parent="." instance=ExtResource("11_oxnv0")]
+[node name="BlockDetector" parent="Ignores BaseDarkness" instance=ExtResource("11_oxnv0")]
 position = Vector2(4312, -200)
 scale = Vector2(5, 1)
 on_off_state_manager = SubResource("Resource_kulvy")
 
-[node name="BlockDetector2" parent="." instance=ExtResource("11_oxnv0")]
+[node name="BlockDetector2" parent="Ignores BaseDarkness" instance=ExtResource("11_oxnv0")]
 position = Vector2(5232, -200)
 scale = Vector2(5, 1)
 on_off_state_manager = SubResource("Resource_umc5f")
 
-[node name="MovingPlatform" parent="." instance=ExtResource("13_44jjp")]
+[node name="MovingPlatform" parent="Ignores BaseDarkness" instance=ExtResource("13_44jjp")]
 position = Vector2(8314, -142)
 direction = Vector2(0, 1)
 distance = 1.0
 
-[node name="MovingPlatform2" parent="." instance=ExtResource("13_44jjp")]
+[node name="MovingPlatform2" parent="Ignores BaseDarkness" instance=ExtResource("13_44jjp")]
 position = Vector2(2656, -32)
 distance = 0.1
 
-[node name="AdaptiveTurret" parent="." instance=ExtResource("14_bjr1o")]
+[node name="AdaptiveTurret" parent="Ignores BaseDarkness" instance=ExtResource("14_bjr1o")]
 position = Vector2(4998, -778)
