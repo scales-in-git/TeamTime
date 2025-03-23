@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://2u65lxhpmldx" path="res://Scenes/Mechanics/Entrance/DoorEntrance/DoorEntrance.tscn" id="4_d7rq2"]
 [ext_resource type="PackedScene" uid="uid://dxb7l54dt8jih" path="res://Scenes/Mechanics/EvilCamera/EvilCamera.tscn" id="5_k2yd6"]
 [ext_resource type="Script" uid="uid://b42m1hnljomnf" path="res://Scenes/Utility/OnOffStateInverter.gd" id="6_17u25"]
-[ext_resource type="Resource" uid="uid://dk7njr5jptwoi" path="res://Scenes/Levels/Debug/RundimentaryLevels/level_c_camera.tres" id="7_xms42"]
+[ext_resource type="Resource" uid="uid://by3bp4yihmr50" path="res://Scenes/Levels/Debug/RundimentaryLevels/22camerasonoff.tres" id="7_811ad"]
 [ext_resource type="PackedScene" uid="uid://dnp68bg7x5xqw" path="res://Scenes/Mechanics/Exit/WalkingExit/WalkingExit.tscn" id="8_kvrgo"]
 [ext_resource type="PackedScene" uid="uid://yhp7gr6fmrn5" path="res://Scenes/Mechanics/Exit/InstantExit/InstantExit.tscn" id="9_p7d4p"]
 [ext_resource type="PackedScene" uid="uid://brsai7op34w2q" path="res://Scenes/Mechanics/Switch/Switch.tscn" id="10_a0yr2"]
@@ -15,7 +15,7 @@
 
 [sub_resource type="Resource" id="Resource_he323"]
 script = ExtResource("6_17u25")
-state_manager = ExtResource("7_xms42")
+state_manager = ExtResource("7_811ad")
 on = true
 metadata/_custom_type_script = "uid://b42m1hnljomnf"
 
@@ -137,11 +137,11 @@ scene = "uid://cu4rjl45f8rbo"
 
 [node name="Switch" parent="Ignores BaseDarkness" instance=ExtResource("10_a0yr2")]
 position = Vector2(3550, 1350)
-state_manager = ExtResource("7_xms42")
+state_manager = ExtResource("7_811ad")
 
 [node name="Door" parent="Ignores BaseDarkness" instance=ExtResource("11_76ep2")]
 position = Vector2(3950, 1500)
-state_manager = ExtResource("7_xms42")
+state_manager = ExtResource("7_811ad")
 scene = "uid://5o7so3pvqfpq"
 
 [node name="UI" type="CanvasLayer" parent="."]
