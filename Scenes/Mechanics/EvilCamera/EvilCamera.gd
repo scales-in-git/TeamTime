@@ -61,7 +61,6 @@ func _create_blink_timer():
 	if not get_tree(): return null
 	var timer = get_tree().create_timer(auto_blink_on)
 	timer.timeout.connect(func ():
-		print(name)
 		blink(auto_blink_off)
 	)
 	return timer

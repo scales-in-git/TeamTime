@@ -20,9 +20,4 @@ func transition(new_place) -> void:
 	# get_tree().change_scene_to_packed(level_scene)
 
 func reset_scene():
-	if Game.player:
-		Game.player.get_parent().remove_child(Game.player)
-		Game.player.call_deferred("queue_free")
-		Game.player = null
-
-	get_tree().reload_current_scene()
+	get_tree().call_deferred("reload_current_scene")

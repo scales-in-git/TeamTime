@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://biydgimsupr5q"]
+
+[ext_resource type="Shader" path="res://Scenes/Menus/Glitch.gdshader" id="1_i5a8h"]
+[ext_resource type="Texture2D" uid="uid://d3nbydo484fnw" path="res://Scenes/Menus/images/Tittle.png" id="2_tdnow"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ftsii"]
+shader = ExtResource("1_i5a8h")
+shader_parameter/shake_power = 0.03
+shader_parameter/shake_rate = 0.1
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_block_size = 30.5
+shader_parameter/shake_color_rate = 0.01
+
+[node name="Tittle" type="TextureRect"]
+material = SubResource("ShaderMaterial_ftsii")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_tdnow")
+expand_mode = 2
+stretch_mode = 4
