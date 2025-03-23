@@ -230,7 +230,7 @@ position = Vector2(7200, 34400)
 
 [node name="Door" parent="Ignores BaseDarkness" instance=ExtResource("9_7uv0m")]
 position = Vector2(15300, 34400)
-scene = "uid://b3e1pd12ahhcb"
+scene = "uid://xbehcmu0kbso"
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 100
