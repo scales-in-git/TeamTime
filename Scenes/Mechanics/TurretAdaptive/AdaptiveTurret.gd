@@ -73,6 +73,12 @@ func _physics_process(delta):
 	else:
 		rotate_towards(Vector2.DOWN, delta)
 
+func turn_on():
+	$sound_on.play()
+
+func turn_off():
+	$sound_off.play()
+
 func _ready():
 	assert(abs(rotation_limit) < 90, "Turret rotation limit must be less than 90 degrees")
 
@@ -94,3 +100,5 @@ func _ready():
 	
 	if state_manager:
 		state_manager.init()
+		state_manager.turned_on.connect(turn_on)
+		state_manager.turned_off.connect(turn_off)

@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://clq13lum7jkjv"]
+[gd_scene load_steps=9 format=3 uid="uid://clq13lum7jkjv"]
 
 [ext_resource type="Texture2D" uid="uid://l72tt6vkb1r2" path="res://Scenes/Mechanics/TurretAdaptive/Sprites/Turret_barrel.png" id="1_6fw3l"]
 [ext_resource type="Script" uid="uid://wt76f7thx53t" path="res://Scenes/Mechanics/TurretAdaptive/AdaptiveTurret.gd" id="1_j2sai"]
 [ext_resource type="Texture2D" uid="uid://xq2ocub8lia7" path="res://Scenes/Mechanics/TurretAdaptive/Sprites/Turret_base.png" id="2_j2sai"]
 [ext_resource type="AudioStream" uid="uid://bh6hhgiwdw4qe" path="res://Scenes/Mechanics/TurretAdaptive/Sounds/lab_FX2 4-GunshotPistol_BW.57107 (Freeze).wav" id="3_21o80"]
 [ext_resource type="AudioStream" uid="uid://bepie8fgkucwj" path="res://fx/lab_FX2 turret_on.wav" id="5_3f75v"]
+[ext_resource type="AudioStream" uid="uid://cs2lc7qu8f0o3" path="res://fx/sfx_camera_on_ethan.mp3" id="6_kbapu"]
+[ext_resource type="AudioStream" uid="uid://rwugw4gwwpcu" path="res://fx/sfx_camera_off_ethan.mp3" id="7_sy1cn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_21o80"]
 radius = 200.0
@@ -50,3 +52,13 @@ shape = SubResource("CircleShape2D_21o80")
 
 [node name="target_detected" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_3f75v")
+
+[node name="sound_on" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_kbapu")
+volume_db = 3.0
+bus = &"SFX"
+
+[node name="sound_off" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_sy1cn")
+volume_db = 3.0
+bus = &"SFX"
