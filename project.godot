@@ -24,6 +24,7 @@ SceneTransition="*res://Scripts/Autoloads/SceneTransition.gd"
 Utility="*res://Scripts/Autoloads/Utility.gd"
 GlobalMusic="*res://Scripts/Autoloads/GlobalMusic.gd"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
+LiterallyABlackRectangle="*res://Scripts/Autoloads/LiterallyABlackRectangle.tscn"
 
 [display]
 
