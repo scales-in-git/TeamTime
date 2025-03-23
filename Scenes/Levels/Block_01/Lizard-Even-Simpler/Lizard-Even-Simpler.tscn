@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://ba36u8lwh3tiy"]
+[gd_scene load_steps=17 format=4 uid="uid://ba36u8lwh3tiy"]
 
 [ext_resource type="TileSet" uid="uid://7ewkkcpem306" path="res://tiles/TileTests.tres" id="1_725fc"]
 [ext_resource type="Texture2D" uid="uid://bdm5eipd1m8bw" path="res://Glow.png" id="2_wi1mc"]
@@ -11,6 +11,8 @@
 [ext_resource type="Script" uid="uid://76jmomq5wl5f" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="7_g4iqt"]
 [ext_resource type="Script" uid="uid://c4d36sgi5fcop" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="8_8enys"]
 [ext_resource type="PackedScene" uid="uid://qgfao441huib" path="res://Scenes/Mechanics/Exit/ExitDoor/GoalDoor.tscn" id="10_8enys"]
+[ext_resource type="PackedScene" uid="uid://dbehr8mfolttb" path="res://Scenes/Utility/SmartMusicPlayer.tscn" id="12_dd14j"]
+[ext_resource type="AudioStream" uid="uid://d2tfnsct46q64" path="res://music/lab_ambience.wav" id="13_vflps"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8enys"]
 size = Vector2(836, 3109)
@@ -193,3 +195,6 @@ layer = 100
 
 [node name="Pause Menu" parent="UI" instance=ExtResource("5_aa01t")]
 process_mode = 3
+
+[node name="SmartMusicPlayer" parent="." instance=ExtResource("12_dd14j")]
+music = ExtResource("13_vflps")

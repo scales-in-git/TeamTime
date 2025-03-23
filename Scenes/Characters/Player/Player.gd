@@ -34,6 +34,7 @@ var puppeting := false
 
 func _physics_process(delta: float) -> void:
 	if puppeting:
+		animated_sprite.Idle()
 		return
 
 	if Input.is_action_just_pressed('player_jump'):
