@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cxvmfyg3qiw4t" path="res://Scenes/Mechanics/EvilStolen/StolenWalk SpriteSheet.png" id="1_iyhso"]
 [ext_resource type="Script" uid="uid://brj6hnd23elp4" path="res://Scenes/Mechanics/EvilStolen/Stolen.gd" id="1_xdx12"]
-[ext_resource type="Texture2D" uid="uid://bdm5eipd1m8bw" path="res://Glow.png" id="2_qaihh"]
+[ext_resource type="Texture2D" uid="uid://bnm7r8qpjinty" path="res://Glow_small.png" id="3_626px"]
 [ext_resource type="Texture2D" uid="uid://dbwi5r1k3q6tb" path="res://ConeLight_small.png" id="4_626px"]
 [ext_resource type="Script" uid="uid://cxu3rw2cpdg44" path="res://Scenes/Mechanics/EvilCamera/EvilCamera.gd" id="5_626px"]
 [ext_resource type="PackedScene" uid="uid://d4eeme44hkqe5" path="res://Scenes/Mechanics/EvilCamera/camera.tscn" id="6_6dkmn"]
@@ -303,7 +303,6 @@ script = ExtResource("1_xdx12")
 speed = 1.5
 
 [node name="ColorRect" type="ColorRect" parent="."]
-visible = false
 offset_left = -1034.0
 offset_top = -525.0
 offset_right = 500.0
@@ -319,22 +318,20 @@ animation = &"Walk"
 
 [node name="Player Glow" type="PointLight2D" parent="Sprite"]
 position = Vector2(84.4837, 0)
-scale = Vector2(4.3612, 3.95291)
+scale = Vector2(19.2349, 17.4341)
 color = Color(1, 0, 0, 1)
 energy = 0.5
 shadow_enabled = true
-texture = ExtResource("2_qaihh")
-texture_scale = 0.3
+texture = ExtResource("3_626px")
 height = 100.0
 
 [node name="Player Glow2" type="PointLight2D" parent="Sprite"]
 position = Vector2(84.4837, 0)
-scale = Vector2(4.3612, 3.95291)
+scale = Vector2(8.00803, 7.25833)
 color = Color(1, 0, 0, 1)
 energy = 0.5
 shadow_enabled = true
-texture = ExtResource("2_qaihh")
-texture_scale = 0.1
+texture = ExtResource("3_626px")
 height = 100.0
 
 [node name="SearchLight" type="PointLight2D" parent="Sprite"]
