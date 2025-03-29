@@ -4,7 +4,11 @@ extends Area2D
 @export var linear_velocity: Vector2
 
 func _physics_process(delta):
-	position += linear_velocity*delta
+	var collision = $%RayCast.get_collider()
+	if collision and collision is not Player:
+		position = to_local(collision.global_position)
+	else:
+		position += linear_velocity*delta
 
 
 # TODO: Tween bullet size for maximum effect
@@ -19,4 +23,6 @@ func collide(body: Node2D):
 
 func _on_body_entered(body:Node):
 	collide(body)
-	pass # Replace with function body.
+
+func _ready():
+	$%RayCast.target_position = linear_velocity/20.0

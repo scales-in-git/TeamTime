@@ -67,13 +67,13 @@ func _input(event: InputEvent):
 		if placed_block_queue.size() > 0:
 			placed_block_queue.front().clear_highlight()
 
-		# Don't show what will be deleted if player can only place one; they'll know it'll be removed.
-		if placed_block_queue.size() >= max_placeable_blocks and max_placeable_blocks > 1:
-			placed_block_queue.front().highlight_as_last()
-
 		if placed_block_queue.size() > max_placeable_blocks:
 			var last_block = placed_block_queue.pop_front()
 			last_block.fancy_delete()
+			
+		# Don't show what will be deleted if player can only place one; they'll know it'll be removed.
+		if placed_block_queue.size() >= max_placeable_blocks and max_placeable_blocks > 1:
+			placed_block_queue.front().highlight_as_last()
 	pass
 
 func _physics_process(_delta: float) -> void:

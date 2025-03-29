@@ -81,6 +81,9 @@ func _ready():
 	$%PhantomCamera.follow_damping = true
 	$%PhantomCamera.follow_damping_value = Vector2(.2, .2)
 	$%PhantomCamera.follow_offset.y = -300
+	var camera_collection = $%CameraCollection
+	remove_child(camera_collection)
+	add_sibling(camera_collection)
 	
 func load_sfx(sfx_to_load):
 	if $%sfx_player.stream != sfx_to_load:
