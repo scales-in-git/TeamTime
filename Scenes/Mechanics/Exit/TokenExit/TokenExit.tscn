@@ -638,5 +638,6 @@ tween_resource = SubResource("Resource_iuw0k")
 metadata/_custom_type_script = "uid://76jmomq5wl5f"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Music"
 
 [connection signal="body_entered" from="InteractZone" to="." method="_on_interact_zone_body_entered"]

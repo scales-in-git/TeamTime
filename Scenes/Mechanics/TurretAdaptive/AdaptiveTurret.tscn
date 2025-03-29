@@ -33,6 +33,7 @@ stream = ExtResource("3_21o80")
 volume_db = 3.0
 pitch_scale = 0.6
 max_polyphony = 10
+bus = &"SFX"
 
 [node name="Base" type="Sprite2D" parent="."]
 rotation = 3.14159
@@ -52,6 +53,7 @@ shape = SubResource("CircleShape2D_21o80")
 
 [node name="target_detected" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_3f75v")
+bus = &"SFX"
 
 [node name="sound_on" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_kbapu")

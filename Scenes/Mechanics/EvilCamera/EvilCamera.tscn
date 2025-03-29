@@ -37,6 +37,7 @@ transition_type = 4
 [node name="Alarm" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("5_244qs")
+bus = &"SFX"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

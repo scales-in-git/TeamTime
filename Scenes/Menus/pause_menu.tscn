@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://jht6a2okt2tm" path="res://Scenes/Menus/Themes/Menu.tres" id="1_tf3q2"]
 [ext_resource type="Script" uid="uid://dodbydp5ktdh1" path="res://Scenes/Menus/pause_menu.gd" id="2_pw12o"]
 [ext_resource type="FontFile" uid="uid://b7kbd2t2kahle" path="res://Scenes/Menus/Fonts/digital-7.ttf" id="2_yeo1y"]
-[ext_resource type="Script" uid="uid://bqf3gg45lvvqs" path="res://Scenes/Menus/settings_menu.gd" id="3_pw12o"]
+[ext_resource type="Script" uid="uid://bqf3gg45lvvqs" path="res://Scenes/Menus/Settings/settings_menu.gd" id="3_pw12o"]
 
 [sub_resource type="Shader" id="Shader_6uaqq"]
 code = "/*

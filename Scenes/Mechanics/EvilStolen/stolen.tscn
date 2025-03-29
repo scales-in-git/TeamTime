@@ -372,6 +372,7 @@ transition_type = 4
 [node name="Alarm" type="AudioStreamPlayer2D" parent="Sprite/SearchLight/EvilCamera"]
 unique_name_in_owner = true
 stream = ExtResource("8_yv1vb")
+bus = &"SFX"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Sprite/SearchLight/EvilCamera"]
 position = Vector2(28.5073, 17.4195)
