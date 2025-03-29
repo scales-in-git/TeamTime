@@ -136,3 +136,5 @@ layout_mode = 2
 theme = ExtResource("4_esnq6")
 text = "Reset
 "
+
+[connection signal="pressed" from="PanelContainer4/Reset" to="." method="_on_reset_pressed"]
