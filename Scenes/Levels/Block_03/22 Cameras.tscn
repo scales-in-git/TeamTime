@@ -17,7 +17,6 @@ size = Vector2(5039, 1384.75)
 [node name="LevelTemplate" type="Node2D"]
 
 [node name="BaseDarkness" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0.306923, 0.306923, 0.306923, 1)
 
 [node name="TileMaps" type="Node2D" parent="."]
@@ -34,6 +33,7 @@ z_index = -10
 tile_set = ExtResource("1_5bbgx")
 
 [node name="Lights" type="Node2D" parent="."]
+visible = false
 position = Vector2(16, -18)
 
 [node name="DoorLight" type="PointLight2D" parent="Lights"]
@@ -62,6 +62,23 @@ layer = 0
 follow_viewport_enabled = true
 
 [node name="Enemies" type="Node2D" parent="Ignores BaseDarkness"]
+
+[node name="BakedLights" type="Node2D" parent="Ignores BaseDarkness/Enemies"]
+position = Vector2(4768, 164)
+
+[node name="Floor" type="Sprite2D" parent="Ignores BaseDarkness/Enemies/BakedLights"]
+z_index = -11
+position = Vector2(1933.5, 1363.13)
+scale = Vector2(4.575, 3.71825)
+texture = ExtResource("3_8qdpc")
+
+[node name="Ceiling" type="Sprite2D" parent="Ignores BaseDarkness/Enemies/BakedLights"]
+visible = false
+z_index = -11
+position = Vector2(-2097.5, -396)
+rotation = 3.14159
+scale = Vector2(5.559, 1.455)
+texture = ExtResource("3_8qdpc")
 
 [node name="Enviromental" type="Node2D" parent="Ignores BaseDarkness/Enemies"]
 

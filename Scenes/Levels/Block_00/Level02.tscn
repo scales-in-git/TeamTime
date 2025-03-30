@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://c7d371ffwr1ul"]
+[gd_scene load_steps=12 format=4 uid="uid://c7d371ffwr1ul"]
 
 [ext_resource type="PackedScene" uid="uid://dbehr8mfolttb" path="res://Scenes/Utility/SmartMusicPlayer.tscn" id="1_k0epu"]
 [ext_resource type="AudioStream" uid="uid://d2tfnsct46q64" path="res://music/lab_ambience.wav" id="2_txewt"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bdm5eipd1m8bw" path="res://Glow.png" id="4_r32b5"]
 [ext_resource type="Texture2D" uid="uid://3hurbwdo1xm0" path="res://SquareGlow.png" id="5_5ttq3"]
 [ext_resource type="PackedScene" uid="uid://jhjkr5mcfjhg" path="res://Scenes/Mechanics/DeathPit/DeathPit.tscn" id="6_ry2ln"]
+[ext_resource type="Texture2D" uid="uid://c2vxbnr8n42d0" path="res://SquareGlow_small.png" id="6_txewt"]
 [ext_resource type="PackedScene" uid="uid://qgfao441huib" path="res://Scenes/Mechanics/Exit/ExitDoor/GoalDoor.tscn" id="7_ctc47"]
 [ext_resource type="PackedScene" uid="uid://2u65lxhpmldx" path="res://Scenes/Mechanics/Entrance/DoorEntrance/DoorEntrance.tscn" id="8_ngusq"]
 [ext_resource type="PackedScene" uid="uid://c2xedpocryy26" path="res://Scenes/Menus/pause_menu.tscn" id="9_fj3ed"]
@@ -44,6 +45,7 @@ shadow_enabled = true
 texture = ExtResource("4_r32b5")
 
 [node name="FloorLights" type="Node2D" parent="Lights"]
+visible = false
 position = Vector2(0, 3)
 
 [node name="Floor Light_1" type="PointLight2D" parent="Lights/FloorLights"]
@@ -76,9 +78,9 @@ rotation = 3.14159
 
 [node name="Ceiling Light_1" type="PointLight2D" parent="Lights/Ceiling_Lights"]
 position = Vector2(-1112, 1444.15)
-scale = Vector2(4.76733, 1.32129)
+scale = Vector2(17.8681, 4.95223)
 shadow_enabled = true
-texture = ExtResource("5_5ttq3")
+texture = ExtResource("6_txewt")
 
 [node name="DoorLight2" type="PointLight2D" parent="Lights"]
 visible = false
@@ -101,6 +103,13 @@ position = Vector2(2574, 1056)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ignores BaseDarkness/Enemies/Enviromental/DeathPit"]
 position = Vector2(-1184, 294)
 shape = SubResource("RectangleShape2D_v53k6")
+
+[node name="BakedLights" type="Node2D" parent="Ignores BaseDarkness"]
+
+[node name="Floor" type="Sprite2D" parent="Ignores BaseDarkness/BakedLights"]
+position = Vector2(1243, 1352.25)
+scale = Vector2(3.678, 1.9265)
+texture = ExtResource("5_5ttq3")
 
 [node name="TileMaps" type="Node2D" parent="Ignores BaseDarkness"]
 

@@ -1,7 +1,6 @@
-[gd_scene load_steps=17 format=4 uid="uid://ba36u8lwh3tiy"]
+[gd_scene load_steps=16 format=4 uid="uid://ba36u8lwh3tiy"]
 
 [ext_resource type="TileSet" uid="uid://7ewkkcpem306" path="res://tiles/TileTests.tres" id="1_725fc"]
-[ext_resource type="Texture2D" uid="uid://bdm5eipd1m8bw" path="res://Glow.png" id="2_wi1mc"]
 [ext_resource type="Texture2D" uid="uid://3hurbwdo1xm0" path="res://SquareGlow.png" id="3_su1q3"]
 [ext_resource type="PackedScene" uid="uid://2u65lxhpmldx" path="res://Scenes/Mechanics/Entrance/DoorEntrance/DoorEntrance.tscn" id="4_25jvk"]
 [ext_resource type="PackedScene" uid="uid://jhjkr5mcfjhg" path="res://Scenes/Mechanics/DeathPit/DeathPit.tscn" id="4_g4iqt"]
@@ -46,49 +45,8 @@ tile_set = ExtResource("1_725fc")
 
 [node name="Lights" type="Node2D" parent="."]
 
-[node name="DoorLight2" type="PointLight2D" parent="Lights"]
-position = Vector2(4949, 2949)
-energy = 0.5
-shadow_enabled = true
-texture = ExtResource("2_wi1mc")
-texture_scale = 0.5
-
-[node name="DoorLight5" type="PointLight2D" parent="Lights"]
-position = Vector2(5149, 2949)
-energy = 0.5
-shadow_enabled = true
-texture = ExtResource("2_wi1mc")
-texture_scale = 0.5
-
-[node name="DoorLight6" type="PointLight2D" parent="Lights"]
-position = Vector2(3947.75, 2949)
-energy = 0.5
-shadow_enabled = true
-texture = ExtResource("2_wi1mc")
-texture_scale = 0.5
-
-[node name="DoorLight7" type="PointLight2D" parent="Lights"]
-position = Vector2(4147.75, 2949)
-energy = 0.5
-shadow_enabled = true
-texture = ExtResource("2_wi1mc")
-texture_scale = 0.5
-
-[node name="DoorLight3" type="PointLight2D" parent="Lights"]
-position = Vector2(5940, 2949)
-energy = 0.5
-shadow_enabled = true
-texture = ExtResource("2_wi1mc")
-texture_scale = 0.5
-
-[node name="DoorLight4" type="PointLight2D" parent="Lights"]
-position = Vector2(3150, 2949)
-energy = 0.5
-shadow_enabled = true
-texture = ExtResource("2_wi1mc")
-texture_scale = 0.5
-
 [node name="FloorLights" type="Node2D" parent="Lights"]
+visible = false
 position = Vector2(0, 3)
 
 [node name="Floor Light_1" type="PointLight2D" parent="Lights/FloorLights"]
@@ -117,6 +75,7 @@ scale = Vector2(0.8, 4.022)
 texture = ExtResource("3_su1q3")
 
 [node name="Ceiling_Lights" type="Node2D" parent="Lights"]
+visible = false
 position = Vector2(0, 3)
 rotation = 3.14159
 
@@ -133,6 +92,34 @@ texture = ExtResource("3_su1q3")
 [node name="Ignores BaseDarkness" type="CanvasLayer" parent="."]
 layer = 0
 follow_viewport_enabled = true
+
+[node name="BakedLights" type="Node2D" parent="Ignores BaseDarkness"]
+position = Vector2(4768, 164)
+
+[node name="Floor" type="Sprite2D" parent="Ignores BaseDarkness/BakedLights"]
+z_index = -11
+position = Vector2(-1755, 10993)
+scale = Vector2(1.056, 0.0999988)
+texture = ExtResource("3_su1q3")
+
+[node name="Floor2" type="Sprite2D" parent="Ignores BaseDarkness/BakedLights"]
+z_index = -11
+position = Vector2(-567, 10385)
+scale = Vector2(1.4, 0.0999988)
+texture = ExtResource("3_su1q3")
+
+[node name="Floor3" type="Sprite2D" parent="Ignores BaseDarkness/BakedLights"]
+z_index = -11
+position = Vector2(529, 11831.5)
+scale = Vector2(0.824, 4.299)
+texture = ExtResource("3_su1q3")
+
+[node name="Ceiling" type="Sprite2D" parent="Ignores BaseDarkness/BakedLights"]
+z_index = -11
+position = Vector2(-236, 9661)
+rotation = 3.14159
+scale = Vector2(5.559, 1.455)
+texture = ExtResource("3_su1q3")
 
 [node name="Enemies" type="Node2D" parent="Ignores BaseDarkness"]
 

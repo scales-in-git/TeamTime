@@ -303,6 +303,7 @@ script = ExtResource("1_xdx12")
 speed = 1.5
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 offset_left = -1034.0
 offset_top = -525.0
 offset_right = 500.0
