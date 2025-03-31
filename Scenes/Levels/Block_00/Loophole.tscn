@@ -174,8 +174,8 @@ shape = SubResource("RectangleShape2D_v53k6")
 [node name="Interactables" type="Node2D" parent="Ignores BaseDarkness/Enemies"]
 
 [node name="EvilCamera2" parent="Ignores BaseDarkness/Enemies/Interactables" instance=ExtResource("9_l2lrc")]
-position = Vector2(7620, 71.0002)
-rotation = 1.09781
+position = Vector2(7335, 67.0005)
+rotation = 0.422792
 state_manager = ExtResource("13_rt835")
 auto_blink_off = 2.0
 
