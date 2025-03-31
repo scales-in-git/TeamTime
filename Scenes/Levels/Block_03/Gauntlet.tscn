@@ -1,7 +1,6 @@
-[gd_scene load_steps=17 format=4 uid="uid://deul1clw7gmdd"]
+[gd_scene load_steps=16 format=4 uid="uid://deul1clw7gmdd"]
 
 [ext_resource type="TileSet" uid="uid://7ewkkcpem306" path="res://tiles/TileTests.tres" id="1_b360k"]
-[ext_resource type="Texture2D" uid="uid://bdm5eipd1m8bw" path="res://Glow.png" id="2_5b2qq"]
 [ext_resource type="Texture2D" uid="uid://3hurbwdo1xm0" path="res://SquareGlow.png" id="3_k4jfv"]
 [ext_resource type="PackedScene" uid="uid://v042n0qyld7u" path="res://Scenes/Mechanics/Entrance/InstantEntrance/InstantEntrance.tscn" id="4_4dtr6"]
 [ext_resource type="PackedScene" uid="uid://jhjkr5mcfjhg" path="res://Scenes/Mechanics/DeathPit/DeathPit.tscn" id="5_sd4qg"]
@@ -46,27 +45,20 @@ tile_map_data = PackedByteArray("AAAdAA8AAgAFAAUAAAAfAA8AAgAFAAUAAAAgAA8AAgAFAAU
 tile_set = ExtResource("1_b360k")
 
 [node name="Lights" type="Node2D" parent="."]
-
-[node name="DoorLight" type="PointLight2D" parent="Lights"]
-shadow_enabled = true
-texture = ExtResource("2_5b2qq")
+visible = false
 
 [node name="FloorLights" type="Node2D" parent="Lights"]
 position = Vector2(0, 3)
 
 [node name="Floor Light_1" type="PointLight2D" parent="Lights/FloorLights"]
+visible = false
 position = Vector2(4969, 1676)
 scale = Vector2(0.73175, 5.407)
 shadow_enabled = true
 texture = ExtResource("3_k4jfv")
 
-[node name="Floor Light_2" type="PointLight2D" parent="Lights/FloorLights"]
-position = Vector2(2574.06, 1053)
-scale = Vector2(0.457875, 3.1345)
-shadow_enabled = true
-texture = ExtResource("3_k4jfv")
-
 [node name="Ceiling_Lights" type="Node2D" parent="Lights"]
+visible = false
 position = Vector2(0, 3)
 rotation = 3.14159
 
@@ -85,6 +77,42 @@ texture = ExtResource("3_k4jfv")
 [node name="Ignores BaseDarkness" type="CanvasLayer" parent="."]
 layer = 0
 follow_viewport_enabled = true
+
+[node name="BakedLights" type="Node2D" parent="Ignores BaseDarkness"]
+position = Vector2(6793.12, -63.157)
+
+[node name="Floor" type="Sprite2D" parent="Ignores BaseDarkness/BakedLights"]
+z_index = -11
+position = Vector2(-829.62, 2637.44)
+scale = Vector2(6.151, 0.808563)
+texture = ExtResource("3_k4jfv")
+
+[node name="Floor2" type="Sprite2D" parent="Ignores BaseDarkness/BakedLights"]
+z_index = -11
+position = Vector2(-4774.12, 1669.16)
+scale = Vector2(1.562, 3.016)
+texture = ExtResource("3_k4jfv")
+
+[node name="Ceiling" type="Sprite2D" parent="Ignores BaseDarkness/BakedLights"]
+z_index = -11
+position = Vector2(-3042.44, 1556.57)
+rotation = 3.14159
+scale = Vector2(1.89836, 0.382808)
+texture = ExtResource("3_k4jfv")
+
+[node name="Ceiling3" type="Sprite2D" parent="Ignores BaseDarkness/BakedLights"]
+z_index = -11
+position = Vector2(-4541.12, -383.022)
+rotation = 3.14159
+scale = Vector2(1.89836, 0.168449)
+texture = ExtResource("3_k4jfv")
+
+[node name="Ceiling2" type="Sprite2D" parent="Ignores BaseDarkness/BakedLights"]
+z_index = -11
+position = Vector2(1198.37, -1259.74)
+rotation = 3.14159
+scale = Vector2(2.41934, 1.24901)
+texture = ExtResource("3_k4jfv")
 
 [node name="PlayerSpawning-Instant" parent="Ignores BaseDarkness" instance=ExtResource("4_4dtr6")]
 position = Vector2(2025.12, -227.157)

@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://cxvmfyg3qiw4t" path="res://Scenes/Mechanics/EvilStolen/StolenWalk SpriteSheet.png" id="1_iyhso"]
 [ext_resource type="Script" uid="uid://brj6hnd23elp4" path="res://Scenes/Mechanics/EvilStolen/Stolen.gd" id="1_xdx12"]
-[ext_resource type="Texture2D" uid="uid://bdm5eipd1m8bw" path="res://Glow.png" id="2_qaihh"]
-[ext_resource type="Texture2D" uid="uid://dgd1acdhvq8y0" path="res://ConeLight.png" id="4_acv6x"]
+[ext_resource type="Texture2D" uid="uid://bnm7r8qpjinty" path="res://Glow_small.png" id="3_626px"]
+[ext_resource type="Texture2D" uid="uid://dbwi5r1k3q6tb" path="res://ConeLight_small.png" id="4_626px"]
 [ext_resource type="Script" uid="uid://cxu3rw2cpdg44" path="res://Scenes/Mechanics/EvilCamera/EvilCamera.gd" id="5_626px"]
 [ext_resource type="PackedScene" uid="uid://d4eeme44hkqe5" path="res://Scenes/Mechanics/EvilCamera/camera.tscn" id="6_6dkmn"]
 [ext_resource type="PackedScene" uid="uid://dlyr50dshfbi7" path="res://Scenes/Utility/GenericFade.tscn" id="7_1av31"]
@@ -319,43 +319,44 @@ animation = &"Walk"
 
 [node name="Player Glow" type="PointLight2D" parent="Sprite"]
 position = Vector2(84.4837, 0)
-scale = Vector2(4.3612, 3.95291)
+scale = Vector2(19.2349, 17.4341)
 color = Color(1, 0, 0, 1)
 energy = 0.5
 shadow_enabled = true
-texture = ExtResource("2_qaihh")
-texture_scale = 0.3
+texture = ExtResource("3_626px")
 height = 100.0
 
 [node name="Player Glow2" type="PointLight2D" parent="Sprite"]
 position = Vector2(84.4837, 0)
-scale = Vector2(4.3612, 3.95291)
+scale = Vector2(8.00803, 7.25833)
 color = Color(1, 0, 0, 1)
 energy = 0.5
 shadow_enabled = true
-texture = ExtResource("2_qaihh")
-texture_scale = 0.1
+texture = ExtResource("3_626px")
 height = 100.0
 
 [node name="SearchLight" type="PointLight2D" parent="Sprite"]
 unique_name_in_owner = true
 position = Vector2(54.0773, -196.296)
-scale = Vector2(3.01466, 1.2019)
+scale = Vector2(25.0353, 8.27547)
 shadow_enabled = true
-texture = ExtResource("4_acv6x")
+texture = ExtResource("4_626px")
+offset = Vector2(58, 0)
 
 [node name="EvilCamera" type="Node2D" parent="Sprite/SearchLight" node_paths=PackedStringArray("export_light")]
-position = Vector2(7.37142, -49.3043)
-scale = Vector2(0.792939, 0.884513)
+position = Vector2(1.76722, -7.16079)
+scale = Vector2(0.095483, 0.128464)
 script = ExtResource("5_626px")
 export_light = NodePath("..")
 auto_blink_off = 0.0
 
 [node name="light" type="PointLight2D" parent="Sprite/SearchLight/EvilCamera"]
 unique_name_in_owner = true
+position = Vector2(426.552, 0)
+scale = Vector2(8.48337, 5.44356)
 energy = 0.0
 shadow_enabled = true
-texture = ExtResource("4_acv6x")
+texture = ExtResource("4_626px")
 
 [node name="Camera(Real)" parent="Sprite/SearchLight/EvilCamera" instance=ExtResource("6_6dkmn")]
 unique_name_in_owner = true
