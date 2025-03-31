@@ -89,7 +89,6 @@ scene = "uid://c7d371ffwr1ul"
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 100
-visible = false
 
 [node name="Pause Menu" parent="UI" instance=ExtResource("8_iwl1f")]
 process_mode = 3
