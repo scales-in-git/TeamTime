@@ -121,13 +121,13 @@ auto_blink_on = 3.0
 auto_blink_off = 5.0
 
 [node name="EvilCamera2" parent="Ignores BaseDarkness/Enemies/Enviromental" instance=ExtResource("6_xfjig")]
-position = Vector2(5812, -208)
+position = Vector2(5809, -174)
 rotation = 1.12158
 auto_blink_on = 3.0
 auto_blink_off = 5.0
 
 [node name="EvilCamera3" parent="Ignores BaseDarkness/Enemies/Enviromental" instance=ExtResource("6_xfjig")]
-position = Vector2(7604, -208)
+position = Vector2(7608, -164)
 rotation = 1.12158
 auto_blink_on = 3.0
 auto_blink_off = 5.0

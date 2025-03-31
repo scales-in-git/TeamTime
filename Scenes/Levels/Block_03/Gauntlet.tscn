@@ -149,7 +149,7 @@ rotation = -1.9792
 auto_blink_off = 0.0
 
 [node name="EvilCamera5" parent="Ignores BaseDarkness/Enemies/Interactables" instance=ExtResource("6_mviwt")]
-position = Vector2(7013, 1281)
+position = Vector2(7046, 1268)
 rotation = -1.46608
 auto_blink_off = 0.0
 
