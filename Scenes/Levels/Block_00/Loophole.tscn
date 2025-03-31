@@ -4,7 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://d2tfnsct46q64" path="res://music/lab_ambience.wav" id="2_mqamd"]
 [ext_resource type="PackedScene" uid="uid://brsai7op34w2q" path="res://Scenes/Mechanics/Switch/Switch.tscn" id="2_r88h7"]
 [ext_resource type="TileSet" uid="uid://7ewkkcpem306" path="res://tiles/TileTests.tres" id="3_2g2pb"]
-[ext_resource type="Texture2D" uid="uid://bdm5eipd1m8bw" path="res://Glow.png" id="4_rt835"]
+[ext_resource type="Texture2D" uid="uid://bnm7r8qpjinty" path="res://Glow_small.png" id="4_mqamd"]
 [ext_resource type="Texture2D" uid="uid://3hurbwdo1xm0" path="res://SquareGlow.png" id="5_j6ajy"]
 [ext_resource type="PackedScene" uid="uid://b1m643ns0nwm6" path="res://Scenes/Mechanics/EvilStolen/stolen.tscn" id="7_kfrgp"]
 [ext_resource type="Script" uid="uid://b42m1hnljomnf" path="res://Scenes/Utility/OnOffStateInverter.gd" id="8_2g2pb"]
@@ -91,20 +91,24 @@ tile_set = ExtResource("3_2g2pb")
 
 [node name="DoorLight" type="PointLight2D" parent="Lights"]
 position = Vector2(4559, -147)
+scale = Vector2(12, 12)
 shadow_enabled = true
-texture = ExtResource("4_rt835")
+texture = ExtResource("4_mqamd")
 
 [node name="DoorLight4" type="PointLight2D" parent="Lights"]
 position = Vector2(7547, -348)
+scale = Vector2(12, 12)
 shadow_enabled = true
-texture = ExtResource("4_rt835")
+texture = ExtResource("4_mqamd")
 
 [node name="DoorLight7" type="PointLight2D" parent="Lights"]
 position = Vector2(9750, -143)
+scale = Vector2(12, 12)
 shadow_enabled = true
-texture = ExtResource("4_rt835")
+texture = ExtResource("4_mqamd")
 
 [node name="FloorLights" type="Node2D" parent="Lights"]
+visible = false
 position = Vector2(7470, 681)
 
 [node name="Floor_Light_1" type="PointLight2D" parent="Lights/FloorLights"]
@@ -129,6 +133,7 @@ shadow_enabled = true
 texture = ExtResource("5_j6ajy")
 
 [node name="Ceiling_Lights" type="Node2D" parent="Lights"]
+visible = false
 position = Vector2(0, 3)
 rotation = 3.14159
 
@@ -139,6 +144,13 @@ texture = ExtResource("5_j6ajy")
 [node name="Ignores BaseDarkness" type="CanvasLayer" parent="."]
 layer = 0
 follow_viewport_enabled = true
+
+[node name="BakedLights" type="Node2D" parent="Ignores BaseDarkness"]
+
+[node name="Floor" type="Sprite2D" parent="Ignores BaseDarkness/BakedLights"]
+position = Vector2(7462, 635.5)
+scale = Vector2(3.678, 1.455)
+texture = ExtResource("5_j6ajy")
 
 [node name="Enemies" type="Node2D" parent="Ignores BaseDarkness"]
 

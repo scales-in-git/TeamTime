@@ -75,6 +75,7 @@ tile_map_data = PackedByteArray("AAAZACAAAgADAAUAAAA=")
 tile_set = ExtResource("1_dx02i")
 
 [node name="Lights" type="Node2D" parent="."]
+visible = false
 
 [node name="DoorLight2" type="PointLight2D" parent="Lights"]
 position = Vector2(4949, 2949)
@@ -105,6 +106,21 @@ texture = ExtResource("3_ws64t")
 [node name="Ignores BaseDarkness" type="CanvasLayer" parent="."]
 layer = 0
 follow_viewport_enabled = true
+
+[node name="BakedLights" type="Node2D" parent="Ignores BaseDarkness"]
+position = Vector2(4768, 164)
+
+[node name="Floor" type="Sprite2D" parent="Ignores BaseDarkness/BakedLights"]
+z_index = -11
+scale = Vector2(5.559, 2.0665)
+texture = ExtResource("3_ws64t")
+
+[node name="Ceiling" type="Sprite2D" parent="Ignores BaseDarkness/BakedLights"]
+z_index = -11
+position = Vector2(12627.6, 14110.2)
+rotation = 3.14159
+scale = Vector2(4.21291, 1.15532)
+texture = ExtResource("3_ws64t")
 
 [node name="Interactables" type="Node2D" parent="Ignores BaseDarkness"]
 

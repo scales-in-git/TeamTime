@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://76jmomq5wl5f" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="5_ov5rv"]
 [ext_resource type="AudioStream" uid="uid://bjt2eqvo170f0" path="res://fx/player_sfx_footstep2_ethan.mp3" id="6_rdi2b"]
 [ext_resource type="Script" uid="uid://c4d36sgi5fcop" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_xst4l"]
-[ext_resource type="Texture2D" uid="uid://bdm5eipd1m8bw" path="res://Glow.png" id="8_xst4l"]
+[ext_resource type="Texture2D" uid="uid://bnm7r8qpjinty" path="res://Glow_small.png" id="7_rdi2b"]
 [ext_resource type="AudioStream" uid="uid://bdwl6qwo0cjy3" path="res://fx/sfx_spluh_ethan.mp3" id="12_rdi2b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8y2kw"]
@@ -57,22 +57,20 @@ bus = &"SFX"
 
 [node name="Player Glow" type="PointLight2D" parent="CanvasGroup/Sprite2D"]
 position = Vector2(144.176, -89.2753)
-scale = Vector2(4.3612, 3.95291)
+scale = Vector2(20.6998, 18.7619)
 color = Color(0.345098, 1, 1, 1)
 energy = 0.5
 shadow_enabled = true
-texture = ExtResource("8_xst4l")
-texture_scale = 0.3
+texture = ExtResource("7_rdi2b")
 height = 100.0
 
 [node name="Player Glow2" type="PointLight2D" parent="CanvasGroup/Sprite2D"]
 position = Vector2(144.176, -89.2753)
-scale = Vector2(4.3612, 3.95291)
+scale = Vector2(8.72443, 7.90766)
 color = Color(0.345098, 1, 1, 1)
 energy = 0.5
 shadow_enabled = true
-texture = ExtResource("8_xst4l")
-texture_scale = 0.1
+texture = ExtResource("7_rdi2b")
 height = 100.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

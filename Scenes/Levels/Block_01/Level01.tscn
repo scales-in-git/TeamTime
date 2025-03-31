@@ -2,11 +2,11 @@
 
 [ext_resource type="TileSet" uid="uid://7ewkkcpem306" path="res://tiles/TileTests.tres" id="1_6ncxy"]
 [ext_resource type="PackedScene" uid="uid://dbehr8mfolttb" path="res://Scenes/Utility/SmartMusicPlayer.tscn" id="1_kjd4l"]
-[ext_resource type="Texture2D" uid="uid://bdm5eipd1m8bw" path="res://Glow.png" id="2_78w8r"]
 [ext_resource type="AudioStream" uid="uid://d2tfnsct46q64" path="res://music/lab_ambience.wav" id="2_ohhsb"]
 [ext_resource type="Texture2D" uid="uid://3hurbwdo1xm0" path="res://SquareGlow.png" id="3_e38c8"]
 [ext_resource type="PackedScene" uid="uid://dxb7l54dt8jih" path="res://Scenes/Mechanics/EvilCamera/EvilCamera.tscn" id="4_4gsna"]
 [ext_resource type="PackedScene" uid="uid://clq13lum7jkjv" path="res://Scenes/Mechanics/TurretAdaptive/AdaptiveTurret.tscn" id="4_jg5pk"]
+[ext_resource type="Texture2D" uid="uid://bnm7r8qpjinty" path="res://Glow_small.png" id="4_kjd4l"]
 [ext_resource type="PackedScene" uid="uid://2u65lxhpmldx" path="res://Scenes/Mechanics/Entrance/DoorEntrance/DoorEntrance.tscn" id="5_4gsna"]
 [ext_resource type="PackedScene" uid="uid://c727a4v6bxv0" path="res://Scenes/Mechanics/InterLevel/InterLevelDoor.tscn" id="5_78w8r"]
 [ext_resource type="Resource" uid="uid://c8dp57vtkhhtm" path="res://Scenes/Levels/Debug/RundimentaryLevels/level_c_turret.tres" id="5_jg5pk"]
@@ -19,14 +19,14 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ohhsb"]
 size = Vector2(37.2412, 44.3163)
 
-[sub_resource type="Resource" id="Resource_kjd4l"]
+[sub_resource type="Resource" id="Resource_1uvph"]
 resource_local_to_scene = true
 script = ExtResource("7_4gsna")
 state_manager = ExtResource("5_jg5pk")
 on = false
 metadata/_custom_type_script = "uid://b42m1hnljomnf"
 
-[sub_resource type="Resource" id="Resource_1uvph"]
+[sub_resource type="Resource" id="Resource_wyuv5"]
 resource_local_to_scene = true
 script = ExtResource("7_4gsna")
 state_manager = ExtResource("5_jg5pk")
@@ -69,47 +69,54 @@ tile_set = ExtResource("1_6ncxy")
 
 [node name="DoorLight2" type="PointLight2D" parent="Lights"]
 position = Vector2(4949, 2949)
+scale = Vector2(9, 9)
 energy = 0.5
 shadow_enabled = true
-texture = ExtResource("2_78w8r")
+texture = ExtResource("4_kjd4l")
 texture_scale = 0.5
 
 [node name="DoorLight5" type="PointLight2D" parent="Lights"]
 position = Vector2(5149, 2949)
+scale = Vector2(9, 9)
 energy = 0.5
 shadow_enabled = true
-texture = ExtResource("2_78w8r")
+texture = ExtResource("4_kjd4l")
 texture_scale = 0.5
 
 [node name="DoorLight6" type="PointLight2D" parent="Lights"]
 position = Vector2(3947.75, 2949)
+scale = Vector2(9, 9)
 energy = 0.5
 shadow_enabled = true
-texture = ExtResource("2_78w8r")
+texture = ExtResource("4_kjd4l")
 texture_scale = 0.5
 
 [node name="DoorLight7" type="PointLight2D" parent="Lights"]
 position = Vector2(4147.75, 2949)
+scale = Vector2(9, 9)
 energy = 0.5
 shadow_enabled = true
-texture = ExtResource("2_78w8r")
+texture = ExtResource("4_kjd4l")
 texture_scale = 0.5
 
 [node name="DoorLight3" type="PointLight2D" parent="Lights"]
 position = Vector2(5940, 2949)
+scale = Vector2(9, 9)
 energy = 0.5
 shadow_enabled = true
-texture = ExtResource("2_78w8r")
+texture = ExtResource("4_kjd4l")
 texture_scale = 0.5
 
 [node name="DoorLight4" type="PointLight2D" parent="Lights"]
 position = Vector2(3150, 2949)
+scale = Vector2(9, 9)
 energy = 0.5
 shadow_enabled = true
-texture = ExtResource("2_78w8r")
+texture = ExtResource("4_kjd4l")
 texture_scale = 0.5
 
 [node name="FloorLights" type="Node2D" parent="Lights"]
+visible = false
 position = Vector2(0, 3)
 
 [node name="Floor Light_1" type="PointLight2D" parent="Lights/FloorLights"]
@@ -119,6 +126,7 @@ shadow_enabled = true
 texture = ExtResource("3_e38c8")
 
 [node name="Ceiling_Lights" type="Node2D" parent="Lights"]
+visible = false
 position = Vector2(0, 3)
 rotation = 3.14159
 
@@ -131,6 +139,22 @@ texture = ExtResource("3_e38c8")
 [node name="Ignores BaseDarkness" type="CanvasLayer" parent="."]
 layer = 0
 follow_viewport_enabled = true
+
+[node name="BakedLights" type="Node2D" parent="Ignores BaseDarkness"]
+position = Vector2(4768, 164)
+
+[node name="Floor" type="Sprite2D" parent="Ignores BaseDarkness/BakedLights"]
+z_index = -11
+position = Vector2(43, 3093)
+scale = Vector2(5.559, 0.136)
+texture = ExtResource("3_e38c8")
+
+[node name="Ceiling" type="Sprite2D" parent="Ignores BaseDarkness/BakedLights"]
+z_index = -11
+position = Vector2(473.421, 1933.57)
+rotation = 3.14159
+scale = Vector2(2.51209, 0.634134)
+texture = ExtResource("3_e38c8")
 
 [node name="Enemies" type="Node2D" parent="Ignores BaseDarkness"]
 
@@ -173,12 +197,12 @@ tile_set = ExtResource("1_6ncxy")
 [node name="Door-InterLevel" parent="Ignores BaseDarkness/TileMaps" node_paths=PackedStringArray("destination") instance=ExtResource("5_78w8r")]
 position = Vector2(4100, 2400)
 destination = NodePath("../Door-InterLevel2")
-state_manager = SubResource("Resource_kjd4l")
+state_manager = SubResource("Resource_1uvph")
 
 [node name="Door-InterLevel2" parent="Ignores BaseDarkness/TileMaps" node_paths=PackedStringArray("destination") instance=ExtResource("5_78w8r")]
 position = Vector2(5800, 3300)
 destination = NodePath("../Door-InterLevel")
-state_manager = SubResource("Resource_1uvph")
+state_manager = SubResource("Resource_wyuv5")
 
 [node name="DoorEntrance" parent="Ignores BaseDarkness" instance=ExtResource("5_4gsna")]
 position = Vector2(2550, 3300)

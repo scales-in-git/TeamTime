@@ -37,6 +37,7 @@ shadow_enabled = true
 texture = ExtResource("2_dwtuv")
 
 [node name="FloorLights" type="Node2D" parent="Lights"]
+visible = false
 position = Vector2(0, 3)
 
 [node name="Floor Light_1" type="PointLight2D" parent="Lights/FloorLights"]
@@ -94,6 +95,20 @@ texture = ExtResource("3_jmqgs")
 [node name="Ignores BaseDarkness" type="CanvasLayer" parent="."]
 layer = 0
 follow_viewport_enabled = true
+
+[node name="BakedLights" type="Node2D" parent="Ignores BaseDarkness"]
+
+[node name="Floor" type="Sprite2D" parent="Ignores BaseDarkness/BakedLights"]
+position = Vector2(5134, 2661)
+scale = Vector2(9.722, 2.7305)
+texture = ExtResource("3_jmqgs")
+
+[node name="Ceiling" type="Sprite2D" parent="Ignores BaseDarkness/BakedLights"]
+visible = false
+position = Vector2(4279.9, 957)
+rotation = 3.14159
+scale = Vector2(6.0378, 1.455)
+texture = ExtResource("3_jmqgs")
 
 [node name="Enemies" type="Node2D" parent="Ignores BaseDarkness"]
 
