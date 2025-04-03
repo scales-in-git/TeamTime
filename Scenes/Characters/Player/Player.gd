@@ -69,8 +69,7 @@ func _physics_process(delta: float) -> void:
 	# if Input.is_action_just_pressed("player_jump") and is_on_floor():
 	if not jump_buffer_timer.is_stopped() and (is_on_floor() or not coyote_timer.is_stopped()):
 		velocity.y = -jump_strength
-		load_sfx(sfx_jump)
-		$%sfx_player.play()
+		$%sfx_player_jump.play()
 		jump_buffer_timer.stop()
 	
 	move_and_slide()
@@ -84,11 +83,6 @@ func _ready():
 	var camera_collection = $%CameraCollection
 	remove_child(camera_collection)
 	add_sibling(camera_collection)
-	
-func load_sfx(sfx_to_load):
-	if $%sfx_player.stream != sfx_to_load:
-			$%sfx_player.stop()
-			$%sfx_player.stream = sfx_to_load
 
 func _enter_tree():
 	Game.player = self

@@ -3,8 +3,8 @@ extends AnimatedSprite2D
 
 enum CharacterAnimation{RUN,IDLE,JUMP}
 var character_animation=CharacterAnimation.JUMP
-var footstep_frames : Array = [1,5]
-var footstep_frames2 : Array = [3,7]
+var footstep_frames : Array = [1]
+var footstep_frames2 : Array = [5]
 
 @export var sfx_footsteps1 : AudioStream
 @export var sfx_footsteps2 : AudioStream
@@ -17,14 +17,11 @@ func Running():
 		play("Run")
 		
 func _on_sprite_2d_frame_changed():
-	if  animation == "Run":
-		load_sfx(sfx_footsteps1)
-		if frame in footstep_frames: $%sfx_player.play()
-		load_sfx(sfx_footsteps2)
-		if frame in footstep_frames2: $%sfx_player.play()
-	if animation == "RunEnd":
-		load_sfx(sfx_footsteps2)
-		if frame == 1: $%sfx_player.play()
+	if animation == "Run":
+		if frame in footstep_frames: $%sfx_player_step1.play()
+		if frame in footstep_frames2: $%sfx_player_step2.play()
+		if animation == "RunEnd":
+			if frame == 1: $%sfx_player_step2.play()
 
 func Idle():
 	if character_animation!=CharacterAnimation.IDLE:
@@ -32,16 +29,12 @@ func Idle():
 		play("RunEnd")
 		await (animation_finished)
 		play("Idle")
-
+		
 func Jump():
 	if character_animation!=CharacterAnimation.JUMP:
 		character_animation=CharacterAnimation.JUMP
 		play("Jump")
-	
-func load_sfx(sfx_to_load):
-		if $%sfx_player.stream != sfx_to_load:
-				$%sfx_player.stop()
-				$%sfx_player.stream = sfx_to_load
+
 
 
 func _on_sprite_frames_changed() -> void:

@@ -48,7 +48,12 @@ func flip()->void:
 			speed=abs(speed)*-1
 	else:
 			speed=abs(speed)
-
+			
+			
+func load_sfx(sfx_to_load):
+	if $%sfx_player.stream != sfx_to_load:
+			$%sfx_player.stop()
+			$%sfx_player.stream = sfx_to_load
 
 func search()->void:
 	_searching=true
