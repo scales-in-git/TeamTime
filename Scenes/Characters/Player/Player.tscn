@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b6n4ox24glr40"]
+[gd_scene load_steps=19 format=3 uid="uid://b6n4ox24glr40"]
 
 [ext_resource type="Script" uid="uid://c465e010bomid" path="res://Scenes/Characters/Player/Player.gd" id="1_no7dv"]
 [ext_resource type="SpriteFrames" uid="uid://cw6ckk3ric7gn" path="res://Scenes/Characters/Player/Sprites/Character_SpriteAnimations.tres" id="2_gqvyu"]
@@ -12,6 +12,21 @@
 [ext_resource type="Script" uid="uid://c4d36sgi5fcop" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_xst4l"]
 [ext_resource type="Texture2D" uid="uid://bnm7r8qpjinty" path="res://Glow_small.png" id="7_rdi2b"]
 [ext_resource type="AudioStream" uid="uid://bdwl6qwo0cjy3" path="res://fx/sfx_spluh_ethan.mp3" id="12_rdi2b"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_vqggo"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("5_n0syu")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_4bb8e"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("6_rdi2b")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_rdi2b"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("4_p3isv")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8y2kw"]
 size = Vector2(80, 190)
@@ -53,7 +68,7 @@ sfx_footsteps2 = ExtResource("6_rdi2b")
 unique_name_in_owner = true
 position = Vector2(0, 248.325)
 scale = Vector2(3.64964, 3.64964)
-stream = ExtResource("5_n0syu")
+stream = SubResource("AudioStreamRandomizer_vqggo")
 volume_db = 3.0
 max_polyphony = 8
 bus = &"SFX"
@@ -62,7 +77,7 @@ bus = &"SFX"
 unique_name_in_owner = true
 position = Vector2(0, 248.325)
 scale = Vector2(3.64964, 3.64964)
-stream = ExtResource("6_rdi2b")
+stream = SubResource("AudioStreamRandomizer_4bb8e")
 volume_db = 3.0
 max_polyphony = 8
 bus = &"SFX"
@@ -71,7 +86,7 @@ bus = &"SFX"
 unique_name_in_owner = true
 position = Vector2(0, 248.325)
 scale = Vector2(3.64964, 3.64964)
-stream = ExtResource("4_p3isv")
+stream = SubResource("AudioStreamRandomizer_rdi2b")
 volume_db = 3.0
 max_polyphony = 8
 bus = &"SFX"
