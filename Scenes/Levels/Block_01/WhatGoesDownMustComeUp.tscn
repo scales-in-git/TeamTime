@@ -90,7 +90,7 @@ position = Vector2(5952, 600)
 auto_blink_off = 5.0
 
 [node name="EvilCamera2" parent="Ignores BaseDarkness/Enemies/Interactables" instance=ExtResource("9_wpdid")]
-position = Vector2(9601, 1484)
+position = Vector2(9579, 1484)
 rotation = 2.80649
 auto_blink_off = 5.0
 
